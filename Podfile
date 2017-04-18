@@ -3,7 +3,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target ‘AnidubApp’ do
-
+  pod 'Fabric'
+  pod 'Crashlytics'
   pod ‘SideMenu’
   pod 'SQLite.swift'
   pod 'PopupDialog'

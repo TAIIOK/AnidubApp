@@ -1,4 +1,7 @@
 PODS:
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
   - PopupDialog (0.5.3)
   - SideMenu (2.1.5)
   - SQLite.swift (0.11.2):
@@ -6,15 +9,19 @@ PODS:
   - SQLite.swift/standard (0.11.2)
 
 DEPENDENCIES:
+  - Crashlytics
+  - Fabric
   - PopupDialog
   - SideMenu
   - SQLite.swift
 
 SPEC CHECKSUMS:
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   PopupDialog: 533dd564f8781633375505b9fbd406f8f146ccc9
   SideMenu: bcd2d7b7d4395af088e213cebd11c3ac7d958f5a
   SQLite.swift: 670c3e9e0a806bbfd56a3de5d530768dc0e6fe7c
 
-PODFILE CHECKSUM: 0bf2bb96f2e821eed57fb68fbbc736691e82e94b
+PODFILE CHECKSUM: a8c8fc6658fcdf3832b11c1f9191310cb62fa45c
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.1
