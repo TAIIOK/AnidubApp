@@ -12,6 +12,8 @@
 		A001AC4C1EA62793008D9B5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A001AC4A1EA62793008D9B5B /* Main.storyboard */; };
 		A001AC4E1EA62793008D9B5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A001AC4D1EA62793008D9B5B /* Assets.xcassets */; };
 		A001AC511EA62793008D9B5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A001AC4F1EA62793008D9B5B /* LaunchScreen.storyboard */; };
+		A06C73071EA65C3000F3AE4B /* globalfunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C73061EA65C3000F3AE4B /* globalfunctions.swift */; };
+		A06C73091EA65C3E00F3AE4B /* appdatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */; };
 		AC2A441349BFCD5C765FD46C /* Pods_AnidubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE03BA18D1B0E320F043AEE /* Pods_AnidubApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		A001AC4D1EA62793008D9B5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A001AC501EA62793008D9B5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A001AC521EA62793008D9B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A06C73061EA65C3000F3AE4B /* globalfunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalfunctions.swift; sourceTree = "<group>"; };
+		A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = appdatabase.sqlite; sourceTree = "<group>"; };
 		E13D4E9FF640998A278DA7DD /* Pods-AnidubApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,8 @@
 				A001AC4A1EA62793008D9B5B /* Main.storyboard */,
 				A001AC4D1EA62793008D9B5B /* Assets.xcassets */,
 				A001AC4F1EA62793008D9B5B /* LaunchScreen.storyboard */,
+				A06C73061EA65C3000F3AE4B /* globalfunctions.swift */,
+				A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */,
 				A001AC521EA62793008D9B5B /* Info.plist */,
 			);
 			path = AnidubApp;
@@ -151,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A06C73091EA65C3E00F3AE4B /* appdatabase.sqlite in Resources */,
 				A001AC511EA62793008D9B5B /* LaunchScreen.storyboard in Resources */,
 				A001AC4E1EA62793008D9B5B /* Assets.xcassets in Resources */,
 				A001AC4C1EA62793008D9B5B /* Main.storyboard in Resources */,
@@ -214,6 +221,7 @@
 			files = (
 				A001AC491EA62793008D9B5B /* ViewController.swift in Sources */,
 				A001AC471EA62793008D9B5B /* AppDelegate.swift in Sources */,
+				A06C73071EA65C3000F3AE4B /* globalfunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +387,7 @@
 				A001AC571EA62793008D9B5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
