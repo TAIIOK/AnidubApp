@@ -64,7 +64,13 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let revealviewcontroller:SWRevealViewController = self.revealViewController()
         
         let cell:MenuCell = tableView.cellForRow(at: indexPath) as! MenuCell
-        print(cell.lblMenuname.text!)
+        
+        switch indexPath.row {
+        case 0:
+            pushFrontViewController(identifer: "firstViewController")
+        default:
+            break
+        }
 
     }
     

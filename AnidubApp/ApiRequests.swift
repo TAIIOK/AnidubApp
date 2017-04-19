@@ -7,10 +7,10 @@ struct Title {
     var Episodes:String
 }
 struct Information {
-    var Year:Int
+    var Year:String
     var Genres:String
     var Country:String
-    var Episodes:Int
+    var Episodes:String
     var Release:String
     var Director:String
     var Author:String
@@ -80,7 +80,7 @@ func setupInformation(data: [String:Any]) -> Information?{
         studio = "Неизвестно"
     }
     
-    return Information(Year: Int(year)!, Genres: genres, Country: country, Episodes: Int(episodes)!, Release: release, Director: director, Author: author, Dubbers: dubbers, Translators: translators, Studio: studio!, Description: description)
+    return Information(Year: year, Genres: genres, Country: country, Episodes: episodes, Release: release, Director: director, Author: author, Dubbers: dubbers, Translators: translators, Studio: studio!, Description: description)
     
     
 }
@@ -126,7 +126,6 @@ func setupFullTitle(data: [String:Any]) -> fullTitle?
 
     
     let result  = fullTitle(ID: Int(id)!, Url: url, Title: title!, Uploader: uploader, Categories: categories, Poster: poster, Information: information!, Commentaries: Int(commentaries)!, Rating: rating!)
-    
     
     
         return result
