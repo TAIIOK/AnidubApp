@@ -1,24 +1,33 @@
 PODS:
+  - BMPlayer (0.8.3):
+    - NVActivityIndicatorView (~> 3.5)
+    - SnapKit (~> 3.2)
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
+  - NVActivityIndicatorView (3.6.1)
   - PopupDialog (0.5.4)
+  - SnapKit (3.2.0)
   - SQLite.swift (0.11.3):
     - SQLite.swift/standard (= 0.11.3)
   - SQLite.swift/standard (0.11.3)
 
 DEPENDENCIES:
+  - BMPlayer
   - Crashlytics
   - Fabric
   - PopupDialog
   - SQLite.swift
 
 SPEC CHECKSUMS:
+  BMPlayer: 9322d07c99f1ccff6d5352ab37516ab10955dd74
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SQLite.swift: 99b36c22084427f0abbeb957556ce1528cf10bb3
 
-PODFILE CHECKSUM: c6782b7003312a314d5f6ebf4223bc07e89daf61
+PODFILE CHECKSUM: 88c0ae9fbbe4379f9b683af839a02745fc3c54a5
 
 COCOAPODS: 1.2.1

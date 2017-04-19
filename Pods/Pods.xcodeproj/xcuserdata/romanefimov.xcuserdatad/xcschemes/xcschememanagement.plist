@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BMPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AnidubApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,24 +29,13 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SnapKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>5B0F0402D74F7BAB3CD0C4926506FDD5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>83BA46DA4EFE1B36FB557F609A15B367</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EE76E0F252EF9462495F7E09238AA70D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
