@@ -5,7 +5,6 @@ use_frameworks!
 target ‘AnidubApp’ do
   pod 'Fabric'
   pod 'Crashlytics'
-  pod ‘SideMenu’
   pod 'SQLite.swift'
   pod 'PopupDialog'
 

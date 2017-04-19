@@ -7,29 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57B0F4544AF64CA917A059C9 /* Pods_AnidubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81CF747A16C1B2CD6D7E982E /* Pods_AnidubApp.framework */; };
 		A001AC471EA62793008D9B5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A001AC461EA62793008D9B5B /* AppDelegate.swift */; };
 		A001AC491EA62793008D9B5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A001AC481EA62793008D9B5B /* ViewController.swift */; };
-		A001AC4C1EA62793008D9B5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A001AC4A1EA62793008D9B5B /* Main.storyboard */; };
 		A001AC4E1EA62793008D9B5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A001AC4D1EA62793008D9B5B /* Assets.xcassets */; };
 		A001AC511EA62793008D9B5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A001AC4F1EA62793008D9B5B /* LaunchScreen.storyboard */; };
+		A0112D3A1EA7CABB00DA0C77 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0112D391EA7CABB00DA0C77 /* MessageViewController.swift */; };
+		A0112D3D1EA7CAC900DA0C77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0112D3C1EA7CAC900DA0C77 /* Main.storyboard */; };
+		A0112D3F1EA7D68000DA0C77 /* ApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0112D3E1EA7D68000DA0C77 /* ApiRequests.swift */; };
+		A0112D411EA8169900DA0C77 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0112D401EA8169900DA0C77 /* CollectionViewCell.swift */; };
 		A06C73071EA65C3000F3AE4B /* globalfunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C73061EA65C3000F3AE4B /* globalfunctions.swift */; };
 		A06C73091EA65C3E00F3AE4B /* appdatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */; };
-		AC2A441349BFCD5C765FD46C /* Pods_AnidubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE03BA18D1B0E320F043AEE /* Pods_AnidubApp.framework */; };
+		A06C730C1EA678E900F3AE4B /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C730B1EA678E900F3AE4B /* CatalogViewController.swift */; };
+		A0BCE6361EA7C2820032BA96 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BCE6351EA7C2820032BA96 /* SWRevealViewController.m */; };
+		A0BCE63A1EA7C3C40032BA96 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCE6381EA7C3C40032BA96 /* MenuCell.swift */; };
+		A0BCE63B1EA7C3C40032BA96 /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCE6391EA7C3C40032BA96 /* menuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04033EC04FC97B3982BCBB2C /* Pods-AnidubApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.debug.xcconfig"; sourceTree = "<group>"; };
-		0EE03BA18D1B0E320F043AEE /* Pods_AnidubApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnidubApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68088A611F9E9FCDD5C8A213 /* Pods-AnidubApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.release.xcconfig"; sourceTree = "<group>"; };
+		81CF747A16C1B2CD6D7E982E /* Pods_AnidubApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnidubApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A001AC431EA62793008D9B5B /* AnidubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnidubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A001AC461EA62793008D9B5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A001AC481EA62793008D9B5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A001AC4B1EA62793008D9B5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A001AC4D1EA62793008D9B5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A001AC501EA62793008D9B5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A001AC521EA62793008D9B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0112D391EA7CABB00DA0C77 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		A0112D3B1EA7CAC900DA0C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0112D3E1EA7D68000DA0C77 /* ApiRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequests.swift; sourceTree = "<group>"; };
+		A0112D401EA8169900DA0C77 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		A06C73061EA65C3000F3AE4B /* globalfunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalfunctions.swift; sourceTree = "<group>"; };
 		A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = appdatabase.sqlite; sourceTree = "<group>"; };
-		E13D4E9FF640998A278DA7DD /* Pods-AnidubApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.release.xcconfig"; sourceTree = "<group>"; };
+		A06C730B1EA678E900F3AE4B /* CatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		A0BCE6341EA7C2820032BA96 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		A0BCE6351EA7C2820032BA96 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		A0BCE6381EA7C3C40032BA96 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		A0BCE6391EA7C3C40032BA96 /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
+		A0BCE63F1EA7C7C30032BA96 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		D170F6FD73CAEBCA5A1D56F0 /* Pods-AnidubApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,28 +53,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC2A441349BFCD5C765FD46C /* Pods_AnidubApp.framework in Frameworks */,
+				57B0F4544AF64CA917A059C9 /* Pods_AnidubApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15555AFEB8929AF717021EA3 /* Pods */ = {
+		10CAEDF46CFF54D1696EDA31 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				04033EC04FC97B3982BCBB2C /* Pods-AnidubApp.debug.xcconfig */,
-				E13D4E9FF640998A278DA7DD /* Pods-AnidubApp.release.xcconfig */,
+				D170F6FD73CAEBCA5A1D56F0 /* Pods-AnidubApp.debug.xcconfig */,
+				68088A611F9E9FCDD5C8A213 /* Pods-AnidubApp.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		565699D965C825558403A08F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0EE03BA18D1B0E320F043AEE /* Pods_AnidubApp.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A001AC3A1EA62792008D9B5B = {
@@ -66,8 +74,8 @@
 			children = (
 				A001AC451EA62793008D9B5B /* AnidubApp */,
 				A001AC441EA62793008D9B5B /* Products */,
-				15555AFEB8929AF717021EA3 /* Pods */,
-				565699D965C825558403A08F /* Frameworks */,
+				10CAEDF46CFF54D1696EDA31 /* Pods */,
+				F24A97B299E26C3C84DE3559 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,16 +90,33 @@
 		A001AC451EA62793008D9B5B /* AnidubApp */ = {
 			isa = PBXGroup;
 			children = (
+				A0BCE6341EA7C2820032BA96 /* SWRevealViewController.h */,
+				A0BCE6351EA7C2820032BA96 /* SWRevealViewController.m */,
+				A0112D391EA7CABB00DA0C77 /* MessageViewController.swift */,
+				A0112D3C1EA7CAC900DA0C77 /* Main.storyboard */,
 				A001AC461EA62793008D9B5B /* AppDelegate.swift */,
 				A001AC481EA62793008D9B5B /* ViewController.swift */,
-				A001AC4A1EA62793008D9B5B /* Main.storyboard */,
 				A001AC4D1EA62793008D9B5B /* Assets.xcassets */,
 				A001AC4F1EA62793008D9B5B /* LaunchScreen.storyboard */,
+				A0BCE6381EA7C3C40032BA96 /* MenuCell.swift */,
+				A0BCE6391EA7C3C40032BA96 /* menuViewController.swift */,
 				A06C73061EA65C3000F3AE4B /* globalfunctions.swift */,
 				A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */,
 				A001AC521EA62793008D9B5B /* Info.plist */,
+				A06C730B1EA678E900F3AE4B /* CatalogViewController.swift */,
+				A0BCE63F1EA7C7C30032BA96 /* Header.h */,
+				A0112D3E1EA7D68000DA0C77 /* ApiRequests.swift */,
+				A0112D401EA8169900DA0C77 /* CollectionViewCell.swift */,
 			);
 			path = AnidubApp;
+			sourceTree = "<group>";
+		};
+		F24A97B299E26C3C84DE3559 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81CF747A16C1B2CD6D7E982E /* Pods_AnidubApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,13 +126,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A001AC551EA62793008D9B5B /* Build configuration list for PBXNativeTarget "AnidubApp" */;
 			buildPhases = (
-				753224120BC1A70EADF009C7 /* [CP] Check Pods Manifest.lock */,
+				82C9CC46DA21E493FAF6F680 /* [CP] Check Pods Manifest.lock */,
 				A001AC3F1EA62792008D9B5B /* Sources */,
 				A001AC401EA62792008D9B5B /* Frameworks */,
 				A001AC411EA62792008D9B5B /* Resources */,
-				CEEE196248E469DEC3373194 /* [CP] Embed Pods Frameworks */,
-				72848E1EB665DBFA8DC64E0C /* [CP] Copy Pods Resources */,
 				A06C730A1EA66DD000F3AE4B /* ShellScript */,
+				9396D1C976E5FDFDFF86D1D4 /* [CP] Embed Pods Frameworks */,
+				A3DF36119F0C59FFA7ECB859 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,29 +186,14 @@
 				A06C73091EA65C3E00F3AE4B /* appdatabase.sqlite in Resources */,
 				A001AC511EA62793008D9B5B /* LaunchScreen.storyboard in Resources */,
 				A001AC4E1EA62793008D9B5B /* Assets.xcassets in Resources */,
-				A001AC4C1EA62793008D9B5B /* Main.storyboard in Resources */,
+				A0112D3D1EA7CAC900DA0C77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		72848E1EB665DBFA8DC64E0C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		753224120BC1A70EADF009C7 /* [CP] Check Pods Manifest.lock */ = {
+		82C9CC46DA21E493FAF6F680 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,6 +206,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9396D1C976E5FDFDFF86D1D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A06C730A1EA66DD000F3AE4B /* ShellScript */ = {
@@ -211,19 +236,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 7f0d441a445b99ad9be96af08be5f9e0255de5f5 6f1c6d273d9d2d4f5e74dd780c4b86e441f769af139465503ee9d4a245096798\n";
 		};
-		CEEE196248E469DEC3373194 /* [CP] Embed Pods Frameworks */ = {
+		A3DF36119F0C59FFA7ECB859 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -233,8 +258,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0112D411EA8169900DA0C77 /* CollectionViewCell.swift in Sources */,
+				A06C730C1EA678E900F3AE4B /* CatalogViewController.swift in Sources */,
 				A001AC491EA62793008D9B5B /* ViewController.swift in Sources */,
+				A0112D3F1EA7D68000DA0C77 /* ApiRequests.swift in Sources */,
+				A0112D3A1EA7CABB00DA0C77 /* MessageViewController.swift in Sources */,
+				A0BCE63A1EA7C3C40032BA96 /* MenuCell.swift in Sources */,
+				A0BCE6361EA7C2820032BA96 /* SWRevealViewController.m in Sources */,
 				A001AC471EA62793008D9B5B /* AppDelegate.swift in Sources */,
+				A0BCE63B1EA7C3C40032BA96 /* menuViewController.swift in Sources */,
 				A06C73071EA65C3000F3AE4B /* globalfunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,20 +274,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A001AC4A1EA62793008D9B5B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A001AC4B1EA62793008D9B5B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A001AC4F1EA62793008D9B5B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A001AC501EA62793008D9B5B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A0112D3C1EA7CAC900DA0C77 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0112D3B1EA7CAC900DA0C77 /* Base */,
+			);
+			name = Main.storyboard;
+			path = "../../../../Downloads/lift-side-memu-in-swift-3-master/memuDemo";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -356,7 +389,7 @@
 		};
 		A001AC561EA62793008D9B5B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04033EC04FC97B3982BCBB2C /* Pods-AnidubApp.debug.xcconfig */;
+			baseConfigurationReference = D170F6FD73CAEBCA5A1D56F0 /* Pods-AnidubApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
@@ -364,13 +397,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = AnidubApp/Header.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A001AC571EA62793008D9B5B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E13D4E9FF640998A278DA7DD /* Pods-AnidubApp.release.xcconfig */;
+			baseConfigurationReference = 68088A611F9E9FCDD5C8A213 /* Pods-AnidubApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
@@ -378,6 +412,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = AnidubApp/Header.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
