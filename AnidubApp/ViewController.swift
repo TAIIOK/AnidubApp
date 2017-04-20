@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-
+import AlamofireImage
+import Alamofire
 
 extension String  {
     var isNumber : Bool {
@@ -57,6 +57,8 @@ extension UIImage {
 
 class ViewController: UIViewController,UICollectionViewDelegate , UICollectionViewDataSource {
     
+    var ImageCache = [Int:UIImage]()
+    
     @IBOutlet weak var mycollection: UICollectionView!
     
     var titleslist = [fullTitle]()
@@ -85,6 +87,7 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         mycollection.dataSource = self
         titleslist = getTitles_list(page: 1)
         titleslist += getTitles_list(page: 2)
+        mycollection.reloadData()
         
     }
     
@@ -104,9 +107,52 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionViewCell", for: indexPath as IndexPath) as! CollectionViewCell
-        cell.titleimageview?.downloadedFrom(link: titleslist[indexPath.row].Poster )
+        
         cell.titleLabel.text = titleslist[indexPath.row].Title.Russian
+        
+        
+        let dishName = titleslist[indexPath.row].ID
+        
+        //This is a workaround to cash the image and improve the performance while user scrolling UITableView.
+        // If this image is already cached, don't re-download
+        if let dishImage = ImageCache[dishName] {
+            cell.titleimageview?.image = dishImage
+        }
+        else {
+            //Download image
+            // We should perform this in a background thread
+
+            
+            Alamofire.request(titleslist[indexPath.row].Poster).responseImage { response in
+                debugPrint(response)
+                
+                print(response.request)
+                print(response.response)
+                debugPrint(response.result)
+                
+                if let image = response.result.value {
+                    print("image downloaded: \(image)")
+                    // Store the commit date in to our cache
+                    self.ImageCache[dishName] = image
+                    
+                    // Update the cell
+                    DispatchQueue.main.async(execute: {
+
+                            cell.titleimageview?.image = image
+                            
+                        
+                    })
+                }
+            }
+            
+            
+            
+            
+            
+        }
+
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

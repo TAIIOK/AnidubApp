@@ -21,9 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics.self])
 
-        
-   //     getTitles_list(page: 1)
-        getTitles_episodes(id: 10059)
         var path = getPath(fileName: "appdatabase.sqlite")
         
         if(path.characters.count == 0 )
