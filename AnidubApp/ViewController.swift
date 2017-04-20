@@ -10,6 +10,8 @@ import UIKit
 import AlamofireImage
 import Alamofire
 
+var ImageCache = [Int:UIImage]()
+
 extension String  {
     var isNumber : Bool {
         get{
@@ -57,7 +59,6 @@ extension UIImage {
 
 class ViewController: UIViewController,UICollectionViewDelegate , UICollectionViewDataSource {
     
-    var ImageCache = [Int:UIImage]()
     
     @IBOutlet weak var mycollection: UICollectionView!
     
@@ -85,9 +86,15 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         setupSidebarMenu()
         mycollection.delegate = self
         mycollection.dataSource = self
-        titleslist = getTitles_list(page: 1)
-        titleslist += getTitles_list(page: 2)
-        mycollection.reloadData()
+        
+        DispatchQueue.main.async(execute: {
+            self.titleslist = getTitles_list(page: 1)
+            self.mycollection.reloadData()
+            self.titleslist += getTitles_list(page: 2)
+            self.mycollection.reloadData()
+            
+        })
+
         
     }
     
@@ -126,21 +133,12 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
             Alamofire.request(titleslist[indexPath.row].Poster).responseImage { response in
                 debugPrint(response)
                 
-                print(response.request)
-                print(response.response)
-                debugPrint(response.result)
-                
                 if let image = response.result.value {
-                    print("image downloaded: \(image)")
                     // Store the commit date in to our cache
-                    self.ImageCache[dishName] = image
-                    
+                    ImageCache[dishName] = image
                     // Update the cell
                     DispatchQueue.main.async(execute: {
-
                             cell.titleimageview?.image = image
-                            
-                        
                     })
                 }
             }
@@ -156,6 +154,8 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print(indexPath.row)
         
     }
     
