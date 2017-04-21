@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import PopupDialog
+
 // 创建结构体
 struct video {
     
@@ -16,27 +18,15 @@ struct video {
     
 }
 
-
-protocol VideoTabViewCellDelegate {
-    
-    func ButtonDidClcik()
-    
-}
-
 class VideoTableViewCell: UITableViewCell {
 
 
-    //声明实例变量
-    // 设置一个代理变量
-    var delegate: VideoTabViewCellDelegate?
-    var videoScreenshot = UIImageView(image: UIImage.init(named: "videoScreenshot01"))
+
     
-    var videoTitleLabel = UILabel()
-    var videoSourceLabel = UILabel()
-    var videoPlayBtn = UIButton(type: .custom)
+    var videoWebview = UIWebView()
     let SCREEN_WITH = UIScreen.main.bounds.size.width
     let SCTREEN_HIEGTH = UIScreen.main.bounds.size.height
-
+    var firstlist = [[episodes]]()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
@@ -50,46 +40,70 @@ class VideoTableViewCell: UITableViewCell {
     }
     
     
+
+
     override func awakeFromNib() {
         
+        
+        
         super.awakeFromNib()
-        // 初始化值
-        videoSourceLabel.frame = CGRect(x: 0, y: 197, width: SCREEN_WITH, height: 14)
-        videoSourceLabel.font = UIFont.systemFont(ofSize: 10)
-        videoSourceLabel.textAlignment = NSTextAlignment.center
-        videoSourceLabel.textColor = UIColor.green
+
+        let myButton = UIButton(type: UIButtonType.system)
         
+        myButton.frame = CGRect(x: 0, y: 0, width: 150, height: 40)
+
+        myButton.setTitle("Выберите серию", for: UIControlState.normal)
         
-        videoTitleLabel.frame = CGRect(x: 0, y: 173, width: SCREEN_WITH, height: 16)
-        videoTitleLabel.textColor = UIColor.green
-        videoTitleLabel.font = UIFont.systemFont(ofSize: 14)
-        videoTitleLabel.textAlignment = NSTextAlignment.center
-        
-//         初始化话背景图
-        
-        videoScreenshot.frame = CGRect(x: 0, y: 0, width: SCREEN_WITH, height: 220)
-        videoScreenshot.backgroundColor = UIColor.green
-        // 初始化播放按钮
-        videoPlayBtn.frame = CGRect(x: (SCREEN_WITH - 200)/2, y: 60, width: 200, height: 100)
-        videoPlayBtn.setImage(UIImage(named: "playBtn"), for: UIControlState())
-        
-        videoPlayBtn.addTarget(self, action: #selector(self.videoBtnClick), for: .touchUpInside)
-        // 将控件添加到cell 上 【添加顺序】
-        self.addSubview(videoScreenshot)// 背景视图
-        self.addSubview(videoPlayBtn)// 添加播放按钮
-        self.addSubview(videoSourceLabel)// 添加Lable
-        self.addSubview(videoTitleLabel)// 添加视频标题
-        
-        
-        
-        
-        
+        myButton.addTarget(self,
+                           action: #selector(changeEpisode),
+                           for: .touchUpInside
+        )
+        self.addSubview(myButton)
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad)
+        {
+        videoWebview.frame = CGRect(x: 0 , y: 40, width: SCREEN_WITH, height: 400)
+        }
+        else
+        {
+        videoWebview.frame = CGRect(x: 0, y: 40, width: SCREEN_WITH, height: 200)
+        }
+
+        self.addSubview(videoWebview)// 背景视图
+
     }
-    
- // 代理方法的声明
-    func videoBtnClick() {
+
+    func changeEpisode()
+    {
         
-        delegate?.ButtonDidClcik()
+        // Create a custom view controller
+        let ratingVC = RequestViewController(nibName: "RequestViewController", bundle: nil)
+        
+        ratingVC.Listepisodes = firstlist
+        // Create the dialog
+        let popup = PopupDialog(viewController: ratingVC, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+        
+        // Create first button
+        
+        let buttonOne = CancelButton(title: "Отменить", height: 60) {
+            
+        }
+        
+        // Create second button
+        let buttonTwo = DefaultButton(title: "Выбрать", height: 60) {
+            
+            
+            
+        self.videoWebview.loadRequest(URLRequest(url: URL(string: (self.firstlist.first?[ratingVC.TypePicker.selectedRow(inComponent: 0)].Url)!)!))
+            
+        }
+        
+        // Add buttons to dialog
+        popup.addButtons([buttonOne, buttonTwo])
+        
+        // Present dialog
+    
+       self.window?.rootViewController?.present(popup, animated: true, completion: nil)
+        
     }
     
 

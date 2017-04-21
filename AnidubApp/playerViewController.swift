@@ -15,28 +15,16 @@ import MediaPlayer
 class playerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
 
     @IBOutlet weak var tableView: UITableView!
-
-    
-    var playViewController = AVPlayerViewController()
-    
-    var playerView = AVPlayer()
-    
-
-    var changeButton = UIButton()
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        ButtonDidClcik()
-    }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.row == 1)
         {
-            return 400
+            return 480
         }
-        return 140
+        
+        return UITableViewAutomaticDimension
     }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -51,56 +39,52 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             
             cell.titleimageview.image = ImageCache[(currentTitle.first?.ID)!]
-            cell.nameTitle.text = "lol"
+            cell.countofepisodes.text = currentTitle.first?.Information.Episodes
+            cell.Country.text = currentTitle.first?.Information.Country
+            cell.Dubbers.text = currentTitle.first?.Information.Dubbers
+            cell.Studio.text = currentTitle.first?.Information.Studio
+            cell.titledescription.text = currentTitle.first?.Information.Description
+            cell.TitleDescription.text = currentTitle.first?.Title.Russian
             
             return cell
         }
 
         let newcell = VideoTableViewCell(style: .default, reuseIdentifier: "VideoTableViewCell")
-        
-        //let video = data[indexPath.row]
-        
-        //newcell.delegate = self
-        newcell.videoTitleLabel.text = "lol"
-        newcell.videoScreenshot.image = ImageCache[(currentTitle.first?.ID)!]
-        newcell.videoSourceLabel.text = "lol"
-        
 
+        newcell.firstlist = listEpisodes
+        //http://video.sibnet.ru/shell.php?videoid=2810230
+       
+   
+        newcell.videoWebview.loadRequest(URLRequest(url: URL(string: (listEpisodes.first?[0].Url)!)!))
         
         
         return newcell
     }
     
 
-    func ButtonDidClcik() {
-        print("xyi")
-        var videoUrl = NSURL(string: "http://www.ebookfrenzy.com/ios_book/movie/movie.mov")
-    
-        
-        playerView = AVPlayer(url: videoUrl as! URL)
-        
-        playViewController.player = playerView
-        
-        self.present(playViewController, animated: true) {
-            self.playViewController.player?.play()
-        }
-        
-        
-    }
-
-    
+    var listEpisodes = [[episodes]]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        load_episodes()
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 207
 
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
-        
         tableView.register(VideoTableViewCell.self, forCellReuseIdentifier: "VideoTableViewCell")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        currentTitle.removeAll()
+    }
+    
+    func load_episodes() {
+    
+       listEpisodes = getTitles_episodes(id: (currentTitle.first?.ID)!)
+    
     }
 
     

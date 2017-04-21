@@ -154,6 +154,9 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         
     }
     
+
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let myVC = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as! playerViewController
