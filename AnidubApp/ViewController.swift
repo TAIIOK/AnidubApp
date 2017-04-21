@@ -11,6 +11,7 @@ import AlamofireImage
 import Alamofire
 
 var ImageCache = [Int:UIImage]()
+var currentTitle = [fullTitle]()
 
 extension String  {
     var isNumber : Bool {
@@ -155,6 +156,12 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as! playerViewController
+
+        currentTitle.append(titleslist[indexPath.row])
+        navigationController?.pushViewController(myVC, animated: true)
+        
+
         print(indexPath.row)
         
     }
