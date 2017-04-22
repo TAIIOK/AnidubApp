@@ -41,6 +41,126 @@ struct episodes{
     var Name:String
     var Url:String
 }
+
+struct user {
+    var ID:Int
+    var favCount:Int
+    var username:String
+    var password:String
+}
+
+func md5(_ string: String) -> String {
+    
+    let context = UnsafeMutablePointer<CC_MD5_CTX>.allocate(capacity: 1)
+    var digest = Array<UInt8>(repeating:0, count:Int(CC_MD5_DIGEST_LENGTH))
+    CC_MD5_Init(context)
+    CC_MD5_Update(context, string, CC_LONG(string.lengthOfBytes(using: String.Encoding.utf8)))
+    CC_MD5_Final(&digest, context)
+    context.deallocate(capacity: 1)
+    var hexString = ""
+    for byte in digest {
+        hexString += String(format:"%02x", byte)
+    }
+    
+    return hexString
+}
+
+func get_fav_count(login:Int,password:String) -> Int {
+    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.count")!)
+    request.httpMethod = "POST"
+    
+    var bodyData = "login=\(login)&password=\(md5(password))"
+    var result = false
+    var Count = 0
+    request.httpBody = bodyData.data(using: String.Encoding.utf8)
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data else {
+            print("request failed \(error)")
+            return
+        }
+        
+        do {
+            
+            if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                
+                
+                let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
+                let Data = Response?["Data"] as?  [String:Any]
+                
+                Count =  Int(Data?["ID"] as! String)!
+                
+                
+            }
+            semaphore.signal()
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    task.resume()
+    
+    _ = semaphore.wait(timeout: .distantFuture)
+    
+    return Count
+
+}
+
+
+func User_login(login:String,password:String) -> user? {
+    
+    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/account.login")!)
+    request.httpMethod = "POST"
+    
+    var bodyData = "login=\(login)&password=\(md5(password))"
+    var result = false
+    var ID = 0
+    request.httpBody = bodyData.data(using: String.Encoding.utf8)
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data else {
+            print("request failed \(error)")
+            return
+        }
+        
+        do {
+            
+            if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                
+                
+                let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
+                
+                if(Response["Error"] as Bool)
+                {
+                    return nil
+                }
+                let Data = Response?["Data"] as?  [String:Any]
+                
+                ID =  Int(Data?["ID"] as! String)!
+                
+                
+            }
+            semaphore.signal()
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    task.resume()
+    
+    _ = semaphore.wait(timeout: .distantFuture)
+    
+    
+    print(ID)
+    return user(ID: ID, favCount: get_fav_count(login: ID, password: md5(password)), username: login , password: md5(password) )
+}
+
+
+
 func setupRating(data: [String:Any]) -> Rating?{
 
     var inputTitle = data["Rating"] as? [String:Any]
@@ -237,11 +357,7 @@ func getTitles_episodes(id:Int) -> [[episodes]] {
 
 
                listEpisodes = setupEpisodes(data: Data!)!
-                
    
-                
-                
-                
             }
             semaphore.signal()
             

@@ -39,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             copyFile(fileName: "appdatabase.sqlite")
         }
         
+        User_login(login:"thetaiiok",password:"sgqe0e41dbu")
+        
         return true
     }
 
