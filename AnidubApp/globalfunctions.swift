@@ -9,56 +9,50 @@
 import Foundation
 import SQLite
 
-
-func saveStudent(){
+/*
+ var ID:Int
+ var favCount:Int
+ var username:String
+ var password:String
+*/
+func saveUser(value: user){
     var path = getPath(fileName: "appdatabase.sqlite")
     
     let db = try! Connection(getPath(fileName: "appdatabase.sqlite"))
-    let student = Table("Student")
+    let user = Table("User")
     
     let id = Expression<Int>("id")
-    let Recordbook = Expression<Int>("Recordbook")
-    let Group = Expression<String?>("Group")
-    let Name = Expression<String>("Name")
-    let Surname = Expression<String>("Surname")
-    let Middlename = Expression<String>("Middlename")
+    let favcount = Expression<Int>("favcount")
+    let username = Expression<String?>("username")
+    let password = Expression<String>("password")
     
     
-   // let insert = student.insert(id <- value.id, Recordbook <- value.RecordBook, Group <- value.Group, Name <- value.Name, Surname <- value.Surname, Middlename <- value.MiddleName)
-    //let rowid = try! db.run(insert)
+    let insert = user.insert(id <- value.ID, favcount <- value.favCount, username <- value.username, password <- value.password)
+    let rowid = try! db.run(insert)
 }
 
-func removeStudent(){
+func removeUser(){
     let db = try! Connection(getPath(fileName: "appdatabase.sqlite"))
-    let student = Table("Student")
+    let user = Table("User")
     
-    let alice = student.filter(1 == rowid)
+    let alice = user.filter(1 == rowid)
     
     try! db.run(alice.delete())
-
     
 }
 
-func loadStudent() -> Any? {
+func loadUser() -> Any? {
     let db = try! Connection(getPath(fileName: "appdatabase.sqlite"))
-    let student = Table("Student")
+    let userT = Table("User")
     
     let id = Expression<Int>("id")
-    let Recordbook = Expression<Int>("Recordbook")
-    let Group = Expression<String?>("Group")
-    let Name = Expression<String>("Name")
-    let Surname = Expression<String>("Surname")
-    let Middlename = Expression<String>("Middlename")
+    let favcount = Expression<Int>("favcount")
+    let username = Expression<String?>("username")
+    let password = Expression<String>("password")
     
-    for student in try! db.prepare(student) {
-        let id = student.get(id)
-        let name =  student.get(Name)
-        let surname =  student.get(Surname)
-        let middlename =  student.get(Middlename)
-        let group = student.get(Group)
-        let recordbook = student.get(Recordbook)
-        // id: 1, email: alice@mac.com, name: Optional("Alice")
-        return nil // Student(id: id, Name: name, Surname: surname, MiddleName: middlename, Group: group!, RecordBook: recordbook)
+    for userR in try! db.prepare(userT) {
+
+        return  user(ID: userR.get(id), favCount: userR.get(favcount), username: userR.get(username)!, password: userR.get(password))
     }
     
     return nil

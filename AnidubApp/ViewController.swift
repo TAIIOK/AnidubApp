@@ -90,23 +90,42 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         mycollection.delegate = self
         mycollection.dataSource = self
         
-        if (state == 0){
-       
+        
+        switch state {
+        case 0:
             page = 0
             loadTitles()
-
+        case 1:
+            title = "Случайный тайтл"
+            let randomNum:UInt32 = arc4random_uniform(100) // range is 0 to 99
+            page = Int(randomNum)
+            loadTitles()
+        
+        case 5:
+            title = "Мои закладки"
+            loadBookmarks()
+        default:
+            break
         }
-        else {
 
-               title = "Случайный тайтл"
-               let randomNum:UInt32 = arc4random_uniform(100) // range is 0 to 99
-               page = Int(randomNum)
-               loadTitles()
-
-        }
         
 
         
+    }
+    
+    func loadBookmarks()
+    {
+     
+        DispatchQueue.global(qos: .background).async {
+            // Background Thread
+            self.titleslist += getTitles_list(page: self.page )
+            self.page = self.page + 1
+            
+            
+            DispatchQueue.main.async {
+                self.mycollection.reloadData()
+            }
+        }
     }
     
     func loadTitles()
@@ -137,8 +156,10 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 
         if indexPath.item == (titleslist.count - 5) {
+            if(state != 5){
             loadTitles()
-            
+            }
+            loadBookmarks()
 
         }
         

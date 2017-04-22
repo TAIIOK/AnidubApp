@@ -71,13 +71,16 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         let cell:MenuCell = tableView.cellForRow(at: indexPath) as! MenuCell
         
-        switch indexPath.row {
-        case 0:
+        switch (indexPath.section,indexPath.row) {
+        case (0,0):
             pushFrontViewController(identifer: "firstViewController")
             state = 0
-        case 1:
+        case (0,1):
             pushFrontViewController(identifer: "firstViewController")
             state = 1
+        case (1,0):
+            pushFrontViewController(identifer: "firstViewController")
+            state = 5
         default:
             break
         }
