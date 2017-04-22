@@ -69,7 +69,7 @@ func get_fav_count(login:Int,password:String) -> Int {
     var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.count")!)
     request.httpMethod = "POST"
     
-    var bodyData = "login=\(login)&password=\(md5(password))"
+    var bodyData = "user_id=\(login)&password=\(md5(password))"
     var result = false
     var Count = 0
     request.httpBody = bodyData.data(using: String.Encoding.utf8)
@@ -87,9 +87,11 @@ func get_fav_count(login:Int,password:String) -> Int {
                 
                 
                 let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
-                let Data = Response?["Data"] as?  [String:Any]
+
                 
-                Count =  Int(Data?["ID"] as! String)!
+                var string =  (Response?["Data"] as? String)!
+                
+                print(string)
                 
                 
             }
@@ -133,10 +135,9 @@ func User_login(login:String,password:String) -> user? {
                 
                 let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
                 
-                if(Response["Error"] as Bool)
-                {
-                    return nil
-                }
+
+                result = convertedJsonIntoDict?["Error"] as! Bool
+                
                 let Data = Response?["Data"] as?  [String:Any]
                 
                 ID =  Int(Data?["ID"] as! String)!
@@ -154,6 +155,10 @@ func User_login(login:String,password:String) -> user? {
     
     _ = semaphore.wait(timeout: .distantFuture)
     
+    if(result == true)
+    {
+        return nil
+    }
     
     print(ID)
     return user(ID: ID, favCount: get_fav_count(login: ID, password: md5(password)), username: login , password: md5(password) )

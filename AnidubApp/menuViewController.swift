@@ -24,7 +24,7 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.viewDidLoad()
         
         
-        ManuNameArray = ["Новые серии","Случайный тайтл","Тэги","История","Загрузки","Закладки","Новинки для меня","Хочу посмотреть","Список прочитанного","Мое избранное"]
+        ManuNameArray = ["Новые серии","Случайный тайтл","Тэги","История","Загрузки","Закладки","Новинки для меня","Список прочитанного"]
         iconArray = [UIImage(named:"home")!,UIImage(named:"message")!,UIImage(named:"map")!,UIImage(named:"setting")!]
         
         imgProfile.layer.borderWidth = 2
@@ -44,7 +44,11 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // Dispose of any resources that can be recreated.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if(section == 0){
+            return 5}
+        
+        return 3
+        
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
