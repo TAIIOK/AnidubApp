@@ -47,6 +47,9 @@ class VideoTableViewCell: UITableViewCell {
         
         
         super.awakeFromNib()
+        
+
+        
 
         let myButton = UIButton(type: UIButtonType.system)
         
