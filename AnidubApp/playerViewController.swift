@@ -66,6 +66,7 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = currentTitle.first?.Title.Russian
         load_episodes()
         
         tableView.rowHeight = UITableViewAutomaticDimension

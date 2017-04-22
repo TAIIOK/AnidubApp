@@ -79,6 +79,8 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         }
     }
     
+    var page = 0
+    
     @IBOutlet weak var btnMenuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -88,14 +90,40 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         mycollection.delegate = self
         mycollection.dataSource = self
         
-        DispatchQueue.main.async(execute: {
-            self.titleslist = getTitles_list(page: 1)
-            self.mycollection.reloadData()
-            self.titleslist += getTitles_list(page: 2)
-            self.mycollection.reloadData()
-            
-        })
+        if (state == 0){
+       
+            page = 0
+            loadTitles()
 
+        }
+        else {
+
+               title = "Случайный тайтл"
+               let randomNum:UInt32 = arc4random_uniform(100) // range is 0 to 99
+               page = Int(randomNum)
+               loadTitles()
+
+        }
+        
+
+        
+    }
+    
+    func loadTitles()
+    {
+        
+       
+        DispatchQueue.global(qos: .background).async {
+            // Background Thread
+            self.titleslist += getTitles_list(page: self.page )
+            self.page = self.page + 1
+            
+            
+            DispatchQueue.main.async {
+                self.mycollection.reloadData()
+            }
+        }
+        
         
     }
     
@@ -103,6 +131,17 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+        if indexPath.item == (titleslist.count - 5) {
+            loadTitles()
+            
+
+        }
+        
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

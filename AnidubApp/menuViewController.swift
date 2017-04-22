@@ -8,6 +8,8 @@
 
 import UIKit
 
+var state = 0
+
 class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tblTableView: UITableView!
@@ -68,6 +70,10 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         switch indexPath.row {
         case 0:
             pushFrontViewController(identifer: "firstViewController")
+            state = 0
+        case 1:
+            pushFrontViewController(identifer: "firstViewController")
+            state = 1
         default:
             break
         }
