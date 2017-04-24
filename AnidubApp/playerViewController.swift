@@ -7,10 +7,7 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
-import AVFoundation
-import AVKit
-import MediaPlayer
+
 
 class playerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
 

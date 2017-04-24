@@ -9,12 +9,6 @@
 import Foundation
 import SQLite
 
-/*
- var ID:Int
- var favCount:Int
- var username:String
- var password:String
-*/
 func saveUser(value: user){
     var path = getPath(fileName: "appdatabase.sqlite")
     

@@ -21,12 +21,8 @@
 		A0121DAC1EAB5DA000E0F2BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0121DAB1EAB5DA000E0F2BA /* LoginViewController.swift */; };
 		A06C73071EA65C3000F3AE4B /* globalfunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C73061EA65C3000F3AE4B /* globalfunctions.swift */; };
 		A06C73091EA65C3E00F3AE4B /* appdatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */; };
-		A06C730C1EA678E900F3AE4B /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C730B1EA678E900F3AE4B /* CatalogViewController.swift */; };
 		A08F7EDB1EA8A179005A31DA /* playerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F7EDA1EA8A179005A31DA /* playerViewController.swift */; };
-		A08F7EDE1EA8A2BE005A31DA /* BMPlayerCustomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F7EDC1EA8A2BE005A31DA /* BMPlayerCustomControlView.swift */; };
-		A08F7EDF1EA8A2BE005A31DA /* BMPlayerCustomControlView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F7EDD1EA8A2BE005A31DA /* BMPlayerCustomControlView2.swift */; };
 		A08F7EEA1EAA2BCF005A31DA /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F7EE81EAA2BCF005A31DA /* InfoTableViewCell.swift */; };
-		A08F7EEB1EAA2BCF005A31DA /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F7EE91EAA2BCF005A31DA /* PlayerTableViewCell.swift */; };
 		A08F7EED1EAA5E86005A31DA /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F7EEC1EAA5E86005A31DA /* VideoTableViewCell.swift */; };
 		A0BCE6361EA7C2820032BA96 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BCE6351EA7C2820032BA96 /* SWRevealViewController.m */; };
 		A0BCE63A1EA7C3C40032BA96 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCE6381EA7C3C40032BA96 /* MenuCell.swift */; };
@@ -51,12 +47,8 @@
 		A0121DAB1EAB5DA000E0F2BA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A06C73061EA65C3000F3AE4B /* globalfunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalfunctions.swift; sourceTree = "<group>"; };
 		A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = appdatabase.sqlite; sourceTree = "<group>"; };
-		A06C730B1EA678E900F3AE4B /* CatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		A08F7EDA1EA8A179005A31DA /* playerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playerViewController.swift; sourceTree = "<group>"; };
-		A08F7EDC1EA8A2BE005A31DA /* BMPlayerCustomControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPlayerCustomControlView.swift; sourceTree = "<group>"; };
-		A08F7EDD1EA8A2BE005A31DA /* BMPlayerCustomControlView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPlayerCustomControlView2.swift; sourceTree = "<group>"; };
 		A08F7EE81EAA2BCF005A31DA /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
-		A08F7EE91EAA2BCF005A31DA /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A08F7EEC1EAA5E86005A31DA /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		A0BCE6341EA7C2820032BA96 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		A0BCE6351EA7C2820032BA96 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -108,34 +100,54 @@
 		A001AC451EA62793008D9B5B /* AnidubApp */ = {
 			isa = PBXGroup;
 			children = (
-				A08F7EE81EAA2BCF005A31DA /* InfoTableViewCell.swift */,
-				A08F7EE91EAA2BCF005A31DA /* PlayerTableViewCell.swift */,
-				A0BCE6341EA7C2820032BA96 /* SWRevealViewController.h */,
-				A0BCE6351EA7C2820032BA96 /* SWRevealViewController.m */,
+				A0E6AD271EAE4CF700D1FB56 /* Global */,
+				A0E6AD261EAE4C3F00D1FB56 /* Info/Player */,
+				A0E6AD251EAE4C0500D1FB56 /* Menu */,
 				A0112D3C1EA7CAC900DA0C77 /* Main.storyboard */,
 				A001AC461EA62793008D9B5B /* AppDelegate.swift */,
-				A001AC481EA62793008D9B5B /* ViewController.swift */,
 				A001AC4D1EA62793008D9B5B /* Assets.xcassets */,
 				A001AC4F1EA62793008D9B5B /* LaunchScreen.storyboard */,
-				A0BCE6381EA7C3C40032BA96 /* MenuCell.swift */,
-				A08F7EEC1EAA5E86005A31DA /* VideoTableViewCell.swift */,
-				A08F7EDC1EA8A2BE005A31DA /* BMPlayerCustomControlView.swift */,
-				A0121DA71EAAB90A00E0F2BA /* RequestViewController.xib */,
-				A08F7EDD1EA8A2BE005A31DA /* BMPlayerCustomControlView2.swift */,
-				A0121DA51EAAB8DF00E0F2BA /* RequestViewController.swift */,
-				A0BCE6391EA7C3C40032BA96 /* menuViewController.swift */,
-				A06C73061EA65C3000F3AE4B /* globalfunctions.swift */,
 				A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */,
 				A001AC521EA62793008D9B5B /* Info.plist */,
-				A06C730B1EA678E900F3AE4B /* CatalogViewController.swift */,
-				A0BCE63F1EA7C7C30032BA96 /* Header.h */,
-				A0112D3E1EA7D68000DA0C77 /* ApiRequests.swift */,
-				A0112D401EA8169900DA0C77 /* CollectionViewCell.swift */,
-				A08F7EDA1EA8A179005A31DA /* playerViewController.swift */,
-				A0121DA91EAB5CBA00E0F2BA /* loginviewcontroller.xib */,
-				A0121DAB1EAB5DA000E0F2BA /* LoginViewController.swift */,
 			);
 			path = AnidubApp;
+			sourceTree = "<group>";
+		};
+		A0E6AD251EAE4C0500D1FB56 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A0121DA91EAB5CBA00E0F2BA /* loginviewcontroller.xib */,
+				A0121DAB1EAB5DA000E0F2BA /* LoginViewController.swift */,
+				A0BCE6341EA7C2820032BA96 /* SWRevealViewController.h */,
+				A0BCE6351EA7C2820032BA96 /* SWRevealViewController.m */,
+				A0BCE6381EA7C3C40032BA96 /* MenuCell.swift */,
+				A0BCE6391EA7C3C40032BA96 /* menuViewController.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		A0E6AD261EAE4C3F00D1FB56 /* Info/Player */ = {
+			isa = PBXGroup;
+			children = (
+				A08F7EE81EAA2BCF005A31DA /* InfoTableViewCell.swift */,
+				A001AC481EA62793008D9B5B /* ViewController.swift */,
+				A08F7EEC1EAA5E86005A31DA /* VideoTableViewCell.swift */,
+				A0121DA71EAAB90A00E0F2BA /* RequestViewController.xib */,
+				A0121DA51EAAB8DF00E0F2BA /* RequestViewController.swift */,
+				A0112D401EA8169900DA0C77 /* CollectionViewCell.swift */,
+				A08F7EDA1EA8A179005A31DA /* playerViewController.swift */,
+			);
+			name = Info/Player;
+			sourceTree = "<group>";
+		};
+		A0E6AD271EAE4CF700D1FB56 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				A06C73061EA65C3000F3AE4B /* globalfunctions.swift */,
+				A0BCE63F1EA7C7C30032BA96 /* Header.h */,
+				A0112D3E1EA7D68000DA0C77 /* ApiRequests.swift */,
+			);
+			name = Global;
 			sourceTree = "<group>";
 		};
 		F24A97B299E26C3C84DE3559 /* Frameworks */ = {
@@ -288,15 +300,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0112D411EA8169900DA0C77 /* CollectionViewCell.swift in Sources */,
-				A08F7EDE1EA8A2BE005A31DA /* BMPlayerCustomControlView.swift in Sources */,
 				A08F7EDB1EA8A179005A31DA /* playerViewController.swift in Sources */,
-				A06C730C1EA678E900F3AE4B /* CatalogViewController.swift in Sources */,
 				A001AC491EA62793008D9B5B /* ViewController.swift in Sources */,
 				A08F7EEA1EAA2BCF005A31DA /* InfoTableViewCell.swift in Sources */,
-				A08F7EEB1EAA2BCF005A31DA /* PlayerTableViewCell.swift in Sources */,
 				A0112D3F1EA7D68000DA0C77 /* ApiRequests.swift in Sources */,
 				A0BCE63A1EA7C3C40032BA96 /* MenuCell.swift in Sources */,
-				A08F7EDF1EA8A2BE005A31DA /* BMPlayerCustomControlView2.swift in Sources */,
 				A0BCE6361EA7C2820032BA96 /* SWRevealViewController.m in Sources */,
 				A001AC471EA62793008D9B5B /* AppDelegate.swift in Sources */,
 				A0BCE63B1EA7C3C40032BA96 /* menuViewController.swift in Sources */,
