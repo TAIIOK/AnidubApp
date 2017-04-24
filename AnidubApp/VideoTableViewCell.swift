@@ -57,10 +57,23 @@ class VideoTableViewCell: UITableViewCell {
     }
     
     func bookmark(){
-        if(flag){
-            
-        }else{
         
+        var button = self.viewWithTag(2) as! UIButton
+        if var  student = loadUser() as? user {
+            removeUser()
+
+        if(flag){
+            student.favCount = student.favCount - 1
+            remove_fav(ID:(currentTitle.first?.ID)!,login:student.ID,password:student.password)
+            flag = false
+            button.setTitle("Добавить в закладки",for: .normal)
+        }else{
+            student.favCount = student.favCount - 1
+            flag = true
+            add_fav(ID:(currentTitle.first?.ID)!,login:student.ID,password:student.password)
+            button.setTitle("Убрать из закладки",for: .normal)
+        }
+            saveUser(value: student)
         }
     }
 
@@ -72,12 +85,13 @@ class VideoTableViewCell: UITableViewCell {
         choosebutton.frame = CGRect(x: 0, y: 0, width: 150, height: 40)
         choosebutton.setTitle("Выберите серию", for: UIControlState.normal)
         choosebutton.addTarget(self,action: #selector(changeEpisode),for: .touchUpInside)
+        choosebutton.tag = 1
         self.addSubview(choosebutton)
         let bookmarkbutton = UIButton(type: UIButtonType.system)
-        bookmarkbutton.frame = CGRect(x: 180, y: 0, width: 150, height: 40)
+        bookmarkbutton.frame = CGRect(x: 180, y: 0, width: 250, height: 40)
         bookmarkbutton.setTitle(inbookmark(), for: UIControlState.normal)
         bookmarkbutton.addTarget(self,action: #selector(bookmark),for: .touchUpInside)
-        
+        bookmarkbutton.tag = 2
         self.addSubview(bookmarkbutton)
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad)

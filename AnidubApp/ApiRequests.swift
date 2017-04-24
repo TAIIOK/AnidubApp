@@ -1,5 +1,90 @@
 import Foundation
 
+func add_fav(ID:Int,login:Int,password:String) -> Bool {
+    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.add")!)
+    request.httpMethod = "POST"
+    
+    var bodyData = "id=\(ID)&user_id=\(login)&password=\(password)"
+    var result = false
+    request.httpBody = bodyData.data(using: String.Encoding.utf8)
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data else {
+            print("request failed \(error)")
+            return
+        }
+        
+        do {
+            
+            if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                
+                
+                let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
+                
+                if ((Response?["Data"] as? String)! == "Added")
+                {
+                    result = true
+                }
+                
+            }
+            semaphore.signal()
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    task.resume()
+    
+    _ = semaphore.wait(timeout: .distantFuture)
+    
+    return result
+    
+}
+func remove_fav(ID:Int,login:Int,password:String) -> Bool {
+    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.delete")!)
+    request.httpMethod = "POST"
+    
+    var bodyData = "id=\(ID)&user_id=\(login)&password=\(password)"
+    var result = false
+    request.httpBody = bodyData.data(using: String.Encoding.utf8)
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data else {
+            print("request failed \(error)")
+            return
+        }
+        
+        do {
+            
+            if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                
+                
+                let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
+                print(Response)
+                if ((Response?["Data"] as? String)! == "Removed")
+                {
+                    result = true
+                }
+                
+            }
+            semaphore.signal()
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    task.resume()
+    
+    _ = semaphore.wait(timeout: .distantFuture)
+    
+    return result
+    
+}
+
 func is_fav(ID:Int,login:Int,password:String) -> Bool {
     var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.isFav")!)
     request.httpMethod = "POST"
