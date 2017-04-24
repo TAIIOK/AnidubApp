@@ -267,7 +267,12 @@ func setupEpisodes(data: [String:Any]) -> [[episodes]]?{
     var mirrorarray = data["Mirror"] as! Array<Any>
     for case let result in mirrorarray {
         var elem = result as? [String:Any]
-        episodlist.append(episodes(Name: elem?["Name"] as! String, Url: elem?["Url"] as! String))
+        var string = elem?["Name"] as! String
+        if var substring = string.components(separatedBy: "-").last { // Unwrap the optional
+            episodlist.append(episodes(Name: substring, Url: elem?["Url"] as! String))
+        }
+        
+        
     }
     result.append(episodlist)
     episodlist.removeAll()
@@ -275,13 +280,69 @@ func setupEpisodes(data: [String:Any]) -> [[episodes]]?{
     mirrorarray = data["Anidub"] as! Array<Any>
     for case let result in mirrorarray {
         var elem = result as? [String:Any]
-        episodlist.append(episodes(Name: elem?["Name"] as! String, Url: elem?["Url"] as! String))
+        var string = elem?["Name"] as! String
+        if var substring = string.components(separatedBy: "-").last { // Unwrap the optional
+            episodlist.append(episodes(Name: substring, Url: elem?["Url"] as! String))
+        }
     }
     result.append(episodlist)
     return result
 
 
 }
+func search_string(name: String, page:Int) -> [fullTitle]{
+    
+    var Titles_list = [fullTitle]()
+    
+    // url http://anidub-api.herokuapp.com/method/titles.list
+    
+    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/titles.search")!)
+    request.httpMethod = "POST"
+    var bodyData = "query=\(name)&page=\(page)"
+    var result = false
+    
+    request.httpBody = bodyData.data(using: String.Encoding.utf8)
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data else {
+            print("request failed \(error)")
+            return
+        }
+        
+        do {
+            
+            if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                
+                
+                let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
+                let Data = Response?["Data"] as?  Array<Any>
+                
+                for case let result in Data! {
+                    
+                    Titles_list.append(setupFullTitle(data: result as! [String : Any])!)
+                    
+                }
+                
+                
+                
+            }
+            semaphore.signal()
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    task.resume()
+    
+    _ = semaphore.wait(timeout: .distantFuture)
+    
+    return Titles_list
+    
+}
+
+
 
 
 func getTitle_list(page:Int) -> [fullTitle]{

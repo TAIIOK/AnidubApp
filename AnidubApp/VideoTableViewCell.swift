@@ -75,6 +75,7 @@ class VideoTableViewCell: UITableViewCell {
 
     }
 
+
     func changeEpisode()
     {
         
@@ -94,10 +95,12 @@ class VideoTableViewCell: UITableViewCell {
         // Create second button
         let buttonTwo = DefaultButton(title: "Выбрать", height: 60) {
             
-            
-            
-        self.videoWebview.loadRequest(URLRequest(url: URL(string: (self.firstlist.first?[ratingVC.TypePicker.selectedRow(inComponent: 0)].Url)!)!))
-            
+            if(ratingVC.TypePicker.selectedRow(inComponent: 0) == 0)
+            {
+            self.videoWebview.loadRequest(URLRequest(url: URL(string: (self.firstlist.first?[ratingVC.SubjectPicker.selectedRow(inComponent: 0)].Url)!)!))
+            }else{
+            self.videoWebview.loadRequest(URLRequest(url: URL(string: (self.firstlist.last?[ratingVC.SubjectPicker.selectedRow(inComponent: 0)].Url)!)!))
+            }
         }
         
         // Add buttons to dialog

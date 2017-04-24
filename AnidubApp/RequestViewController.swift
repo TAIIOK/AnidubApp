@@ -12,13 +12,21 @@ import UIKit
 class RequestViewController: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource {
     @IBOutlet weak var TypePicker: UIPickerView!
     
+    @IBOutlet weak var SubjectPicker: UIPickerView!
+    
+    
     var Listepisodes = [[episodes]]()
+    
+    let headerTitles = ["Альтернативный", "Анидаб"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.TypePicker.delegate = self
         self.TypePicker.dataSource = self
+        
+        self.SubjectPicker.delegate = self
+        self.SubjectPicker.dataSource = self
         
         // Do any additional setup after loading the view.
     }
@@ -35,17 +43,39 @@ class RequestViewController: UIViewController , UIPickerViewDelegate , UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
-        return Listepisodes.first!.count
+        if pickerView == TypePicker
+        {
+            return headerTitles.count
+        }
+        
+        
+        if(self.TypePicker.selectedRow(inComponent: component) == 0){
+            return (Listepisodes.first?.count)!
+        }
+        
+        return (Listepisodes.last?.count)!
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == TypePicker
+        {
+            
+            return headerTitles[row]
+        }
         
-        return Listepisodes.first?[row].Name
+        if(self.TypePicker.selectedRow(inComponent: component) == 0){
+            return Listepisodes.first?[row].Name
+        }
+        return Listepisodes.last?[row].Name
 
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
+        if pickerView == TypePicker
+        {
+            self.SubjectPicker.reloadAllComponents()
+        }
     }
     
 
