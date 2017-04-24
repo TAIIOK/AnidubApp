@@ -40,6 +40,7 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(ViewController.searchTapped))
         self.navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
         searchflag = false
+        self.mycollection.reloadData()
         var navigationTitlelabel = UILabel()
         navigationTitlelabel.text = mytitle
         navigationTitlelabel.font = UIFont.boldSystemFont(ofSize: 16.0)
@@ -54,7 +55,7 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         self.navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
         
         var searchBar:UISearchBar = UISearchBar()
-        searchBar.placeholder = "Search for Places"
+        searchBar.placeholder = "Поиск тайтла"
         self.navigationItem.titleView = searchBar
         searchBar.delegate = self
     }
