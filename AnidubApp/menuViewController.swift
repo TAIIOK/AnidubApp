@@ -46,6 +46,9 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // Create second button
         let buttonTwo = DefaultButton(title: "Выбрать", height: 60) {
             
+            DispatchQueue.global(qos: .background).async {
+                
+                
           if let user = User_login(login: ratingVC.loginlabel.text!, password: ratingVC.passwordlabel.text!)
           {
            saveUser(value: user)
@@ -65,7 +68,8 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
             }
             
-            
+             
+            }
             
             
         }
