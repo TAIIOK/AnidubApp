@@ -15,5 +15,6 @@ class InfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titledescription: UILabel!
     
+    @IBOutlet weak var Genries: UILabel!
     @IBOutlet weak var Studio: UILabel!
 }

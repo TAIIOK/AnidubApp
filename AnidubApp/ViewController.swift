@@ -83,9 +83,15 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
     
     @IBOutlet weak var btnMenuButton: UIBarButtonItem!
     
+    var maxpage:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let  student = loadUser() as? user {
+            maxpage = student.favCount/10
+        }
+        self.titleslist.removeAll()
         setupSidebarMenu()
         mycollection.delegate = self
         mycollection.dataSource = self
@@ -118,9 +124,14 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
      
         DispatchQueue.global(qos: .background).async {
             // Background Thread
-            self.titleslist += getTitles_list(page: self.page )
-            self.page = self.page + 1
+            //self.titleslist += getTitles_list(page: self.page )
+            if let  student = loadUser() as? user {
+
+                self.titleslist += getFav_list(login: student.ID, password: student.password, page: self.page)
+                self.page = self.page + 1
+            }
             
+
             
             DispatchQueue.main.async {
                 self.mycollection.reloadData()
@@ -134,7 +145,7 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
        
         DispatchQueue.global(qos: .background).async {
             // Background Thread
-            self.titleslist += getTitles_list(page: self.page )
+            self.titleslist += getTitle_list(page: self.page )
             self.page = self.page + 1
             
             
@@ -159,7 +170,9 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
             if(state != 5){
             loadTitles()
             }
+            else if(maxpage<=page){
             loadBookmarks()
+            }
 
         }
         

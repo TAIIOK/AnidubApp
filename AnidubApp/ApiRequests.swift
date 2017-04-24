@@ -138,11 +138,11 @@ func User_login(login:String,password:String) -> user? {
                 
 
                 result = convertedJsonIntoDict?["Error"] as! Bool
-                
+                if(!result){
                 let Data = Response?["Data"] as?  [String:Any]
                 
                 ID =  Int(Data?["ID"] as! String)!
-                
+                }
                 
             }
             semaphore.signal()
@@ -282,8 +282,10 @@ func setupEpisodes(data: [String:Any]) -> [[episodes]]?{
 
 
 }
-func getTitles_list(page:Int) -> [fullTitle]{
 
+
+func getTitle_list(page:Int) -> [fullTitle]{
+    
     var Titles_list = [fullTitle]()
     
     // url http://anidub-api.herokuapp.com/method/titles.list
@@ -305,17 +307,71 @@ func getTitles_list(page:Int) -> [fullTitle]{
         do {
             
             if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-            
+                
                 
                 let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
                 let Data = Response?["Data"] as?  Array<Any>
                 
                 for case let result in Data! {
+                    
+                    Titles_list.append(setupFullTitle(data: result as! [String : Any])!)
+                    
+                }
+                
+                
+                
+            }
+            semaphore.signal()
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    task.resume()
+    
+    _ = semaphore.wait(timeout: .distantFuture)
+    
+    return Titles_list
+    
+}
+
+
+
+func getFav_list(login:Int,password:String,page:Int) -> [fullTitle]{
+
+    var Titles_list = [fullTitle]()
+    
+    // url http://anidub-api.herokuapp.com/method/titles.list
+    
+    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.list")!)
+    request.httpMethod = "POST"
+    var bodyData = "user_id=\(login)&password=\(md5(password))&page=\(page)"
+    var result = false
+    
+    request.httpBody = bodyData.data(using: String.Encoding.utf8)
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data else {
+            print("request failed \(error)")
+            return
+        }
+        
+        do {
+            
+            if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+            
+                
+                let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
+                let Data = Response?["Data"] as?  Array<Any>
+                if(Data != nil){
+                for case let result in Data! {
                 
                   Titles_list.append(setupFullTitle(data: result as! [String : Any])!)
                 
                 }
-                
+                }
                
                 
             }

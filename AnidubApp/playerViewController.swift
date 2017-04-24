@@ -45,6 +45,7 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
             cell.Studio.text = currentTitle.first?.Information.Studio
             cell.titledescription.text = currentTitle.first?.Information.Description
             cell.TitleDescription.text = currentTitle.first?.Title.Russian
+            cell.Genries.text = currentTitle.first?.Information.Genres
             
             return cell
         }
@@ -70,7 +71,7 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
         load_episodes()
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 207
+        tableView.estimatedRowHeight = 266
 
         tableView.delegate = self
         tableView.dataSource = self
