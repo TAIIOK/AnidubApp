@@ -457,7 +457,7 @@ func getFav_list(login:Int,password:String,page:Int) -> [fullTitle]{
     
     var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.list")!)
     request.httpMethod = "POST"
-    var bodyData = "user_id=\(login)&password=\(md5(password))&page=\(page)"
+    var bodyData = "user_id=\(login)&password=\(password)&page=\(page)"
     var result = false
     
     request.httpBody = bodyData.data(using: String.Encoding.utf8)
@@ -475,6 +475,7 @@ func getFav_list(login:Int,password:String,page:Int) -> [fullTitle]{
             
                 
                 let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
+                print(convertedJsonIntoDict)
                 let Data = Response?["Data"] as?  Array<Any>
                 if(Data != nil){
                 for case let result in Data! {

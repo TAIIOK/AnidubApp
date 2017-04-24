@@ -88,7 +88,7 @@ class VideoTableViewCell: UITableViewCell {
         choosebutton.tag = 1
         self.addSubview(choosebutton)
         let bookmarkbutton = UIButton(type: UIButtonType.system)
-        bookmarkbutton.frame = CGRect(x: 180, y: 0, width: 250, height: 40)
+        bookmarkbutton.frame = CGRect(x: 155, y: 0, width: 175, height: 40)
         bookmarkbutton.setTitle(inbookmark(), for: UIControlState.normal)
         bookmarkbutton.addTarget(self,action: #selector(bookmark),for: .touchUpInside)
         bookmarkbutton.tag = 2
