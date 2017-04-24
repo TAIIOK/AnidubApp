@@ -21,13 +21,12 @@ struct video {
 class VideoTableViewCell: UITableViewCell {
 
 
-
-    
     var videoWebview = UIWebView()
     let SCREEN_WITH = UIScreen.main.bounds.size.width
     let SCTREEN_HIEGTH = UIScreen.main.bounds.size.height
     var firstlist = [[episodes]]()
-    
+    var titleID = 0
+    var flag = false
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         super.init(style: .default, reuseIdentifier: nil)
@@ -39,29 +38,48 @@ class VideoTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func isbookmark() -> Bool{
+        
+        if let  student = loadUser() as? user {
+            
+        flag = is_fav(ID:(currentTitle.first?.ID)!,login:student.ID,password:student.password)
+        }
+        return flag
     
+    }
 
+    func inbookmark() -> String
+    {
+        if(!isbookmark()){
+        return "Добавить в закладки"
+        }
+        return "Убрать из закладок"
+    }
+    
+    func bookmark(){
+        if(flag){
+            
+        }else{
+        
+        }
+    }
 
     override func awakeFromNib() {
         
-        
-        
         super.awakeFromNib()
         
-
+        let choosebutton = UIButton(type: UIButtonType.system)
+        choosebutton.frame = CGRect(x: 0, y: 0, width: 150, height: 40)
+        choosebutton.setTitle("Выберите серию", for: UIControlState.normal)
+        choosebutton.addTarget(self,action: #selector(changeEpisode),for: .touchUpInside)
+        self.addSubview(choosebutton)
+        let bookmarkbutton = UIButton(type: UIButtonType.system)
+        bookmarkbutton.frame = CGRect(x: 180, y: 0, width: 150, height: 40)
+        bookmarkbutton.setTitle(inbookmark(), for: UIControlState.normal)
+        bookmarkbutton.addTarget(self,action: #selector(bookmark),for: .touchUpInside)
         
-
-        let myButton = UIButton(type: UIButtonType.system)
+        self.addSubview(bookmarkbutton)
         
-        myButton.frame = CGRect(x: 0, y: 0, width: 150, height: 40)
-
-        myButton.setTitle("Выберите серию", for: UIControlState.normal)
-        
-        myButton.addTarget(self,
-                           action: #selector(changeEpisode),
-                           for: .touchUpInside
-        )
-        self.addSubview(myButton)
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad)
         {
         videoWebview.frame = CGRect(x: 0 , y: 40, width: SCREEN_WITH, height: 400)

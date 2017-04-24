@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AnidubApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5B0F0402D74F7BAB3CD0C4926506FDD5</key>
+		<key>61345B2249025D2AE358BA1A4F6ECAD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>83BA46DA4EFE1B36FB557F609A15B367</key>
+		<key>847593BCD143D6765924C6D1AE3B0720</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE76E0F252EF9462495F7E09238AA70D</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF85EB3E82F4832961D3B094C9D706D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
