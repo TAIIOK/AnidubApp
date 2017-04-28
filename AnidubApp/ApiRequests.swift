@@ -1,6 +1,9 @@
 import Foundation
 
 func add_fav(ID:Int,login:Int,password:String) -> Bool {
+
+    
+    
     var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.add")!)
     request.httpMethod = "POST"
     
@@ -428,8 +431,12 @@ func getTitle_list(page:Int) -> [fullTitle]{
                 let Data = Response?["Data"] as?  Array<Any>
                 
                 for case let result in Data! {
+                 var title = setupFullTitle(data: result as! [String : Any])
                     
-                    Titles_list.append(setupFullTitle(data: result as! [String : Any])!)
+                 var  index =  Titles_list.index { $0.ID == title?.ID }
+                    if(index != nil){
+                    Titles_list.append(title!)
+                    }
                     
                 }
                 
@@ -475,12 +482,15 @@ func getFav_list(login:Int,password:String,page:Int) -> [fullTitle]{
             
                 
                 let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
-                print(convertedJsonIntoDict)
                 let Data = Response?["Data"] as?  Array<Any>
                 if(Data != nil){
                 for case let result in Data! {
-                
-                  Titles_list.append(setupFullTitle(data: result as! [String : Any])!)
+                    
+                var title = setupFullTitle(data: result as! [String : Any])
+                    var  index =  Titles_list.index { $0.ID == title?.ID }
+                    if(index != nil){
+                        Titles_list.append(title!)
+                    }
                 
                 }
                 }
