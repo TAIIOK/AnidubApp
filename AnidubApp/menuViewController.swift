@@ -105,7 +105,7 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         iconArray = [UIImage(named:"home")!,UIImage(named:"message")!,UIImage(named:"map")!,UIImage(named:"setting")!]
         
         imgProfile.layer.borderWidth = 2
-        imgProfile.layer.borderColor = UIColor.cyan.cgColor
+        imgProfile.layer.borderColor = UIColor(red: 239.0/255.0, green: 83.0/255.0, blue: 80.0/255.0, alpha: 1.0).cgColor//UIColor.cyan.cgColor rgb(239, 83, 80)
         imgProfile.layer.cornerRadius = 50
         
         imgProfile.layer.masksToBounds = false
@@ -118,7 +118,7 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         usernamelabel.addGestureRecognizer(tapGesture)
         imgProfile.addGestureRecognizer(tapGesture)
 
-
+        self.tblTableView.backgroundColor = UIColor(red: 55.0/255, green: 71.0/255, blue: 79.0/255, alpha: 1)
         
         
         let rowToSelect:IndexPath = IndexPath(row: 0, section: 0) //slecting 0th row with 0th section
@@ -150,6 +150,7 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         else{
         cell.lblMenuname.text! = ManuNameArray[indexPath.row]
         }
+        cell.backgroundColor = UIColor.clear
         cell.imgIcon.image = iconArray[3]
         
         return cell

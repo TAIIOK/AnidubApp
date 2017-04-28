@@ -73,7 +73,8 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        navigationController?.navigationBar.barTintColor = UIColor(red: 144.0/255, green: 164.0/255, blue: 174.0/255, alpha: 1.0)
+        //rgb(144, 164, 174)
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(ViewController.searchTapped))
         self.navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
         
