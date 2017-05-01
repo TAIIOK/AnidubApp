@@ -50,11 +50,7 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
         let newcell = VideoTableViewCell(style: .default, reuseIdentifier: "VideoTableViewCell")
 
         newcell.firstlist = listEpisodes
-        //http://video.sibnet.ru/shell.php?videoid=2810230
-       
-   
-        newcell.videoWebview.loadRequest(URLRequest(url: URL(string: (listEpisodes.first?[0].Url)!)!))
-        
+
         
         return newcell
     }
@@ -65,7 +61,18 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         
         self.title = currentTitle.first?.Title.Russian
-        load_episodes()
+        
+
+        DispatchQueue.global(qos: .background).async {
+            
+            self.load_episodes()
+            
+            let indexPath = NSIndexPath(row: 1, section: 0)
+            let currentCell = self.tableView.cellForRow(at: indexPath as IndexPath) as! VideoTableViewCell
+            currentCell.videoWebview.loadRequest(URLRequest(url: URL(string: (self.listEpisodes.first?[0].Url)!)!))
+
+        }
+        
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 266
@@ -74,6 +81,7 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(VideoTableViewCell.self, forCellReuseIdentifier: "VideoTableViewCell")
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

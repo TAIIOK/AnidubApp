@@ -434,7 +434,7 @@ func getTitle_list(page:Int) -> [fullTitle]{
                  var title = setupFullTitle(data: result as! [String : Any])
                     
                  var  index =  Titles_list.index { $0.ID == title?.ID }
-                    if(index != nil){
+                    if(index == nil){
                     Titles_list.append(title!)
                     }
                     
@@ -488,7 +488,7 @@ func getFav_list(login:Int,password:String,page:Int) -> [fullTitle]{
                     
                 var title = setupFullTitle(data: result as! [String : Any])
                     var  index =  Titles_list.index { $0.ID == title?.ID }
-                    if(index != nil){
+                    if(index == nil){
                         Titles_list.append(title!)
                     }
                 

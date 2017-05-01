@@ -150,8 +150,9 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         else{
         cell.lblMenuname.text! = ManuNameArray[indexPath.row]
         }
+        cell.lblMenuname.textColor = UIColor.white
         cell.backgroundColor = UIColor.clear
-        cell.imgIcon.image = iconArray[3]
+
         
         return cell
     }
