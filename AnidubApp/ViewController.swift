@@ -6,6 +6,28 @@
 //  Copyright © 2016 Parth Changela. All rights reserved.
 //
 
+extension Array where Element: Equatable {
+    
+    public func uniq() -> [Element] {
+        var arrayCopy = self
+        arrayCopy.uniqInPlace()
+        return arrayCopy
+    }
+    
+    mutating public func uniqInPlace() {
+        var seen = [Element]()
+        var index = 0
+        for element in self {
+            if seen.contains(element) {
+                remove(at: index)
+            } else {
+                seen.append(element)
+                index += 1
+            }
+        }
+    }
+}
+
 import UIKit
 import AlamofireImage
 import Alamofire
@@ -114,9 +136,18 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         DispatchQueue.global(qos: .background).async {
 
             if let  student = loadUser() as? user {
-
-                self.titleslist += getFav_list(login: student.ID, password: student.password, page: self.page)
+                
+                let input  = getFav_list(login: student.ID, password: student.password, page: self.page)
+                for title in input
+                {
+                    let res = self.titleslist.index{ $0.ID == title.ID }
+                    if( res == nil )
+                    {
+                        self.titleslist.append(title)
+                    }
+                }
                 self.page = self.page + 1
+                
             }
 
             DispatchQueue.main.async {
@@ -124,12 +155,21 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
             }
         }
     }
-    
+
     func loadTitles()
     {
  
         DispatchQueue.global(qos: .background).async {
-            self.titleslist += getTitle_list(page: self.page )
+            let input  = getTitle_list(page: self.page )
+            for title in input
+            {
+                let res = self.titleslist.index{ $0.ID == title.ID }
+                if( res == nil )
+                {
+                    self.titleslist.append(title)
+                }
+            }
+            
             self.page = self.page + 1
             
             

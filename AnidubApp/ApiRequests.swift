@@ -431,12 +431,10 @@ func getTitle_list(page:Int) -> [fullTitle]{
                 let Data = Response?["Data"] as?  Array<Any>
                 
                 for case let result in Data! {
-                 var title = setupFullTitle(data: result as! [String : Any])
-                    
-                 var  index =  Titles_list.index { $0.ID == title?.ID }
-                    if(index == nil){
+                 let title = setupFullTitle(data: result as! [String : Any])
+
                     Titles_list.append(title!)
-                    }
+                    
                     
                 }
                 
@@ -456,6 +454,10 @@ func getTitle_list(page:Int) -> [fullTitle]{
     
 }
 
+
+func == (lhs: fullTitle, rhs: fullTitle) -> Bool {
+    return lhs.Categories == rhs.Categories && lhs.Url == rhs.Url && lhs.ID == rhs.ID
+}
 
 
 func getFav_list(login:Int,password:String,page:Int) -> [fullTitle]{
@@ -486,8 +488,8 @@ func getFav_list(login:Int,password:String,page:Int) -> [fullTitle]{
                 if(Data != nil){
                 for case let result in Data! {
                     
-                var title = setupFullTitle(data: result as! [String : Any])
-                    var  index =  Titles_list.index { $0.ID == title?.ID }
+                let title = setupFullTitle(data: result as! [String : Any])
+                    var  index =  Titles_list.index { $0.Title.Russian  == title?.Title.Russian  }
                     if(index == nil){
                         Titles_list.append(title!)
                     }
