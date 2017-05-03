@@ -48,10 +48,10 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
 
         let newcell = VideoTableViewCell(style: .default, reuseIdentifier: "VideoTableViewCell")
-
-        newcell.firstlist = listEpisodes
-
-        
+        if(self.listEpisodes.count > 0){
+        newcell.firstlist = self.listEpisodes
+        newcell.videoWebview.loadRequest(URLRequest(url: URL(string: (self.listEpisodes.first?[0].Url)!)!))
+        }
         return newcell
     }
     
@@ -61,19 +61,7 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         
         self.title = currentTitle.first?.Title.Russian
-        
-
-        DispatchQueue.global(qos: .background).async {
-            
-            self.load_episodes()
-            
-            let indexPath = NSIndexPath(row: 1, section: 0)
-            let currentCell = self.tableView.cellForRow(at: indexPath as IndexPath) as! VideoTableViewCell
-            currentCell.videoWebview.loadRequest(URLRequest(url: URL(string: (self.listEpisodes.first?[0].Url)!)!))
-
-        }
-        
-        
+        load_episodes()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 266
 
@@ -81,7 +69,7 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(VideoTableViewCell.self, forCellReuseIdentifier: "VideoTableViewCell")
-        
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -89,8 +77,15 @@ class playerViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func load_episodes() {
-    
-       listEpisodes = getTitles_episodes(id: (currentTitle.first?.ID)!)
+
+        DispatchQueue.global(qos: .background).async {
+            self.listEpisodes = getTitles_episodes(id: (currentTitle.first?.ID)!)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
     
     }
 

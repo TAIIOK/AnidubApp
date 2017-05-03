@@ -65,7 +65,7 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         self.mycollection.reloadData()
         var navigationTitlelabel = UILabel()
         navigationTitlelabel.text = mytitle
-        navigationTitlelabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+        navigationTitlelabel.font = UIFont(name: "Optima-Italic", size: 16)
         navigationTitlelabel.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         
         self.navigationController!.navigationBar.topItem!.titleView = navigationTitlelabel
@@ -95,7 +95,15 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor(red: 244.0/255, green: 67.0/255, blue: 54.0/255, alpha: 1.0)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Optima-Italic", size: 16)!]
+        
+         navigationController?.navigationBar.backgroundColor = UIColor(red: 200.0/255, green: 56.0/255, blue: 55.0/255, alpha: 0.0)
+        
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = UIColor(red: 200.0/255, green: 56.0/255, blue: 55.0/255, alpha: 0.5)
+        
+        //rgb(68, 55, 83); 200 56 55
         //rgb(144, 164, 174) // rgb(239, 83, 80) //rgb(255, 82, 82) //rgb(244, 67, 54)
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(ViewController.searchTapped))
         self.navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
@@ -108,7 +116,7 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         mycollection.delegate = self
         mycollection.dataSource = self
         
-        
+        //UIFont(name: "Futura-Medium", size: 20)
         switch state {
         case 0:
             mytitle = "Новые серии"
@@ -219,9 +227,11 @@ class ViewController: UIViewController,UICollectionViewDelegate , UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionViewCell", for: indexPath as IndexPath) as! CollectionViewCell
         let dishName:Int
         if(searchflag == false){
+            cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
         cell.titleLabel.text = titleslist[indexPath.row].Title.Russian
         dishName = titleslist[indexPath.row].ID
         }else{
+            cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
             cell.titleLabel.text = searchtitles[indexPath.row].Title.Russian
             dishName = searchtitles[indexPath.row].ID
         }

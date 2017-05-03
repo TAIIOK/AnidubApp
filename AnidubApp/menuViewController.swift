@@ -105,7 +105,8 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         iconArray = [UIImage(named:"home")!,UIImage(named:"message")!,UIImage(named:"map")!,UIImage(named:"setting")!]
         
         imgProfile.layer.borderWidth = 2
-        imgProfile.layer.borderColor = UIColor(red: 239.0/255.0, green: 83.0/255.0, blue: 80.0/255.0, alpha: 1.0).cgColor//UIColor.cyan.cgColor rgb(239, 83, 80)
+        imgProfile.layer.borderColor = UIColor(red: 233.0/255.0, green: 71.0/255.0, blue: 43.0/255.0, alpha: 1.0).cgColor//UIColor.cyan.cgColor rgb(239, 83, 80)
+        //rgb(233, 71, 43);
         imgProfile.layer.cornerRadius = 50
         
         imgProfile.layer.masksToBounds = false
@@ -118,13 +119,32 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         usernamelabel.addGestureRecognizer(tapGesture)
         imgProfile.addGestureRecognizer(tapGesture)
 
-        self.tblTableView.backgroundColor = UIColor(red: 55.0/255, green: 71.0/255, blue: 79.0/255, alpha: 1)
-        
+  
+         self.tblTableView.backgroundColor = UIColor(red: 37.0/255, green: 37.0/255, blue: 37.0/255, alpha: 0.0)
         
         let rowToSelect:IndexPath = IndexPath(row: 0, section: 0) //slecting 0th row with 0th section
         self.tblTableView.selectRow(at: rowToSelect, animated: false, scrollPosition: .none)
         // Do any additional setup after loading the view.
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 18))
+        headerView.backgroundColor = UIColor(red: 200.0/255, green: 56.0/255, blue: 55.0/255, alpha: 1.0)
+        // 200 56 55
+        let label = UILabel()
+       // label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = sections[section]
+        label.frame = CGRect(x: 25, y: 0, width: 175, height: 25)
+        headerView.addSubview(label)
+   //     label.leftAnchor.constraint(equalTo: headerView.leftAnchor).isActive = true
+   //     label.rightAnchor.constraint(equalTo: headerView.rightAnchor).isActive = true
+   //     label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+   //     label.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        
+        return headerView
+        
+    }
+    
 
     func singleTapping(gesture: UIGestureRecognizer) {
         print("image clicked")
@@ -150,6 +170,11 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         else{
         cell.lblMenuname.text! = ManuNameArray[indexPath.row]
         }
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.lightGray
+        cell.selectedBackgroundView = backgroundView
+        
         cell.lblMenuname.textColor = UIColor.white
         cell.backgroundColor = UIColor.clear
 
