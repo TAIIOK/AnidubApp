@@ -12,13 +12,13 @@
 		A001AC491EA62793008D9B5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A001AC481EA62793008D9B5B /* ViewController.swift */; };
 		A001AC4E1EA62793008D9B5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A001AC4D1EA62793008D9B5B /* Assets.xcassets */; };
 		A001AC511EA62793008D9B5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A001AC4F1EA62793008D9B5B /* LaunchScreen.storyboard */; };
-		A0112D3D1EA7CAC900DA0C77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0112D3C1EA7CAC900DA0C77 /* Main.storyboard */; };
 		A0112D3F1EA7D68000DA0C77 /* ApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0112D3E1EA7D68000DA0C77 /* ApiRequests.swift */; };
 		A0112D411EA8169900DA0C77 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0112D401EA8169900DA0C77 /* CollectionViewCell.swift */; };
 		A0121DA61EAAB8DF00E0F2BA /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0121DA51EAAB8DF00E0F2BA /* RequestViewController.swift */; };
 		A0121DA81EAAB90A00E0F2BA /* RequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0121DA71EAAB90A00E0F2BA /* RequestViewController.xib */; };
 		A0121DAA1EAB5CBA00E0F2BA /* loginviewcontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0121DA91EAB5CBA00E0F2BA /* loginviewcontroller.xib */; };
 		A0121DAC1EAB5DA000E0F2BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0121DAB1EAB5DA000E0F2BA /* LoginViewController.swift */; };
+		A03F61DD1F595D50001EA7DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A03F61DC1F595D50001EA7DD /* Main.storyboard */; };
 		A06C73071EA65C3000F3AE4B /* DatabaseFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C73061EA65C3000F3AE4B /* DatabaseFunction.swift */; };
 		A06C73091EA65C3E00F3AE4B /* appdatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */; };
 		A08F7EDB1EA8A179005A31DA /* playerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F7EDA1EA8A179005A31DA /* playerViewController.swift */; };
@@ -39,13 +39,13 @@
 		A001AC4D1EA62793008D9B5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A001AC501EA62793008D9B5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A001AC521EA62793008D9B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0112D3B1EA7CAC900DA0C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0112D3E1EA7D68000DA0C77 /* ApiRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequests.swift; sourceTree = "<group>"; };
 		A0112D401EA8169900DA0C77 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		A0121DA51EAAB8DF00E0F2BA /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		A0121DA71EAAB90A00E0F2BA /* RequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestViewController.xib; sourceTree = "<group>"; };
 		A0121DA91EAB5CBA00E0F2BA /* loginviewcontroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginviewcontroller.xib; sourceTree = "<group>"; };
 		A0121DAB1EAB5DA000E0F2BA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A03F61DC1F595D50001EA7DD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A06C73061EA65C3000F3AE4B /* DatabaseFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunction.swift; sourceTree = "<group>"; };
 		A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = appdatabase.sqlite; sourceTree = "<group>"; };
 		A08F7EDA1EA8A179005A31DA /* playerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playerViewController.swift; sourceTree = "<group>"; };
@@ -105,12 +105,12 @@
 				A0E6AD271EAE4CF700D1FB56 /* Global */,
 				A0E6AD261EAE4C3F00D1FB56 /* Info/Player */,
 				A0E6AD251EAE4C0500D1FB56 /* Menu */,
-				A0112D3C1EA7CAC900DA0C77 /* Main.storyboard */,
 				A001AC461EA62793008D9B5B /* AppDelegate.swift */,
 				A001AC4D1EA62793008D9B5B /* Assets.xcassets */,
 				A001AC4F1EA62793008D9B5B /* LaunchScreen.storyboard */,
 				A06C73081EA65C3E00F3AE4B /* appdatabase.sqlite */,
 				A001AC521EA62793008D9B5B /* Info.plist */,
+				A03F61DC1F595D50001EA7DD /* Main.storyboard */,
 			);
 			path = AnidubApp;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 					A001AC421EA62792008D9B5B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = Y6XF9JEXKG;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -225,11 +225,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A03F61DD1F595D50001EA7DD /* Main.storyboard in Resources */,
 				A06C73091EA65C3E00F3AE4B /* appdatabase.sqlite in Resources */,
 				A001AC511EA62793008D9B5B /* LaunchScreen.storyboard in Resources */,
 				A0121DAA1EAB5CBA00E0F2BA /* loginviewcontroller.xib in Resources */,
 				A001AC4E1EA62793008D9B5B /* Assets.xcassets in Resources */,
-				A0112D3D1EA7CAC900DA0C77 /* Main.storyboard in Resources */,
 				A0121DA81EAAB90A00E0F2BA /* RequestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,13 +243,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnidubApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9396D1C976E5FDFDFF86D1D4 /* [CP] Embed Pods Frameworks */ = {
@@ -258,9 +261,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -328,15 +340,6 @@
 				A001AC501EA62793008D9B5B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		A0112D3C1EA7CAC900DA0C77 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A0112D3B1EA7CAC900DA0C77 /* Base */,
-			);
-			name = Main.storyboard;
-			path = "../../../../Downloads/lift-side-memu-in-swift-3-master/memuDemo";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -442,14 +445,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y6XF9JEXKG;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AnidubApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4ef7e584-7781-408e-9a6f-1b72b7c4e8ea";
-				PROVISIONING_PROFILE_SPECIFIER = ololo;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = AnidubApp/Header.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -462,14 +466,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y6XF9JEXKG;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AnidubApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f7933052-1b84-4068-aa8f-2afecad233d6";
-				PROVISIONING_PROFILE_SPECIFIER = ololo;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = AnidubApp/Header.h;
 				SWIFT_VERSION = 3.0;
 			};
