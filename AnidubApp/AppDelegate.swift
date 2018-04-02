@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             copyFile(fileName: "appdatabase.sqlite")
         }
+
         return true
     }
 

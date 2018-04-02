@@ -1,13 +1,11 @@
 import Foundation
 
-func add_fav(ID:Int,login:Int,password:String) -> Bool {
+func add_fav(ID:Int,login:Int,password:String,userHash:String) -> Bool {
 
-    
-    
-    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.add")!)
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/fav.Add")!)
     request.httpMethod = "POST"
     
-    var bodyData = "id=\(ID)&user_id=\(login)&password=\(password)"
+    var bodyData = "id=\(ID)&user_id=\(login)&user_password=\(password)&user_hash=\(userHash)"
     var result = false
     request.httpBody = bodyData.data(using: String.Encoding.utf8)
     let semaphore = DispatchSemaphore(value: 0)
@@ -45,11 +43,11 @@ func add_fav(ID:Int,login:Int,password:String) -> Bool {
     return result
     
 }
-func remove_fav(ID:Int,login:Int,password:String) -> Bool {
-    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.delete")!)
+func remove_fav(ID:Int,login:Int,password:String,userHash:String) -> Bool {
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/fav.Delete")!)
     request.httpMethod = "POST"
     
-    var bodyData = "id=\(ID)&user_id=\(login)&password=\(password)"
+    var bodyData = "id=\(ID)&user_id=\(login)&user_password=\(password)&user_hash=\(userHash)"
     var result = false
     request.httpBody = bodyData.data(using: String.Encoding.utf8)
     let semaphore = DispatchSemaphore(value: 0)
@@ -88,11 +86,11 @@ func remove_fav(ID:Int,login:Int,password:String) -> Bool {
     
 }
 
-func is_fav(ID:Int,login:Int,password:String) -> Bool {
-    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.isFav")!)
+func is_fav(ID:Int,login:Int,password:String,userHash:String) -> Bool {
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/fav.Check")!)
     request.httpMethod = "POST"
     
-    var bodyData = "id=\(ID)&user_id=\(login)&password=\(password)"
+    var bodyData = "id=\(ID)&user_id=\(login)&user_password=\(password)&user_hash=\(userHash)"
     var result = false
     request.httpBody = bodyData.data(using: String.Encoding.utf8)
     let semaphore = DispatchSemaphore(value: 0)
@@ -128,15 +126,11 @@ func is_fav(ID:Int,login:Int,password:String) -> Bool {
     
 }
 
-
-
-
-
-func get_fav_count(login:Int,password:String) -> Int {
-    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.count")!)
+func get_fav_count(login:Int,password:String,userHash:String) -> Int {
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/fav.getCount")!)
     request.httpMethod = "POST"
     
-    var bodyData = "user_id=\(login)&password=\(password)"
+    var bodyData = "user_id=\(login)&user_password=\(password)&user_hash=\(userHash)"
     var result = false
     var Count = 0
     request.httpBody = bodyData.data(using: String.Encoding.utf8)
@@ -180,7 +174,7 @@ func get_fav_count(login:Int,password:String) -> Int {
 
 func User_login(login:String,password:String) -> user? {
     
-    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/account.login")!)
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/account.doAuth")!)
     request.httpMethod = "POST"
     
     var bodyData = "login=\(login)&password=\(md5(password))"
@@ -228,7 +222,7 @@ func User_login(login:String,password:String) -> user? {
     }
     
     print(ID)
-    return user(ID: ID, favCount: get_fav_count(login: ID, password: md5(password)), username: login , password: md5(password) )
+    return user(ID: ID, favCount: get_fav_count(login: ID, password: md5(password), userHash: "someHash"), username: login , password: md5(password) )
 }
 
 
@@ -355,7 +349,7 @@ func search_string(name: String, page:Int) -> [fullTitle]{
     
     var Titles_list = [fullTitle]()
     
-    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/titles.search")!)
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/anime.search")!)
     request.httpMethod = "POST"
     var bodyData = "query=\(name)&page=\(page)"
     var result = false
@@ -408,7 +402,7 @@ func getTitle_list(page:Int) -> [fullTitle]{
     
     // url http://anidub-api.herokuapp.com/method/titles.list
     
-    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/titles.list")!)
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/anime.getList")!)
     request.httpMethod = "POST"
     var bodyData = "page=\(page)"
     var result = false
@@ -464,9 +458,9 @@ func getFav_list(login:Int,password:String,page:Int) -> [fullTitle]{
 
     var Titles_list = [fullTitle]()
     
-    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/fav.list")!)
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/fav.getAll")!)
     request.httpMethod = "POST"
-    var bodyData = "user_id=\(login)&password=\(password)&page=\(page)"
+    var bodyData = "user_id=\(login)&user_password=\(password)&page=\(page)"
     var result = false
     
     request.httpBody = bodyData.data(using: String.Encoding.utf8)
@@ -519,7 +513,7 @@ func getTitles_episodes(id:Int) -> [[episodes]] {
     var listEpisodes = [[episodes]]()
 
 
-    var request = URLRequest(url: URL(string: "https://anidub-api.herokuapp.com/method/titles.getEpisodes")!)
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/anime.getEpisodes")!)
     request.httpMethod = "POST"
     var bodyData = "id=\(id)"
     var result = false
