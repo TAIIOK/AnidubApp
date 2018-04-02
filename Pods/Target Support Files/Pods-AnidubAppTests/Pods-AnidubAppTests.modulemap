@@ -1,0 +1,6 @@
+framework module Pods_AnidubAppTests {
+  umbrella header "Pods-AnidubAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
