@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2C80911C86163F85D73803E6 /* Pods_AnidubAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C861441A60CE7FE5C3CDD9A7 /* Pods_AnidubAppUITests.framework */; };
 		2FDC361100E3AE6F23529BD3 /* Pods_AnidubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0580E0193EFD213931720200 /* Pods_AnidubApp.framework */; };
+		A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71122072A81E00A03E67 /* ApiRequests.swift */; };
+		A02D71152072A83E00A03E67 /* DatabaseFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71142072A83E00A03E67 /* DatabaseFunction.swift */; };
+		A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71162072A85E00A03E67 /* secondaryFunctions.swift */; };
+		A02D71192072A8D400A03E67 /* appdatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A02D71182072A88E00A03E67 /* appdatabase.sqlite */; };
 		A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF420728AF800E2C030 /* AppDelegate.swift */; };
 		A06B8BF720728AF800E2C030 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF620728AF800E2C030 /* FirstViewController.swift */; };
 		A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF820728AF800E2C030 /* SecondViewController.swift */; };
@@ -46,6 +50,10 @@
 		189845AE368DFD0632AC182C /* Pods-AnidubApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.debug.xcconfig"; sourceTree = "<group>"; };
 		96778B92D0E3B99CB5B0044D /* Pods_AnidubAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnidubAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97978079B3338DDFCAF60FBB /* Pods-AnidubAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubAppTests/Pods-AnidubAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		A02D71122072A81E00A03E67 /* ApiRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequests.swift; sourceTree = "<group>"; };
+		A02D71142072A83E00A03E67 /* DatabaseFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunction.swift; sourceTree = "<group>"; };
+		A02D71162072A85E00A03E67 /* secondaryFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondaryFunctions.swift; sourceTree = "<group>"; };
+		A02D71182072A88E00A03E67 /* appdatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = appdatabase.sqlite; sourceTree = "<group>"; };
 		A06B8BF120728AF800E2C030 /* AnidubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnidubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06B8BF420728AF800E2C030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A06B8BF620728AF800E2C030 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +159,10 @@
 				A0A14B8120728D9B00C3C7F2 /* Fabric.framework */,
 				A06B8BF420728AF800E2C030 /* AppDelegate.swift */,
 				A06B8BF620728AF800E2C030 /* FirstViewController.swift */,
+				A02D71162072A85E00A03E67 /* secondaryFunctions.swift */,
+				A02D71122072A81E00A03E67 /* ApiRequests.swift */,
+				A02D71182072A88E00A03E67 /* appdatabase.sqlite */,
+				A02D71142072A83E00A03E67 /* DatabaseFunction.swift */,
 				A06B8BF820728AF800E2C030 /* SecondViewController.swift */,
 				A06B8BFA20728AF800E2C030 /* Main.storyboard */,
 				A06B8BFD20728AFD00E2C030 /* Assets.xcassets */,
@@ -293,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02D71192072A8D400A03E67 /* appdatabase.sqlite in Resources */,
 				A06B8C0120728AFD00E2C030 /* LaunchScreen.storyboard in Resources */,
 				A0A14B8620728F7500C3C7F2 /* GoogleService-Info.plist in Resources */,
 				A06B8BFE20728AFD00E2C030 /* Assets.xcassets in Resources */,
@@ -486,6 +499,9 @@
 			files = (
 				A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */,
 				A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */,
+				A02D71152072A83E00A03E67 /* DatabaseFunction.swift in Sources */,
+				A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */,
+				A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */,
 				A06B8BF720728AF800E2C030 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,7 +684,10 @@
 				);
 				INFOPLIST_FILE = AnidubApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -689,7 +708,10 @@
 				);
 				INFOPLIST_FILE = AnidubApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -706,7 +728,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
 				INFOPLIST_FILE = AnidubAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -724,7 +750,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
 				INFOPLIST_FILE = AnidubAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -741,7 +771,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
 				INFOPLIST_FILE = AnidubAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -758,7 +792,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
 				INFOPLIST_FILE = AnidubAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
