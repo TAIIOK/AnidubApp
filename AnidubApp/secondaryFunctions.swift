@@ -49,6 +49,7 @@ struct user {
     var password:String
 }
 
+
 func md5(_ string: String) -> String {
     
     
@@ -65,5 +66,6 @@ func md5(_ string: String) -> String {
     
     return hexString
 }
+ 
 
 

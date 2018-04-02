@@ -5,8 +5,8 @@ target 'AnidubApp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod 'Firebase/Core'
-  pod 'SQLite.swift'
-  pod 'AlamofireImage'
+  pod 'SQLite.swift', '~> 0.11.4'
+  pod 'AlamofireImage', '~> 3.3'
   
   # Pods for AnidubApp
 

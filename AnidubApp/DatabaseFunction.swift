@@ -43,10 +43,13 @@ func loadUser() -> Any? {
     let favcount = Expression<Int>("favcount")
     let username = Expression<String?>("username")
     let password = Expression<String>("password")
+
     
     for userR in try! db.prepare(userT) {
 
-        return  user(ID: userR.get(id), favCount: userR.get(favcount), username: userR.get(username)!, password: userR.get(password))
+
+        return  user(ID: try! userR.get(id), favCount: try! userR.get(favcount), username: try! userR.get(username)!, password: try! userR.get(password))
+
     }
     
     return nil

@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.4.0)
-  - AlamofireImage (3.2.0):
-    - Alamofire (~> 4.1)
+  - Alamofire (4.7.1)
+  - AlamofireImage (3.3.1):
+    - Alamofire (~> 4.5)
   - Firebase/Core (3.16.0):
     - FirebaseAnalytics (= 3.8.0)
     - FirebaseCore (= 3.6.0)
@@ -16,25 +16,25 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
-  - SQLite.swift (0.11.3):
-    - SQLite.swift/standard (= 0.11.3)
-  - SQLite.swift/standard (0.11.3)
+  - SQLite.swift (0.11.4):
+    - SQLite.swift/standard (= 0.11.4)
+  - SQLite.swift/standard (0.11.4)
 
 DEPENDENCIES:
-  - AlamofireImage
+  - AlamofireImage (~> 3.3)
   - Firebase/Core
-  - SQLite.swift
+  - SQLite.swift (~> 0.11.4)
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
   FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  SQLite.swift: 99b36c22084427f0abbeb957556ce1528cf10bb3
+  SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
 
-PODFILE CHECKSUM: 0bf7b7bff3a53b6012999cd70393b144d9ea8917
+PODFILE CHECKSUM: 90b73312658f6b9ad4d85d5ca4844fbaf0a8584b
 
 COCOAPODS: 1.4.0
