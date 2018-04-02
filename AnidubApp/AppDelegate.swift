@@ -10,6 +10,8 @@ import UIKit
 import Fabric
 import Crashlytics
 import Firebase
+import AVKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,8 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        }
+        catch {
+            //
+        }
         Fabric.with([Crashlytics.self])
         FIRApp.configure()
+
+        var path = getPath(fileName: "appdatabase.sqlite")
+
+        if(path.characters.count == 0 )
+        {
+            copyFile(fileName: "appdatabase.sqlite")
+        }
         return true
     }
 
