@@ -297,7 +297,24 @@ func setupFullTitle(data: [String:Any]) -> fullTitle?
     let title = setupTitle(data: data)
     let information = setupInformation(data: data)
     let rating = setupRating(data: data)
-    
+
+    var result:fullTitle
+
+    if(data["ID"] as? String == nil)
+    {
+
+        guard let id = data["Id"] as? String,
+            let url = data["Url"] as? String,
+            let uploader = data["Uploader"] as? String,
+            let categories = data["Categories"] as? [String],
+            let poster = data["Poster"] as? String,
+            let commentaries = data["Commentaries"] as? String
+            else {
+                return nil
+        }
+        result  = fullTitle(ID: Int(id)!, Url: url, Title: title!, Uploader: uploader, Categories: categories, Poster: poster, Information: information!, Commentaries: 0, Rating: rating!)
+    }
+    else{
     
     guard let id = data["ID"] as? String,
         let url = data["Url"] as? String,
@@ -308,8 +325,9 @@ func setupFullTitle(data: [String:Any]) -> fullTitle?
         else {
             return nil
         }
-    
-    let result  = fullTitle(ID: Int(id)!, Url: url, Title: title!, Uploader: uploader, Categories: categories, Poster: poster, Information: information!, Commentaries: Int(commentaries)!, Rating: rating!)
+        result  = fullTitle(ID: Int(id)!, Url: url, Title: title!, Uploader: uploader, Categories: categories, Poster: poster, Information: information!, Commentaries: Int(commentaries)!, Rating: rating!)
+    }
+
     
         return result
     
@@ -349,7 +367,7 @@ func search_string(name: String, page:Int) -> [fullTitle]{
     
     var Titles_list = [fullTitle]()
     
-    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/anime.search")!)
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/anime.search?")!)
     request.httpMethod = "POST"
     var bodyData = "query=\(name)&page=\(page)"
     var result = false
@@ -366,14 +384,24 @@ func search_string(name: String, page:Int) -> [fullTitle]{
         do {
             
             if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+
+
                 
-                
-                let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
-                let Data = Response?["Data"] as?  Array<Any>
-                
-                for case let result in Data! {
+                let Data = convertedJsonIntoDict?["Responce"] as! Array<Any>
+
+                for case let result  in Data {
+
+                    var temp = result as! [String:Any]
+
+                    var Information = temp["Information"] as! [String:Any]
+                    Information["Commentaries"] = ""
+
+                    temp["Information"] = Information
+
+                    print(temp)
+                    Titles_list.append(setupFullTitle(data: temp)!)
                     
-                    Titles_list.append(setupFullTitle(data: result as! [String : Any])!)
+              //      Titles_list.append(setupFullTitle(data: result as! [String : Any])!)
                     
                 }
     
@@ -425,6 +453,7 @@ func getTitle_list(page:Int) -> [fullTitle]{
                 let Data = Response?["Data"] as?  Array<Any>
                 
                 for case let result in Data! {
+
                  let title = setupFullTitle(data: result as! [String : Any])
 
                     Titles_list.append(title!)

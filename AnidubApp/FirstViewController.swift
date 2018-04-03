@@ -48,17 +48,43 @@ extension UIApplication {
 extension String {
     func slice(from: String, to: String) -> String? {
 
-        return (range(of: from)?.upperBound).flatMap { substringFrom in
+        var result = (range(of: from)?.upperBound).flatMap { substringFrom in
             (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
                 substring(with: substringFrom..<substringTo)
             }
         }
+        if result == nil{
+            return ""
+        }
+        return result
+    }
+}
+
+
+extension FirstViewController : UICollectionViewDelegateFlowLayout{
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width
+        return CGSize(width: collectionViewWidth/2, height: collectionViewWidth/2)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
 }
 
 
 
 class FirstViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource, UISearchBarDelegate {
+
+    
 
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -73,16 +99,15 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionViewCell", for: indexPath as IndexPath) as! CollectionViewCell
         let dishName:Int
+
+        cell.titleLabel.sizeToFit()
         if(searchflag == false){
 
-            cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
+          //  cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
             if(titleslist[indexPath.row].Title.Russian == ""){
                 var temp:String = titleslist[indexPath.row].Title.fullName
                 let index = temp.index(of: "/") ?? temp.endIndex
                 let beginning = temp[..<index]
-
-
-
 
                 titleslist[indexPath.row].Title.Russian = String(beginning) + " [" + temp.slice(from: "[", to: "]")! + "]"
             }
@@ -90,7 +115,22 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
             print(titleslist[indexPath.row].Title.Russian)
             dishName = titleslist[indexPath.row].ID
         }else{
-            cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
+
+            if(searchtitles[indexPath.row].Title.Russian == ""){
+                var temp:String = searchtitles[indexPath.row].Title.fullName
+                let index = temp.index(of: "/") ?? temp.endIndex
+                let beginning = temp[..<index]
+
+                searchtitles[indexPath.row].Title.Russian = String(beginning)
+                if(temp.slice(from: "[", to: "]")! != ""){
+                    searchtitles[indexPath.row].Title.Russian += " [" + temp.slice(from: "[", to: "]")! + "]"
+                }
+
+
+            }
+
+
+          //  cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
             cell.titleLabel.text = searchtitles[indexPath.row].Title.Russian
             dishName = searchtitles[indexPath.row].ID
         }
@@ -126,7 +166,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
             }
 
         }
-
+        
         return cell
 
     }
@@ -156,6 +196,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
     }
 
+    
 
 
 
@@ -189,6 +230,14 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         navItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
         FirstNavigationBar.items = [navItem]
 
+        /*
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        mycollection.collectionViewLayout = layout
+         */
         mycollection.delegate = self
         mycollection.dataSource = self
 
