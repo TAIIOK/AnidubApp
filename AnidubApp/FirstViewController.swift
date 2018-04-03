@@ -45,6 +45,17 @@ extension UIApplication {
     }
 }
 
+extension String {
+    func slice(from: String, to: String) -> String? {
+
+        return (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                substring(with: substringFrom..<substringTo)
+            }
+        }
+    }
+}
+
 
 
 class FirstViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource, UISearchBarDelegate {
@@ -65,6 +76,16 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         if(searchflag == false){
 
             cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
+            if(titleslist[indexPath.row].Title.Russian == ""){
+                var temp:String = titleslist[indexPath.row].Title.fullName
+                let index = temp.index(of: "/") ?? temp.endIndex
+                let beginning = temp[..<index]
+
+
+
+
+                titleslist[indexPath.row].Title.Russian = String(beginning) + " [" + temp.slice(from: "[", to: "]")! + "]"
+            }
             cell.titleLabel.text = titleslist[indexPath.row].Title.Russian
             print(titleslist[indexPath.row].Title.Russian)
             dishName = titleslist[indexPath.row].ID
