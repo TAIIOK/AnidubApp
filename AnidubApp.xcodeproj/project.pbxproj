@@ -13,6 +13,9 @@
 		A02D71152072A83E00A03E67 /* DatabaseFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71142072A83E00A03E67 /* DatabaseFunction.swift */; };
 		A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71162072A85E00A03E67 /* secondaryFunctions.swift */; };
 		A02D71192072A8D400A03E67 /* appdatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A02D71182072A88E00A03E67 /* appdatabase.sqlite */; };
+		A02D71202073876000A03E67 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D711F2073876000A03E67 /* ThirdViewController.swift */; };
+		A02D7122207389F500A03E67 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D7121207389F500A03E67 /* FourthViewController.swift */; };
+		A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D712320738AFD00A03E67 /* FifthViewController.swift */; };
 		A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF420728AF800E2C030 /* AppDelegate.swift */; };
 		A06B8BF720728AF800E2C030 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF620728AF800E2C030 /* FirstViewController.swift */; };
 		A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF820728AF800E2C030 /* SecondViewController.swift */; };
@@ -55,6 +58,9 @@
 		A02D71162072A85E00A03E67 /* secondaryFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondaryFunctions.swift; sourceTree = "<group>"; };
 		A02D71182072A88E00A03E67 /* appdatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = appdatabase.sqlite; sourceTree = "<group>"; };
 		A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnidubApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		A02D711F2073876000A03E67 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		A02D7121207389F500A03E67 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		A02D712320738AFD00A03E67 /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		A06B8BF120728AF800E2C030 /* AnidubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnidubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06B8BF420728AF800E2C030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A06B8BF620728AF800E2C030 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -160,11 +166,14 @@
 				A0A14B8120728D9B00C3C7F2 /* Fabric.framework */,
 				A06B8BF420728AF800E2C030 /* AppDelegate.swift */,
 				A06B8BF620728AF800E2C030 /* FirstViewController.swift */,
+				A06B8BF820728AF800E2C030 /* SecondViewController.swift */,
+				A02D711F2073876000A03E67 /* ThirdViewController.swift */,
+				A02D7121207389F500A03E67 /* FourthViewController.swift */,
+				A02D712320738AFD00A03E67 /* FifthViewController.swift */,
 				A02D71162072A85E00A03E67 /* secondaryFunctions.swift */,
 				A02D71122072A81E00A03E67 /* ApiRequests.swift */,
 				A02D71182072A88E00A03E67 /* appdatabase.sqlite */,
 				A02D71142072A83E00A03E67 /* DatabaseFunction.swift */,
-				A06B8BF820728AF800E2C030 /* SecondViewController.swift */,
 				A06B8BFA20728AF800E2C030 /* Main.storyboard */,
 				A06B8BFD20728AFD00E2C030 /* Assets.xcassets */,
 				A06B8BFF20728AFD00E2C030 /* LaunchScreen.storyboard */,
@@ -512,9 +521,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */,
 				A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */,
 				A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */,
 				A02D71152072A83E00A03E67 /* DatabaseFunction.swift in Sources */,
+				A02D71202073876000A03E67 /* ThirdViewController.swift in Sources */,
+				A02D7122207389F500A03E67 /* FourthViewController.swift in Sources */,
 				A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */,
 				A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */,
 				A06B8BF720728AF800E2C030 /* FirstViewController.swift in Sources */,
@@ -700,7 +712,10 @@
 				);
 				INFOPLIST_FILE = AnidubApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AnidubApp/AnidubApp-Bridging-Header.h";
@@ -724,7 +739,10 @@
 				);
 				INFOPLIST_FILE = AnidubApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AnidubApp/AnidubApp-Bridging-Header.h";
@@ -742,7 +760,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
 				INFOPLIST_FILE = AnidubAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -760,7 +782,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
 				INFOPLIST_FILE = AnidubAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -777,7 +803,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
 				INFOPLIST_FILE = AnidubAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -794,7 +824,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
 				INFOPLIST_FILE = AnidubAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
