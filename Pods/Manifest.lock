@@ -2,20 +2,42 @@ PODS:
   - Alamofire (4.7.1)
   - AlamofireImage (3.3.1):
     - Alamofire (~> 4.5)
-  - Firebase/Core (3.16.0):
-    - FirebaseAnalytics (= 3.8.0)
-    - FirebaseCore (= 3.6.0)
-  - FirebaseAnalytics (3.8.0):
-    - FirebaseCore (~> 3.6)
-    - FirebaseInstanceID (~> 1.0)
+  - Firebase/Core (4.11.0):
+    - FirebaseAnalytics (= 4.1.0)
+    - FirebaseCore (= 4.0.18)
+  - Firebase/Performance (4.11.0):
+    - Firebase/Core
+    - FirebasePerformance (= 1.1.2)
+  - FirebaseAnalytics (4.1.0):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.6.0):
+    - nanopb (~> 0.3)
+  - FirebaseCore (4.0.18):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.10):
-    - FirebaseCore (~> 3.6)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - FirebaseInstanceID (2.0.10):
+    - FirebaseCore (~> 4.0)
+  - FirebasePerformance (1.1.2):
+    - FirebaseAnalytics (~> 4.1)
+    - FirebaseInstanceID (~> 2.0)
+    - FirebaseSwizzlingUtilities (~> 1.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+    - Protobuf (~> 3.5)
+  - FirebaseSwizzlingUtilities (1.0.0)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/Logger (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GTMSessionFetcher/Core (1.1.14)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - Protobuf (3.5.0)
   - SQLite.swift (0.11.4):
     - SQLite.swift/standard (= 0.11.4)
   - SQLite.swift/standard (0.11.4)
@@ -23,18 +45,24 @@ PODS:
 DEPENDENCIES:
   - AlamofireImage (~> 3.3)
   - Firebase/Core
+  - Firebase/Performance
   - SQLite.swift (~> 0.11.4)
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
-  Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
-  FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
-  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
-  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  Firebase: cc13dfab1038c8b45d7903e01fc690451d6d0b24
+  FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
+  FirebaseCore: b981f47e5254cbcfdeb483355300d743f6fcab2c
+  FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
+  FirebasePerformance: 96c831a9eaf8d2ddf8bb37a4a6f6dd1b4bfe929f
+  FirebaseSwizzlingUtilities: f1c49a5a372ac852c853722a5891a0a5e2344a6c
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GTMSessionFetcher: 390ea358e5a0d0133153806f744662dad933d06b
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
 
-PODFILE CHECKSUM: 90b73312658f6b9ad4d85d5ca4844fbaf0a8584b
+PODFILE CHECKSUM: d8fd2319f894c946f6fe7d5c8aadd3730408b1c4
 
 COCOAPODS: 1.4.0

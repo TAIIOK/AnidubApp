@@ -7,6 +7,7 @@ target 'AnidubApp' do
   pod 'Firebase/Core'
   pod 'SQLite.swift', '~> 0.11.4'
   pod 'AlamofireImage', '~> 3.3'
+  pod 'Firebase/Performance'
   
   # Pods for AnidubApp
 

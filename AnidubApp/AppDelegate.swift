@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //
         }
         Fabric.with([Crashlytics.self])
-        FIRApp.configure()
+        FirebaseApp.configure()
 
         var path = getPath(fileName: "appdatabase.sqlite")
 
