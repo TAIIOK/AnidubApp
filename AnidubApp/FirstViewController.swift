@@ -36,18 +36,123 @@ extension Array where Element: Equatable {
 var ImageCache = [Int:UIImage]()
 var currentTitle = [fullTitle]()
 
+extension UIApplication {
+    var statusBarView: UIView? {
+        if responds(to: Selector("statusBar")) {
+            return value(forKey: "statusBar") as? UIView
+        }
+        return nil
+    }
+}
 
 
-class FirstViewController: UIViewController , UISearchBarDelegate {
+
+class FirstViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource, UISearchBarDelegate {
+
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(searchflag)
+        {
+            return searchtitles.count
+        }
+        return titleslist.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionViewCell", for: indexPath as IndexPath) as! CollectionViewCell
+        let dishName:Int
+        if(searchflag == false){
+
+            cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
+            cell.titleLabel.text = titleslist[indexPath.row].Title.Russian
+            print(titleslist[indexPath.row].Title.Russian)
+            dishName = titleslist[indexPath.row].ID
+        }else{
+            cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
+            cell.titleLabel.text = searchtitles[indexPath.row].Title.Russian
+            dishName = searchtitles[indexPath.row].ID
+        }
+        if let dishImage = ImageCache[dishName] {
+            cell.titleimageview?.image = dishImage
+        }
+        else {
+            if(searchflag == false){
+                Alamofire.request(titleslist[indexPath.row].Poster).responseImage { response in
+                    debugPrint(response)
+
+
+                    if let image = response.result.value {
+                        ImageCache[dishName] = image
+                        DispatchQueue.main.async(execute: {
+                            cell.titleimageview?.image = image
+                        })
+                    }
+                }
+            }else{
+                Alamofire.request(searchtitles[indexPath.row].Poster).responseImage { response in
+                    debugPrint(response)
+
+
+                    if let image = response.result.value {
+                        ImageCache[dishName] = image
+                        DispatchQueue.main.async(execute: {
+                            cell.titleimageview?.image = image
+                        })
+                    }
+                }
+
+            }
+
+        }
+
+        return cell
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+       // let myVC = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as! playerViewController
+        if(searchflag==false){
+            currentTitle.append(titleslist[indexPath.row])
+        }
+        else{
+            currentTitle.append(searchtitles[indexPath.row])
+        }
+       // navigationController?.pushViewController(myVC, animated: true)
+
+
+        print(indexPath.row)
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+
+        if (indexPath.item == (titleslist.count - 5) && searchflag == false){
+                loadTitles()
+        }
+
+    }
+
+
+
+
+    
+    @IBOutlet weak var mycollection: UICollectionView!
+    
     @IBOutlet weak var FirstNavigationBar: UINavigationBar!
 
     var searchflag = false
     var mytitle = ""
     var titleslist = [fullTitle]()
     var searchtitles = [fullTitle]()
+    var page = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        UIApplication.shared.statusBarView?.backgroundColor = .blue
 
         FirstNavigationBar.titleTextAttributes = [ kCTFontAttributeName: UIFont(name: "Optima-Italic", size: 16)!] as [NSAttributedStringKey : Any]
 
@@ -63,6 +168,10 @@ class FirstViewController: UIViewController , UISearchBarDelegate {
         navItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
         FirstNavigationBar.items = [navItem]
 
+        mycollection.delegate = self
+        mycollection.dataSource = self
+
+        loadTitles()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -70,6 +179,7 @@ class FirstViewController: UIViewController , UISearchBarDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
     @objc func hideSearchBar(){
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(FirstViewController.searchTapped))
@@ -79,7 +189,7 @@ class FirstViewController: UIViewController , UISearchBarDelegate {
         navItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
 
         FirstNavigationBar.items = [navItem]
-        //self.mycollection.reloadData()
+        self.mycollection.reloadData()
         var navigationTitlelabel = UILabel()
         navigationTitlelabel.text = mytitle
         navigationTitlelabel.font = UIFont(name: "Optima-Italic", size: 16)
@@ -104,7 +214,7 @@ class FirstViewController: UIViewController , UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchflag = true
-       // self.mycollection.reloadData()
+        self.mycollection.reloadData()
         searchtitles = search_string(name: searchBar.text!,page: 0)
 
         searchBar.resignFirstResponder()
@@ -112,6 +222,34 @@ class FirstViewController: UIViewController , UISearchBarDelegate {
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         hideSearchBar()
     }
+
+    func loadTitles()
+    {
+
+        DispatchQueue.global(qos: .background).async {
+            let input  = getTitle_list(page: self.page )
+            for title in input
+            {
+                let res = self.titleslist.index{ $0.ID == title.ID }
+                if( res == nil )
+                {
+                    self.titleslist.append(title)
+                }
+            }
+
+            self.page = self.page + 1
+
+
+            DispatchQueue.main.async {
+                self.mycollection.reloadData()
+            }
+        }
+
+
+    }
+
+
+
 
 }
 

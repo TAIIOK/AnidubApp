@@ -16,6 +16,7 @@
 		A02D71202073876000A03E67 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D711F2073876000A03E67 /* ThirdViewController.swift */; };
 		A02D7122207389F500A03E67 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D7121207389F500A03E67 /* FourthViewController.swift */; };
 		A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D712320738AFD00A03E67 /* FifthViewController.swift */; };
+		A02D71262073A20600A03E67 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71252073A20600A03E67 /* CollectionViewCell.swift */; };
 		A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF420728AF800E2C030 /* AppDelegate.swift */; };
 		A06B8BF720728AF800E2C030 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF620728AF800E2C030 /* FirstViewController.swift */; };
 		A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF820728AF800E2C030 /* SecondViewController.swift */; };
@@ -61,6 +62,7 @@
 		A02D711F2073876000A03E67 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		A02D7121207389F500A03E67 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		A02D712320738AFD00A03E67 /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
+		A02D71252073A20600A03E67 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		A06B8BF120728AF800E2C030 /* AnidubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnidubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06B8BF420728AF800E2C030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A06B8BF620728AF800E2C030 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				A0A14B8520728F7400C3C7F2 /* GoogleService-Info.plist */,
 				A06B8C0220728AFD00E2C030 /* Info.plist */,
 				A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */,
+				A02D71252073A20600A03E67 /* CollectionViewCell.swift */,
 			);
 			path = AnidubApp;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02D71262073A20600A03E67 /* CollectionViewCell.swift in Sources */,
 				A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */,
 				A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */,
 				A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */,
