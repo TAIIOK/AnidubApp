@@ -106,6 +106,7 @@ class InfoViewController: ArticleViewController {
         currentTitle.removeAll()
         print("Deleted")
         print(currentTitle.count)
+        listEpisodes.removeAll()
     }
 
     func load_episodes() {
