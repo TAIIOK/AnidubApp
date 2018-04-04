@@ -22,26 +22,35 @@ class InfoViewController: ArticleViewController {
 
     override func viewDidLoad() {
 
+        autoColored = true
+        imageView.image = ImageCache[(currentTitle.first?.ID)!]
         super.viewDidLoad()
 
-        imageView.image = UIImage(named: "TestPic")!
-        headline = "Dreamers go deeper than ever before, help man find pinwheel"
-        author = "Christopher Nolan"
+
+
+        imageView.image = ImageCache[(currentTitle.first?.ID)!]
+        headline = (currentTitle.first?.Title.Russian)!
+        author = (currentTitle.first?.Information.Dubbers)! + (currentTitle.first?.Information.Studio)! + (currentTitle.first?.Information.Country)!
         date = NSDate() as Date
-        body =  " bodyText"
+        body =  (currentTitle.first?.Information.Description)!
         autoColored = true
 
         print("PUSH2")
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-  
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        currentTitle.removeAll()
+        print("Deleted")
+        print(currentTitle.count)
+    }
 
 }
 

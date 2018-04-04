@@ -97,22 +97,24 @@ open class ArticleViewController: UIViewController {
     // MARK: - UIViewController
     
     override open func viewDidLoad() {
-        super.viewDidLoad()
+
         
         // if autoColored, setup after extracting color; otherwise, setup now.
         if autoColored {
             imageView.image?.getColors { colors in
-                self.backgroundColor = self.backgroundColorSet ? self.backgroundColor : colors.backgroundColor
-                self.headlineColor = self.headlineColorSet ? self.headlineColor : colors.primaryColor
-                self.dateColor = self.dateColorSet ? self.dateColor : colors.detailColor
-                self.authorColor = self.authorColorSet ? self.authorColor : colors.secondaryColor
-                self.bodyColor = self.bodyColorSet ? self.bodyColor : colors.detailColor
+                self.backgroundColor = self.backgroundColorSet ? self.backgroundColor : colors.background
+                self.headlineColor = self.headlineColorSet ? self.headlineColor : colors.primary
+                self.dateColor = self.dateColorSet ? self.dateColor : colors.detail
+                self.authorColor = self.authorColorSet ? self.authorColor : colors.secondary
+                self.bodyColor = self.bodyColorSet ? self.bodyColor : colors.detail
                 
                 self.setupUI()
+                print("PIDORS DETECTED")
             }
         } else {
             setupUI()
         }
+         super.viewDidLoad()
     }
 
     override open func didReceiveMemoryWarning() {
