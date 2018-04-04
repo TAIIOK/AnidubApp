@@ -367,7 +367,7 @@ func search_string(name: String, page:Int) -> [fullTitle]{
     
     var Titles_list = [fullTitle]()
     
-    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v4/anime.search?")!)
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v5/anime.search?")!)
     request.httpMethod = "POST"
     var bodyData = "query=\(name)&page=\(page)"
     var result = false
@@ -387,22 +387,16 @@ func search_string(name: String, page:Int) -> [fullTitle]{
 
 
                 
-                let Data = convertedJsonIntoDict?["Responce"] as! Array<Any>
+                let Response = convertedJsonIntoDict?["Response"] as? [String: Any]
+                let Data = Response?["Data"] as?  Array<Any>
 
-                for case let result  in Data {
+                for case let result in Data! {
 
-                    var temp = result as! [String:Any]
+                    let title = setupFullTitle(data: result as! [String : Any])
 
-                    var Information = temp["Information"] as! [String:Any]
-                    Information["Commentaries"] = ""
+                    Titles_list.append(title!)
 
-                    temp["Information"] = Information
 
-                    print(temp)
-                    Titles_list.append(setupFullTitle(data: temp)!)
-                    
-              //      Titles_list.append(setupFullTitle(data: result as! [String : Any])!)
-                    
                 }
     
             }

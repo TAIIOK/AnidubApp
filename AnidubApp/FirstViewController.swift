@@ -173,15 +173,19 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-       // let myVC = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as! playerViewController
+       // let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
+
+        
+       // let myVC = storyboard1.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
         if(searchflag==false){
             currentTitle.append(titleslist[indexPath.row])
         }
         else{
             currentTitle.append(searchtitles[indexPath.row])
         }
-       // navigationController?.pushViewController(myVC, animated: true)
 
+      //  navigationController?.pushViewController(myVC, animated: true)
+        print("PUSH")
 
         print(indexPath.row)
 
@@ -196,14 +200,9 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
     }
 
-    
-
-
 
     
     @IBOutlet weak var mycollection: UICollectionView!
-    
-    @IBOutlet weak var FirstNavigationBar: UINavigationBar!
 
     var searchflag = false
     var mytitle = ""
@@ -214,22 +213,15 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UIApplication.shared.statusBarView?.backgroundColor = .blue
-
-        FirstNavigationBar.titleTextAttributes = [ kCTFontAttributeName: UIFont(name: "Optima-Italic", size: 16)!] as [NSAttributedStringKey : Any]
-
-        FirstNavigationBar.backgroundColor = UIColor(red: 200.0/255, green: 56.0/255, blue: 55.0/255, alpha: 0.0)
-
-        FirstNavigationBar.isTranslucent = false
-        FirstNavigationBar.barTintColor = UIColor(red: 200.0/255, green: 56.0/255, blue: 55.0/255, alpha: 0.5)
+//        UIApplication.shared.statusBarView?.backgroundColor = .blue
 
 
+        //rgb(68, 55, 83); 200 56 55
+        //rgb(144, 164, 174) // rgb(239, 83, 80) //rgb(255, 82, 82) //rgb(244, 67, 54)
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(FirstViewController.searchTapped))
+        navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
 
-        let navItem = UINavigationItem()
-        navItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
-        FirstNavigationBar.items = [navItem]
-
+        navigationController?.title = "ZALUPA"
         /*
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
@@ -255,10 +247,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(FirstViewController.searchTapped))
 
         searchflag = false
-        let navItem = UINavigationItem()
-        navItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
-
-        FirstNavigationBar.items = [navItem]
+        self.navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
         self.mycollection.reloadData()
         var navigationTitlelabel = UILabel()
         navigationTitlelabel.text = mytitle
@@ -266,18 +255,17 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         navigationTitlelabel.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
 
 
-        FirstNavigationBar.topItem!.titleView = navigationTitlelabel
+        self.navigationController!.navigationBar.topItem!.titleView = navigationTitlelabel
     }
 
     @objc func searchTapped(){
 
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(FirstViewController.hideSearchBar))
-        let navItem = UINavigationItem()
-        navItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
+        self.navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
+
         var searchBar:UISearchBar = UISearchBar()
         searchBar.placeholder = "Поиск тайтла"
-        navItem.titleView = searchBar
-        FirstNavigationBar.items = [navItem]
+        self.navigationItem.titleView = searchBar
         searchBar.delegate = self
 
     }

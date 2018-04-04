@@ -28,6 +28,8 @@
 		A0A14B8320728D9B00C3C7F2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A14B8120728D9B00C3C7F2 /* Fabric.framework */; };
 		A0A14B8420728D9B00C3C7F2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A14B8220728D9B00C3C7F2 /* Crashlytics.framework */; };
 		A0A14B8620728F7500C3C7F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0A14B8520728F7400C3C7F2 /* GoogleService-Info.plist */; };
+		A0DAD25A2074FDFB00F00217 /* MRArticleViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DAD2592074FDFB00F00217 /* MRArticleViewController.framework */; };
+		A0DAD25C20750B3500F00217 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DAD25B20750B3500F00217 /* InfoViewController.swift */; };
 		B5A665ACB3E1D3B9A688ACDA /* Pods_AnidubAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96778B92D0E3B99CB5B0044D /* Pods_AnidubAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		A0A14B8120728D9B00C3C7F2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		A0A14B8220728D9B00C3C7F2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		A0A14B8520728F7400C3C7F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0DAD2592074FDFB00F00217 /* MRArticleViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MRArticleViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0DAD25B20750B3500F00217 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A850AEABEB7D4FF47E3B0BF7 /* Pods-AnidubApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.release.xcconfig"; sourceTree = "<group>"; };
 		C861441A60CE7FE5C3CDD9A7 /* Pods_AnidubAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnidubAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB117EE187A8FE7C1F6E58A /* Pods-AnidubAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubAppUITests/Pods-AnidubAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0DAD25A2074FDFB00F00217 /* MRArticleViewController.framework in Frameworks */,
 				A0A14B8420728D9B00C3C7F2 /* Crashlytics.framework in Frameworks */,
 				A0A14B8320728D9B00C3C7F2 /* Fabric.framework in Frameworks */,
 				2FDC361100E3AE6F23529BD3 /* Pods_AnidubApp.framework in Frameworks */,
@@ -132,6 +137,7 @@
 		88AA90796F0C92B9F6791E8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0DAD2592074FDFB00F00217 /* MRArticleViewController.framework */,
 				0580E0193EFD213931720200 /* Pods_AnidubApp.framework */,
 				96778B92D0E3B99CB5B0044D /* Pods_AnidubAppTests.framework */,
 				C861441A60CE7FE5C3CDD9A7 /* Pods_AnidubAppUITests.framework */,
@@ -183,6 +189,7 @@
 				A06B8C0220728AFD00E2C030 /* Info.plist */,
 				A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */,
 				A02D71252073A20600A03E67 /* CollectionViewCell.swift */,
+				A0DAD25B20750B3500F00217 /* InfoViewController.swift */,
 			);
 			path = AnidubApp;
 			sourceTree = "<group>";
@@ -449,6 +456,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MRArticleViewController/MRArticleViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -459,6 +467,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MRArticleViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -525,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A02D71262073A20600A03E67 /* CollectionViewCell.swift in Sources */,
+				A0DAD25C20750B3500F00217 /* InfoViewController.swift in Sources */,
 				A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */,
 				A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */,
 				A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */,
