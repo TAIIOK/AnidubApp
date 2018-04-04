@@ -179,7 +179,7 @@ extension UIImage {
 
 
     public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (UIImageColors) -> Void) {
-        DispatchQueue.global(qos: .userInteractive).sync {
+        DispatchQueue.global().sync {
             let result = self.getColors(quality: quality)
 
                 completion(result)

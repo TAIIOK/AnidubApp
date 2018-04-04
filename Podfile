@@ -9,7 +9,7 @@ target 'AnidubApp' do
   pod 'AlamofireImage', '~> 3.3'
   pod 'Firebase/Performance'
   pod 'MRArticleViewController'
-
+  pod 'PopupDialog', '~> 0.7'
   
   # Pods for AnidubApp
 

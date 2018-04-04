@@ -6,17 +6,12 @@
 //  Copyright © 2018 Roman Efimov. All rights reserved.
 //
 
-//
-//  SecondViewController.swift
-//  AnidubApp
-//
-//  Created by Roman Efimov on 02.04.2018.
-//  Copyright © 2018 Roman Efimov. All rights reserved.
-//
 
 import UIKit
-
+import PopupDialog
 import MRArticleViewController
+
+var listEpisodes = [[episodes]]()
 
 class InfoViewController: ArticleViewController {
 
@@ -24,6 +19,14 @@ class InfoViewController: ArticleViewController {
 
         autoColored = true
         imageView.image = ImageCache[(currentTitle.first?.ID)!]
+        let choosebutton = UIButton(type: UIButtonType.system)
+        choosebutton.frame = CGRect(x: 0, y: 0, width: 150, height: 40)
+        choosebutton.setTitle("Выберите серию", for: UIControlState.normal)
+        choosebutton.addTarget(self,action: #selector(changeEpisode),for: .touchUpInside)
+        choosebutton.tag = 1
+
+         episodeButton = choosebutton
+        
         super.viewDidLoad()
 
 
@@ -35,11 +38,64 @@ class InfoViewController: ArticleViewController {
         body =  (currentTitle.first?.Information.Description)!
         autoColored = true
 
+
+
+
+
+
+
+
+
+
+        videoWebview = UIWebView()
+        videoWebview.frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.size.width, height: 200)
+
+         load_episodes()
+
+
         print("PUSH2")
         // Do any additional setup after loading the view, typically from a nib.
     }
 
 
+    @objc func changeEpisode()
+    {
+
+        // Create a custom view controller
+        let ratingVC = RequestViewController(nibName: "RequestViewController", bundle: nil)
+
+        ratingVC.Listepisodes = listEpisodes
+        // Create the dialog
+        let popup = PopupDialog(viewController: ratingVC, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+
+        // Create first button
+
+        let buttonOne = CancelButton(title: "Отменить", height: 60) {
+
+        }
+
+        // Create second button
+        let buttonTwo = DefaultButton(title: "Выбрать", height: 60) {
+
+            if(ratingVC.TypePicker.selectedRow(inComponent: 0) == 0)
+            {
+                self.loadRequest(urls: (listEpisodes.first?[ratingVC.SubjectPicker.selectedRow(inComponent: 0)].Url)!)
+
+            }else{
+                self.loadRequest(urls: (listEpisodes.last?[ratingVC.SubjectPicker.selectedRow(inComponent: 0)].Url)!)
+            }
+        }
+
+        // Add buttons to dialog
+        popup.addButtons([buttonOne, buttonTwo])
+
+        // Present dialog
+
+
+        self.present(popup, animated: true, completion: nil)
+
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,6 +106,14 @@ class InfoViewController: ArticleViewController {
         currentTitle.removeAll()
         print("Deleted")
         print(currentTitle.count)
+    }
+
+    func load_episodes() {
+
+        DispatchQueue.main.async {
+            listEpisodes = getTitles_episodes(id: (currentTitle.first?.ID)!)
+            self.loadRequest(urls: (listEpisodes.first?[0].Url)!)
+        }
     }
 
 }

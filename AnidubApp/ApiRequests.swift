@@ -342,7 +342,13 @@ func setupEpisodes(data: [String:Any]) -> [[episodes]]?{
         var elem = result as? [String:Any]
         var string = elem?["Name"] as! String
         if var substring = string.components(separatedBy: "-").last { // Unwrap the optional
-            episodlist.append(episodes(Name: substring, Url: elem?["Url"] as! String))
+
+            var temp:String = elem?["Url"] as! String
+            let index = temp.index(of: " ") ?? temp.endIndex
+            let beginning = temp[..<index]
+
+
+            episodlist.append(episodes(Name: substring, Url: String(String(beginning).characters.dropLast(1))))
         }
         
         

@@ -13,7 +13,13 @@ open class ArticleViewController: UIViewController {
     // MARK: - Public properties
     
     open let imageView = UIImageView()
+
     open var autoColored: Bool = false
+
+    open var episodeButton = UIButton()
+
+    open var videoWebview = UIWebView()
+
     
     open var headline: String = "" {
         didSet {
@@ -97,7 +103,7 @@ open class ArticleViewController: UIViewController {
     // MARK: - UIViewController
     
     override open func viewDidLoad() {
-
+ super.viewDidLoad()
         
         // if autoColored, setup after extracting color; otherwise, setup now.
         if autoColored {
@@ -109,12 +115,12 @@ open class ArticleViewController: UIViewController {
                 self.bodyColor = self.bodyColorSet ? self.bodyColor : colors.detail
                 
                 self.setupUI()
-                print("PIDORS DETECTED")
+
             }
         } else {
             setupUI()
         }
-         super.viewDidLoad()
+
     }
 
     override open func didReceiveMemoryWarning() {
@@ -123,15 +129,26 @@ open class ArticleViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    fileprivate func setupUI() {
+    open func setupUI() {
         setupScrollView()
         setupImageView()
         setupHeadline()
         setupAuthor()
         setupDate()
         setupBody()
+        setupChoose()
+        setupWeb()
+
     }
-    
+
+    open func loadRequest(urls:String){
+        let web = backgroundView.viewWithTag(90) as! UIWebView
+
+        let url = URL(string: urls)!
+        web.loadRequest(URLRequest(url: url))
+
+    }
+ 
     fileprivate func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
@@ -141,6 +158,7 @@ open class ArticleViewController: UIViewController {
         NSLayoutConstraint(item: scrollView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
         
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
+
         scrollView.addSubview(backgroundView)
         NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .top, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: backgroundView, attribute: .left, relatedBy: .equal, toItem: scrollView, attribute: .left, multiplier: 1, constant: 0).isActive = true
@@ -194,13 +212,45 @@ open class ArticleViewController: UIViewController {
     fileprivate func setupBody() {
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.addSubview(bodyLabel)
+        
         NSLayoutConstraint(item: bodyLabel, attribute: .top, relatedBy: .equal, toItem: dateLabel, attribute: .bottom, multiplier: 1, constant: 20).isActive = true
         NSLayoutConstraint(item: bodyLabel, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 14).isActive = true
         NSLayoutConstraint(item: bodyLabel, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: -14).isActive = true
-        NSLayoutConstraint(item: bodyLabel, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1, constant: -30).isActive = true
         bodyLabel.numberOfLines = 0
         bodyLabel.sizeToFit()
         bodyLabel.font = UIFont(name: "Georgia", size: 20)
+
     }
+
+    fileprivate func setupChoose(){
+
+        episodeButton.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.addSubview(episodeButton)
+
+        NSLayoutConstraint(item: episodeButton, attribute: .top, relatedBy: .equal, toItem: bodyLabel, attribute: .bottom, multiplier: 1, constant: 20).isActive = true
+        NSLayoutConstraint(item: episodeButton, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 14).isActive = true
+        NSLayoutConstraint(item: episodeButton, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: -14).isActive = true
+
+    }
+
+
+    fileprivate func setupWeb() {
+        videoWebview.translatesAutoresizingMaskIntoConstraints = false
+
+        videoWebview.tag = 90
+
+        videoWebview.scrollView.bounces = false
+        videoWebview.scrollView.isScrollEnabled = false
+        
+        backgroundView.addSubview(videoWebview)
+
+
+        NSLayoutConstraint(item: videoWebview, attribute: .top, relatedBy: .equal, toItem: episodeButton, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: videoWebview, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: videoWebview, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: videoWebview, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: view.bounds.width).isActive = true
+        NSLayoutConstraint(item: videoWebview, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1, constant: -30).isActive = true
+    }
+
 
 }
