@@ -279,15 +279,15 @@ func setupTitle(data: [String:Any]) -> Title?
     
     
     
-    guard let full = inputTitle?["Full"] as? String,
-        let russian = inputTitle?["Russian"] as? String,
-        let original = inputTitle?["Original"] as? String,
+    let full = inputTitle?["Full"] as? String
+      //  let russian = inputTitle?["Russian"] as? String,
+      //  let original = inputTitle?["Original"] as? String,
         let episodes = inputTitle?["Episodes"] as? String
-        else {
-         return nil
-        }
+  //  else do {
+    //     return nil
+   //     }
     
-    return Title(fullName: full, Russian: russian, Original: original, Episodes: episodes)
+    return Title(fullName: full!, Russian: "", Original: "", Episodes: "")
 
 }
 
