@@ -112,9 +112,7 @@ class InfoViewController: ArticleViewController {
             group.leave()
         }
 
-        // does not wait. But the code in notify() gets run
-        // after enter() and leave() calls are balanced
-
+      
         group.notify(queue: .main) {
             self.loadRequest(urls: (listEpisodes.first?[0].Url)!)
         }

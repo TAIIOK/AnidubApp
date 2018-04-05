@@ -67,7 +67,7 @@ extension String {
 
 let animationDuration: TimeInterval = 0.3
 
-let listLayoutStaticCellHeight: CGFloat = 80
+let listLayoutStaticCellHeight: CGFloat = 200
 let gridLayoutStaticCellHeight: CGFloat = 165
 
 
@@ -243,6 +243,8 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
+
 //        UIApplication.shared.statusBarView?.backgroundColor = .blue
 
 
@@ -251,7 +253,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(FirstViewController.searchTapped))
         navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
 
-        navigationController?.title = "ZALUPA"
+        self.navigationController?.title = "ZALUPA"
         /*
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)

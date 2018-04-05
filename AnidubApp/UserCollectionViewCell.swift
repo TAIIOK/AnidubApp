@@ -9,7 +9,7 @@
 import UIKit
 import DisplaySwitcher
 
-private let avatarListLayoutSize: CGFloat = 80.0
+private let avatarListLayoutSize: CGFloat = 200.0
 
 class UserCollectionViewCell: UICollectionViewCell, CellInterface {
     
@@ -68,12 +68,12 @@ class UserCollectionViewCell: UICollectionViewCell, CellInterface {
     
     func setupListLayoutConstraints(_ transitionProgress: CGFloat, cellWidth: CGFloat) {
         avatarImageViewHeightConstraint.constant = ceil(avatarGridLayoutSize - (avatarGridLayoutSize - avatarListLayoutSize) * transitionProgress)
-        avatarImageViewWidthConstraint.constant = avatarImageViewHeightConstraint.constant 
-        nameListLabelLeadingConstraint.constant = avatarImageViewWidthConstraint.constant * transitionProgress + (initialLabelsLeadingConstraintValue - avatarImageViewHeightConstraint.constant)
-        statisticLabelLeadingConstraint.constant = nameListLabelLeadingConstraint.constant
+        avatarImageViewWidthConstraint.constant = avatarImageViewHeightConstraint.constant/1.3
+        nameListLabelLeadingConstraint.constant = avatarImageViewWidthConstraint.constant/2 * transitionProgress + initialLabelsLeadingConstraintValue
+       // statisticLabelLeadingConstraint.constant = nameListLabelLeadingConstraint.constant
         backgroundGradientView.alpha = transitionProgress <= 0.5 ? 1 - transitionProgress : transitionProgress
-        nameListLabel.alpha = transitionProgress
-        statisticLabel.alpha = transitionProgress
+        nameListLabel.alpha =  transitionProgress
+        //statisticLabel.alpha = transitionProgress
     }
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
