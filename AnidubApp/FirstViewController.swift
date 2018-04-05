@@ -248,12 +248,14 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 //        UIApplication.shared.statusBarView?.backgroundColor = .blue
 
 
+        navigationController?.navigationBar.isTranslucent = true
+
+
         //rgb(68, 55, 83); 200 56 55
         //rgb(144, 164, 174) // rgb(239, 83, 80) //rgb(255, 82, 82) //rgb(244, 67, 54)
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(FirstViewController.searchTapped))
         navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
 
-        self.navigationController?.title = "ZALUPA"
         /*
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
