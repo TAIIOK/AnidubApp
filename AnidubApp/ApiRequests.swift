@@ -348,7 +348,19 @@ func setupEpisodes(data: [String:Any]) -> [[episodes]]?{
             let beginning = temp[..<index]
 
 
-            episodlist.append(episodes(Name: substring, Url: String(String(beginning).characters.dropLast(1))))
+
+            if(!String(beginning).contains("http")){
+
+                temp = "https:" + String(beginning)
+                print(temp)
+            }
+            else{
+                temp = String(String(beginning).characters.dropLast(1))
+            }
+
+
+
+            episodlist.append(episodes(Name: substring, Url: temp))
         }
         
         
@@ -361,6 +373,32 @@ func setupEpisodes(data: [String:Any]) -> [[episodes]]?{
         var elem = result as? [String:Any]
         var string = elem?["Name"] as! String
         if var substring = string.components(separatedBy: "-").last { // Unwrap the optional
+            var temp = elem?["Url"] as! String
+
+            let types: NSTextCheckingResult.CheckingType = .link
+
+            let detector = try? NSDataDetector(types: types.rawValue)
+
+            var  myURL = URL(string: elem?["Url"] as! String)
+
+            do {
+
+                let myHTMLString = try String(contentsOf: myURL!, encoding: .utf8)
+
+                let matches = detector?.matches(in: myHTMLString, options: .reportCompletion, range: NSMakeRange(0, myHTMLString.characters.count))
+
+                for match in matches! {
+                    if ((match.url?.absoluteString.contains("https://www.stormo.tv/embed/"))! && !(match.url?.absoluteString.contains("mp4/"))!){
+                        elem?["Url"] = match.url?.absoluteString
+                        print(elem?["Url"])
+                        break
+                    }
+                }
+            } catch let error as NSError {
+                print("Error: \(error)")
+            }
+
+
             episodlist.append(episodes(Name: substring, Url: elem?["Url"] as! String))
         }
     }

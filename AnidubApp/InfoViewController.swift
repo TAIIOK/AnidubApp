@@ -10,6 +10,7 @@
 import UIKit
 import PopupDialog
 import MRArticleViewController
+import WebKit
 
 var listEpisodes = [[episodes]]()
 
@@ -38,16 +39,7 @@ class InfoViewController: ArticleViewController {
         body =  (currentTitle.first?.Information.Description)!
         autoColored = true
 
-
-
-
-
-
-
-
-
-
-        videoWebview = UIWebView()
+        videoWebview = WKWebView()
         videoWebview.frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.size.width, height: 200)
 
          load_episodes()
@@ -77,6 +69,7 @@ class InfoViewController: ArticleViewController {
         // Create second button
         let buttonTwo = DefaultButton(title: "Выбрать", height: 60) {
 
+         
             if(ratingVC.TypePicker.selectedRow(inComponent: 0) == 0)
             {
                 self.loadRequest(urls: (listEpisodes.first?[ratingVC.SubjectPicker.selectedRow(inComponent: 0)].Url)!)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 open class ArticleViewController: UIViewController {
     
@@ -18,7 +19,7 @@ open class ArticleViewController: UIViewController {
 
     open var episodeButton = UIButton()
 
-    open var videoWebview = UIWebView()
+    open var videoWebview = WKWebView()
 
     
     open var headline: String = "" {
@@ -142,10 +143,10 @@ open class ArticleViewController: UIViewController {
     }
 
     open func loadRequest(urls:String){
-        let web = backgroundView.viewWithTag(90) as! UIWebView
+        let web = backgroundView.viewWithTag(90) as! WKWebView
 
         let url = URL(string: urls)!
-        web.loadRequest(URLRequest(url: url))
+        web.load(URLRequest(url: url))
 
     }
  
