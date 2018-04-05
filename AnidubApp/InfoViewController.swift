@@ -104,10 +104,29 @@ class InfoViewController: ArticleViewController {
 
     func load_episodes() {
 
+        let group = DispatchGroup()
+        group.enter()
+
+        DispatchQueue.global(qos:.background).async {
+            listEpisodes = getTitles_episodes(id: (currentTitle.first?.ID)!)
+            group.leave()
+        }
+
+        // does not wait. But the code in notify() gets run
+        // after enter() and leave() calls are balanced
+
+        group.notify(queue: .main) {
+            self.loadRequest(urls: (listEpisodes.first?[0].Url)!)
+        }
+/*
+        DispatchQueue.global(qos: .background).async {
+
         DispatchQueue.main.async {
             listEpisodes = getTitles_episodes(id: (currentTitle.first?.ID)!)
             self.loadRequest(urls: (listEpisodes.first?[0].Url)!)
         }
+        }
+ */
     }
 
 }

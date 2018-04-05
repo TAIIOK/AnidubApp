@@ -378,7 +378,7 @@ func setupEpisodes(data: [String:Any]) -> [[episodes]]?{
             let types: NSTextCheckingResult.CheckingType = .link
 
             let detector = try? NSDataDetector(types: types.rawValue)
-
+/*
             var  myURL = URL(string: elem?["Url"] as! String)
 
             do {
@@ -398,7 +398,7 @@ func setupEpisodes(data: [String:Any]) -> [[episodes]]?{
                 print("Error: \(error)")
             }
 
-
+*/
             episodlist.append(episodes(Name: substring, Url: elem?["Url"] as! String))
         }
     }

@@ -10,6 +10,8 @@ import UIKit
 import AlamofireImage
 import Alamofire
 
+import DisplaySwitcher
+
 extension Array where Element: Equatable {
 
     public func uniq() -> [Element] {
@@ -61,30 +63,31 @@ extension String {
 }
 
 
-extension FirstViewController : UICollectionViewDelegateFlowLayout{
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-    }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewWidth = collectionView.bounds.width
-        return CGSize(width: collectionViewWidth/2, height: collectionViewWidth/2)
-    }
+let animationDuration: TimeInterval = 0.3
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
-    }
-}
-
+let listLayoutStaticCellHeight: CGFloat = 80
+let gridLayoutStaticCellHeight: CGFloat = 165
 
 
 class FirstViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource, UISearchBarDelegate {
 
-    
+
+
+
+     var tap: UITapGestureRecognizer!
+
+     var isTransitionAvailable = true
+    var listLayout = DisplaySwitchLayout(staticCellHeight: listLayoutStaticCellHeight, nextLayoutStaticCellHeight: gridLayoutStaticCellHeight, layoutState: .list)
+     var gridLayout = DisplaySwitchLayout(staticCellHeight: gridLayoutStaticCellHeight, nextLayoutStaticCellHeight: listLayoutStaticCellHeight, layoutState: .grid)
+     var layoutState: LayoutState = .list
+
+
+     func setupCollectionView() {
+        mycollection.collectionViewLayout = listLayout
+        mycollection.register(UserCollectionViewCell.cellNib, forCellWithReuseIdentifier:UserCollectionViewCell.id)
+    }
 
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -97,10 +100,17 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionViewCell", for: indexPath as IndexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionViewCell.id, for: indexPath) as! UserCollectionViewCell
+        if layoutState == .grid {
+            cell.setupGridLayoutConstraints(1, cellWidth: cell.frame.width)
+        } else {
+            cell.setupListLayoutConstraints(1, cellWidth: cell.frame.width)
+        }
+
+
         let dishName:Int
 
-        cell.titleLabel.sizeToFit()
+        
         if(searchflag == false){
 
           //  cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
@@ -111,7 +121,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
                 titleslist[indexPath.row].Title.Russian = String(beginning) + " [" + temp.slice(from: "[", to: "]")! + "]"
             }
-            cell.titleLabel.text = titleslist[indexPath.row].Title.Russian
+            cell.setTitle(title:titleslist[indexPath.row].Title.Russian)
             print(titleslist[indexPath.row].Title.Russian)
             dishName = titleslist[indexPath.row].ID
         }else{
@@ -128,14 +138,12 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
 
             }
+            cell.setTitle(title:searchtitles[indexPath.row].Title.Russian)
 
-
-          //  cell.titleLabel.font = UIFont(name: "Optima-Ragular", size: 16)
-            cell.titleLabel.text = searchtitles[indexPath.row].Title.Russian
             dishName = searchtitles[indexPath.row].ID
         }
         if let dishImage = ImageCache[dishName] {
-            cell.titleimageview?.image = dishImage
+            cell.setImage(image: dishImage)
         }
         else {
             if(searchflag == false){
@@ -146,7 +154,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
                     if let image = response.result.value {
                         ImageCache[dishName] = image
                         DispatchQueue.main.async(execute: {
-                            cell.titleimageview?.image = image
+                            cell.setImage(image: image)
                         })
                     }
                 }
@@ -158,7 +166,8 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
                     if let image = response.result.value {
                         ImageCache[dishName] = image
                         DispatchQueue.main.async(execute: {
-                            cell.titleimageview?.image = image
+                            cell.setImage(image: image)
+                            
                         })
                     }
                 }
@@ -166,7 +175,9 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
             }
 
         }
-        
+
+
+       // cell.bind(searchUsers[(indexPath as NSIndexPath).row])
         return cell
 
     }
@@ -175,8 +186,10 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
        // let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
 
-        
-       // let myVC = storyboard1.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+
+        let destination = InfoViewController() // Your destination
+        navigationController?.pushViewController(destination, animated: true)
+       // let myVC = storyboard.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
         if(searchflag==false){
             currentTitle.append(titleslist[indexPath.row])
         }
@@ -184,7 +197,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
             currentTitle.append(searchtitles[indexPath.row])
         }
 
-      //  navigationController?.pushViewController(myVC, animated: true)
+       // navigationController?.pushViewController(myVC, animated: true)
         print("PUSH")
 
         print(indexPath.row)
@@ -200,6 +213,23 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
     }
 
+    // MARK: - UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout {
+        let customTransitionLayout = TransitionLayout(currentLayout: fromLayout, nextLayout: toLayout)
+        return customTransitionLayout
+    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isTransitionAvailable = false
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        isTransitionAvailable = true
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
 
     
     @IBOutlet weak var mycollection: UICollectionView!
@@ -234,6 +264,8 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         mycollection.dataSource = self
 
         loadTitles()
+
+        setupCollectionView()
         // Do any additional setup after loading the view, typically from a nib.
     }
 

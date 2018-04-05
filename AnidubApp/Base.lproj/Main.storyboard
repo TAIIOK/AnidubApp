@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -87,7 +88,6 @@
         <!--Navigation Controller-->
         <scene sceneID="61M-d0-aQj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xy7-qw-RZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="niN-CS-wIr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="" id="UeY-3u-StU"/>
                     <navigationBar key="navigationBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f2T-GR-cvs">
@@ -101,6 +101,7 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="aFp-sV-ogi"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xy7-qw-RZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="30" y="-815"/>
         </scene>
