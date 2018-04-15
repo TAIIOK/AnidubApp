@@ -53,9 +53,11 @@ open class ArticleViewController: UIViewController {
         didSet {
             backgroundColorSet = true
             backgroundView.backgroundColor = backgroundColor
+            videoWebview.backgroundColor = backgroundColor
             view.backgroundColor = backgroundColor
         }
     }
+
     
     open var headlineColor: UIColor = UIColor.black {
         didSet {
@@ -104,7 +106,7 @@ open class ArticleViewController: UIViewController {
     // MARK: - UIViewController
     
     override open func viewDidLoad() {
- super.viewDidLoad()
+
         
         // if autoColored, setup after extracting color; otherwise, setup now.
         if autoColored {
@@ -114,13 +116,14 @@ open class ArticleViewController: UIViewController {
                 self.dateColor = self.dateColorSet ? self.dateColor : colors.detail
                 self.authorColor = self.authorColorSet ? self.authorColor : colors.secondary
                 self.bodyColor = self.bodyColorSet ? self.bodyColor : colors.detail
-                
                 self.setupUI()
 
             }
         } else {
             setupUI()
         }
+
+         super.viewDidLoad()
 
     }
 
@@ -146,6 +149,7 @@ open class ArticleViewController: UIViewController {
         let web = backgroundView.viewWithTag(90) as! WKWebView
 
         let url = URL(string: urls)!
+
         web.load(URLRequest(url: url))
 
     }
@@ -242,7 +246,7 @@ open class ArticleViewController: UIViewController {
 
         videoWebview.scrollView.bounces = false
         videoWebview.scrollView.isScrollEnabled = false
-        
+        videoWebview.isOpaque = false
         backgroundView.addSubview(videoWebview)
 
 

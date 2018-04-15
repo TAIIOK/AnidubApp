@@ -18,7 +18,7 @@ class InfoViewController: ArticleViewController {
 
     override func viewDidLoad() {
 
-        autoColored = true
+        autoColored = false
         imageView.image = ImageCache[(currentTitle.first?.ID)!]
         let choosebutton = UIButton(type: UIButtonType.system)
         choosebutton.frame = CGRect(x: 0, y: 0, width: 150, height: 40)
@@ -27,25 +27,28 @@ class InfoViewController: ArticleViewController {
         choosebutton.tag = 1
 
          episodeButton = choosebutton
-        
-        super.viewDidLoad()
-
-
 
         imageView.image = ImageCache[(currentTitle.first?.ID)!]
         headline = (currentTitle.first?.Title.Russian)!
         author = (currentTitle.first?.Information.Dubbers)! + (currentTitle.first?.Information.Studio)! + (currentTitle.first?.Information.Country)!
         date = NSDate() as Date
         body =  (currentTitle.first?.Information.Description)!
-        autoColored = true
+        //autoColored = false
 
         videoWebview = WKWebView()
         videoWebview.frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.size.width, height: 200)
 
-         load_episodes()
+        load_episodes()
 
 
         print("PUSH2")
+
+        view.backgroundColor = UIColor.white
+        super.viewDidLoad()
+
+
+
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 
