@@ -754,7 +754,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "28ac9eb2-0bfa-4157-a312-2a8a06d8a6e3";
+				PROVISIONING_PROFILE = "6ffa4551-848f-4aa1-a0c0-8ce1317555af";
 				PROVISIONING_PROFILE_SPECIFIER = "Anidub-Test-Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "AnidubApp/AnidubApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
