@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		2C80911C86163F85D73803E6 /* Pods_AnidubAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C861441A60CE7FE5C3CDD9A7 /* Pods_AnidubAppUITests.framework */; };
 		2FDC361100E3AE6F23529BD3 /* Pods_AnidubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0580E0193EFD213931720200 /* Pods_AnidubApp.framework */; };
+		A022A437208353F6007D45FB /* AuthCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022A436208353F6007D45FB /* AuthCustomViewController.swift */; };
 		A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71122072A81E00A03E67 /* ApiRequests.swift */; };
 		A02D71152072A83E00A03E67 /* DatabaseFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71142072A83E00A03E67 /* DatabaseFunction.swift */; };
 		A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71162072A85E00A03E67 /* secondaryFunctions.swift */; };
 		A02D71192072A8D400A03E67 /* appdatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A02D71182072A88E00A03E67 /* appdatabase.sqlite */; };
 		A02D71202073876000A03E67 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D711F2073876000A03E67 /* ThirdViewController.swift */; };
-		A02D7122207389F500A03E67 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D7121207389F500A03E67 /* FourthViewController.swift */; };
 		A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D712320738AFD00A03E67 /* FifthViewController.swift */; };
 		A02D71262073A20600A03E67 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71252073A20600A03E67 /* CollectionViewCell.swift */; };
 		A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8BF420728AF800E2C030 /* AppDelegate.swift */; };
@@ -62,13 +62,13 @@
 		189845AE368DFD0632AC182C /* Pods-AnidubApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.debug.xcconfig"; sourceTree = "<group>"; };
 		96778B92D0E3B99CB5B0044D /* Pods_AnidubAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnidubAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97978079B3338DDFCAF60FBB /* Pods-AnidubAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubAppTests/Pods-AnidubAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		A022A436208353F6007D45FB /* AuthCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCustomViewController.swift; sourceTree = "<group>"; };
 		A02D71122072A81E00A03E67 /* ApiRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequests.swift; sourceTree = "<group>"; };
 		A02D71142072A83E00A03E67 /* DatabaseFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunction.swift; sourceTree = "<group>"; };
 		A02D71162072A85E00A03E67 /* secondaryFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondaryFunctions.swift; sourceTree = "<group>"; };
 		A02D71182072A88E00A03E67 /* appdatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = appdatabase.sqlite; sourceTree = "<group>"; };
 		A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnidubApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A02D711F2073876000A03E67 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		A02D7121207389F500A03E67 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		A02D712320738AFD00A03E67 /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		A02D71252073A20600A03E67 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		A06B8BF120728AF800E2C030 /* AnidubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnidubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,7 +194,6 @@
 				A0FBC3822076807300D2B1DF /* UserCollectionViewCell.swift */,
 				A0FBC3832076807400D2B1DF /* UserCollectionViewCell.xib */,
 				A0FBC386207680DA00D2B1DF /* CellInterface.swift */,
-				A02D7121207389F500A03E67 /* FourthViewController.swift */,
 				A02D712320738AFD00A03E67 /* FifthViewController.swift */,
 				A0DAD25E20752B6D00F00217 /* VideoTableViewCell.swift */,
 				A0DAD25D20752B6C00F00217 /* RequestViewController.xib */,
@@ -210,6 +209,7 @@
 				A06B8C0220728AFD00E2C030 /* Info.plist */,
 				A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */,
 				A02D71252073A20600A03E67 /* CollectionViewCell.swift */,
+				A022A436208353F6007D45FB /* AuthCustomViewController.swift */,
 			);
 			path = AnidubApp;
 			sourceTree = "<group>";
@@ -552,13 +552,13 @@
 				A0DAD26220752D3300F00217 /* RequestViewController.swift in Sources */,
 				A0DAD25C20750B3500F00217 /* InfoViewController.swift in Sources */,
 				A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */,
+				A022A437208353F6007D45FB /* AuthCustomViewController.swift in Sources */,
 				A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */,
 				A0FBC3842076807400D2B1DF /* UserCollectionViewCell.swift in Sources */,
 				A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */,
 				A0DAD26020752B6D00F00217 /* VideoTableViewCell.swift in Sources */,
 				A02D71152072A83E00A03E67 /* DatabaseFunction.swift in Sources */,
 				A02D71202073876000A03E67 /* ThirdViewController.swift in Sources */,
-				A02D7122207389F500A03E67 /* FourthViewController.swift in Sources */,
 				A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */,
 				A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */,
 				A06B8BF720728AF800E2C030 /* FirstViewController.swift in Sources */,
