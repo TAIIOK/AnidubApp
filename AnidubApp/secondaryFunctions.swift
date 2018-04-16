@@ -49,6 +49,12 @@ struct user {
     var password:String
 }
 
+struct user_firebase{
+    var ID:String
+    var name:String
+    var Fav:[String] = [String]()
+}
+
 
 func md5(_ string: String) -> String {
     

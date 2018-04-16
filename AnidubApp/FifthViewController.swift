@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuthUI
 import FirebaseGoogleAuthUI
 import FirebasePhoneAuthUI
+import FirebaseDatabase
 
 let providers: [FUIAuthProvider] = [
     FUIGoogleAuth(),
@@ -25,19 +26,26 @@ class FifthViewController: UIViewController {
         super.viewDidLoad()
 
 
+        if(UserDefaults.standard.value(forKey: "uid") == nil || Database.database().reference().child(byAppendingPath: "users").child(byAppendingPath: UserDefaults.standard.value(forKey: "uid") as! String) == nil){
 
         let auth = FUIAuth.defaultAuthUI()
         auth?.delegate = self
         auth?.providers = providers
+
+        let authViewController = auth?.authViewController()
+        present(authViewController!, animated: true)
+        }
+        else{
+            print(UserDefaults.standard.value(forKey: "uid"))
+            print(Database.database().reference().child(byAppendingPath: "users").child(byAppendingPath: UserDefaults.standard.value(forKey: "uid") as! String))
+        }
 
 /*
         customPicker = FUIAuthPickerViewController(authUI: auth!)
         customPicker?.view.backgroundColor = UIColor(red:0.20, green:0.27, blue:0.31, alpha:1.0)
 */
 
-        let authViewController = auth?.authViewController()
-        present(authViewController!, animated: true)
-
+       
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -54,7 +62,33 @@ extension FifthViewController: FUIAuthDelegate {
 
     // Implement the required protocol method for FIRAuthUIDelegate
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        guard let authError = error else { return }
+        guard let authError = error else {
+
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            let userID = Auth.auth().currentUser?.uid
+            ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                let username = value?["username"] as? String ?? ""
+                let bookmark = value?["bookmarks"] as? String ?? ""
+                let recent = value?["recent"] as? String ?? ""
+                if(username == "" ){
+
+                      ref.child("users/\((user?.uid)!)/username").setValue("Default")
+                      ref.child("users/\((user?.uid)!)/bookmarks").setValue("")
+                      ref.child("users/\((user?.uid)!)/recent").setValue("")
+                }
+
+                // ...
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+
+            UserDefaults.standard.setValue(Auth.auth().currentUser?.uid, forKey: "uid")
+
+            print("User sign-in");
+            return }
 
         let errorCode = UInt((authError as NSError).code)
 

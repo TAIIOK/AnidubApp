@@ -185,6 +185,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 3.3)
   - DisplaySwitcher (~> 1.0)
   - Firebase/Core
+  - Firebase/Database
   - Firebase/Messaging
   - Firebase/Performance
   - FirebaseUI
@@ -277,6 +278,6 @@ SPEC CHECKSUMS:
   TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
   TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
 
-PODFILE CHECKSUM: d5f63e7c2981c71c1911c4abdcd4456a23b911e0
+PODFILE CHECKSUM: 16f75f28bdd45c0a8074905a0539eff5f6570662
 
 COCOAPODS: 1.5.0

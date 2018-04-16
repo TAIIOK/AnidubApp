@@ -130,5 +130,14 @@ class InfoViewController: ArticleViewController {
  */
     }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews();
+        UIApplication.shared.isStatusBarHidden = false
+    }
+
+     func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.portrait.rawValue)
+    }
+
 }
 

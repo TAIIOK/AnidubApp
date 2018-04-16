@@ -11,9 +11,7 @@
 		2FDC361100E3AE6F23529BD3 /* Pods_AnidubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0580E0193EFD213931720200 /* Pods_AnidubApp.framework */; };
 		A022A437208353F6007D45FB /* AuthCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022A436208353F6007D45FB /* AuthCustomViewController.swift */; };
 		A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71122072A81E00A03E67 /* ApiRequests.swift */; };
-		A02D71152072A83E00A03E67 /* DatabaseFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71142072A83E00A03E67 /* DatabaseFunction.swift */; };
 		A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71162072A85E00A03E67 /* secondaryFunctions.swift */; };
-		A02D71192072A8D400A03E67 /* appdatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A02D71182072A88E00A03E67 /* appdatabase.sqlite */; };
 		A02D71202073876000A03E67 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D711F2073876000A03E67 /* ThirdViewController.swift */; };
 		A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D712320738AFD00A03E67 /* FifthViewController.swift */; };
 		A02D71262073A20600A03E67 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71252073A20600A03E67 /* CollectionViewCell.swift */; };
@@ -31,7 +29,6 @@
 		A0DAD25A2074FDFB00F00217 /* MRArticleViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DAD2592074FDFB00F00217 /* MRArticleViewController.framework */; };
 		A0DAD25C20750B3500F00217 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DAD25B20750B3500F00217 /* InfoViewController.swift */; };
 		A0DAD25F20752B6D00F00217 /* RequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DAD25D20752B6C00F00217 /* RequestViewController.xib */; };
-		A0DAD26020752B6D00F00217 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DAD25E20752B6D00F00217 /* VideoTableViewCell.swift */; };
 		A0DAD26220752D3300F00217 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DAD26120752D3300F00217 /* RequestViewController.swift */; };
 		A0FBC3842076807400D2B1DF /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FBC3822076807300D2B1DF /* UserCollectionViewCell.swift */; };
 		A0FBC3852076807400D2B1DF /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FBC3832076807400D2B1DF /* UserCollectionViewCell.xib */; };
@@ -64,9 +61,7 @@
 		97978079B3338DDFCAF60FBB /* Pods-AnidubAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubAppTests/Pods-AnidubAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A022A436208353F6007D45FB /* AuthCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCustomViewController.swift; sourceTree = "<group>"; };
 		A02D71122072A81E00A03E67 /* ApiRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequests.swift; sourceTree = "<group>"; };
-		A02D71142072A83E00A03E67 /* DatabaseFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunction.swift; sourceTree = "<group>"; };
 		A02D71162072A85E00A03E67 /* secondaryFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondaryFunctions.swift; sourceTree = "<group>"; };
-		A02D71182072A88E00A03E67 /* appdatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = appdatabase.sqlite; sourceTree = "<group>"; };
 		A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnidubApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A02D711F2073876000A03E67 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		A02D712320738AFD00A03E67 /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +87,6 @@
 		A0DAD2592074FDFB00F00217 /* MRArticleViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MRArticleViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DAD25B20750B3500F00217 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A0DAD25D20752B6C00F00217 /* RequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestViewController.xib; sourceTree = "<group>"; };
-		A0DAD25E20752B6D00F00217 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		A0DAD26120752D3300F00217 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		A0FBC3822076807300D2B1DF /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		A0FBC3832076807400D2B1DF /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -195,13 +189,10 @@
 				A0FBC3832076807400D2B1DF /* UserCollectionViewCell.xib */,
 				A0FBC386207680DA00D2B1DF /* CellInterface.swift */,
 				A02D712320738AFD00A03E67 /* FifthViewController.swift */,
-				A0DAD25E20752B6D00F00217 /* VideoTableViewCell.swift */,
 				A0DAD25D20752B6C00F00217 /* RequestViewController.xib */,
 				A0DAD26120752D3300F00217 /* RequestViewController.swift */,
 				A02D71162072A85E00A03E67 /* secondaryFunctions.swift */,
 				A02D71122072A81E00A03E67 /* ApiRequests.swift */,
-				A02D71182072A88E00A03E67 /* appdatabase.sqlite */,
-				A02D71142072A83E00A03E67 /* DatabaseFunction.swift */,
 				A06B8BFA20728AF800E2C030 /* Main.storyboard */,
 				A06B8BFD20728AFD00E2C030 /* Assets.xcassets */,
 				A06B8BFF20728AFD00E2C030 /* LaunchScreen.storyboard */,
@@ -348,7 +339,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A02D71192072A8D400A03E67 /* appdatabase.sqlite in Resources */,
 				A06B8C0120728AFD00E2C030 /* LaunchScreen.storyboard in Resources */,
 				A0FBC3852076807400D2B1DF /* UserCollectionViewCell.xib in Resources */,
 				A0A14B8620728F7500C3C7F2 /* GoogleService-Info.plist in Resources */,
@@ -556,8 +546,6 @@
 				A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */,
 				A0FBC3842076807400D2B1DF /* UserCollectionViewCell.swift in Sources */,
 				A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */,
-				A0DAD26020752B6D00F00217 /* VideoTableViewCell.swift in Sources */,
-				A02D71152072A83E00A03E67 /* DatabaseFunction.swift in Sources */,
 				A02D71202073876000A03E67 /* ThirdViewController.swift in Sources */,
 				A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */,
 				A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */,

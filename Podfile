@@ -6,7 +6,7 @@ target 'AnidubApp' do
   use_frameworks!
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-  pod 'SQLite.swift', '~> 0.11.4'
+  pod 'Firebase/Database'
   pod 'AlamofireImage', '~> 3.3'
   pod 'Firebase/Performance'
   pod 'MRArticleViewController'
@@ -17,7 +17,7 @@ target 'AnidubApp' do
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Google'
   pod 'FirebaseUI/Phone'
-  
+
   # Pods for AnidubApp
 
   target 'AnidubAppTests' do

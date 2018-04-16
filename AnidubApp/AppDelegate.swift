@@ -14,7 +14,10 @@ import AVKit
 import AVFoundation
 import UserNotifications
 
-import FirebaseAuthUI
+
+let BASE_URL =  "https://anidubapp-b270a.firebaseio.com/"
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,22 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+
+        let audioSession = AVAudioSession.sharedInstance()
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+        } catch {
+            print("Setting category to AVAudioSessionCategoryPlayback failed.")
         }
-        catch {
-            //
-        }
+        
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
 
-    
-        var path = getPath(fileName: "appdatabase.sqlite")
-
-        if(path.characters.count == 0 )
-        {
-            copyFile(fileName: "appdatabase.sqlite")
-        }
 
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self

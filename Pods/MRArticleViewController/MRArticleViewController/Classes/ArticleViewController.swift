@@ -124,6 +124,12 @@ open class ArticleViewController: UIViewController {
         }
 
          super.viewDidLoad()
+             NotificationCenter.default.addObserver(self, selector: #selector(videoDidRotate), name: .UIDeviceOrientationDidChange, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(videoDidRotate), name: .UIWindowDidBecomeVisible, object: nil)
+
+             NotificationCenter.default.addObserver(self, selector: #selector(videoDidRotate), name: .UIWindowDidBecomeHidden, object: nil)
+
 
     }
 
@@ -256,6 +262,24 @@ open class ArticleViewController: UIViewController {
         NSLayoutConstraint(item: videoWebview, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: view.bounds.width).isActive = true
         NSLayoutConstraint(item: videoWebview, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1, constant: -30).isActive = true
     }
+
+    override open var prefersStatusBarHidden: Bool {
+        return UIApplication.shared.statusBarOrientation.isLandscape
+    }
+
+    @objc func videoDidRotate() {
+        print("ANUS")
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+
+    override open func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews();
+        UIApplication.shared.isStatusBarHidden = false
+        self.setNeedsStatusBarAppearanceUpdate()
+        print("SYKA BLAT")
+    }
+
+
 
 
 }
