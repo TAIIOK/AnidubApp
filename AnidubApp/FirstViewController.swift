@@ -256,14 +256,6 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         var rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(FirstViewController.searchTapped))
         navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
 
-        /*
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        mycollection.collectionViewLayout = layout
-         */
         mycollection.delegate = self
         mycollection.dataSource = self
 

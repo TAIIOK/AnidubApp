@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2C80911C86163F85D73803E6 /* Pods_AnidubAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C861441A60CE7FE5C3CDD9A7 /* Pods_AnidubAppUITests.framework */; };
 		2FDC361100E3AE6F23529BD3 /* Pods_AnidubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0580E0193EFD213931720200 /* Pods_AnidubApp.framework */; };
-		A022A437208353F6007D45FB /* AuthCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022A436208353F6007D45FB /* AuthCustomViewController.swift */; };
 		A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71122072A81E00A03E67 /* ApiRequests.swift */; };
 		A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71162072A85E00A03E67 /* secondaryFunctions.swift */; };
 		A02D71202073876000A03E67 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D711F2073876000A03E67 /* ThirdViewController.swift */; };
@@ -59,7 +58,6 @@
 		189845AE368DFD0632AC182C /* Pods-AnidubApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.debug.xcconfig"; sourceTree = "<group>"; };
 		96778B92D0E3B99CB5B0044D /* Pods_AnidubAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnidubAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97978079B3338DDFCAF60FBB /* Pods-AnidubAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubAppTests/Pods-AnidubAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		A022A436208353F6007D45FB /* AuthCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCustomViewController.swift; sourceTree = "<group>"; };
 		A02D71122072A81E00A03E67 /* ApiRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequests.swift; sourceTree = "<group>"; };
 		A02D71162072A85E00A03E67 /* secondaryFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondaryFunctions.swift; sourceTree = "<group>"; };
 		A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnidubApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 				A06B8C0220728AFD00E2C030 /* Info.plist */,
 				A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */,
 				A02D71252073A20600A03E67 /* CollectionViewCell.swift */,
-				A022A436208353F6007D45FB /* AuthCustomViewController.swift */,
 			);
 			path = AnidubApp;
 			sourceTree = "<group>";
@@ -542,7 +539,6 @@
 				A0DAD26220752D3300F00217 /* RequestViewController.swift in Sources */,
 				A0DAD25C20750B3500F00217 /* InfoViewController.swift in Sources */,
 				A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */,
-				A022A437208353F6007D45FB /* AuthCustomViewController.swift in Sources */,
 				A06B8BF920728AF800E2C030 /* SecondViewController.swift in Sources */,
 				A0FBC3842076807400D2B1DF /* UserCollectionViewCell.swift in Sources */,
 				A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */,
