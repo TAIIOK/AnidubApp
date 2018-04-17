@@ -244,6 +244,14 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         super.viewDidLoad()
 
 
+        self.tabBarController?.tabBar.items![1].image = UIImage(named: "Favotites-50.png")
+        self.tabBarController?.tabBar.items![1].selectedImage = UIImage(named: "Favotites-50.png")
+        self.tabBarController?.tabBar.items![1].title = "Favotites"
+
+        self.tabBarController?.tabBar.items![2].image = UIImage(named: "Recent -50.png")
+        self.tabBarController?.tabBar.items![2].selectedImage = UIImage(named: "Recent -50.png")
+        self.tabBarController?.tabBar.items![2].title = "Recent"
+        
 
 //        UIApplication.shared.statusBarView?.backgroundColor = .blue
 

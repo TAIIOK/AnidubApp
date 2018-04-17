@@ -125,43 +125,6 @@
             </objects>
             <point key="canvasLocation" x="1715" y="-530"/>
         </scene>
-        <!--Favorites-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="AnidubApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="87" y="312" width="201.5" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="363" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="Favotites-50" id="cPa-gy-q4n"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="750" y="360"/>
-        </scene>
         <!--LIL-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -175,52 +138,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="niN-CS-wIr" kind="relationship" relationship="viewControllers" id="FO2-0q-7qn"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="S8i-ZH-45N" kind="relationship" relationship="viewControllers" id="Ooy-8H-oNV"/>
+                        <segue destination="niN-CS-wIr" kind="relationship" relationship="viewControllers" id="fhb-sw-K0V"/>
+                        <segue destination="niN-CS-wIr" kind="relationship" relationship="viewControllers" id="vJD-Vc-qu7"/>
                         <segue destination="ln6-0h-rmV" kind="relationship" relationship="viewControllers" id="CGB-5o-XKg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--ASASD-->
-        <scene sceneID="Ih1-dW-fJh">
-            <objects>
-                <viewController id="S8i-ZH-45N" customClass="ThirdViewController" customModule="AnidubApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oKx-cK-bZ0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Third View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eBo-Mb-ZyJ">
-                                <rect key="frame" x="106.5" y="312" width="163" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by ThirdViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbJ-m1-SsA">
-                                <rect key="frame" x="87.5" y="363" width="200" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="eBo-Mb-ZyJ" secondAttribute="centerY" id="78c-fc-wgF"/>
-                            <constraint firstItem="DbJ-m1-SsA" firstAttribute="top" secondItem="eBo-Mb-ZyJ" secondAttribute="bottom" constant="8" symbolic="YES" id="8i6-G6-dsM"/>
-                            <constraint firstAttribute="centerX" secondItem="eBo-Mb-ZyJ" secondAttribute="centerX" id="XHC-tR-Vut"/>
-                            <constraint firstItem="DbJ-m1-SsA" firstAttribute="centerX" secondItem="eBo-Mb-ZyJ" secondAttribute="centerX" id="gNy-Gd-rQ4"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="sVQ-iH-1pa"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Resent" image="Recent -50" id="22J-wr-Y2l"/>
-                    <navigationItem key="navigationItem" title="ASASD" id="3hr-HU-08H"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k9T-oo-ikT" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1" y="891"/>
+            <point key="canvasLocation" x="-153" y="15"/>
         </scene>
         <!--Account-->
         <scene sceneID="GVg-Aa-QKu">
@@ -257,14 +182,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMq-VK-w8r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1087" y="-321"/>
+            <point key="canvasLocation" x="750" y="390"/>
         </scene>
     </scenes>
     <resources>
         <image name="Account50" width="35" height="35"/>
         <image name="Discover-24" width="35" height="35"/>
-        <image name="Favotites-50" width="35" height="35"/>
-        <image name="Recent -50" width="35" height="35"/>
         <image name="Я" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FO2-0q-7qn"/>
+    </inferredMetricsTieBreakers>
 </document>
