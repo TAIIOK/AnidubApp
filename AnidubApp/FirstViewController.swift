@@ -253,6 +253,15 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         self.tabBarController?.tabBar.items![2].title = "Recent"
         
 
+
+        let selectedTabIndex = tabBarController?.selectedIndex
+
+        switch selectedTabIndex {
+        case 0: print("0"); break  // Customize ViewController for tab 1
+        case 1: print("1"); break  // Customize ViewController for tab 2
+        case 2: print("2"); break  // Customize ViewController for tab 3
+        default: print("default"); break
+        }
 //        UIApplication.shared.statusBarView?.backgroundColor = .blue
 
 

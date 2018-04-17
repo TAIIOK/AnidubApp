@@ -38,6 +38,13 @@ class FifthViewController: UIViewController {
         else{
             print(UserDefaults.standard.value(forKey: "uid"))
             print(Database.database().reference().child(byAppendingPath: "users").child(byAppendingPath: UserDefaults.standard.value(forKey: "uid") as! String))
+
+            var kek = [String]()
+
+            get_favorites(u_id: UserDefaults.standard.value(forKey: "uid") as! String, completion: {
+                (result: [String]) in
+                print("got back: \(result)")
+            })
         }
 
 /*

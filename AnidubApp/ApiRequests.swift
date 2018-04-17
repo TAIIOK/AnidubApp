@@ -1,4 +1,5 @@
 import Foundation
+import Firebase
 
 func add_fav(ID:Int,login:Int,password:String,userHash:String) -> Bool {
 
@@ -618,4 +619,70 @@ func getTitles_episodes(id:Int) -> [[episodes]] {
     _ = semaphore.wait(timeout: .distantFuture)
     
     return listEpisodes
+}
+
+func get_favorites(u_id:String ,completion: @escaping (_ result: [String]) -> Void){
+
+    var result = [String]()
+
+
+    var ref: DatabaseReference!
+    ref = Database.database().reference()
+    let userID = Auth.auth().currentUser?.uid
+
+
+    ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+        // Get user value
+        let value = snapshot.value as? NSDictionary
+        let bookmark = value?["bookmarks"] as? String ?? ""
+        result = bookmark.components(separatedBy: ",")
+        // ...
+        completion(result);
+    }) { (error) in
+        print(error.localizedDescription)
+    }
+
+
+
+}
+func update_favorites(u_id:String,appendFav:String){
+
+    var ref: DatabaseReference!
+    ref = Database.database().reference()
+    let userID = Auth.auth().currentUser?.uid
+
+    ref.child("users/\(userID!)/bookmarks").setValue(appendFav)
+
+}
+func get_recent(u_id:String ,completion: @escaping (_ result: [String]) -> Void){
+
+    var result = [String]()
+
+
+    var ref: DatabaseReference!
+    ref = Database.database().reference()
+    let userID = Auth.auth().currentUser?.uid
+
+
+    ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+        // Get user value
+        let value = snapshot.value as? NSDictionary
+        let bookmark = value?["recent"] as? String ?? ""
+        result = bookmark.components(separatedBy: ",")
+        // ...
+        completion(result);
+    }) { (error) in
+        print(error.localizedDescription)
+    }
+
+
+
+}
+func update_recent(u_id:String,appendRec:String) {
+
+    var ref: DatabaseReference!
+    ref = Database.database().reference()
+    let userID = Auth.auth().currentUser?.uid
+
+    ref.child("users/\(userID!)/recent").setValue(appendRec)
 }
