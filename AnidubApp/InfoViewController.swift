@@ -11,22 +11,39 @@ import UIKit
 import PopupDialog
 import MRArticleViewController
 import WebKit
+import Firebase
 
 var listEpisodes = [[episodes]]()
 
 class InfoViewController: ArticleViewController {
 
+
+    var is_in_bookmark = false;
+
+    var bookmarks = [String]()
+
     override func viewDidLoad() {
 
         autoColored = false
         imageView.image = ImageCache[(currentTitle.first?.ID)!]
+
         let choosebutton = UIButton(type: UIButtonType.system)
         choosebutton.frame = CGRect(x: 0, y: 0, width: 150, height: 40)
         choosebutton.setTitle("Выберите серию", for: UIControlState.normal)
         choosebutton.addTarget(self,action: #selector(changeEpisode),for: .touchUpInside)
         choosebutton.tag = 1
 
-         episodeButton = choosebutton
+        episodeButton = choosebutton
+
+
+        let bookmarkbutton = UIButton(type: UIButtonType.system)
+        bookmarkbutton.frame = CGRect(x: 155, y: 0, width: 175, height: 40)
+        bookmarkbutton.setTitle(inbookmark(), for: UIControlState.normal)
+        bookmarkbutton.addTarget(self,action: #selector(bookmark),for: .touchUpInside)
+        bookmarkbutton.tag = 2
+
+        bookmarkButton = bookmarkbutton
+
 
         imageView.image = ImageCache[(currentTitle.first?.ID)!]
         headline = (currentTitle.first?.Title.Russian)!
@@ -45,8 +62,13 @@ class InfoViewController: ArticleViewController {
 
         view.backgroundColor = UIColor.white
         super.viewDidLoad()
+         if(UserDefaults.standard.value(forKey: "uid") != nil && Database.database().reference().child(byAppendingPath: "users").child(byAppendingPath: UserDefaults.standard.value(forKey: "uid") as! String) != nil){
+            get_favorites(u_id: "test", completion: {result in
 
-
+                self.bookmarks = result
+                self.bookmarkButton.setTitle(self.inbookmark(),for: .normal)
+            })
+        }
 
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -128,6 +150,48 @@ class InfoViewController: ArticleViewController {
         }
         }
  */
+    }
+
+
+    func isbookmark() -> Bool{
+
+
+        if(bookmarks.contains(String((currentTitle.first?.ID)!)))
+        {
+            is_in_bookmark = true
+        }
+
+        //flag = is_fav(ID:(currentTitle.first?.ID)!,login:student.ID,password:student.password)
+
+        return is_in_bookmark
+
+    }
+
+    func inbookmark() -> String
+    {
+        if(!isbookmark()){
+            return "Добавить в закладки"
+        }
+        return "Убрать из закладок"
+    }
+
+    @objc func bookmark(){
+
+            if(is_in_bookmark){
+
+           // remove_fav(ID:(currentTitle.first?.ID)!,login:student.ID,password:student.password)
+                bookmarks.remove(at: bookmarks.index(of: String((currentTitle.first?.ID)!))!)
+                update_favorites(u_id:"test",appendFav:bookmarks.joined(separator:"/"))
+
+                is_in_bookmark = false
+                bookmarkButton.setTitle("Добавить в закладки",for: .normal)
+            }else{
+                is_in_bookmark = true
+                bookmarks.append(String((currentTitle.first?.ID)!))
+                update_favorites(u_id:"test",appendFav:bookmarks.joined(separator:"/"))
+             //   add_fav(ID:(currentTitle.first?.ID)!,login:student.ID,password:student.password)
+                bookmarkButton.setTitle("Убрать из закладок",for: .normal)
+            }
     }
 
     override func viewWillLayoutSubviews() {

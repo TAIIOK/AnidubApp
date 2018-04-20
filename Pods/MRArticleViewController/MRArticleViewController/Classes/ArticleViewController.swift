@@ -19,6 +19,8 @@ open class ArticleViewController: UIViewController {
 
     open var episodeButton = UIButton()
 
+    open var bookmarkButton = UIButton()
+
     open var videoWebview = WKWebView()
 
     
@@ -235,10 +237,20 @@ open class ArticleViewController: UIViewController {
 
     fileprivate func setupChoose(){
 
+
+        bookmarkButton.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.addSubview(bookmarkButton)
+
+
+        NSLayoutConstraint(item: bookmarkButton, attribute: .top, relatedBy: .equal, toItem: bodyLabel, attribute: .bottom, multiplier: 1, constant: 20).isActive = true
+        NSLayoutConstraint(item: bookmarkButton, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 14).isActive = true
+        NSLayoutConstraint(item: bookmarkButton, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: -14).isActive = true
+
+
         episodeButton.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.addSubview(episodeButton)
 
-        NSLayoutConstraint(item: episodeButton, attribute: .top, relatedBy: .equal, toItem: bodyLabel, attribute: .bottom, multiplier: 1, constant: 20).isActive = true
+        NSLayoutConstraint(item: episodeButton, attribute: .top, relatedBy: .equal, toItem: bookmarkButton, attribute: .bottom, multiplier: 1, constant: 20).isActive = true
         NSLayoutConstraint(item: episodeButton, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 14).isActive = true
         NSLayoutConstraint(item: episodeButton, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: -14).isActive = true
 

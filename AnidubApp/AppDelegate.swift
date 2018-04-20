@@ -18,7 +18,6 @@ import UserNotifications
 let BASE_URL =  "https://anidubapp-b270a.firebaseio.com/"
 
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

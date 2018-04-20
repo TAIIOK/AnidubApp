@@ -316,15 +316,20 @@ func setupFullTitle(data: [String:Any]) -> fullTitle?
         result  = fullTitle(ID: Int(id)!, Url: url, Title: title!, Uploader: uploader, Categories: categories, Poster: poster, Information: information!, Commentaries: 0, Rating: rating!)
     }
     else{
-    
+
+
     guard let id = data["ID"] as? String,
         let url = data["Url"] as? String,
         let uploader = data["Uploader"] as? String,
         let categories = data["Categories"] as? [String],
         let poster = data["Poster"] as? String,
-        let commentaries = data["Commentaries"] as? String
+        var commentaries = data["Commentaries"] as? String
         else {
             return nil
+        }
+        if(commentaries == "")
+        {
+            commentaries = "0"
         }
         result  = fullTitle(ID: Int(id)!, Url: url, Title: title!, Uploader: uploader, Categories: categories, Poster: poster, Information: information!, Commentaries: Int(commentaries)!, Rating: rating!)
     }
@@ -621,6 +626,50 @@ func getTitles_episodes(id:Int) -> [[episodes]] {
     return listEpisodes
 }
 
+
+func get_Title(id:Int) -> [fullTitle]{
+
+    var Titles_list = [fullTitle]()
+
+    // url http://anidub-api.herokuapp.com/method/titles.list
+
+
+    var request = URLRequest(url: URL(string: "http://api.anidub-app.ru/v5/anime.getInfo?id=\(id)")!)
+
+    let semaphore = DispatchSemaphore(value: 0)
+
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data else {
+            print("request failed \(error)")
+            return
+        }
+
+        do {
+
+            if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options:[]) as! [String:Any] {
+
+                let Response = convertedJsonIntoDict["Response"] as? [String: Any]
+
+                let title = setupFullTitle(data: Response!)
+
+                Titles_list.append(title!)
+
+            }
+            semaphore.signal()
+
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+
+    }
+    task.resume()
+
+    _ = semaphore.wait(timeout: .distantFuture)
+
+    return Titles_list
+
+}
+
 func get_favorites(u_id:String ,completion: @escaping (_ result: [String]) -> Void){
 
     var result = [String]()
@@ -635,7 +684,7 @@ func get_favorites(u_id:String ,completion: @escaping (_ result: [String]) -> Vo
         // Get user value
         let value = snapshot.value as? NSDictionary
         let bookmark = value?["bookmarks"] as? String ?? ""
-        result = bookmark.components(separatedBy: ",")
+        result = bookmark.components(separatedBy: "/")
         // ...
         completion(result);
     }) { (error) in
@@ -668,7 +717,7 @@ func get_recent(u_id:String ,completion: @escaping (_ result: [String]) -> Void)
         // Get user value
         let value = snapshot.value as? NSDictionary
         let bookmark = value?["recent"] as? String ?? ""
-        result = bookmark.components(separatedBy: ",")
+        result = bookmark.components(separatedBy: "/")
         // ...
         completion(result);
     }) { (error) in
@@ -678,6 +727,7 @@ func get_recent(u_id:String ,completion: @escaping (_ result: [String]) -> Void)
 
 
 }
+
 func update_recent(u_id:String,appendRec:String) {
 
     var ref: DatabaseReference!

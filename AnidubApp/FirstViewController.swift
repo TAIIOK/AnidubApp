@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 import Alamofire
-
+import Firebase
 import DisplaySwitcher
 
 extension Array where Element: Equatable {
@@ -207,7 +207,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 
 
-        if (indexPath.item == (titleslist.count - 5) && searchflag == false){
+        if (indexPath.item == (titleslist.count - 5) && searchflag == false && tabBarController?.selectedIndex == 0){
                 loadTitles()
         }
 
@@ -238,7 +238,23 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
     var mytitle = ""
     var titleslist = [fullTitle]()
     var searchtitles = [fullTitle]()
+    var bookmarks = [String]()
     var page = 0
+
+
+    override func viewDidAppear(_ animated: Bool) {
+
+        let selectedTabIndex = tabBarController?.selectedIndex
+
+        switch selectedTabIndex {
+        case 0: print("0");  loadTitles(); break  // Customize ViewController for tab 1
+        case 1: print("1"); loadBookmarks() ;break  // Customize ViewController for tab 2
+        case 2: print("2"); break  // Customize ViewController for tab 3
+        default: print("default"); break
+        }
+        
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -253,15 +269,16 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         self.tabBarController?.tabBar.items![2].title = "Recent"
         
 
-
+/*
         let selectedTabIndex = tabBarController?.selectedIndex
 
         switch selectedTabIndex {
-        case 0: print("0"); break  // Customize ViewController for tab 1
-        case 1: print("1"); break  // Customize ViewController for tab 2
+        case 0: print("0"); loadTitles(); break  // Customize ViewController for tab 1
+        case 1: print("1"); loadBookmarks() ;break  // Customize ViewController for tab 2
         case 2: print("2"); break  // Customize ViewController for tab 3
         default: print("default"); break
         }
+ */
 //        UIApplication.shared.statusBarView?.backgroundColor = .blue
 
 
@@ -276,7 +293,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         mycollection.delegate = self
         mycollection.dataSource = self
 
-        loadTitles()
+       // loadTitles()
 
         setupCollectionView()
         // Do any additional setup after loading the view, typically from a nib.
@@ -347,7 +364,41 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
                 self.mycollection.reloadData()
             }
         }
+    }
 
+    func loadBookmarks()
+    {
+
+        DispatchQueue.global(qos: .background).async {
+
+
+            if(UserDefaults.standard.value(forKey: "uid") != nil && Database.database().reference().child(byAppendingPath: "users").child(byAppendingPath: UserDefaults.standard.value(forKey: "uid") as! String) != nil){
+                get_favorites(u_id: "test", completion: {result in
+
+                    self.bookmarks = result
+
+                    for title in result
+                    {
+                        let res = self.titleslist.index{ $0.ID == Int(title) }
+                        if(res == nil ){
+                        self.titleslist.append(get_Title(id: Int(title)!).first!)
+                        self.mycollection.reloadData()
+                        }
+                    }
+
+
+                })
+            }
+
+
+
+            self.page = self.page + 1
+
+
+            DispatchQueue.main.async {
+                self.mycollection.reloadData()
+            }
+        }
 
     }
 
