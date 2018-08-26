@@ -43,7 +43,7 @@ class UserCollectionViewCell: UICollectionViewCell, CellInterface {
 
     func setTitle(title:String){
         nameListLabel.text = title
-        nameGridLabel.text = nameListLabel.text
+        nameGridLabel.text = ""
     }
     /*
     func bind(_ user: User) {

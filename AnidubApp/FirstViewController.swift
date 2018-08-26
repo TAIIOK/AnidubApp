@@ -244,12 +244,13 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
 
     override func viewDidAppear(_ animated: Bool) {
 
+        self.tabBarController?.tabBar.isHidden = false
         let selectedTabIndex = tabBarController?.selectedIndex
 
         switch selectedTabIndex {
         case 0: print("0");  loadTitles(); break  // Customize ViewController for tab 1
         case 1: print("1"); loadBookmarks() ;break  // Customize ViewController for tab 2
-        case 2: print("2"); break  // Customize ViewController for tab 3
+        case 2: print("2"); self.navigationItem.title = "Недавние"; break  // Customize ViewController for tab 3
         default: print("default"); break
         }
         
@@ -259,15 +260,14 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         self.tabBarController?.tabBar.items![1].image = UIImage(named: "Favotites-50.png")
         self.tabBarController?.tabBar.items![1].selectedImage = UIImage(named: "Favotites-50.png")
-        self.tabBarController?.tabBar.items![1].title = "Favotites"
+        self.tabBarController?.tabBar.items![1].title = "Закладки"
 
         self.tabBarController?.tabBar.items![2].image = UIImage(named: "Recent -50.png")
         self.tabBarController?.tabBar.items![2].selectedImage = UIImage(named: "Recent -50.png")
-        self.tabBarController?.tabBar.items![2].title = "Recent"
-        
+        self.tabBarController?.tabBar.items![2].title = "Недавние"
+ 
 
 /*
         let selectedTabIndex = tabBarController?.selectedIndex
@@ -369,6 +369,8 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
     func loadBookmarks()
     {
 
+        self.navigationItem.title = "Закладки"
+        
         DispatchQueue.global(qos: .background).async {
 
 

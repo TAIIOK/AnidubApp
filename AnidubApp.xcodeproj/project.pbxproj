@@ -20,10 +20,13 @@
 		A06B8C0120728AFD00E2C030 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06B8BFF20728AFD00E2C030 /* LaunchScreen.storyboard */; };
 		A06B8C0C20728AFD00E2C030 /* AnidubAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8C0B20728AFD00E2C030 /* AnidubAppTests.swift */; };
 		A06B8C1720728AFD00E2C030 /* AnidubAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B8C1620728AFD00E2C030 /* AnidubAppUITests.swift */; };
+		A08EE85421321094007754D5 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08EE84A21320F17007754D5 /* ArticleViewController.swift */; };
+		A08EE85521321097007754D5 /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08EE84B21320F17007754D5 /* UIImageColors.swift */; };
+		A08EE857213239F0007754D5 /* WebPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08EE856213239F0007754D5 /* WebPlayer.swift */; };
+		A090D94920EB7F5B003EA759 /* FirebaseAuthUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A090D94820EB7F5B003EA759 /* FirebaseAuthUI.strings */; };
 		A0A14B8320728D9B00C3C7F2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A14B8120728D9B00C3C7F2 /* Fabric.framework */; };
 		A0A14B8420728D9B00C3C7F2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A14B8220728D9B00C3C7F2 /* Crashlytics.framework */; };
 		A0A14B8620728F7500C3C7F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0A14B8520728F7400C3C7F2 /* GoogleService-Info.plist */; };
-		A0DAD25A2074FDFB00F00217 /* MRArticleViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DAD2592074FDFB00F00217 /* MRArticleViewController.framework */; };
 		A0DAD25C20750B3500F00217 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DAD25B20750B3500F00217 /* InfoViewController.swift */; };
 		A0DAD25F20752B6D00F00217 /* RequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DAD25D20752B6C00F00217 /* RequestViewController.xib */; };
 		A0DAD26220752D3300F00217 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DAD26120752D3300F00217 /* RequestViewController.swift */; };
@@ -74,6 +77,12 @@
 		A06B8C1220728AFD00E2C030 /* AnidubAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnidubAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06B8C1620728AFD00E2C030 /* AnidubAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnidubAppUITests.swift; sourceTree = "<group>"; };
 		A06B8C1820728AFD00E2C030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A08EE84A21320F17007754D5 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		A08EE84B21320F17007754D5 /* UIImageColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
+		A08EE856213239F0007754D5 /* WebPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPlayer.swift; sourceTree = "<group>"; };
+		A090D94620EB75BC003EA759 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		A090D94720EB75BE003EA759 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A090D94820EB7F5B003EA759 /* FirebaseAuthUI.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = FirebaseAuthUI.strings; sourceTree = "<group>"; };
 		A09A8068208002DF00E4B4B2 /* AnidubApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnidubApp.entitlements; sourceTree = "<group>"; };
 		A0A14B8120728D9B00C3C7F2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		A0A14B8220728D9B00C3C7F2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
@@ -96,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0DAD25A2074FDFB00F00217 /* MRArticleViewController.framework in Frameworks */,
 				A0A14B8420728D9B00C3C7F2 /* Crashlytics.framework in Frameworks */,
 				A0A14B8320728D9B00C3C7F2 /* Fabric.framework in Frameworks */,
 				2FDC361100E3AE6F23529BD3 /* Pods_AnidubApp.framework in Frameworks */,
@@ -149,6 +157,7 @@
 		A06B8BE820728AF800E2C030 = {
 			isa = PBXGroup;
 			children = (
+				A090D94820EB7F5B003EA759 /* FirebaseAuthUI.strings */,
 				A06B8BF320728AF800E2C030 /* AnidubApp */,
 				A06B8C0A20728AFD00E2C030 /* AnidubAppTests */,
 				A06B8C1520728AFD00E2C030 /* AnidubAppUITests */,
@@ -191,7 +200,10 @@
 				A0A14B8520728F7400C3C7F2 /* GoogleService-Info.plist */,
 				A06B8C0220728AFD00E2C030 /* Info.plist */,
 				A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */,
+				A08EE84A21320F17007754D5 /* ArticleViewController.swift */,
+				A08EE84B21320F17007754D5 /* UIImageColors.swift */,
 				A02D71252073A20600A03E67 /* CollectionViewCell.swift */,
+				A08EE856213239F0007754D5 /* WebPlayer.swift */,
 			);
 			path = AnidubApp;
 			sourceTree = "<group>";
@@ -307,10 +319,9 @@
 			};
 			buildConfigurationList = A06B8BEC20728AF800E2C030 /* Build configuration list for PBXProject "AnidubApp" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = A06B8BE820728AF800E2C030;
@@ -333,6 +344,7 @@
 				A06B8C0120728AFD00E2C030 /* LaunchScreen.storyboard in Resources */,
 				A0FBC3852076807400D2B1DF /* UserCollectionViewCell.xib in Resources */,
 				A0A14B8620728F7500C3C7F2 /* GoogleService-Info.plist in Resources */,
+				A090D94920EB7F5B003EA759 /* FirebaseAuthUI.strings in Resources */,
 				A06B8BFE20728AFD00E2C030 /* Assets.xcassets in Resources */,
 				A0DAD25F20752B6D00F00217 /* RequestViewController.xib in Resources */,
 				A06B8BFC20728AF800E2C030 /* Main.storyboard in Resources */,
@@ -392,12 +404,10 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/MRArticleViewController/MRArticleViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/QuickTableViewController/QuickTableViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -420,12 +430,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MRArticleViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickTableViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -451,7 +459,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 7f0d441a445b99ad9be96af08be5f9e0255de5f5 6f1c6d273d9d2d4f5e74dd780c4b86e441f769af139465503ee9d4a245096798";
+			shellScript = "./Fabric.framework/run 7f0d441a445b99ad9be96af08be5f9e0255de5f5 6f1c6d273d9d2d4f5e74dd780c4b86e441f769af139465503ee9d4a245096798\n";
 		};
 		C118973270D978D9A4A363EE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -532,10 +540,13 @@
 				A02D71262073A20600A03E67 /* CollectionViewCell.swift in Sources */,
 				A0DAD26220752D3300F00217 /* RequestViewController.swift in Sources */,
 				A0DAD25C20750B3500F00217 /* InfoViewController.swift in Sources */,
+				A08EE857213239F0007754D5 /* WebPlayer.swift in Sources */,
 				A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */,
+				A08EE85421321094007754D5 /* ArticleViewController.swift in Sources */,
 				A0FBC3842076807400D2B1DF /* UserCollectionViewCell.swift in Sources */,
 				A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */,
 				A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */,
+				A08EE85521321097007754D5 /* UIImageColors.swift in Sources */,
 				A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */,
 				A06B8BF720728AF800E2C030 /* FirstViewController.swift in Sources */,
 			);
@@ -577,6 +588,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A06B8BFB20728AF800E2C030 /* Base */,
+				A090D94620EB75BC003EA759 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -585,6 +597,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A06B8C0020728AFD00E2C030 /* Base */,
+				A090D94720EB75BE003EA759 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -596,6 +609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -656,6 +670,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -723,14 +738,14 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AnidubApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6ffa4551-848f-4aa1-a0c0-8ce1317555af";
+				PROVISIONING_PROFILE = "97c71203-2123-4d7e-a9eb-67f100f9ae5b";
 				PROVISIONING_PROFILE_SPECIFIER = "Anidub-Test-Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "AnidubApp/AnidubApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -754,14 +769,14 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AnidubApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "188b7511-3a68-4d68-b9fd-ae67f7ff2ac7";
+				PROVISIONING_PROFILE = "97c71203-2123-4d7e-a9eb-67f100f9ae5b";
 				PROVISIONING_PROFILE_SPECIFIER = "Anidub-Test-Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "AnidubApp/AnidubApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

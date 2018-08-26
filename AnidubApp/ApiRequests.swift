@@ -700,8 +700,9 @@ func update_favorites(u_id:String,appendFav:String){
     ref = Database.database().reference()
     let userID = Auth.auth().currentUser?.uid
 
+    if(userID != nil){
     ref.child("users/\(userID!)/bookmarks").setValue(appendFav)
-
+    }
 }
 func get_recent(u_id:String ,completion: @escaping (_ result: [String]) -> Void){
 

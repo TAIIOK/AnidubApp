@@ -29,9 +29,12 @@ class FifthViewController: UIViewController {
         if(UserDefaults.standard.value(forKey: "uid") == nil || Database.database().reference().child(byAppendingPath: "users").child(byAppendingPath: UserDefaults.standard.value(forKey: "uid") as! String) == nil){
 
         let auth = FUIAuth.defaultAuthUI()
-        auth?.delegate = self
         auth?.providers = providers
-
+            if let bundlePath = Bundle.main.path(forResource: "FirebaseAuthUI", ofType: "strings") {
+                let bundle = Bundle(path: bundlePath)
+                auth?.customStringsBundle = bundle;
+            }
+       auth?.delegate = self
         let authViewController = auth?.authViewController()
         present(authViewController!, animated: true)
         }

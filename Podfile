@@ -9,7 +9,6 @@ target 'AnidubApp' do
   pod 'Firebase/Database'
   pod 'AlamofireImage', '~> 3.3'
   pod 'Firebase/Performance'
-  pod 'MRArticleViewController'
   pod 'PopupDialog', '~> 0.7'
   pod 'DisplaySwitcher' , '~> 1.0'
   pod 'QuickTableViewController'

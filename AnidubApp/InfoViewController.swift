@@ -9,7 +9,6 @@
 
 import UIKit
 import PopupDialog
-import MRArticleViewController
 import WebKit
 import Firebase
 
@@ -24,6 +23,8 @@ class InfoViewController: ArticleViewController {
 
     override func viewDidLoad() {
 
+        
+        self.tabBarController?.tabBar.isHidden = true
         autoColored = false
         imageView.image = ImageCache[(currentTitle.first?.ID)!]
 
@@ -47,7 +48,8 @@ class InfoViewController: ArticleViewController {
 
         imageView.image = ImageCache[(currentTitle.first?.ID)!]
         headline = (currentTitle.first?.Title.Russian)!
-        author = (currentTitle.first?.Information.Dubbers)! + (currentTitle.first?.Information.Studio)! + (currentTitle.first?.Information.Country)!
+        self.navigationItem.title = (currentTitle.first?.Title.Russian)!
+        author = (currentTitle.first?.Information.Dubbers)! + " " + (currentTitle.first?.Information.Studio)! + " " + (currentTitle.first?.Information.Country)!
         date = NSDate() as Date
         body =  (currentTitle.first?.Information.Description)!
         //autoColored = false
@@ -134,6 +136,7 @@ class InfoViewController: ArticleViewController {
 
         DispatchQueue.global(qos:.background).async {
             listEpisodes = getTitles_episodes(id: (currentTitle.first?.ID)!)
+            self.EpisodesList = listEpisodes
             group.leave()
         }
 
