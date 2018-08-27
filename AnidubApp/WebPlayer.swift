@@ -27,6 +27,8 @@ extension UINavigationBar {
         
         blurView.layer.zPosition = -1
         addSubview(blurView)
+        }else{
+            viewWithTag(98)?.removeFromSuperview()
         }
     }
 }
@@ -36,7 +38,7 @@ class WebPlayerController: UIViewController , WKNavigationDelegate{
     var url = ""
     
     
-    
+
     @IBOutlet weak var myWk: WKWebView!
     
     
@@ -51,12 +53,10 @@ class WebPlayerController: UIViewController , WKNavigationDelegate{
         
         //add observer to get estimated progress value
         self.myWk.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil);
-        
-    
-        self.navigationController?.navigationBar.installBlurEffect()
+ 
+       
     }
     
-
 
     
     // Observe value
@@ -66,6 +66,14 @@ class WebPlayerController: UIViewController , WKNavigationDelegate{
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.default
+        self.navigationController?.navigationBar.isTranslucent = false
+    }
 
 
     func webViewDidStartLoad(_ webView: UIWebView) {

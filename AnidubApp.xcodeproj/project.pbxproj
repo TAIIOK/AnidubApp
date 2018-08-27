@@ -726,7 +726,6 @@
 			baseConfigurationReference = 189845AE368DFD0632AC182C /* Pods-AnidubApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AnidubApp/AnidubApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -759,7 +758,6 @@
 			baseConfigurationReference = A850AEABEB7D4FF47E3B0BF7 /* Pods-AnidubApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AnidubApp/AnidubApp.entitlements;
 				CODE_SIGN_STYLE = Manual;

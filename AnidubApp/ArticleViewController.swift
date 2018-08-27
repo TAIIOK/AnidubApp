@@ -12,14 +12,25 @@ import WebKit
 open class ArticleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(EpisodesList.count > 0 ){
+            if(segment.selectedSegmentIndex == 0){
             return ((EpisodesList.first?.count)!)}
+            else {
+            return ((EpisodesList.last?.count)!)
+            }
+            
+        }
         return 0
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "Cell")
+        if(segment.selectedSegmentIndex == 0){
+            cell.textLabel!.text = (EpisodesList.first as! [episodes])[indexPath.row].Name
+        }else {
+            cell.textLabel!.text = (EpisodesList.last as! [episodes])[indexPath.row].Name
+        }
         
-        cell.textLabel!.text = (EpisodesList.first as! [episodes])[indexPath.row].Name
+        
         return cell
     }
     
@@ -35,7 +46,12 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "WebPlayer") as! WebPlayerController
         
-        vc.loadVideo(urls: (EpisodesList.first?.first as! episodes).Url)
+        if(segment.selectedSegmentIndex == 0){
+            vc.loadVideo(urls: (EpisodesList.first as! [episodes])[indexPath.row].Url)
+        }else {
+            vc.loadVideo(urls: (EpisodesList.last as! [episodes])[indexPath.row].Url)
+        }
+        
         navigationController?.pushViewController(vc, animated: true)
         
  
@@ -175,6 +191,7 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
     fileprivate let divider = UIView()
     fileprivate let bodyLabel = UILabel()
     fileprivate let tableView: UITableView = UITableView()
+    fileprivate let segment = UISegmentedControl(items: ["Альтернативный", "Анидаб"])
     
     fileprivate var backgroundColorSet = false
     fileprivate var headlineColorSet = false
@@ -333,9 +350,15 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
 
     }
 
+    @objc func changeTable(segment: UISegmentedControl) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     fileprivate func setupChoose(){
 
-
+        /*
         bookmarkButton.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.addSubview(bookmarkButton)
 
@@ -343,14 +366,21 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
         NSLayoutConstraint(item: bookmarkButton, attribute: .top, relatedBy: .equal, toItem: bodyLabel, attribute: .bottom, multiplier: 1, constant: 20).isActive = true
         NSLayoutConstraint(item: bookmarkButton, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 14).isActive = true
         NSLayoutConstraint(item: bookmarkButton, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: -14).isActive = true
+         */
+
+        
+        segment.translatesAutoresizingMaskIntoConstraints = false
+        segment.selectedSegmentIndex = 0
+//        segment.addTarget(self, action: Selector(("changeTableWithSender:")), for:.valueChanged)
+        segment.addTarget(self, action: #selector(self.changeTable(segment:)), for:.valueChanged)
 
 
-        episodeButton.translatesAutoresizingMaskIntoConstraints = false
-        backgroundView.addSubview(episodeButton)
 
-        NSLayoutConstraint(item: episodeButton, attribute: .top, relatedBy: .equal, toItem: bookmarkButton, attribute: .bottom, multiplier: 1, constant: 20).isActive = true
-        NSLayoutConstraint(item: episodeButton, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 14).isActive = true
-        NSLayoutConstraint(item: episodeButton, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: -14).isActive = true
+        backgroundView.addSubview(segment)
+
+        NSLayoutConstraint(item: segment, attribute: .top, relatedBy: .equal, toItem: bodyLabel, attribute: .bottom, multiplier: 1, constant: 20).isActive = true
+        NSLayoutConstraint(item: segment, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 14).isActive = true
+        NSLayoutConstraint(item: segment, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: -14).isActive = true
 
     }
 
@@ -366,7 +396,7 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
         backgroundView.addSubview(videoWebview)
 
 
-        NSLayoutConstraint(item: videoWebview, attribute: .top, relatedBy: .equal, toItem: episodeButton, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: videoWebview, attribute: .top, relatedBy: .equal, toItem: segment, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: videoWebview, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: videoWebview, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: videoWebview, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: view.bounds.width).isActive = true
@@ -380,7 +410,7 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
         backgroundView.addSubview(tableView)
         
         
-        NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: episodeButton, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: segment, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
         NSLayoutConstraint(item: tableView, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: tableView, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: tableView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: CGFloat(((EpisodesList.first?.count)!) * 44)).isActive = true

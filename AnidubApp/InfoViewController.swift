@@ -28,24 +28,6 @@ class InfoViewController: ArticleViewController {
         autoColored = false
         imageView.image = ImageCache[(currentTitle.first?.ID)!]
 
-        let choosebutton = UIButton(type: UIButtonType.system)
-        choosebutton.frame = CGRect(x: 0, y: 0, width: 150, height: 40)
-        choosebutton.setTitle("Выберите серию", for: UIControlState.normal)
-        choosebutton.addTarget(self,action: #selector(changeEpisode),for: .touchUpInside)
-        choosebutton.tag = 1
-
-        episodeButton = choosebutton
-
-
-        let bookmarkbutton = UIButton(type: UIButtonType.system)
-        bookmarkbutton.frame = CGRect(x: 155, y: 0, width: 175, height: 40)
-        bookmarkbutton.setTitle(inbookmark(), for: UIControlState.normal)
-        bookmarkbutton.addTarget(self,action: #selector(bookmark),for: .touchUpInside)
-        bookmarkbutton.tag = 2
-
-        bookmarkButton = bookmarkbutton
-
-
         imageView.image = ImageCache[(currentTitle.first?.ID)!]
         headline = (currentTitle.first?.Title.Russian)!
         self.navigationItem.title = (currentTitle.first?.Title.Russian)!
@@ -68,7 +50,7 @@ class InfoViewController: ArticleViewController {
             get_favorites(u_id: "test", completion: {result in
 
                 self.bookmarks = result
-                self.bookmarkButton.setTitle(self.inbookmark(),for: .normal)
+               // self.bookmarkButton.setTitle(self.inbookmark(),for: .normal)
             })
         }
 
