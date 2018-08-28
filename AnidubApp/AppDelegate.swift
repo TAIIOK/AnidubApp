@@ -13,7 +13,7 @@ import Firebase
 import AVKit
 import AVFoundation
 import UserNotifications
-
+import GoogleMobileAds
 
 let BASE_URL =  "https://anidubapp-b270a.firebaseio.com/"
 
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
 
 
-
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-6296201459697561~7604273760")
 
         return true
     }

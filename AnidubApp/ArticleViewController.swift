@@ -43,6 +43,8 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
         
         self.navigationController?.present(navController, animated: true, completion: nil)
     */
+        
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "WebPlayer") as! WebPlayerController
         
@@ -229,12 +231,7 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
         tableView.tag = 100
         tableView.isScrollEnabled = false
         
-        NotificationCenter.default.addObserver(self, selector: #selector(videoDidRotate), name: .UIDeviceOrientationDidChange, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(videoDidRotate), name: .UIWindowDidBecomeVisible, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(videoDidRotate), name: .UIWindowDidBecomeHidden, object: nil)
-
+       
 
     }
 
@@ -413,27 +410,13 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
         NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: segment, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
         NSLayoutConstraint(item: tableView, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: tableView, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: tableView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: CGFloat(((EpisodesList.first?.count)!) * 44)).isActive = true
+        NSLayoutConstraint(item: tableView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: CGFloat((Double((EpisodesList.first?.count)!)) * 44.3)).isActive = true
         NSLayoutConstraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
 
     }
     
 
-    override open var prefersStatusBarHidden: Bool {
-        return UIApplication.shared.statusBarOrientation.isLandscape
-    }
 
-    @objc func videoDidRotate() {
-        print("ANUS")
-        self.setNeedsStatusBarAppearanceUpdate()
-    }
-
-    override open func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews();
-        UIApplication.shared.isStatusBarHidden = false
-        self.setNeedsStatusBarAppearanceUpdate()
-        print("SYKA BLAT")
-    }
 
 
 

@@ -288,7 +288,7 @@ func setupTitle(data: [String:Any]) -> Title?
     //     return nil
    //     }
     
-    return Title(fullName: full!, Russian: "", Original: "", Episodes: "")
+    return Title(fullName: full!, Russian: full!, Original: "", Episodes: "")
 
 }
 
@@ -313,6 +313,11 @@ func setupFullTitle(data: [String:Any]) -> fullTitle?
             else {
                 return nil
         }
+        if(categories.count > 0){
+        if((categories.first?.contains("Новости проекта"))!){
+            return nil
+        }
+        }
         result  = fullTitle(ID: Int(id)!, Url: url, Title: title!, Uploader: uploader, Categories: categories, Poster: poster, Information: information!, Commentaries: 0, Rating: rating!)
     }
     else{
@@ -330,6 +335,11 @@ func setupFullTitle(data: [String:Any]) -> fullTitle?
         if(commentaries == "")
         {
             commentaries = "0"
+        }
+        if(categories.count > 0){
+            if((categories.first?.contains("Новости проекта"))!){
+                return nil
+            }
         }
         result  = fullTitle(ID: Int(id)!, Url: url, Title: title!, Uploader: uploader, Categories: categories, Poster: poster, Information: information!, Commentaries: Int(commentaries)!, Rating: rating!)
     }
@@ -361,7 +371,7 @@ func setupEpisodes(data: [String:Any]) -> [[episodes]]?{
                 print(temp)
             }
             else{
-                if(String(beginning).last == "?"){
+                if(temp.contains(" ")){
                 temp = String(String(beginning).dropLast(1))
                 }
             }
@@ -425,9 +435,9 @@ func search_string(name: String, page:Int) -> [fullTitle]{
                 for case let result in Data! {
 
                     let title = setupFullTitle(data: result as! [String : Any])
-
+                    if(title != nil){
                     Titles_list.append(title!)
-
+                    }
 
                 }
     
@@ -481,9 +491,9 @@ func getTitle_list(page:Int) -> [fullTitle]{
                 for case let result in Data! {
 
                  let title = setupFullTitle(data: result as! [String : Any])
-
+                    if(title != nil){
                     Titles_list.append(title!)
-                    
+                    }
                     
                 }
                 

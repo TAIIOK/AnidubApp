@@ -117,6 +117,7 @@ PODS:
   - FirebaseUI/Twitter (4.5.5):
     - FirebaseUI/Auth
     - TwitterKit (~> 3.0)
+  - Google-Mobile-Ads-SDK (7.31.0)
   - GoogleSignIn (4.1.2):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -188,6 +189,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Google
   - FirebaseUI/Phone
+  - Google-Mobile-Ads-SDK
   - PopupDialog (~> 0.7)
   - QuickTableViewController
 
@@ -213,6 +215,7 @@ SPEC REPOS:
     - FirebaseStorage
     - FirebaseSwizzlingUtilities
     - FirebaseUI
+    - Google-Mobile-Ads-SDK
     - GoogleSignIn
     - GoogleToolboxForMac
     - gRPC
@@ -251,6 +254,7 @@ SPEC CHECKSUMS:
   FirebaseStorage: 0c223481c8f89ed300cf1239ddd2d9833622c65f
   FirebaseSwizzlingUtilities: 6006111d30248d2321ffac0231e246663e704ea3
   FirebaseUI: 7f149d40db1a67c459df16540256b66d8f8e8c70
+  Google-Mobile-Ads-SDK: 6e529e748b45507a2ca904e0b5a52669ba3920c4
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   gRPC: f54f0e6d603052b4562447da442ce2ff30bcdacc
@@ -268,6 +272,6 @@ SPEC CHECKSUMS:
   TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
   TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
 
-PODFILE CHECKSUM: 18f1390e2b15e59d91e56efd6b0f6a333006ce80
+PODFILE CHECKSUM: e8e9bc9bfe714118bbdfc111a86fd49cefe6b35c
 
 COCOAPODS: 1.5.3

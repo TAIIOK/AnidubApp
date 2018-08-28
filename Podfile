@@ -16,6 +16,7 @@ target 'AnidubApp' do
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Google'
   pod 'FirebaseUI/Phone'
+  pod 'Google-Mobile-Ads-SDK'
 
   # Pods for AnidubApp
 

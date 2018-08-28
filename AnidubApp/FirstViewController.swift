@@ -118,8 +118,9 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
                 var temp:String = titleslist[indexPath.row].Title.fullName
                 let index = temp.index(of: "/") ?? temp.endIndex
                 let beginning = temp[..<index]
-
+                if(temp.slice(from: "[", to: "]")! != ""){
                 titleslist[indexPath.row].Title.Russian = String(beginning) + " [" + temp.slice(from: "[", to: "]")! + "]"
+                }
             }
             cell.setTitle(title:titleslist[indexPath.row].Title.Russian)
             print(titleslist[indexPath.row].Title.Russian)
@@ -235,7 +236,7 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
     @IBOutlet weak var mycollection: UICollectionView!
 
     var searchflag = false
-    var mytitle = ""
+    var mytitle = "Обзор"
     var titleslist = [fullTitle]()
     var searchtitles = [fullTitle]()
     var bookmarks = [String]()
@@ -311,13 +312,8 @@ class FirstViewController: UIViewController , UICollectionViewDelegate , UIColle
         searchflag = false
         self.navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
         self.mycollection.reloadData()
-        var navigationTitlelabel = UILabel()
-        navigationTitlelabel.text = mytitle
-        navigationTitlelabel.font = UIFont(name: "Optima-Italic", size: 16)
-        navigationTitlelabel.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
 
-
-        self.navigationController!.navigationBar.topItem!.titleView = navigationTitlelabel
+        self.navigationItem.titleView = nil
     }
 
     @objc func searchTapped(){
