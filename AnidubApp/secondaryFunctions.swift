@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct Title {
     var fullName:String
@@ -49,6 +50,13 @@ struct user {
     var password:String
 }
 
+struct user_firebase{
+    var ID:String
+    var name:String
+    var Fav:[String] = [String]()
+}
+
+
 func md5(_ string: String) -> String {
     
     
@@ -64,6 +72,53 @@ func md5(_ string: String) -> String {
     }
     
     return hexString
+}
+
+
+extension Array where Element: Equatable {
+    
+    public func uniq() -> [Element] {
+        var arrayCopy = self
+        arrayCopy.uniqInPlace()
+        return arrayCopy
+    }
+    
+    mutating public func uniqInPlace() {
+        var seen = [Element]()
+        var index = 0
+        for element in self {
+            if seen.contains(element) {
+                remove(at: index)
+            } else {
+                seen.append(element)
+                index += 1
+            }
+        }
+    }
+}
+
+extension UIApplication {
+    var statusBarView: UIView? {
+        if responds(to: Selector("statusBar")) {
+            return value(forKey: "statusBar") as? UIView
+        }
+        return nil
+    }
+}
+
+extension String {
+    func slice(from: String, to: String) -> String? {
+        
+        var result = (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                substring(with: substringFrom..<substringTo)
+            }
+        }
+        if result == nil{
+            return ""
+        }
+        return result
+    }
 }
 
 

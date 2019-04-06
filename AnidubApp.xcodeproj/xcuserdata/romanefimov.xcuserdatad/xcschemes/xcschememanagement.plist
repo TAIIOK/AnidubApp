@@ -7,12 +7,27 @@
 		<key>AnidubApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>35</integer>
+		</dict>
+		<key>AnidubApp.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>35</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A001AC421EA62792008D9B5B</key>
+		<key>A06B8BF020728AF800E2C030</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A06B8C0620728AFD00E2C030</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A06B8C1120728AFD00E2C030</key>
 		<dict>
 			<key>primary</key>
 			<true/>

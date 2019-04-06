@@ -45,6 +45,9 @@ class RequestViewController: UIViewController , UIPickerViewDelegate , UIPickerV
 
         if pickerView == TypePicker
         {
+            if(Listepisodes.first?.count == 0 || Listepisodes.last?.count == 0){
+                return 1
+            }
             return headerTitles.count
         }
         
@@ -60,7 +63,13 @@ class RequestViewController: UIViewController , UIPickerViewDelegate , UIPickerV
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == TypePicker
         {
-            
+            if(Listepisodes.first?.count == 0){
+                return headerTitles[1]
+            }
+            if(Listepisodes.last?.count == 0){
+                return headerTitles[0]
+            }
+
             return headerTitles[row]
         }
         
