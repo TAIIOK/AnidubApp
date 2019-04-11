@@ -31,38 +31,38 @@
 import UIKit
 import Motion
 
-fileprivate class MaterialLayer {
+private class MaterialLayer {
   /// A reference to the CALayer.
   fileprivate weak var layer: CALayer?
-  
+
   /// A property that sets the height of the layer's frame.
   fileprivate var heightPreset = HeightPreset.default {
     didSet {
       layer?.height = CGFloat(heightPreset.rawValue)
     }
   }
-  
+
   /// A property that sets the cornerRadius of the backing layer.
   fileprivate var cornerRadiusPreset = CornerRadiusPreset.none {
     didSet {
       layer?.cornerRadius = CornerRadiusPresetToValue(preset: cornerRadiusPreset)
     }
   }
-  
+
   /// A preset property to set the borderWidth.
   fileprivate var borderWidthPreset = BorderWidthPreset.none {
     didSet {
       layer?.borderWidth = borderWidthPreset.cgFloatValue
     }
   }
-  
+
   /// A preset property to set the shape.
   fileprivate var shapePreset = ShapePreset.none {
     didSet {
       layer?.layoutShape()
     }
   }
-  
+
   /// A preset value for Depth.
   fileprivate var depthPreset: DepthPreset {
     get {
@@ -72,24 +72,24 @@ fileprivate class MaterialLayer {
       depth.preset = value
     }
   }
-  
+
   /// Grid reference.
   fileprivate var depth = Depth.zero {
     didSet {
       guard let v = layer else {
         return
       }
-      
+
       v.shadowOffset = depth.offset.asSize
       v.shadowOpacity = depth.opacity
       v.shadowRadius = depth.radius
       v.layoutShadowPath()
     }
   }
-  
+
   /// Enables automatic shadowPath sizing.
   fileprivate var isShadowPathAutoSizing = false
-  
+
   /**
    Initializer that takes in a CALayer.
    - Parameter view: A CALayer reference.
@@ -99,7 +99,7 @@ fileprivate class MaterialLayer {
   }
 }
 
-fileprivate var MaterialLayerKey: UInt8 = 0
+private var MaterialLayerKey: UInt8 = 0
 
 extension CALayer {
   /// MaterialLayer Reference.
@@ -113,7 +113,7 @@ extension CALayer {
       AssociatedObject.set(base: self, key: &MaterialLayerKey, value: value)
     }
   }
-  
+
   /// A property that accesses the frame.origin.x property.
   @IBInspectable
   open var x: CGFloat {
@@ -122,11 +122,11 @@ extension CALayer {
     }
     set(value) {
       frame.origin.x = value
-      
+
       layoutShadowPath()
     }
   }
-  
+
   /// A property that accesses the frame.origin.y property.
   @IBInspectable
   open var y: CGFloat {
@@ -135,11 +135,11 @@ extension CALayer {
     }
     set(value) {
       frame.origin.y = value
-      
+
       layoutShadowPath()
     }
   }
-  
+
   /// A property that accesses the frame.size.width property.
   @IBInspectable
   open var width: CGFloat {
@@ -148,16 +148,16 @@ extension CALayer {
     }
     set(value) {
       frame.size.width = value
-      
+
       if .none != shapePreset {
         frame.size.height = value
         layoutShape()
       }
-      
+
       layoutShadowPath()
     }
   }
-  
+
   /// A property that accesses the frame.size.height property.
   @IBInspectable
   open var height: CGFloat {
@@ -166,16 +166,16 @@ extension CALayer {
     }
     set(value) {
       frame.size.height = value
-      
+
       if .none != shapePreset {
         frame.size.width = value
         layoutShape()
       }
-      
+
       layoutShadowPath()
     }
   }
-  
+
   /// HeightPreset value.
   open var heightPreset: HeightPreset {
     get {
@@ -185,7 +185,7 @@ extension CALayer {
       materialLayer.heightPreset = value
     }
   }
-  
+
   /**
    A property that manages the overall shape for the object. If either the
    width or height property is set, the other will be automatically adjusted
@@ -199,7 +199,7 @@ extension CALayer {
       materialLayer.shapePreset = value
     }
   }
-  
+
   /// A preset value for Depth.
   open var depthPreset: DepthPreset {
     get {
@@ -209,7 +209,7 @@ extension CALayer {
       depth.preset = value
     }
   }
-  
+
   /// Grid reference.
   open var depth: Depth {
     get {
@@ -219,7 +219,7 @@ extension CALayer {
       materialLayer.depth = value
     }
   }
-  
+
   /// Enables automatic shadowPath sizing.
   @IBInspectable
   open var isShadowPathAutoSizing: Bool {
@@ -230,7 +230,7 @@ extension CALayer {
       materialLayer.isShadowPathAutoSizing = value
     }
   }
-  
+
   /// A property that sets the cornerRadius of the backing layer.
   open var cornerRadiusPreset: CornerRadiusPreset {
     get {
@@ -240,7 +240,7 @@ extension CALayer {
       materialLayer.cornerRadiusPreset = value
     }
   }
-  
+
   /// A preset property to set the borderWidth.
   open var borderWidthPreset: BorderWidthPreset {
     get {
@@ -258,29 +258,29 @@ extension CALayer {
     guard .none != shapePreset else {
       return
     }
-    
+
     if 0 == bounds.width {
       bounds.size.width = bounds.height
     }
-    
+
     if 0 == bounds.height {
       bounds.size.height = bounds.width
     }
-    
+
     guard .circle == shapePreset else {
       cornerRadius = 0
       return
     }
-    
+
     cornerRadius = bounds.width / 2
   }
-  
+
   /// Sets the shadow path.
   open func layoutShadowPath() {
     guard isShadowPathAutoSizing else {
       return
     }
-    
+
     if .none == depthPreset {
       shadowPath = nil
     } else if nil == shadowPath {

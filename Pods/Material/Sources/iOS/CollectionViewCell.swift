@@ -40,15 +40,15 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
    the image to a desired shape within the visualLayer.
    */
   open let visualLayer = CAShapeLayer()
-  
+
   /// A Pulse reference.
   internal var pulse: Pulse!
-  
+
   /// A reference to the pulse layer.
   internal var pulseLayer: CALayer? {
     return pulse.pulseLayer
   }
-  
+
   /// PulseAnimation value.
   open var pulseAnimation: PulseAnimation {
     get {
@@ -58,7 +58,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       pulse.animation = value
     }
   }
-  
+
   /// PulseAnimation color.
   @IBInspectable
   open var pulseColor: UIColor {
@@ -69,7 +69,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       pulse.color = value
     }
   }
-  
+
   /// Pulse opacity.
   @IBInspectable
   open var pulseOpacity: CGFloat {
@@ -80,7 +80,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       pulse.opacity = value
     }
   }
-  
+
   /**
    A property that manages an image for the visualLayer's contents
    property. Images should not be set to the backing layer's contents
@@ -92,7 +92,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       visualLayer.contents = image?.cgImage
     }
   }
-  
+
   /**
    Allows a relative subrectangle within the range of 0 to 1 to be
    specified for the visualLayer's contents property. This allows
@@ -108,7 +108,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       visualLayer.contentsRect = value
     }
   }
-  
+
   /**
    A CGRect that defines a stretchable region inside the visualLayer
    with a fixed border around the edge.
@@ -122,7 +122,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       visualLayer.contentsCenter = value
     }
   }
-  
+
   /**
    A floating point value that defines a ratio between the pixel
    dimensions of the visualLayer's contents property and the size
@@ -137,14 +137,14 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       visualLayer.contentsScale = value
     }
   }
-  
+
   /// A Preset for the contentsGravity property.
   public var contentsGravityPreset: Gravity {
     didSet {
       contentsGravity = GravityToValue(gravity: contentsGravityPreset)
     }
   }
-  
+
   /// Determines how content should be aligned within the visualLayer's bounds.
   @IBInspectable
   open var contentsGravity: String {
@@ -155,7 +155,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       visualLayer.contentsGravity = value
     }
   }
-  
+
   /// A property that accesses the backing layer's background
   @IBInspectable
   open override var backgroundColor: UIColor? {
@@ -163,7 +163,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       layer.backgroundColor = backgroundColor?.cgColor
     }
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -173,7 +173,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
     super.init(coder: aDecoder)
     prepare()
   }
-  
+
   /**
    An initializer that initializes the object with a CGRect object.
    If AutoLayout is used, it is better to initilize the instance
@@ -185,14 +185,14 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
     super.init(frame: frame)
     prepare()
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     layoutShape()
     layoutVisualLayer()
     layoutShadowPath()
   }
-  
+
   /**
    Triggers the pulse animation.
    - Parameter point: A Optional point to pulse from, otherwise pulses
@@ -204,7 +204,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
       self?.pulse.contract()
     }
   }
-  
+
   /**
    A delegation method that is executed when the view has began a
    touch event.
@@ -215,7 +215,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
     super.touchesBegan(touches, with: event)
     pulse.expand(point: layer.convert(touches.first!.location(in: self), from: layer))
   }
-  
+
   /**
    A delegation method that is executed when the view touch event has
    ended.
@@ -226,7 +226,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
     super.touchesEnded(touches, with: event)
     pulse.contract()
   }
-  
+
   /**
    A delegation method that is executed when the view touch event has
    been cancelled.
@@ -237,7 +237,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
     super.touchesCancelled(touches, with: event)
     pulse.contract()
   }
-  
+
   /**
    Prepares the view instance when intialized. When subclassing,
    it is recommended to override the prepare method
@@ -248,7 +248,7 @@ open class CollectionViewCell: UICollectionViewCell, Pulseable, PulseableLayer {
   open func prepare() {
     backgroundColor = .white
     contentScaleFactor = Screen.scale
-    
+
     prepareVisualLayer()
     preparePulse()
   }
@@ -259,7 +259,7 @@ extension CollectionViewCell {
   fileprivate func preparePulse() {
     pulse = Pulse(pulseView: self, pulseLayer: visualLayer)
   }
-  
+
   /// Prepares the visualLayer property.
   fileprivate func prepareVisualLayer() {
     visualLayer.zPosition = 0

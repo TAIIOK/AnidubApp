@@ -31,7 +31,7 @@ import UIKit
 public protocol MotionPreprocessor: class {
   /// A reference to Motion.
   var motion: MotionTransition! { get set }
-  
+
   /**
    Processes the transitionary views.
    - Parameter fromViews: An Array of UIViews.

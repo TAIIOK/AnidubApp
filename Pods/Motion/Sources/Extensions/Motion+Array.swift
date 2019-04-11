@@ -41,4 +41,3 @@ internal extension Array {
     return nil
   }
 }
-

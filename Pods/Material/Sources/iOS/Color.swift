@@ -52,19 +52,19 @@ public protocol ColorPalette {
   static var darken3: UIColor { get }
   /// Material color code: 900
   static var darken4: UIColor { get }
-  
+
   /// Material color code: A100
   @objc
   optional static var accent1: UIColor { get }
-  
+
   /// Material color code: A200
   @objc
   optional static var accent2: UIColor { get }
-  
+
   /// Material color code: A400
   @objc
   optional static var accent3: UIColor { get }
-  
+
   /// Material color code: A700
   @objc
   optional static var accent4: UIColor { get }
@@ -78,7 +78,7 @@ open class Color: UIColor {
     open static let others = Color.black.withAlphaComponent(0.38)
     open static let dividers = Color.black.withAlphaComponent(0.12)
   }
-  
+
   // light text
   open class lightText {
     open static let primary = Color.white
@@ -86,7 +86,7 @@ open class Color: UIColor {
     open static let others = Color.white.withAlphaComponent(0.5)
     open static let dividers = Color.white.withAlphaComponent(0.12)
   }
-  
+
   // red
   open class red: ColorPalette {
     open static let lighten5 = UIColor(red: 255/255, green: 235/255, blue: 238/255, alpha: 1)
@@ -104,7 +104,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 255/255, green: 23/255, blue: 68/255, alpha: 1)
     open static let accent4 = UIColor(red: 213/255, green: 0/255, blue: 0/255, alpha: 1)
   }
-  
+
   // pink
   open class pink: ColorPalette {
     open static let lighten5 = UIColor(red: 252/255, green: 228/255, blue: 236/255, alpha: 1)
@@ -122,7 +122,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 245/255, green: 0/255, blue: 87/255, alpha: 1)
     open static let accent4 = UIColor(red: 197/255, green: 17/255, blue: 98/255, alpha: 1)
   }
-  
+
   // purple
   open class purple: ColorPalette {
     open static let lighten5 = UIColor(red: 243/255, green: 229/255, blue: 245/255, alpha: 1)
@@ -140,7 +140,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 213/255, green: 0/255, blue: 249/255, alpha: 1)
     open static let accent4 = UIColor(red: 170/255, green: 0/255, blue: 255/255, alpha: 1)
   }
-  
+
   // deepPurple
   open class deepPurple: ColorPalette {
     open static let lighten5 = UIColor(red: 237/255, green: 231/255, blue: 246/255, alpha: 1)
@@ -158,7 +158,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 101/255, green: 31/255, blue: 255/255, alpha: 1)
     open static let accent4 = UIColor(red: 98/255, green: 0/255, blue: 234/255, alpha: 1)
   }
-  
+
   // indigo
   open class indigo: ColorPalette {
     open static let lighten5 = UIColor(red: 232/255, green: 234/255, blue: 246/255, alpha: 1)
@@ -176,7 +176,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 61/255, green: 90/255, blue: 254/255, alpha: 1)
     open static let accent4 = UIColor(red: 48/255, green: 79/255, blue: 254/255, alpha: 1)
   }
-  
+
   // blue
   open class blue: ColorPalette {
     open static let lighten5 = UIColor(red: 227/255, green: 242/255, blue: 253/255, alpha: 1)
@@ -194,7 +194,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 41/255, green: 121/255, blue: 255/255, alpha: 1)
     open static let accent4 = UIColor(red: 41/255, green: 98/255, blue: 255/255, alpha: 1)
   }
-  
+
   // light blue
   open class lightBlue: ColorPalette {
     open static let lighten5 = UIColor(red: 225/255, green: 245/255, blue: 254/255, alpha: 1)
@@ -212,7 +212,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 0/255, green: 176/255, blue: 255/255, alpha: 1)
     open static let accent4 = UIColor(red: 0/255, green: 145/255, blue: 234/255, alpha: 1)
   }
-  
+
   // cyan
   open class cyan: ColorPalette {
     open static let lighten5 = UIColor(red: 224/255, green: 247/255, blue: 250/255, alpha: 1)
@@ -230,7 +230,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 0/255, green: 229/255, blue: 255/255, alpha: 1)
     open static let accent4 = UIColor(red: 0/255, green: 184/255, blue: 212/255, alpha: 1)
   }
-  
+
   // teal
   open class teal: ColorPalette {
     open static let lighten5 = UIColor(red: 224/255, green: 242/255, blue: 241/255, alpha: 1)
@@ -248,7 +248,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 29/255, green: 233/255, blue: 182/255, alpha: 1)
     open static let accent4 = UIColor(red: 0/255, green: 191/255, blue: 165/255, alpha: 1)
   }
-  
+
   // green
   open class green: ColorPalette {
     open static let lighten5 = UIColor(red: 232/255, green: 245/255, blue: 233/255, alpha: 1)
@@ -266,7 +266,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 0/255, green: 230/255, blue: 118/255, alpha: 1)
     open static let accent4 = UIColor(red: 0/255, green: 200/255, blue: 83/255, alpha: 1)
   }
-  
+
   // light green
   open class lightGreen: ColorPalette {
     open static let lighten5 = UIColor(red: 241/255, green: 248/255, blue: 233/255, alpha: 1)
@@ -284,7 +284,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 118/255, green: 255/255, blue: 3/255, alpha: 1)
     open static let accent4 = UIColor(red: 100/255, green: 221/255, blue: 23/255, alpha: 1)
   }
-  
+
   // lime
   open class lime: ColorPalette {
     open static let lighten5 = UIColor(red: 249/255, green: 251/255, blue: 231/255, alpha: 1)
@@ -302,7 +302,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 198/255, green: 255/255, blue: 0/255, alpha: 1)
     open static let accent4 = UIColor(red: 174/255, green: 234/255, blue: 0/255, alpha: 1)
   }
-  
+
   // yellow
   open class yellow: ColorPalette {
     open static let lighten5 = UIColor(red: 255/255, green: 253/255, blue: 231/255, alpha: 1)
@@ -320,7 +320,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 255/255, green: 234/255, blue: 0/255, alpha: 1)
     open static let accent4 = UIColor(red: 255/255, green: 214/255, blue: 0/255, alpha: 1)
   }
-  
+
   // amber
   open class amber: ColorPalette {
     open static let lighten5 = UIColor(red: 255/255, green: 248/255, blue: 225/255, alpha: 1)
@@ -338,7 +338,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 255/255, green: 196/255, blue: 0/255, alpha: 1)
     open static let accent4 = UIColor(red: 255/255, green: 171/255, blue: 0/255, alpha: 1)
   }
-  
+
   // orange
   open class orange: ColorPalette {
     open static let lighten5 = UIColor(red: 255/255, green: 243/255, blue: 224/255, alpha: 1)
@@ -356,8 +356,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 255/255, green: 145/255, blue: 0/255, alpha: 1)
     open static let accent4 = UIColor(red: 255/255, green: 109/255, blue: 0/255, alpha: 1)
   }
-  
-  
+
   // deep orange
   open class deepOrange: ColorPalette {
     open static let lighten5 = UIColor(red: 251/255, green: 233/255, blue: 231/255, alpha: 1)
@@ -375,8 +374,7 @@ open class Color: UIColor {
     open static let accent3 = UIColor(red: 255/255, green: 61/255, blue: 0/255, alpha: 1)
     open static let accent4 = UIColor(red: 221/255, green: 44/255, blue: 0/255, alpha: 1)
   }
-  
-  
+
   // brown
   open class brown: ColorPalette {
     open static let lighten5 = UIColor(red: 239/255, green: 235/255, blue: 233/255, alpha: 1)
@@ -390,7 +388,7 @@ open class Color: UIColor {
     open static let darken3 = UIColor(red: 78/255, green: 52/255, blue: 46/255, alpha: 1)
     open static let darken4 = UIColor(red: 62/255, green: 39/255, blue: 35/255, alpha: 1)
   }
-  
+
   // grey
   open class grey: ColorPalette {
     open static let lighten5 = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
@@ -404,7 +402,7 @@ open class Color: UIColor {
     open static let darken3 = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
     open static let darken4 = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1)
   }
-  
+
   // blue grey
   open class blueGrey: ColorPalette {
     open static let lighten5 = UIColor(red: 236/255, green: 239/255, blue: 241/255, alpha: 1)

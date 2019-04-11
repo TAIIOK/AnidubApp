@@ -41,52 +41,52 @@ public enum SpringDirection: Int {
 open class SpringAnimation {
   /// A SpringDirection value.
   open var springDirection = SpringDirection.up
-  
+
   /// A Boolean that indicates if the menu is open or not.
   open var isOpened = false
-  
+
   /// Enables the animations for the Menu.
   open var isEnabled = true
-  
+
   /// A preset wrapper around interimSpace.
   open var interimSpacePreset = InterimSpacePreset.none {
     didSet {
       interimSpace = InterimSpacePresetToValue(preset: interimSpacePreset)
     }
   }
-  
+
   /// The space between views.
   open var interimSpace: InterimSpace = 0 {
     didSet {
       reload()
     }
   }
-  
+
   /// An Array of UIViews.
   open var views = [UIView]() {
     didSet {
       reload()
     }
   }
-  
+
   /// An Optional base view size.
   open var baseSize = CGSize(width: 48, height: 48) {
     didSet {
       reload()
     }
   }
-  
+
   /// Size of views.
   open var itemSize = CGSize(width: 48, height: 48) {
     didSet {
       reload()
     }
   }
-  
+
   /// Reload the view layout.
   open func reload() {
     isOpened = false
-    
+
     for i in 0..<views.count {
       let v = views[i]
       v.alpha = 0
@@ -105,10 +105,10 @@ extension SpringAnimation {
     guard 0 < views.count else {
       return
     }
-    
+
     isEnabled = false
   }
-  
+
   /**
    Enable the Menu if the last view is equal to the passed in view.
    - Parameter view: UIView that is passed in to compare.
@@ -117,7 +117,7 @@ extension SpringAnimation {
     guard view == views.last else {
       return
     }
-    
+
     isEnabled = true
   }
 }
@@ -137,9 +137,9 @@ extension SpringAnimation {
     guard isEnabled else {
       return
     }
-    
+
     disable()
-    
+
     switch springDirection {
     case .up:
       expandUp(duration: duration, delay: delay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: options, animations: animations, completion: completion)
@@ -151,7 +151,7 @@ extension SpringAnimation {
       expandRight(duration: duration, delay: delay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: options, animations: animations, completion: completion)
     }
   }
-  
+
   /**
    Contracts the Spring component with animation options.
    - Parameter duration: The time for each view's animation.
@@ -166,9 +166,9 @@ extension SpringAnimation {
     guard isEnabled else {
       return
     }
-    
+
     disable()
-    
+
     switch springDirection {
     case .up:
       contractUp(duration: duration, delay: delay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: options, animations: animations, completion: completion)
@@ -190,14 +190,14 @@ extension SpringAnimation {
    */
   fileprivate func handleOpenCompletion(view: UIView, completion: ((UIView) -> Void)?) {
     enable(view: view)
-    
+
     if view == views.last {
       isOpened = true
     }
-    
+
     completion?(view)
   }
-  
+
   /**
    Handles the animation contract completion.
    - Parameter view: A UIView.
@@ -206,11 +206,11 @@ extension SpringAnimation {
   fileprivate func handleCloseCompletion(view: UIView, completion: ((UIView) -> Void)?) {
     view.isHidden = true
     enable(view: view)
-    
+
     if view == views.last {
       isOpened = false
     }
-    
+
     completion?(view)
   }
 }
@@ -230,7 +230,7 @@ extension SpringAnimation {
     for i in 0..<views.count {
       let v = views[i]
       v.isHidden = false
-      
+
       UIView.animate(withDuration: Double(i) * duration,
                      delay: delay,
                      usingSpringWithDamping: usingSpringWithDamping,
@@ -245,7 +245,7 @@ extension SpringAnimation {
       }
     }
   }
-  
+
   /**
    Close the Menu component with animation options in the Up direction.
    - Parameter duration: The time for each view's animation.
@@ -259,7 +259,7 @@ extension SpringAnimation {
   fileprivate func contractUp(duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping: CGFloat, initialSpringVelocity: CGFloat, options: UIViewAnimationOptions, animations: ((UIView) -> Void)?, completion: ((UIView) -> Void)?) {
     for i in 0..<views.count {
       let v = views[i]
-      
+
       UIView.animate(withDuration: Double(i) * duration,
                      delay: delay,
                      usingSpringWithDamping: usingSpringWithDamping,
@@ -274,7 +274,7 @@ extension SpringAnimation {
       }
     }
   }
-  
+
   /**
    Open the Menu component with animation options in the Down direction.
    - Parameter duration: The time for each view's animation.
@@ -286,11 +286,11 @@ extension SpringAnimation {
    - Parameter completion: A completion block to execute on each view's animation.
    */
   fileprivate func expandDown(duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping: CGFloat, initialSpringVelocity: CGFloat, options: UIViewAnimationOptions, animations: ((UIView) -> Void)?, completion: ((UIView) -> Void)?) {
-    
+
     for i in 0..<views.count {
       let v = views[i]
       v.isHidden = false
-      
+
       UIView.animate(withDuration: Double(i) * duration,
                      delay: delay,
                      usingSpringWithDamping: usingSpringWithDamping,
@@ -299,14 +299,14 @@ extension SpringAnimation {
                      animations: { [s = interimSpace, m = CGFloat(i + 1), v = v] in
                       v.alpha = 1
                       v.frame.origin.y = m * (v.bounds.height + s)
-                      
+
                       animations?(v)
       }) { [weak self, v = v] _ in
         self?.handleOpenCompletion(view: v, completion: completion)
       }
     }
   }
-  
+
   /**
    Close the Menu component with animation options in the Down direction.
    - Parameter duration: The time for each view's animation.
@@ -321,10 +321,10 @@ extension SpringAnimation {
     guard let first = views.first else {
       return
     }
-    
+
     for i in 0..<views.count {
       let v = views[i]
-      
+
       UIView.animate(withDuration: Double(i) * duration,
                      delay: delay,
                      usingSpringWithDamping: usingSpringWithDamping,
@@ -333,14 +333,14 @@ extension SpringAnimation {
                      animations: { [first = first, v = v] in
                       v.alpha = 0
                       v.frame.origin.y = first.frame.origin.y
-                      
+
                       animations?(v)
       }) { [weak self, v = v] _ in
         self?.handleCloseCompletion(view: v, completion: completion)
       }
     }
   }
-  
+
   /**
    Open the Menu component with animation options in the Left direction.
    - Parameter duration: The time for each view's animation.
@@ -352,11 +352,11 @@ extension SpringAnimation {
    - Parameter completion: A completion block to execute on each view's animation.
    */
   fileprivate func expandLeft(duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping: CGFloat, initialSpringVelocity: CGFloat, options: UIViewAnimationOptions, animations: ((UIView) -> Void)?, completion: ((UIView) -> Void)?) {
-    
+
     for i in 0..<views.count {
       let v = views[i]
       v.isHidden = false
-      
+
       UIView.animate(withDuration: Double(i) * duration,
                      delay: delay,
                      usingSpringWithDamping: usingSpringWithDamping,
@@ -365,14 +365,14 @@ extension SpringAnimation {
                      animations: { [s = interimSpace, m = CGFloat(i + 1), v = v] in
                       v.alpha = 1
                       v.frame.origin.x = -m * (v.bounds.width + s)
-                      
+
                       animations?(v)
       }) { [weak self, v = v] _ in
         self?.handleOpenCompletion(view: v, completion: completion)
       }
     }
   }
-  
+
   /**
    Close the Menu component with animation options in the Left direction.
    - Parameter duration: The time for each view's animation.
@@ -387,10 +387,10 @@ extension SpringAnimation {
     guard let first = views.first else {
       return
     }
-    
+
     for i in 0..<views.count {
       let v = views[i]
-      
+
       UIView.animate(withDuration: Double(i) * duration,
                      delay: delay,
                      usingSpringWithDamping: usingSpringWithDamping,
@@ -399,14 +399,14 @@ extension SpringAnimation {
                      animations: { [first = first, v = v] in
                       v.alpha = 0
                       v.frame.origin.x = first.frame.origin.x
-                      
+
                       animations?(v)
       }) { [weak self, v = v] _ in
         self?.handleCloseCompletion(view: v, completion: completion)
       }
     }
   }
-  
+
   /**
    Open the Menu component with animation options in the Right direction.
    - Parameter duration: The time for each view's animation.
@@ -418,11 +418,11 @@ extension SpringAnimation {
    - Parameter completion: A completion block to execute on each view's animation.
    */
   fileprivate func expandRight(duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping: CGFloat, initialSpringVelocity: CGFloat, options: UIViewAnimationOptions, animations: ((UIView) -> Void)?, completion: ((UIView) -> Void)?) {
-    
+
     for i in 0..<views.count {
       let v = views[i]
       v.isHidden = false
-      
+
       UIView.animate(withDuration: Double(i) * duration,
                      delay: delay,
                      usingSpringWithDamping: usingSpringWithDamping,
@@ -431,14 +431,14 @@ extension SpringAnimation {
                      animations: { [s = interimSpace, m = CGFloat(i + 1), v = v] in
                       v.alpha = 1
                       v.frame.origin.x = m * (v.bounds.width + s)
-                      
+
                       animations?(v)
       }) { [weak self, v = v] _ in
         self?.handleOpenCompletion(view: v, completion: completion)
       }
     }
   }
-  
+
   /**
    Close the Menu component with animation options in the Right direction.
    - Parameter duration: The time for each view's animation.
@@ -453,12 +453,12 @@ extension SpringAnimation {
     guard let first = views.first else {
       return
     }
-    
+
     let w = baseSize.width
-    
+
     for i in 0..<views.count {
       let v = views[i]
-      
+
       UIView.animate(withDuration: Double(i) * duration,
                      delay: delay,
                      usingSpringWithDamping: usingSpringWithDamping,
@@ -467,7 +467,7 @@ extension SpringAnimation {
                      animations: { [first = first, v = v] in
                       v.alpha = 0
                       v.frame.origin.x = first.frame.origin.x + w
-                      
+
                       animations?(v)
       }) { [weak self, v = v] _ in
         self?.handleCloseCompletion(view: v, completion: completion)

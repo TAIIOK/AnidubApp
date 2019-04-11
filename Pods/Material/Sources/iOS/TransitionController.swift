@@ -45,11 +45,11 @@ open class TransitionController: ViewController {
       rootViewController.view.isUserInteractionEnabled = value
     }
   }
-  
+
   /// A reference to the container view.
   @IBInspectable
   open let container = UIView()
-  
+
   /**
    A UIViewController property that references the active
    main UIViewController. To swap the rootViewController, it
@@ -61,15 +61,15 @@ open class TransitionController: ViewController {
       guard oldValue != rootViewController else {
         return
       }
-      
+
       if let v = oldValue {
         removeViewController(viewController: v)
       }
-      
+
       prepare(viewController: rootViewController, in: container)
     }
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -77,7 +77,7 @@ open class TransitionController: ViewController {
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   /**
    An initializer that initializes the object with an Optional nib and bundle.
    - Parameter nibNameOrNil: An Optional String for the nib.
@@ -86,7 +86,7 @@ open class TransitionController: ViewController {
   public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
   }
-  
+
   /**
    An initializer for the BarController.
    - Parameter rootViewController: The main UIViewController.
@@ -95,31 +95,31 @@ open class TransitionController: ViewController {
     super.init(nibName: nil, bundle: nil)
     self.rootViewController = rootViewController
   }
-  
+
   open override var shouldAutomaticallyForwardAppearanceMethods: Bool {
     return false
   }
-  
+
   open override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     rootViewController.beginAppearanceTransition(true, animated: animated)
   }
-  
+
   open override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     rootViewController.endAppearanceTransition()
   }
-  
+
   open override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     rootViewController.beginAppearanceTransition(false, animated: animated)
   }
-  
+
   open override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
     rootViewController.endAppearanceTransition()
   }
-  
+
   /**
    A method to swap rootViewController objects.
    - Parameter toViewController: The UIViewController to swap
@@ -130,7 +130,7 @@ open class TransitionController: ViewController {
    */
   open func transition(to viewController: UIViewController, completion: ((Bool) -> Void)? = nil) {
     prepare(viewController: viewController, in: container)
-    
+
     switch motionTransitionType {
     case .auto:break
     default:
@@ -140,28 +140,28 @@ open class TransitionController: ViewController {
       default:break
       }
     }
-    
+
     view.isUserInteractionEnabled = false
     MotionTransition.shared.transition(from: rootViewController, to: viewController, in: container) { [weak self, viewController = viewController, completion = completion] (isFinishing) in
       guard let s = self else {
         return
       }
-      
+
       s.rootViewController = viewController
       s.view.isUserInteractionEnabled = true
       completion?(isFinishing)
     }
   }
-  
+
   open override func prepare() {
     super.prepare()
-    
+
     prepareContainer()
-    
+
     guard let v = rootViewController else {
       return
     }
-    
+
     prepare(viewController: v, in: container)
   }
 }
@@ -175,7 +175,7 @@ internal extension TransitionController {
     container.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     view.addSubview(container)
   }
-  
+
   /**
    A method that adds the passed in controller as a child of
    the BarController within the passed in

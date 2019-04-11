@@ -35,12 +35,12 @@ public struct AssociatedObject {
     if let v = objc_getAssociatedObject(base, key) as? T {
       return v
     }
-    
+
     let v = initializer()
     objc_setAssociatedObject(base, key, v, .OBJC_ASSOCIATION_RETAIN)
     return v
   }
-  
+
   /**
    Sets the Obj-C reference for the instance object within the UIView extension.
    - Parameter base: Base object.

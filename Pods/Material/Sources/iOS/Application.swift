@@ -35,27 +35,27 @@ public struct Application {
   public static var keyWindow: UIWindow? {
     return UIApplication.shared.keyWindow
   }
-  
+
   /// An optional reference to the top most view controller.
   public static var rootViewController: UIViewController? {
     return keyWindow?.rootViewController
   }
-  
+
   /// A boolean indicating if the device is in Landscape mode.
   public static var isLandscape: Bool {
     return UIApplication.shared.statusBarOrientation.isLandscape
   }
-  
+
   /// A boolean indicating if the device is in Portrait mode.
   public static var isPortrait: Bool {
     return !isLandscape
   }
-  
+
   /// The current UIInterfaceOrientation value.
   public static var orientation: UIInterfaceOrientation {
     return UIApplication.shared.statusBarOrientation
   }
-  
+
   /// Retrieves the device status bar style.
   public static var statusBarStyle: UIStatusBarStyle {
     get {
@@ -65,7 +65,7 @@ public struct Application {
       UIApplication.shared.statusBarStyle = value
     }
   }
-  
+
   /// Retrieves the device status bar hidden state.
   public static var isStatusBarHidden: Bool {
     get {
@@ -75,7 +75,7 @@ public struct Application {
       UIApplication.shared.isStatusBarHidden = value
     }
   }
-  
+
   /**
    A boolean that indicates based on iPhone rules if the
    status bar should be shown.
@@ -83,7 +83,7 @@ public struct Application {
   public static var shouldStatusBarBeHidden: Bool {
     return isLandscape && .phone == Device.userInterfaceIdiom
   }
-  
+
   /// A reference to the user interface layout direction.
   public static var userInterfaceLayoutDirection: UIUserInterfaceLayoutDirection {
     return UIApplication.shared.userInterfaceLayoutDirection

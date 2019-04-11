@@ -39,12 +39,12 @@ open class TableView: UITableView {
     super.init(coder: aDecoder)
     prepare()
   }
-  
+
   public override init(frame: CGRect, style: UITableViewStyle) {
     super.init(frame: frame, style: style)
     prepare()
   }
-  
+
   /**
    An initializer that initializes the object.
    - Parameter frame: A CGRect defining the view's frame.
@@ -52,7 +52,7 @@ open class TableView: UITableView {
   public convenience init(frame: CGRect) {
     self.init(frame: frame, style: .plain)
   }
-  
+
   /**
    Prepares the view instance when intialized. When subclassing,
    it is recommended to override the prepare method

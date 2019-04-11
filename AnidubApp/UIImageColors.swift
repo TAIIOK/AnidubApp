@@ -21,7 +21,7 @@ public enum UIImageColorsQuality: CGFloat {
     case highest = 0 // No scale
 }
 
-fileprivate struct UIImageColorsCounter {
+private struct UIImageColorsCounter {
     let color: Double
     let count: Int
     init(color: Double, count: Int) {
@@ -38,15 +38,15 @@ fileprivate struct UIImageColorsCounter {
 fileprivate extension Double {
 
     private var r: Double {
-        return fmod(floor(self/1000000),1000000)
+        return fmod(floor(self/1000000), 1000000)
     }
 
     private var g: Double {
-        return fmod(floor(self/1000),1000)
+        return fmod(floor(self/1000), 1000)
     }
 
     private var b: Double {
-        return fmod(self,1000)
+        return fmod(self, 1000)
     }
 
     fileprivate var isDarkColor: Bool {
@@ -78,8 +78,8 @@ fileprivate extension Double {
         let _g = g/255
         let _b = b/255
         var H, S, V: Double
-        let M = fmax(_r,fmax(_g, _b))
-        var C = M-fmin(_r,fmin(_g, _b))
+        let M = fmax(_r, fmax(_g, _b))
+        var C = M-fmin(_r, fmin(_g, _b))
 
         V = M
         S = V == 0 ? 0:C/V
@@ -105,7 +105,7 @@ fileprivate extension Double {
         // Back to RGB
 
         C = V*minSaturation
-        let X = C*(1-fabs(fmod(H,2)-1))
+        let X = C*(1-fabs(fmod(H, 2)-1))
         var R, G, B: Double
 
         switch H {
@@ -177,16 +177,14 @@ extension UIImage {
         return result
     }
 
-
     public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (UIImageColors) -> Void) {
         DispatchQueue.global().sync {
             let result = self.getColors(quality: quality)
 
                 completion(result)
-            
+
         }
     }
-
 
     public func getColors(quality: UIImageColorsQuality = .high) -> UIImageColors {
         var scaleDownSize: CGSize = self.size
@@ -205,7 +203,7 @@ extension UIImage {
         let height: Int = cgImage.height
 
         let threshold = Int(CGFloat(height)*0.01)
-        var proposed: [Double] = [-1,-1,-1,-1]
+        var proposed: [Double] = [-1, -1, -1, -1]
 
         guard let data = CFDataGetBytePtr(cgImage.dataProvider!.data) else {
             fatalError("UIImageColors.getColors failed: could not get cgImage data.")
@@ -314,4 +312,3 @@ extension UIImage {
         )
     }
 }
-

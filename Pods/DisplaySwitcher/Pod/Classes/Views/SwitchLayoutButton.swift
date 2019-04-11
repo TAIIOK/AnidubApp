@@ -18,33 +18,33 @@ private let stepHeightDelta: CGFloat = 0.3
 private let itemsCount: Int = 6
 
 open class SwitchLayoutButton: UIButton {
-    
+
     open var animationDuration: TimeInterval = 0.25
-    
+
     @IBInspectable open var lineColor: UIColor = .green
-    
+
     fileprivate let lineLayer1 = CAShapeLayer()
     fileprivate let lineLayer2 = CAShapeLayer()
     fileprivate let lineLayer3 = CAShapeLayer()
     fileprivate let lineLayer4 = CAShapeLayer()
     fileprivate let lineLayer5 = CAShapeLayer()
     fileprivate let lineLayer6 = CAShapeLayer()
-    
+
     fileprivate let lineLayers: [CAShapeLayer] = {
         var lineLayers = [CAShapeLayer]()
         for index in 0..<itemsCount {
             lineLayers.append(CAShapeLayer())
         }
-        
+
         return lineLayers
     }()
-    
+
     override open var isSelected: Bool {
         didSet {
             animateRotation()
         }
     }
-    
+
     override open func awakeFromNib() {
         super.awakeFromNib()
         for index in 0..<itemsCount {
@@ -52,7 +52,7 @@ open class SwitchLayoutButton: UIButton {
         }
         drawLine()
     }
-    
+
 }
 
 fileprivate extension SwitchLayoutButton {
@@ -74,13 +74,13 @@ fileprivate extension SwitchLayoutButton {
                     lineLayer.lineWidth = listLineWidth
                 }
             }
-            
+
             let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
             strokeEndAnimation.duration = self.animationDuration
-            
+
             let lineWidthAnimation = CABasicAnimation(keyPath: "lineWidth")
             lineWidthAnimation.duration = self.animationDuration
-            
+
             for index in 0..<itemsCount {
                 let lineLayer = self.lineLayers[index]
                 lineLayer.add(strokeEndAnimation, forKey: nil)
@@ -88,7 +88,7 @@ fileprivate extension SwitchLayoutButton {
             }
         }
     }
-    
+
     func drawLine() {
         var heightDelta: CGFloat = 0.2
         for index in 0..<itemsCount {
@@ -109,5 +109,5 @@ fileprivate extension SwitchLayoutButton {
             lineLayer.lineWidth = listLineWidth
         }
     }
-    
+
 }

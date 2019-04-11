@@ -49,7 +49,7 @@ open class BottomNavigationController: UITabBarController {
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   /**
    An initializer that initializes the object with an Optional nib and bundle.
    - Parameter nibNameOrNil: An Optional String for the nib.
@@ -58,12 +58,12 @@ open class BottomNavigationController: UITabBarController {
   public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
   }
-  
+
   /// An initializer that accepts no parameters.
   public init() {
     super.init(nibName: nil, bundle: nil)
   }
-  
+
   /**
    An initializer that initializes the object an Array of UIViewControllers.
    - Parameter viewControllers: An Array of UIViewControllers.
@@ -72,17 +72,17 @@ open class BottomNavigationController: UITabBarController {
     super.init(nibName: nil, bundle: nil)
     self.viewControllers = viewControllers
   }
-  
+
   open override func viewDidLoad() {
     super.viewDidLoad()
     prepare()
   }
-  
+
   open override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     layoutSubviews()
   }
-  
+
   /**
    To execute in the order of the layout chain, override this
    method. `layoutSubviews` should be called immediately, unless you
@@ -94,7 +94,7 @@ open class BottomNavigationController: UITabBarController {
         if .phone == Device.userInterfaceIdiom {
           if nil == item.title {
             let inset: CGFloat = 7
-            item.imageInsets = UIEdgeInsetsMake(inset, 0, -inset, 0)
+            item.imageInsets = UIEdgeInsets(top: inset, left: 0, bottom: -inset, right: 0)
           } else {
             let inset: CGFloat = 6
             item.titlePositionAdjustment.vertical = -inset
@@ -102,19 +102,19 @@ open class BottomNavigationController: UITabBarController {
         } else {
           if nil == item.title {
             let inset: CGFloat = 9
-            item.imageInsets = UIEdgeInsetsMake(inset, 0, -inset, 0)
+            item.imageInsets = UIEdgeInsets(top: inset, left: 0, bottom: -inset, right: 0)
           } else {
             let inset: CGFloat = 3
-            item.imageInsets = UIEdgeInsetsMake(inset, 0, -inset, 0)
+            item.imageInsets = UIEdgeInsets(top: inset, left: 0, bottom: -inset, right: 0)
             item.titlePositionAdjustment.vertical = -inset
           }
         }
       }
     }
-    
+
     tabBar.layoutDivider()
   }
-  
+
   /**
    Prepares the view instance when intialized. When subclassing,
    it is recommended to override the prepare method
@@ -126,7 +126,7 @@ open class BottomNavigationController: UITabBarController {
     view.clipsToBounds = true
     view.backgroundColor = .white
     view.contentScaleFactor = Screen.scale
-    
+
     prepareTabBar()
   }
 }
@@ -138,7 +138,7 @@ fileprivate extension BottomNavigationController {
     tabBar.heightPreset = .normal
     tabBar.dividerColor = Color.grey.lighten2
     tabBar.dividerAlignment = .top
-    
+
     let image = UIImage()
     tabBar.shadowImage = image
     tabBar.backgroundImage = image

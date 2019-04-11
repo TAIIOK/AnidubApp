@@ -52,7 +52,7 @@ open class StatusBarController: TransitionController {
       layoutSubviews()
     }
   }
-  
+
   /// Device status bar style.
   open var statusBarStyle: UIStatusBarStyle {
     get {
@@ -62,7 +62,7 @@ open class StatusBarController: TransitionController {
       Application.statusBarStyle = value
     }
   }
-  
+
   /// Device visibility state.
   open var isStatusBarHidden: Bool {
     get {
@@ -73,49 +73,49 @@ open class StatusBarController: TransitionController {
       statusBar.isHidden = isStatusBarHidden
     }
   }
-  
+
   /// An adjustment based on the rules for displaying the statusBar.
   open var statusBarOffsetAdjustment: CGFloat {
     return Application.shouldStatusBarBeHidden || statusBar.isHidden ? 0 : statusBar.bounds.height
   }
-  
+
   /// A boolean that indicates to hide the statusBar on rotation.
   open var shouldHideStatusBarOnRotation = false
-  
+
   /// A reference to the statusBar.
   open let statusBar = UIView()
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
-    
+
     if shouldHideStatusBarOnRotation {
       statusBar.isHidden = Application.shouldStatusBarBeHidden
     }
-    
+
     statusBar.frame.size.width = view.bounds.width
-    
+
     if #available(iOS 11, *) {
       let v = topLayoutGuide.length
       statusBar.frame.size.height = 0 < v ? v : 20
     } else {
       statusBar.frame.size.height = 20
     }
-    
+
     switch displayStyle {
     case .partial:
       let h = statusBar.bounds.height
       container.frame.origin.y = h
       container.frame.size.height = view.bounds.height - h
-      
+
     case .full:
       container.frame = view.bounds
     }
-    
+
     rootViewController.view.frame = container.bounds
-    
+
     container.layer.zPosition = statusBar.layer.zPosition + (Application.shouldStatusBarBeHidden ? 1 : -1)
   }
-  
+
   open override func prepare() {
     super.prepare()
     prepareStatusBar()
@@ -128,7 +128,7 @@ fileprivate extension StatusBarController {
     if nil == statusBar.backgroundColor {
       statusBar.backgroundColor = .white
     }
-    
+
     view.addSubview(statusBar)
   }
 }

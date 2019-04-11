@@ -30,7 +30,7 @@
 
 import UIKit
 
-fileprivate var ToolbarContext: UInt8 = 0
+private var ToolbarContext: UInt8 = 0
 
 open class Toolbar: Bar {
   /// A convenience property to set the titleLabel.text.
@@ -44,11 +44,11 @@ open class Toolbar: Bar {
       layoutSubviews()
     }
   }
-  
+
   /// Title label.
   @IBInspectable
   open let titleLabel = UILabel()
-  
+
   /// A convenience property to set the detailLabel.text.
   @IBInspectable
   open var detail: String? {
@@ -60,15 +60,15 @@ open class Toolbar: Bar {
       layoutSubviews()
     }
   }
-  
+
   /// Detail label.
   @IBInspectable
   open let detailLabel = UILabel()
-  
+
   deinit {
     removeObserver(self, forKeyPath: #keyPath(titleLabel.textAlignment))
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -76,7 +76,7 @@ open class Toolbar: Bar {
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   /**
    An initializer that initializes the object with a CGRect object.
    If AutoLayout is used, it is better to initilize the instance
@@ -86,22 +86,22 @@ open class Toolbar: Bar {
   public override init(frame: CGRect) {
     super.init(frame: frame)
   }
-  
-  open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+
+  open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
     guard "titleLabel.textAlignment" == keyPath else {
       super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
       return
     }
-    
+
     contentViewAlignment = .center == titleLabel.textAlignment ? .center : .full
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     guard willLayout else {
       return
     }
-    
+
     if 0 < titleLabel.text?.utf16.count ?? 0 {
       if nil == titleLabel.superview {
         contentView.addSubview(titleLabel)
@@ -110,23 +110,23 @@ open class Toolbar: Bar {
     } else {
       titleLabel.removeFromSuperview()
     }
-    
+
     if 0 < detailLabel.text?.utf16.count ?? 0 {
       if nil == detailLabel.superview {
         contentView.addSubview(detailLabel)
       }
-      
+
       if nil == titleLabel.superview {
         detailLabel.frame = contentView.bounds
       } else {
         titleLabel.sizeToFit()
         detailLabel.sizeToFit()
-        
+
         let diff: CGFloat = (contentView.bounds.height - titleLabel.bounds.height - detailLabel.bounds.height) / 2
-        
+
         titleLabel.frame.size.height += diff
         titleLabel.frame.size.width = contentView.bounds.width
-        
+
         detailLabel.frame.size.height += diff
         detailLabel.frame.size.width = contentView.bounds.width
         detailLabel.frame.origin.y = titleLabel.bounds.height
@@ -135,11 +135,11 @@ open class Toolbar: Bar {
       detailLabel.removeFromSuperview()
     }
   }
-  
+
   open override func prepare() {
     super.prepare()
     contentViewAlignment = .center
-    
+
     prepareTitleLabel()
     prepareDetailLabel()
   }
@@ -154,7 +154,7 @@ fileprivate extension Toolbar {
     titleLabel.textColor = Color.darkText.primary
     addObserver(self, forKeyPath: #keyPath(titleLabel.textAlignment), options: [], context: &ToolbarContext)
   }
-  
+
   /// Prepares the detailLabel.
   func prepareDetailLabel() {
     detailLabel.textAlignment = .center

@@ -42,7 +42,7 @@ public enum BorderWidthPreset: Int {
   case border7
   case border8
   case border9
-  
+
   /// A CGFloat representation of the border width preset.
   public var cgFloatValue: CGFloat {
     switch self {

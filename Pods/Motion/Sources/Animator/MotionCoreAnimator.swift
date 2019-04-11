@@ -30,24 +30,24 @@ import UIKit
 
 internal class MotionCoreAnimator<T: MotionAnimatorViewContext>: MotionAnimator {
   weak public var motion: MotionTransition!
-  
+
   /// A reference to the MotionContext.
   public var context: MotionContext! {
     return motion.context
   }
-  
+
   /// An index of views to their corresponding animator context.
   var viewToContexts = [UIView: T]()
-  
+
   /// Cleans the contexts.
   func clean() {
     for v in viewToContexts.values {
       v.clean()
     }
-    
+
     viewToContexts.removeAll()
   }
-  
+
   /**
    A function that determines if a view can be animated.
    - Parameter view: A UIView.
@@ -58,10 +58,10 @@ internal class MotionCoreAnimator<T: MotionAnimatorViewContext>: MotionAnimator 
     guard let state = context[view] else {
       return false
     }
-    
+
     return T.canAnimate(view: view, state: state, isAppearing: isAppearing)
   }
-  
+
   /**
    Animates the fromViews to the toViews.
    - Parameter fromViews: An Array of UIViews.
@@ -70,42 +70,42 @@ internal class MotionCoreAnimator<T: MotionAnimatorViewContext>: MotionAnimator 
    */
   func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     var d: TimeInterval = 0
-    
+
     for v in fromViews {
       createViewContext(view: v, isAppearing: false)
     }
-    
+
     for v in toViews {
       createViewContext(view: v, isAppearing: true)
     }
-    
+
     for v in viewToContexts.values {
       if let duration = v.targetState.duration, .infinity != duration {
         v.duration = duration
         d = max(d, duration)
-        
+
       } else {
         let duration = v.snapshot.optimizedDuration(targetState: v.targetState)
-        
+
         if nil == v.targetState.duration {
           v.duration = duration
         }
-        
+
         d = max(d, duration)
       }
     }
-    
+
     for v in viewToContexts.values {
       if .infinity == v.targetState.duration {
         v.duration = d
       }
-      
+
       d = max(d, v.startAnimations())
     }
-    
+
     return d
   }
-  
+
   /**
    Moves the view's animation to the given elapsed time.
    - Parameter to progress: A TimeInterval.
@@ -115,7 +115,7 @@ internal class MotionCoreAnimator<T: MotionAnimatorViewContext>: MotionAnimator 
       v.seek(to: progress)
     }
   }
-  
+
   /**
    Resumes the animation with a given elapsed time and
    optional reversed boolean.
@@ -125,18 +125,18 @@ internal class MotionCoreAnimator<T: MotionAnimatorViewContext>: MotionAnimator 
    */
   func resume(at progress: TimeInterval, isReversed: Bool) -> TimeInterval {
     var duration: TimeInterval = 0
-    
+
     for (_, v) in viewToContexts {
       if nil == v.targetState.duration {
         v.duration = max(v.duration, v.snapshot.optimizedDuration(targetState: v.targetState) + progress)
       }
-      
+
       duration = max(duration, v.resume(at: progress, isReversed: isReversed))
     }
-    
+
     return duration
   }
-  
+
   /**
    Applies the given state to the given view.
    - Parameter state: A MotionModifier.
@@ -146,7 +146,7 @@ internal class MotionCoreAnimator<T: MotionAnimatorViewContext>: MotionAnimator 
     guard let v = viewToContexts[view] else {
       return
     }
-    
+
     v.apply(state: state)
   }
 }
@@ -162,5 +162,3 @@ fileprivate extension MotionCoreAnimator {
     viewToContexts[view] = T(animator: self, snapshot: context.snapshotView(for: view), targetState: context[view]!, isAppearing: isAppearing)
   }
 }
-
-

@@ -35,7 +35,7 @@ open class ViewController: UIViewController {
     super.viewDidLoad()
     prepare()
   }
-  
+
   /**
    Prepares the view instance when intialized. When subclassing,
    it is recommended to override the prepareView method
@@ -48,12 +48,12 @@ open class ViewController: UIViewController {
     view.backgroundColor = .white
     view.contentScaleFactor = Screen.scale
   }
-  
+
   open override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     layoutSubviews()
   }
-  
+
   /**
    Calls the layout functions for the view heirarchy.
    To execute in the order of the layout chain, override this

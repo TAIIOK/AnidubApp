@@ -72,7 +72,7 @@ public struct Device {
   public static var identifier: String {
     var systemInfo = utsname()
     uname(&systemInfo)
-    
+
     let machineMirror = Mirror(reflecting: systemInfo.machine)
     let identifier = machineMirror.children.reduce("") { (identifier, element) in
       guard let value = element.value as? Int8, value != 0 else {
@@ -82,7 +82,7 @@ public struct Device {
     }
     return identifier
   }
-  
+
   /// Gets the model name for the device.
   public static var model: DeviceModel {
     switch identifier {
@@ -101,7 +101,7 @@ public struct Device {
     case "iPhone9,2", "iPhone9,4":                      return .iPhone7Plus
     case "iPhone10,1", "iPhone10,4":                    return .iPhone8
     case "iPhone10,2", "iPhone10,5":                    return .iPhone8Plus
-    case "iPhone10,3","iPhone10,6":                     return .iPhoneX
+    case "iPhone10,3", "iPhone10,6":                     return .iPhoneX
     case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":    return .iPad2
     case "iPad3,1", "iPad3,2", "iPad3,3":               return .iPad3
     case "iPad3,4", "iPad3,5", "iPad3,6":               return .iPad4
@@ -121,13 +121,12 @@ public struct Device {
     default:                                            return .unknown
     }
   }
-  
+
   /// Retrieves the current device type.
   public static var userInterfaceIdiom: UIUserInterfaceIdiom {
     return UIDevice.current.userInterfaceIdiom
   }
 }
-
 
 public func ==(lhs: DeviceModel, rhs: DeviceModel) -> Bool {
   return lhs.rawValue == rhs.rawValue
@@ -136,4 +135,3 @@ public func ==(lhs: DeviceModel, rhs: DeviceModel) -> Bool {
 public func !=(lhs: DeviceModel, rhs: DeviceModel) -> Bool {
   return lhs.rawValue != rhs.rawValue
 }
-

@@ -33,27 +33,27 @@ public extension CGSize {
   var center: CGPoint {
     return CGPoint(x: width / 2, y: height / 2)
   }
-  
+
   /// Top left point based on the size.
   var topLeft: CGPoint {
     return .zero
   }
-  
+
   /// Top right point based on the size.
   var topRight: CGPoint {
     return CGPoint(x: width, y: 0)
   }
-  
+
   /// Bottom left point based on the size.
   var bottomLeftPoint: CGPoint {
     return CGPoint(x: 0, y: height)
   }
-  
+
   /// Bottom right point based on the size.
   var bottomRight: CGPoint {
     return CGPoint(x: width, y: height)
   }
-  
+
   /**
    Retrieves the size based on a given CGAffineTransform.
    - Parameter _ t: A CGAffineTransform.
@@ -62,7 +62,7 @@ public extension CGSize {
   func transform(_ t: CGAffineTransform) -> CGSize {
     return applying(t)
   }
-  
+
   /**
    Retrieves the size based on a given CATransform3D.
    - Parameter _ t: A CGAffineTransform.
@@ -78,12 +78,12 @@ public extension CGRect {
   var center: CGPoint {
     return CGPoint(x: origin.x + width / 2, y: origin.y + height / 2)
   }
-  
+
   /// The bounding box size based from from the frame's rect.
   var bounds: CGRect {
     return CGRect(origin: .zero, size: size)
   }
-  
+
   /**
    An initializer with a given point and size.
    - Parameter center: A CGPoint.
@@ -116,7 +116,7 @@ public extension CGPoint {
   func translate(_ dx: CGFloat, dy: CGFloat) -> CGPoint {
     return CGPoint(x: x + dx, y: y + dy)
   }
-  
+
   /**
    Calculates a transform point based on a given CGAffineTransform.
    - Parameter _ t: CGAffineTransform.
@@ -125,7 +125,7 @@ public extension CGPoint {
   func transform(_ t: CGAffineTransform) -> CGPoint {
     return applying(t)
   }
-  
+
   /**
    Calculates a transform point based on a given CATransform3D.
    - Parameter _ t: CATransform3D.
@@ -134,7 +134,7 @@ public extension CGPoint {
   func transform(_ t: CATransform3D) -> CGPoint {
     return applying(CATransform3DGetAffineTransform(t))
   }
-  
+
   /**
    Calculates the distance between the CGPoint and given CGPoint.
    - Parameter _ b: A CGPoint.

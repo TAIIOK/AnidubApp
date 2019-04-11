@@ -54,14 +54,14 @@ extension UIViewController {
 open class CollectionViewController: ViewController {
   /// A reference to a Reminder.
   open let collectionView = CollectionView()
-  
+
   open var dataSourceItems = [DataSourceItem]()
-  
+
   open override func prepare() {
     super.prepare()
     prepareCollectionView()
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     layoutCollectionView()
@@ -91,12 +91,12 @@ extension CollectionViewController: CollectionViewDataSource {
   open func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
-  
+
   @objc
   open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return dataSourceItems.count
   }
-  
+
   @objc
   open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     return collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath)

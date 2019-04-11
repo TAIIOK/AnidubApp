@@ -37,35 +37,35 @@ extension String {
   public var trimmed: String {
     return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
   }
-  
+
   /**
    :name:	lines
    */
   public var lines: [String] {
     return components(separatedBy: CharacterSet.newlines)
   }
-  
+
   /**
    :name:	firstLine
    */
   public var firstLine: String? {
     return lines.first?.trimmed
   }
-  
+
   /**
    :name:	lastLine
    */
   public var lastLine: String? {
     return lines.last?.trimmed
   }
-  
+
   /**
    :name:	replaceNewLineCharater
    */
   public func replaceNewLineCharater(separator: String = " ") -> String {
     return components(separatedBy: CharacterSet.whitespaces).joined(separator: separator).trimmed
   }
-  
+
   /**
    :name:	replacePunctuationCharacters
    */

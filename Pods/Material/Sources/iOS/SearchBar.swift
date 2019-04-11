@@ -40,7 +40,7 @@ public protocol SearchBarDelegate {
    */
   @objc
   optional func searchBar(searchBar: SearchBar, didChange textField: UITextField, with text: String?)
-  
+
   /**
    A delegation method that is executed when the textField will clear.
    - Parameter searchBar: A SearchBar.
@@ -49,7 +49,7 @@ public protocol SearchBarDelegate {
    */
   @objc
   optional func searchBar(searchBar: SearchBar, willClear textField: UITextField, with text: String?)
-  
+
   /**
    A delegation method that is executed when the textField is cleared.
    - Parameter searchBar: A SearchBar.
@@ -64,13 +64,13 @@ open class SearchBar: Bar {
   /// The UITextField for the searchBar.
   @IBInspectable
   open let textField = UITextField()
-  
+
   /// Reference to the clearButton.
   open fileprivate(set) var clearButton: IconButton!
-  
+
   /// A reference to the delegate.
   open weak var delegate: SearchBarDelegate?
-  
+
   /// Handle the clearButton manually.
   @IBInspectable
   open var isClearButtonAutoHandleEnabled = true {
@@ -81,7 +81,7 @@ open class SearchBar: Bar {
       }
     }
   }
-  
+
   /// TintColor for searchBar.
   @IBInspectable
   open override var tintColor: UIColor? {
@@ -92,7 +92,7 @@ open class SearchBar: Bar {
       textField.tintColor = value
     }
   }
-  
+
   /// TextColor for searchBar.
   @IBInspectable
   open var textColor: UIColor? {
@@ -103,7 +103,7 @@ open class SearchBar: Bar {
       textField.textColor = value
     }
   }
-  
+
   /// Sets the textField placeholder value.
   @IBInspectable
   open var placeholder: String? {
@@ -113,7 +113,7 @@ open class SearchBar: Bar {
       }
     }
   }
-  
+
   /// Placeholder text
   @IBInspectable
   open var placeholderColor = Color.darkText.others {
@@ -123,7 +123,7 @@ open class SearchBar: Bar {
       }
     }
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -131,7 +131,7 @@ open class SearchBar: Bar {
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   /**
    An initializer that initializes the object with a CGRect object.
    If AutoLayout is used, it is better to initilize the instance
@@ -141,18 +141,18 @@ open class SearchBar: Bar {
   public override init(frame: CGRect) {
     super.init(frame: frame)
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     guard willLayout else {
       return
     }
-    
+
     layoutTextField()
     layoutLeftView()
     layoutClearButton()
   }
-  
+
   open override func prepare() {
     super.prepare()
     prepareTextField()
@@ -165,19 +165,19 @@ extension SearchBar {
   open func layoutTextField() {
     textField.frame = contentView.bounds
   }
-  
+
   /// Layout the leftView.
   open func layoutLeftView() {
     guard let v = textField.leftView else {
       return
     }
-    
+
     let h = textField.frame.height
     v.frame = CGRect(x: 4, y: 4, width: h, height: h - 8)
-    
+
     (v as? UIImageView)?.contentMode = .scaleAspectFit
   }
-  
+
   /// Layout the clearButton.
   open func layoutClearButton() {
     let h = textField.frame.height
@@ -192,16 +192,16 @@ fileprivate extension SearchBar {
     guard nil == textField.delegate?.textFieldShouldClear || true == textField.delegate?.textFieldShouldClear?(textField) else {
       return
     }
-    
+
     let t = textField.text
-    
+
     delegate?.searchBar?(searchBar: self, willClear: textField, with: t)
-    
+
     textField.text = nil
-    
+
     delegate?.searchBar?(searchBar: self, didClear: textField, with: t)
   }
-  
+
   // Live updates the search results.
   @objc
   func handleEditingChanged(textField: UITextField) {
@@ -222,7 +222,7 @@ fileprivate extension SearchBar {
     placeholder = "Search"
     contentView.addSubview(textField)
   }
-  
+
   /// Prepares the clearButton.
   func prepareClearButton() {
     clearButton = IconButton(image: Icon.cm.close, tintColor: placeholderColor)

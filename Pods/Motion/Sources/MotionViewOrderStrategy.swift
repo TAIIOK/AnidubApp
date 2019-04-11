@@ -32,4 +32,3 @@ public enum MotionViewOrderStrategy: Int {
   case sourceViewOnTop
   case destinationViewOnTop
 }
-

@@ -33,13 +33,13 @@ import UIKit
 public struct DataSourceItem {
   /// Stores an the data for the item.
   public var data: Any?
-  
+
   /// Width for horizontal scroll direction.
   public var width: CGFloat?
-  
+
   /// Height for vertical scroll direction.
   public var height: CGFloat?
-  
+
   /**
    Initializer.
    - Parameter data: A reference to an Any that is associated

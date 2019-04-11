@@ -47,7 +47,7 @@ open class Snackbar: Bar {
       layoutSubviews()
     }
   }
-  
+
   /// A convenience property to set the titleLabel attributedText.
   open var attributedText: NSAttributedString? {
     get {
@@ -58,18 +58,18 @@ open class Snackbar: Bar {
       layoutSubviews()
     }
   }
-  
+
   /// Text label.
   @IBInspectable
   open let textLabel = UILabel()
-  
+
   open override var intrinsicContentSize: CGSize {
     return CGSize(width: bounds.width, height: 49)
   }
-  
+
   /// The status of the snackbar.
   open internal(set) var status = SnackbarStatus.hidden
-  
+
   open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     for v in subviews {
       let p = v.convert(point, from: self)
@@ -77,19 +77,19 @@ open class Snackbar: Bar {
         return v.hitTest(p, with: event)
       }
     }
-    
+
     return super.hitTest(point, with: event)
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     guard willLayout else {
       return
     }
-    
+
     centerViews = [textLabel]
   }
-  
+
   open override func prepare() {
     super.prepare()
     depthPreset = .none
@@ -100,7 +100,7 @@ open class Snackbar: Bar {
     clipsToBounds = false
     prepareTextLabel()
   }
-  
+
   /// Prepares the textLabel.
   private func prepareTextLabel() {
     textLabel.contentScaleFactor = Screen.scale

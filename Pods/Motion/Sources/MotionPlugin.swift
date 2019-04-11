@@ -40,9 +40,9 @@ class MotionPlugin: MotionCorePreprocessor, MotionAnimator {
    When **requirePerFrameCallback** is **true**, the plugin will receive `seekTo` callback on every animation frame. Hence it is possible for the plugin to do per-frame animations without implementing `animate` & `resume`
    */
   open var requirePerFrameCallback = false
-  
+
   public override required init() {}
-  
+
   /**
    Called before any animation.
    Override this method when you want to preprocess transitions for views
@@ -63,7 +63,7 @@ class MotionPlugin: MotionCorePreprocessor, MotionAnimator {
    
    */
   open override func process(fromViews: [UIView], toViews: [UIView]) {}
-  
+
   /**
    - Returns: return true if the plugin can handle animating the view.
    - Parameters:
@@ -74,7 +74,7 @@ class MotionPlugin: MotionCorePreprocessor, MotionAnimator {
    The view will also be hidden automatically during the animation.
    */
   open func canAnimate(view: UIView, isAppearing: Bool) -> Bool { return false }
-  
+
   /**
    Perform the animation.
    
@@ -85,16 +85,16 @@ class MotionPlugin: MotionCorePreprocessor, MotionAnimator {
    - toViews: A flattened list of all views from destination ViewController (filtered by `canAnimate`)
    - Returns: The duration needed to complete the animation
    */
-  
+
   open func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval { return 0 }
-  
+
   /**
    Called when all animations are completed.
    
    Should perform cleanup and release any reference
    */
   open func clean() {}
-  
+
   /**
    For supporting interactive animation only.
    
@@ -104,7 +104,7 @@ class MotionPlugin: MotionCorePreprocessor, MotionAnimator {
    - progress: time of the animation to seek to.
    */
   open func seek(to progress: TimeInterval) {}
-  
+
   /**
    For supporting interactive animation only.
    
@@ -115,7 +115,7 @@ class MotionPlugin: MotionCorePreprocessor, MotionAnimator {
    - reverse: a boolean value indicating whether or not the animation should reverse
    */
   open func resume(at progress: TimeInterval, isReversed: Bool) -> TimeInterval { return 0 }
-  
+
   /**
    For supporting interactive animation only.
    
@@ -143,12 +143,12 @@ extension MotionPlugin {
       }
     }
   }
-  
+
   /// Enable plugins.
   public static func enable() {
     MotionTransition.enable(plugin: self)
   }
-  
+
   /// Disable plugins.
   public static func disable() {
     MotionTransition.disable(plugin: self)

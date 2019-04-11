@@ -38,7 +38,7 @@ class IgnoreSubviewTransitionsPreprocessor: MotionCorePreprocessor {
     process(views: fromViews)
     process(views: toViews)
   }
-  
+
   /**
    Process an Array of views for the cascade animation.
    - Parameter views: An Array of UIViews.
@@ -48,21 +48,21 @@ class IgnoreSubviewTransitionsPreprocessor: MotionCorePreprocessor {
       guard let recursive = context[v]?.ignoreSubviewTransitions else {
         continue
       }
-      
+
       var parentView = v
-      
+
       if v is UITableView, let wrapperView = v.subviews.get(0) {
         parentView = wrapperView
       }
-      
+
       guard recursive else {
         for subview in parentView.subviews {
           context[subview] = nil
         }
-        
+
         continue
       }
-      
+
       cleanSubviewModifiers(for: parentView)
     }
   }

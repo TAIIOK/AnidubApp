@@ -28,24 +28,24 @@
 
 import UIKit
 
-fileprivate var AssociatedInstanceKey: UInt8 = 0
+private var AssociatedInstanceKey: UInt8 = 0
 
-fileprivate struct AssociatedInstance {
+private struct AssociatedInstance {
   /// A boolean indicating whether Motion is enabled.
   fileprivate var isEnabled: Bool
-  
+
   /// A boolean indicating whether Motion is enabled for subviews.
   fileprivate var isEnabledForSubviews: Bool
-  
+
   /// An optional reference to the motion identifier.
   fileprivate var identifier: String?
-  
+
   /// An optional reference to the motion animations.
   fileprivate var animations: [MotionAnimation]?
-  
+
   /// An optional reference to the motion animation modifiers.
   fileprivate var modifiers: [MotionModifier]?
-  
+
   /// An alpha value.
   fileprivate var alpha: CGFloat?
 }
@@ -75,7 +75,7 @@ public extension UIView {
       associatedInstance.isEnabled = value
     }
   }
-  
+
   /// A boolean that indicates whether motion is enabled.
   @IBInspectable
   var isMotionEnabledForSubviews: Bool {
@@ -86,7 +86,7 @@ public extension UIView {
       associatedInstance.isEnabledForSubviews = value
     }
   }
-  
+
   /// An identifier value used to connect views across UIViewControllers.
   @IBInspectable
   var motionIdentifier: String? {
@@ -97,7 +97,7 @@ public extension UIView {
       associatedInstance.identifier = value
     }
   }
-  
+
   /**
    A function that accepts CAAnimation objects and executes them on the
    view's backing layer.
@@ -106,7 +106,7 @@ public extension UIView {
   func animate(_ animations: CAAnimation...) {
     layer.animate(animations)
   }
-  
+
   /**
    A function that accepts an Array of CAAnimation objects and executes
    them on the view's backing layer.
@@ -115,7 +115,7 @@ public extension UIView {
   func animate(_ animations: [CAAnimation]) {
     layer.animate(animations)
   }
-  
+
   /**
    A function that accepts a list of MotionAnimation values and executes
    them on the view's backing layer.
@@ -124,7 +124,7 @@ public extension UIView {
   func animate(_ animations: MotionAnimation...) {
     layer.animate(animations)
   }
-  
+
   /**
    A function that accepts an Array of MotionAnimation values and executes
    them on the view's backing layer.
@@ -134,7 +134,7 @@ public extension UIView {
   func animate(_ animations: [MotionAnimation], completion: (() -> Void)? = nil) {
     layer.animate(animations, completion: completion)
   }
-  
+
   /**
    A function that accepts a list of MotionTargetState values.
    - Parameter transitions: A list of MotionTargetState values.
@@ -142,7 +142,7 @@ public extension UIView {
   func transition(_ modifiers: MotionModifier...) {
     transition(modifiers)
   }
-  
+
   /**
    A function that accepts an Array of MotionTargetState values.
    - Parameter transitions: An Array of MotionTargetState values.
@@ -162,7 +162,7 @@ internal extension UIView {
       associatedInstance.modifiers = value
     }
   }
-  
+
   /// The animations to run while in transition.
   var motionAlpha: CGFloat? {
     get {
@@ -172,7 +172,7 @@ internal extension UIView {
       associatedInstance.alpha = value
     }
   }
-  
+
   /// Computes the rotate of the view.
   var motionRotationAngle: CGFloat {
     get {
@@ -182,12 +182,12 @@ internal extension UIView {
       transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi) * value / 180)
     }
   }
-  
+
   /// The global position of a view.
   var motionPosition: CGPoint {
     return superview?.convert(layer.position, to: nil) ?? layer.position
   }
-  
+
   /// The layer.transform of a view.
   var motionTransform: CATransform3D {
     get {
@@ -197,12 +197,12 @@ internal extension UIView {
       layer.transform = value
     }
   }
-  
+
   /// Computes the scale X axis value of the view.
   var motionScaleX: CGFloat {
     return transform.a
   }
-  
+
   /// Computes the scale Y axis value of the view.
   var motionScaleY: CGFloat {
     return transform.b
@@ -212,7 +212,7 @@ internal extension UIView {
 internal class SnapshotWrapperView: UIView {
   /// A reference to the contentView.
   let contentView: UIView
-  
+
   /**
    An initializer that takes in a contentView.
    - Parameter contentView: A UIView.
@@ -223,11 +223,11 @@ internal class SnapshotWrapperView: UIView {
     contentView.frame = bounds
     addSubview(contentView)
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
   override func layoutSubviews() {
     super.layoutSubviews()
     contentView.frame = bounds
@@ -240,22 +240,22 @@ internal extension UIView {
     guard isMotionEnabled else {
       return []
     }
-    
+
     if #available(iOS 9.0, *), isHidden && (superview is UICollectionView || superview is UIStackView || self is UITableViewCell) {
       return []
-      
+
     } else if isHidden && (superview is UICollectionView || self is UITableViewCell) {
       return []
-      
+
     } else if isMotionEnabledForSubviews {
       return [self] + subviews.flatMap {
         $0.flattenedViewHierarchy
       }
     }
-    
+
     return [self]
   }
-  
+
   /**
    Retrieves the optimized duration based on the given parameters.
    - Parameter fromPosition: A CGPoint.
@@ -271,19 +271,19 @@ internal extension UIView {
     let toSize = size ?? fromSize
     let fromTransform = (layer.presentation() ?? layer).transform
     let toTransform = transform ?? fromTransform
-    
+
     let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
     let realToPos = CGPoint.zero.transform(toTransform) + toPos
-    
+
     let realFromSize = fromSize.transform(fromTransform)
     let realToSize = toSize.transform(toTransform)
-    
+
     let movePoints = (realFromPos.distance(realToPos) + realFromSize.bottomRight.distance(realToSize.bottomRight))
-    
+
     // duration is 0.2 @ 0 to 0.375 @ 500
     return 0.208 + Double(movePoints.clamp(0, 500)) / 3000
   }
-  
+
   /**
    Calculates the optimized duration for a view.
    - Parameter targetState: A MotionTargetState.
@@ -294,42 +294,42 @@ internal extension UIView {
                              size: targetState.size,
                              transform: targetState.transform)
   }
-  
+
   /**
    Takes a snapshot of a view usinag the UI graphics context.
    - Returns: A UIView with an embedded UIImageView.
    */
   func slowSnapshotView() -> UIView {
     UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0)
-    
+
     guard let currentContext = UIGraphicsGetCurrentContext() else {
       UIGraphicsEndImageContext()
       return UIView()
     }
-    
+
     layer.render(in: currentContext)
-    
+
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
-    
+
     let imageView = UIImageView(image: image)
     imageView.frame = bounds
-    
+
     return SnapshotWrapperView(contentView: imageView)
   }
-  
+
   /**
    Returns a snapshot of the view itself.
    - Returns: An optional UIView.
    */
   func snapshotView() -> UIView? {
     let snapshot = snapshotView(afterScreenUpdates: true)
-    
+
     if #available(iOS 11.0, *), let oldSnapshot = snapshot {
       // iOS 11 no longer contains a container view.
       return SnapshotWrapperView(contentView: oldSnapshot)
     }
-    
+
     return snapshot
   }
 }

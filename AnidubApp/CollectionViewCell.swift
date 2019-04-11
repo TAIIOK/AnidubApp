@@ -10,10 +10,8 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 
-    
     @IBOutlet weak var titleimageview: UIImageView!
 
-
     @IBOutlet weak var titleLabel: UILabel!
-    
+
 }

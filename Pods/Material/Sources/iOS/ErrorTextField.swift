@@ -31,11 +31,11 @@
 import UIKit
 
 open class ErrorTextField: TextField {
-  
+
   /// The errorLabel UILabel that is displayed.
   @IBInspectable
   open let errorLabel = UILabel()
-  
+
   /// The errorLabel text value.
   @IBInspectable
   open var error: String? {
@@ -47,7 +47,7 @@ open class ErrorTextField: TextField {
       layoutSubviews()
     }
   }
-  
+
   /// Error text color
   @IBInspectable
   open var errorColor = Color.red.base {
@@ -55,7 +55,7 @@ open class ErrorTextField: TextField {
       errorLabel.textColor = errorColor
     }
   }
-  
+
   /// Vertical distance for the errorLabel from the divider.
   @IBInspectable
   open var errorVerticalOffset: CGFloat = 8 {
@@ -63,7 +63,7 @@ open class ErrorTextField: TextField {
       layoutSubviews()
     }
   }
-  
+
   /// Hide or show error text.
   open var isErrorRevealed: Bool {
     get {
@@ -74,13 +74,13 @@ open class ErrorTextField: TextField {
       detailLabel.isHidden = newValue
     }
   }
-  
+
   open override func prepare() {
     super.prepare()
     isErrorRevealed = false
     prepareErrorLabel()
   }
-  
+
   /// Prepares the errorLabel.
   func prepareErrorLabel() {
     errorLabel.font = RobotoFont.regular(with: 12)
@@ -88,7 +88,7 @@ open class ErrorTextField: TextField {
     errorColor = { errorColor }() // call didSet
     addSubview(errorLabel)
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     layoutBottomLabel(label: errorLabel, verticalOffset: errorVerticalOffset)

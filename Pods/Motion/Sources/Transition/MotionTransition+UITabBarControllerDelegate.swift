@@ -30,38 +30,37 @@ import UIKit
 
 extension MotionTransition: UITabBarControllerDelegate {
   public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-    
+
     guard false != tabBarController.previousTabBarDelegate?.tabBarController?(tabBarController, shouldSelect: viewController) else {
         return false
     }
-    
+
     if isTransitioning {
       cancel(isAnimated: false)
     }
-    
+
     return true
   }
-  
+
   public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
-  
+
   public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     guard !isTransitioning else {
       return nil
     }
-    
+
     state = .notified
-    
+
     let fromVCIndex = tabBarController.childViewControllers.index(of: fromVC)!
     let toVCIndex = tabBarController.childViewControllers.index(of: toVC)!
-    
+
     isPresenting = toVCIndex > fromVCIndex
     fromViewController = fromViewController ?? fromVC
     toViewController = toViewController ?? toVC
     transitioningViewController = tabBarController
-    
+
     return self
   }
 }
-

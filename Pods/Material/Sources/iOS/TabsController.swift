@@ -31,7 +31,7 @@
 import UIKit
 import Motion
 
-fileprivate var TabItemKey: UInt8 = 0
+private var TabItemKey: UInt8 = 0
 
 @objc(TabBarAlignment)
 public enum TabBarAlignment: Int {
@@ -76,7 +76,7 @@ public protocol TabsControllerDelegate {
    */
   @objc
   optional func tabsController(tabsController: TabsController, shouldSelect viewController: UIViewController) -> Bool
-  
+
   /**
    A delegation method that is executed when the view controller will transitioned to.
    - Parameter tabsController: A TabsController.
@@ -84,7 +84,7 @@ public protocol TabsControllerDelegate {
    */
   @objc
   optional func tabsController(tabsController: TabsController, willSelect viewController: UIViewController)
-  
+
   /**
    A delegation method that is executed when the view controller has been transitioned to.
    - Parameter tabsController: A TabsController.
@@ -105,12 +105,11 @@ open class TabsController: TransitionController {
       layoutSubviews()
     }
   }
-  
+
   /// The TabBar used to switch between view controllers.
   @IBInspectable
   open let tabBar = TabBar()
-  
-  
+
   /// A Boolean that indicates if the swipe feature is enabled..
   open var isSwipeEnabled = false {
     didSet {
@@ -118,36 +117,36 @@ open class TabsController: TransitionController {
         removeSwipeGesture()
         return
       }
-      
+
       prepareSwipeGesture()
     }
   }
-  
+
   /// A delegation reference.
   open weak var delegate: TabsControllerDelegate?
-  
+
   /// An Array of UIViewControllers.
   open var viewControllers: [UIViewController] {
     didSet {
       selectedIndex = 0
-      
+
       prepareSelectedIndexViewController()
       prepareTabBar()
       layoutSubviews()
     }
   }
-  
+
   /// A reference to the currently selected view controller index value.
   @IBInspectable
   open fileprivate(set) var selectedIndex = 0
-  
+
   /// The tabBar alignment.
   open var tabBarAlignment = TabBarAlignment.bottom {
     didSet {
       layoutSubviews()
     }
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -156,7 +155,7 @@ open class TabsController: TransitionController {
     viewControllers = []
     super.init(coder: aDecoder)
   }
-  
+
   /**
    An initializer that accepts an Array of UIViewControllers.
    - Parameter viewControllers: An Array of UIViewControllers.
@@ -166,31 +165,31 @@ open class TabsController: TransitionController {
     self.selectedIndex = selectedIndex
     super.init(nibName: nil, bundle: nil)
   }
-  
+
   fileprivate override init(rootViewController: UIViewController) {
     self.viewControllers = []
     super.init(rootViewController: rootViewController)
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     layoutTabBar()
     layoutContainer()
     layoutRootViewController()
   }
-  
+
   open override func prepare() {
     super.prepare()
     view.backgroundColor = .white
     view.contentScaleFactor = Screen.scale
-    
+
     isSwipeEnabled = true
-    
+
     prepareTabBar()
     prepareTabItems()
     prepareSelectedIndexViewController()
   }
-  
+
   open override func transition(to viewController: UIViewController, completion: ((Bool) -> Void)?) {
     transition(to: viewController, isTriggeredByUserInteraction: false, completion: completion)
   }
@@ -207,13 +206,13 @@ fileprivate extension TabsController {
     guard let fvcIndex = viewControllers.index(of: rootViewController) else {
       return
     }
-    
+
     guard let tvcIndex = viewControllers.index(of: viewController) else {
       return
     }
-    
+
     var isAuto = false
-    
+
     switch motionTransitionType {
     case .auto:
       switch viewController.motionTransitionType {
@@ -224,22 +223,22 @@ fileprivate extension TabsController {
       }
     default:break
     }
-    
+
     if isTriggeredByUserInteraction {
       delegate?.tabsController?(tabsController: self, willSelect: viewController)
     }
-    
+
     super.transition(to: viewController) { [weak self, viewController = viewController, completion = completion] (isFinishing) in
       guard let `self` = self else {
         return
       }
-      
+
       if isAuto {
         MotionTransition.shared.setAnimationForNextTransition(.auto)
       }
-      
+
       completion?(isFinishing)
-      
+
       if isTriggeredByUserInteraction {
         self.delegate?.tabsController?(tabsController: self, didSelect: viewController)
       }
@@ -252,42 +251,42 @@ fileprivate extension TabsController {
   func prepareSelectedIndexViewController() {
     rootViewController = viewControllers[selectedIndex]
   }
-  
+
   /// Prepares the TabBar.
   func prepareTabBar() {
     tabBar.lineAlignment = .bottom == tabBarAlignment ? .top : .bottom
     tabBar._delegate = self
     view.addSubview(tabBar)
   }
-  
+
   /// Prepares the `tabBar.tabItems`.
   func prepareTabItems() {
     var tabItems = [TabItem]()
-    
+
     for v in viewControllers {
       // Expectation that viewDidLoad() triggers update of tabItem:
       if #available(iOS 9.0, *) {
         v.loadViewIfNeeded()
-      
+
       } else {
         _ = v.view
       }
-      
+
       tabItems.append(v.tabItem)
     }
-    
+
     tabBar.tabItems = tabItems
     tabBar.selectedTabItem = tabItems[selectedIndex]
   }
-  
+
   /// Prepare Swipe Gesture.
   func prepareSwipeGesture() {
     removeSwipeGesture()
-    
+
     let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture(gesture:)))
     swipeRight.direction = .right
     view.addGestureRecognizer(swipeRight)
-    
+
     let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture(gesture:)))
     swipeLeft.direction = .left
     view.addGestureRecognizer(swipeLeft)
@@ -300,12 +299,12 @@ fileprivate extension TabsController {
     guard let v = view.gestureRecognizers else {
       return
     }
-    
+
     for gesture in v {
       guard let recognizer = gesture as? UISwipeGestureRecognizer else {
         continue
       }
-      
+
       if .left == recognizer.direction || .right == recognizer.direction {
         view.removeGestureRecognizer(recognizer)
       }
@@ -320,30 +319,30 @@ fileprivate extension TabsController {
     case .partial:
       let p = tabBar.bounds.height
       let y = view.bounds.height - p
-      
+
       switch tabBarAlignment {
       case .top:
         container.frame.origin.y = p
         container.frame.size.height = y
-        
+
       case .bottom:
         container.frame.origin.y = 0
         container.frame.size.height = y
       }
-      
+
       container.frame.size.width = view.bounds.width
-      
+
     case .full:
       container.frame = view.bounds
     }
   }
-  
+
   /// Layout the tabBar.
   func layoutTabBar() {
     if #available(iOS 11, *) {
       if .bottom == tabBarAlignment {
         let v = bottomLayoutGuide.length
-        
+
         if 0 < v {
           tabBar.heightPreset = { tabBar.heightPreset }()
           tabBar.frame.size.height += v
@@ -351,12 +350,12 @@ fileprivate extension TabsController {
         }
       }
     }
-    
+
     tabBar.frame.origin.x = 0
     tabBar.frame.origin.y = .top == tabBarAlignment ? 0 : view.bounds.height - tabBar.bounds.height
     tabBar.frame.size.width = view.bounds.width
   }
-  
+
   /// Layout the rootViewController.
   func layoutRootViewController() {
     rootViewController.view.frame = container.bounds
@@ -375,11 +374,11 @@ fileprivate extension TabsController {
       case .right:
         guard (selectedIndex - 1) >= 0 else { return }
         internalSelect(at: selectedIndex - 1, isTriggeredByUserInteraction: true, selectTabItem: true)
-      
+
       case .left:
         guard (selectedIndex + 1) < viewControllers.count else { return }
         internalSelect(at: selectedIndex + 1, isTriggeredByUserInteraction: true, selectTabItem: true)
-      
+
       default:
         break
       }
@@ -395,7 +394,7 @@ extension TabsController {
   open func select(at index: Int) {
     internalSelect(at: index, isTriggeredByUserInteraction: false, selectTabItem: true)
   }
-  
+
   /**
    Transitions to the view controller that is at the given index.
    - Parameter at index: An Int.
@@ -408,25 +407,25 @@ extension TabsController {
     guard index != selectedIndex else {
       return false
     }
-    
+
     if isTriggeredByUserInteraction {
       guard !(false == delegate?.tabsController?(tabsController: self, shouldSelect: viewControllers[index])) else {
         return false
       }
     }
-    
+
     if selectTabItem {
       tabBar.select(at: index)
     }
-    
+
     transition(to: viewControllers[index], isTriggeredByUserInteraction: isTriggeredByUserInteraction) { [weak self] (isFinishing) in
       guard isFinishing else {
         return
       }
-      
+
       self?.selectedIndex = index
     }
-    
+
     return true
   }
 }
@@ -437,7 +436,7 @@ extension TabsController: _TabBarDelegate {
     guard let i = tabBar.tabItems.index(of: tabItem) else {
       return false
     }
-    
+
     return internalSelect(at: i, isTriggeredByUserInteraction: true, selectTabItem: false)
   }
 }

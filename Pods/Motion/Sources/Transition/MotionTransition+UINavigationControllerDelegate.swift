@@ -33,16 +33,16 @@ extension MotionTransition: UINavigationControllerDelegate {
     guard !isTransitioning else {
       return nil
     }
-    
+
     state = .notified
     isPresenting = .push == operation
     fromViewController = fromViewController ?? fromVC
     toViewController = toViewController ?? toVC
     transitioningViewController = navigationController
-    
+
     return self
   }
-  
+
   public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }

@@ -40,23 +40,23 @@ extension MotionTransition {
     guard !isTransitioning else {
       return
     }
-    
+
     state = .notified
     isPresenting = true
     transitionContainer = view
     fromViewController = from
     toViewController = to
-    
+
     completionCallback = { [weak self] in
       guard let `self` = self else {
         return
       }
-      
+
       completion?($0)
-      
+
       self.state = .possible
     }
-    
+
     start()
   }
 }

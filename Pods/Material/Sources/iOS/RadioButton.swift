@@ -10,13 +10,13 @@ import UIKit
 
 open class RadioButton: BaseIconLayerButton {
     class override var iconLayer: BaseIconLayer { return RadioBoxLayer() }
-    
+
     open override func prepare() {
         super.prepare()
-        
+
         addTarget(self, action: #selector(didTap), for: .touchUpInside)
     }
-    
+
     @objc
     private func didTap() {
         setSelected(true, animated: true)
@@ -26,7 +26,7 @@ open class RadioButton: BaseIconLayerButton {
 internal class RadioBoxLayer: BaseIconLayer {
     private let centerDot = CALayer()
     private let outerCircle = CALayer()
-    
+
     override var selectedColor: UIColor {
         didSet {
             guard isSelected, isEnabled else { return }
@@ -34,14 +34,14 @@ internal class RadioBoxLayer: BaseIconLayer {
             centerDot.backgroundColor = selectedColor.cgColor
         }
     }
-    
+
     override var normalColor: UIColor {
         didSet {
             guard !isSelected, isEnabled else { return }
             outerCircle.borderColor = normalColor.cgColor
         }
     }
-    
+
     override var disabledColor: UIColor {
         didSet {
             guard !isEnabled else { return }
@@ -49,13 +49,13 @@ internal class RadioBoxLayer: BaseIconLayer {
             if isSelected { centerDot.backgroundColor = disabledColor.cgColor }
         }
     }
-        
+
     override func prepare() {
         super.prepare()
         addSublayer(centerDot)
         addSublayer(outerCircle)
     }
-    
+
     override func prepareForFirstAnimation() {
         outerCircle.borderColor = (isEnabled ? (isSelected ? selectedColor : normalColor) : disabledColor).cgColor
         if !isSelected {
@@ -63,7 +63,7 @@ internal class RadioBoxLayer: BaseIconLayer {
         }
         outerCircle.borderWidth = outerCircleBorderWidth
     }
-    
+
     override func firstAnimation() {
         outerCircle.transform = outerCircleScaleToShrink
         let to = isSelected ? sideLength / 2.0 : outerCircleBorderWidth * percentageOfOuterCircleWidthToStart
@@ -72,13 +72,13 @@ internal class RadioBoxLayer: BaseIconLayer {
             centerDot.transform = centerDotScaleForMeeting
         }
     }
-    
+
     override func prepareForSecondAnimation() {
         centerDot.transform = isSelected ? centerDotScaleForMeeting : .identity
         centerDot.backgroundColor = (isSelected ? (isEnabled ? selectedColor : disabledColor) : .clear).cgColor
         outerCircle.borderWidth = isSelected ? outerCircleBorderWidth * percentageOfOuterCircleWidthToStart : outerCircleFullBorderWidth
     }
-    
+
     override func secondAnimation() {
         outerCircle.transform = .identity
         outerCircle.animate(#keyPath(CALayer.borderWidth), to: outerCircleBorderWidth)
@@ -86,11 +86,11 @@ internal class RadioBoxLayer: BaseIconLayer {
             centerDot.transform = .identity
         }
     }
-    
+
     override func layoutSublayers() {
         super.layoutSublayers()
         guard !isAnimating else { return }
-        
+
         centerDot.frame = CGRect(x: centerDotDiameter / 2.0, y: centerDotDiameter / 2.0, width: centerDotDiameter, height: centerDotDiameter)
         outerCircle.frame.size = CGSize(width: sideLength, height: sideLength)
         centerDot.cornerRadius = centerDot.bounds.width / 2
@@ -102,7 +102,7 @@ internal class RadioBoxLayer: BaseIconLayer {
 private extension RadioBoxLayer {
     var percentageOfOuterCircleSizeToShrinkTo: CGFloat { return 0.9 }
     var percentageOfOuterCircleWidthToStart: CGFloat { return 1 }
-    
+
     var outerCircleScaleToShrink: CATransform3D {
         let s = percentageOfOuterCircleSizeToShrinkTo
         return CATransform3DMakeScale(s, s, 1)
@@ -111,11 +111,11 @@ private extension RadioBoxLayer {
         let s = ((sideLength - 2 * percentageOfOuterCircleWidthToStart * outerCircleBorderWidth) * percentageOfOuterCircleSizeToShrinkTo) / centerDotDiameter
         return CATransform3DMakeScale(s, s, 1)
     }
-    
+
     var outerCircleFullBorderWidth: CGFloat {
         return (self.sideLength / 2.0) * 1.1 //without multipling 1.1 a weird plus sign (+) appears sometimes.
     }
-    
+
     var centerDotDiameter: CGFloat { return sideLength / 2.0 }
     var outerCircleBorderWidth: CGFloat { return sideLength * 0.11 }
 }

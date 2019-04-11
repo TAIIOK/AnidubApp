@@ -33,27 +33,27 @@ import UIKit
 open class TabItem: FlatButton {
   /// A dictionary of TabItemStates to UIColors for states.
   fileprivate var colorForState = [TabItemState: UIColor]()
-  
+
   /// A dictionary of TabItemStates to UIImages for states.
   fileprivate var imageForState = [TabItemState: UIImage]()
-  
+
   /// Sets the normal and highlighted image for the button.
   open override var image: UIImage? {
     didSet {
       setTabItemImage(image, for: .normal)
       setTabItemImage(image, for: .selected)
       setTabItemImage(image, for: .highlighted)
-      
+
       super.image = image
     }
   }
-  
+
   open override func prepare() {
     super.prepare()
     pulseAnimation = .none
-    
+
     prepareImages()
-    
+
     prepareColors()
     updateColors()
   }
@@ -66,7 +66,7 @@ fileprivate extension TabItem {
     imageForState[.selected] = image
     imageForState[.highlighted] = image
   }
-  
+
   /// Prepares the tabsItems colors.
   func prepareColors() {
     colorForState[.normal] = Color.grey.base
@@ -81,7 +81,7 @@ fileprivate extension TabItem {
     let normalColor = colorForState[.normal]!
     let selectedColor = colorForState[.selected]!
     let highlightedColor = colorForState[.highlighted]!
-    
+
     setTitleColor(normalColor, for: .normal)
     setImage(imageForState[.normal]?.tint(with: normalColor), for: .normal)
     setTitleColor(selectedColor, for: .selected)
@@ -100,7 +100,7 @@ extension TabItem {
   open func getTabItemColor(for state: TabItemState) -> UIColor {
     return colorForState[state]!
   }
-  
+
   /**
    Sets the color for the tabItem given a TabItemState.
    - Parameter _ color: A UIColor.
@@ -110,7 +110,7 @@ extension TabItem {
     colorForState[state] = color
     updateColors()
   }
-  
+
   /**
    Retrieves the tabItem image for a given state.
    - Parameter for state: A TabItemState.
@@ -119,7 +119,7 @@ extension TabItem {
   open func getTabItemImage(for state: TabItemState) -> UIImage? {
     return imageForState[state]
   }
-  
+
   /**
    Sets the image for the tabItem given a TabItemState.
    - Parameter _ image: An optional UIImage.
@@ -160,7 +160,7 @@ public protocol TabBarDelegate {
    */
   @objc
   optional func tabBar(tabBar: TabBar, shouldSelect tabItem: TabItem) -> Bool
-  
+
   /**
    A delegation method that is executed when the tabItem will trigger the
    animation to the next tab.
@@ -169,7 +169,7 @@ public protocol TabBarDelegate {
    */
   @objc
   optional func tabBar(tabBar: TabBar, willSelect tabItem: TabItem)
-  
+
   /**
    A delegation method that is executed when the tabItem did complete the
    animation to the next tab.
@@ -214,27 +214,27 @@ public enum TabBarLineStyle {
 open class TabBar: Bar {
   /// A dictionary of TabItemLineStates to UIColors for the line.
   fileprivate var lineColorForState = [TabItemLineState: UIColor]()
-  
+
   /// Only for inital load to get the line animation correct.
   fileprivate var shouldNotAnimateLineView = false
-  
+
   /// The total width of the tabItems.
   fileprivate var tabItemsTotalWidth: CGFloat {
     var w: CGFloat = 0
     let q = 2 * tabItemsInterimSpace
     let p = q + tabItemsInterimSpace
-    
+
     for v in tabItems {
       let x = v.sizeThatFits(CGSize(width: .greatestFiniteMagnitude, height: scrollView.bounds.height)).width
       w += x
       w += p
     }
-    
+
     w -= tabItemsInterimSpace
-    
+
     return w
   }
-  
+
   /// An enum that determines the tab bar style.
   open var tabBarStyle = TabBarStyle.auto {
     didSet {
@@ -248,17 +248,17 @@ open class TabBar: Bar {
       layoutSubviews()
     }
   }
-  
+
   /// An enum that determines the tab bar items style.
   open var tabBarLineStyle = TabBarLineStyle.auto {
     didSet {
       layoutSubviews()
     }
   }
-  
+
   /// A reference to the scroll view when the tab bar style is scrollable.
   open let scrollView = UIScrollView()
-  
+
   /// Enables and disables bouncing when swiping.
   open var isScrollBounceEnabled: Bool {
     get {
@@ -268,11 +268,11 @@ open class TabBar: Bar {
       scrollView.bounces = value
     }
   }
-  
+
   /// A delegation reference.
   open weak var delegate: TabBarDelegate?
   internal weak var _delegate: _TabBarDelegate?
-  
+
   /// The currently selected tabItem.
   open internal(set) var selectedTabItem: TabItem? {
     didSet {
@@ -280,7 +280,7 @@ open class TabBar: Bar {
       selectedTabItem?.isSelected = true
     }
   }
-  
+
   /// A preset wrapper around tabItems contentEdgeInsets.
   open var tabItemsContentEdgeInsetsPreset: EdgeInsetsPreset {
     get {
@@ -290,7 +290,7 @@ open class TabBar: Bar {
       contentView.grid.contentEdgeInsetsPreset = value
     }
   }
-  
+
   /// A reference to EdgeInsets.
   @IBInspectable
   open var tabItemsContentEdgeInsets: EdgeInsets {
@@ -301,7 +301,7 @@ open class TabBar: Bar {
       contentView.grid.contentEdgeInsets = value
     }
   }
-  
+
   /// A preset wrapper around tabItems interimSpace.
   open var tabItemsInterimSpacePreset: InterimSpacePreset {
     get {
@@ -311,7 +311,7 @@ open class TabBar: Bar {
       contentView.grid.interimSpacePreset = value
     }
   }
-  
+
   /// A wrapper around tabItems interimSpace.
   @IBInspectable
   open var tabItemsInterimSpace: InterimSpace {
@@ -322,7 +322,7 @@ open class TabBar: Bar {
       contentView.grid.interimSpace = value
     }
   }
-  
+
   /// TabItems.
   @objc
   open var tabItems = [TabItem]() {
@@ -330,15 +330,15 @@ open class TabBar: Bar {
       oldValue.forEach {
         $0.removeFromSuperview()
       }
-      
+
       prepareTabItems()
       layoutSubviews()
     }
   }
-  
+
   /// A reference to the line UIView.
   open let line = UIView()
-  
+
   /// A value for the line alignment.
   @objc
   open var lineAlignment = TabBarLineAlignment.bottom {
@@ -346,7 +346,7 @@ open class TabBar: Bar {
       layoutSubviews()
     }
   }
-  
+
   /// The line height.
   @objc
   open var lineHeight: CGFloat {
@@ -357,7 +357,7 @@ open class TabBar: Bar {
       line.frame.size.height = value
     }
   }
-  
+
   /// The line color.
   @objc
   open var lineColor: UIColor {
@@ -368,25 +368,25 @@ open class TabBar: Bar {
       setLineColor(value, for: .selected)
     }
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     guard willLayout else {
       return
     }
-    
+
     layoutScrollView()
     layoutLine()
-    
+
     updateScrollView()
   }
-  
+
   open override func prepare() {
     super.prepare()
     contentEdgeInsetsPreset = .none
     interimSpacePreset = .interimSpace6
     tabItemsInterimSpacePreset = .interimSpace4
-    
+
     prepareContentView()
     prepareScrollView()
     prepareDivider()
@@ -404,47 +404,47 @@ fileprivate extension TabBar {
     lineHeight = 3
     scrollView.addSubview(line)
   }
-  
+
   /// Prepares the divider.
   func prepareDivider() {
     dividerColor = Color.grey.lighten2
     dividerAlignment = .top
   }
-  
+
   /// Prepares the tabItems.
   func prepareTabItems() {
     shouldNotAnimateLineView = true
-    
+
     for v in tabItems {
       v.grid.columns = 0
       v.contentEdgeInsets = .zero
-      
+
       prepareTabItemHandler(tabItem: v)
     }
-    
+
     selectedTabItem = tabItems.first
   }
-  
+
   /// Prepares the line colors.
   func prepareLineColor() {
     lineColorForState[.selected] = Color.blue.base
   }
-  
+
   /**
    Prepares the tabItem animation handler.
    - Parameter tabItem: A TabItem.
    */
   func prepareTabItemHandler(tabItem: TabItem) {
     removeTabItemHandler(tabItem: tabItem)
-    
+
     tabItem.addTarget(self, action: #selector(handleTabItemsChange(tabItem:)), for: .touchUpInside)
   }
-  
+
   /// Prepares the contentView.
   func prepareContentView() {
     contentView.layer.zPosition = 6000
   }
-  
+
   /// Prepares the scroll view.
   func prepareScrollView() {
     scrollView.showsVerticalScrollIndicator = false
@@ -457,12 +457,12 @@ fileprivate extension TabBar {
   /// Layout the scrollView.
   func layoutScrollView() {
     contentView.grid.reload()
-    
+
     if .scrollable == tabBarStyle || (.auto == tabBarStyle && tabItemsTotalWidth > scrollView.bounds.width) {
       var w: CGFloat = 0
       let q = 2 * tabItemsInterimSpace
       let p = q + tabItemsInterimSpace
-      
+
       for v in tabItems {
         v.sizeToFit()
         let x = v.sizeThatFits(CGSize(width: .greatestFiniteMagnitude, height: scrollView.bounds.height)).width
@@ -471,16 +471,16 @@ fileprivate extension TabBar {
         v.frame.origin.x = w
         w += x
         w += p
-        
+
         if scrollView != v.superview {
           scrollView.addSubview(v)
         }
       }
-      
+
       w -= tabItemsInterimSpace
-      
+
       scrollView.contentSize = CGSize(width: w, height: scrollView.bounds.height)
-      
+
     } else {
       scrollView.grid.begin()
       scrollView.grid.views = tabItems
@@ -491,13 +491,13 @@ fileprivate extension TabBar {
       scrollView.contentSize = scrollView.frame.size
     }
   }
-  
+
   /// Layout the line view.
   func layoutLine() {
     guard let v = selectedTabItem else {
       return
     }
-    
+
     guard shouldNotAnimateLineView else {
       let f = lineFrame(for: v, forMotion: true)
       line.animate(.duration(0),
@@ -505,30 +505,30 @@ fileprivate extension TabBar {
                    .position(f.origin))
       return
     }
-    
+
     line.frame = lineFrame(for: v)
-    
+
     shouldNotAnimateLineView = false
   }
-  
+
   func lineFrame(for tabItem: TabItem, forMotion: Bool = false) -> CGRect {
     let y = .bottom == lineAlignment ? scrollView.bounds.height - (forMotion ? lineHeight / 2 : lineHeight) : (forMotion ? lineHeight / 2 : 0)
-    
+
     let w: CGFloat = {
       switch tabBarLineStyle {
       case .auto:
         return tabItem.bounds.width
-        
+
       case .fixed(let w):
         return w
-        
+
       case .custom(let closure):
         return closure(tabItem)
       }
     }()
-    
+
     let x = forMotion ? tabItem.center.x : (tabItem.frame.origin.x + (tabItem.bounds.width - w) / 2)
-    
+
     return CGRect(x: x, y: y, width: w, height: lineHeight)
   }
 }
@@ -542,7 +542,7 @@ extension TabBar {
   open func getTabItemColor(for state: TabItemState) -> UIColor? {
     return tabItems.first?.getTabItemColor(for: state)
   }
-  
+
   /**
    Sets the color for the tabItem given a TabItemState.
    - Parameter _ color: A UIColor.
@@ -553,7 +553,7 @@ extension TabBar {
       v.setTabItemColor(color, for: state)
     }
   }
-  
+
   /**
    Retrieves the line color for a given state.
    - Parameter for state: A TabItemLineState.
@@ -562,7 +562,7 @@ extension TabBar {
   open func getLineColor(for state: TabItemLineState) -> UIColor {
     return lineColorForState[state]!
   }
-  
+
   /**
    Sets the color for the line given a TabItemLineState.
    - Parameter _ color: A UIColor.
@@ -591,11 +591,11 @@ fileprivate extension TabBar {
     guard !(false == delegate?.tabBar?(tabBar: self, shouldSelect: tabItem)) else {
       return
     }
-    
+
     guard !(false == _delegate?._tabBar(tabBar: self, shouldSelect: tabItem)) else {
       return
     }
-    
+
     animate(to: tabItem, isTriggeredByUserInteraction: true)
   }
 }
@@ -611,10 +611,10 @@ extension TabBar {
     guard -1 < index, index < tabItems.count else {
       return
     }
-    
+
     animate(to: tabItems[index], isTriggeredByUserInteraction: false, completion: completion)
   }
-  
+
   /**
    Animates to a given tabItem.
    - Parameter to tabItem: A TabItem.
@@ -644,11 +644,11 @@ fileprivate extension TabBar {
     if isTriggeredByUserInteraction {
       delegate?.tabBar?(tabBar: self, willSelect: tabItem)
     }
-    
+
     selectedTabItem = tabItem
-    
+
     let f = lineFrame(for: tabItem, forMotion: true)
-    
+
     line.animate(.duration(0.25),
                  .size(f.size),
                  .position(f.origin),
@@ -656,14 +656,14 @@ fileprivate extension TabBar {
                     guard let `self` = self else {
                       return
                     }
-                  
+
                     if isTriggeredByUserInteraction {
                       self.delegate?.tabBar?(tabBar: self, didSelect: tabItem)
                     }
-    
+
                     completion?(tabItem)
                  }))
-    
+
     updateScrollView()
   }
 }
@@ -674,30 +674,30 @@ fileprivate extension TabBar {
     guard let v = selectedTabItem else {
       return
     }
-    
+
     let contentOffsetX: CGFloat? = {
       let shouldScroll = !scrollView.bounds.contains(v.frame)
-      
+
       switch tabBarCenteringStyle {
       case .auto:
         guard shouldScroll else {
           return nil
         }
-        
+
         fallthrough
-        
+
       case .always:
         return v.center.x - bounds.width / 2
-      
+
       case .never:
         guard shouldScroll else {
           return nil
         }
-      
+
         return v.frame.origin.x < scrollView.bounds.minX ? v.frame.origin.x : v.frame.maxX - scrollView.bounds.width
       }
     }()
-    
+
     if let x = contentOffsetX {
       let normalizedOffsetX = min(max(x, 0), scrollView.contentSize.width - scrollView.bounds.width)
       scrollView.setContentOffset(CGPoint(x: normalizedOffsetX, y: 0), animated: true)

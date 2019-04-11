@@ -34,7 +34,7 @@ open class View: UIView {
   open override var intrinsicContentSize: CGSize {
     return bounds.size
   }
-  
+
   /**
    A CAShapeLayer used to manage elements that would be affected by
    the clipToBounds property of the backing layer. For example, this
@@ -42,7 +42,7 @@ open class View: UIView {
    the image to a desired shape within the visualLayer.
    */
   open let visualLayer = CAShapeLayer()
-  
+
   /**
    A property that manages an image for the visualLayer's contents
    property. Images should not be set to the backing layer's contents
@@ -54,14 +54,14 @@ open class View: UIView {
       guard let v = visualLayer.contents else {
         return nil
       }
-      
+
       return UIImage(cgImage: v as! CGImage)
     }
     set(value) {
       visualLayer.contents = value?.cgImage
     }
   }
-  
+
   /**
    Allows a relative subrectangle within the range of 0 to 1 to be
    specified for the visualLayer's contents property. This allows
@@ -77,7 +77,7 @@ open class View: UIView {
       visualLayer.contentsRect = value
     }
   }
-  
+
   /**
    A CGRect that defines a stretchable region inside the visualLayer
    with a fixed border around the edge.
@@ -91,7 +91,7 @@ open class View: UIView {
       visualLayer.contentsCenter = value
     }
   }
-  
+
   /**
    A floating point value that defines a ratio between the pixel
    dimensions of the visualLayer's contents property and the size
@@ -106,7 +106,7 @@ open class View: UIView {
       visualLayer.contentsScale = value
     }
   }
-  
+
   /// A Preset for the contentsGravity property.
   @IBInspectable
   open var contentsGravityPreset: Gravity {
@@ -114,7 +114,7 @@ open class View: UIView {
       contentsGravity = GravityToValue(gravity: contentsGravityPreset)
     }
   }
-  
+
   /// Determines how content should be aligned within the visualLayer's bounds.
   @IBInspectable
   open var contentsGravity: String {
@@ -125,7 +125,7 @@ open class View: UIView {
       visualLayer.contentsGravity = value
     }
   }
-  
+
   /// A property that accesses the backing layer's background
   @IBInspectable
   open override var backgroundColor: UIColor? {
@@ -133,7 +133,7 @@ open class View: UIView {
       layer.backgroundColor = backgroundColor?.cgColor
     }
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -143,7 +143,7 @@ open class View: UIView {
     super.init(coder: aDecoder)
     prepare()
   }
-  
+
   /**
    An initializer that initializes the object with a CGRect object.
    If AutoLayout is used, it is better to initilize the instance
@@ -155,14 +155,14 @@ open class View: UIView {
     super.init(frame: frame)
     prepare()
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     layoutShape()
     layoutVisualLayer()
     layoutShadowPath()
   }
-  
+
   /**
    Prepares the view instance when intialized. When subclassing,
    it is recommended to override the prepare method

@@ -13,7 +13,7 @@ import Motion
 open class BaseIconLayerButton: Button {
     class var iconLayer: BaseIconLayer { fatalError("Has to be implemented by subclasses") }
     lazy var iconLayer: BaseIconLayer = type(of: self).iconLayer
-    
+
     /// A Boolean value indicating whether the button is in the selected state
     ///
     /// Use `setSelected(_:, animated:)` if the state change needs to be animated
@@ -22,15 +22,14 @@ open class BaseIconLayerButton: Button {
             iconLayer.setSelected(isSelected, animated: false)
         }
     }
-    
+
     /// A Boolean value indicating whether the control is enabled.
     open override var isEnabled: Bool {
         didSet {
             iconLayer.isEnabled = isEnabled
         }
     }
-    
-    
+
     /// Sets the color of the icon to use for the specified state.
     ///
     /// - Parameters:
@@ -48,7 +47,7 @@ open class BaseIconLayerButton: Button {
             fatalError("unsupported state")
         }
     }
-    
+
     /// Returns the icon color used for a state.
     ///
     /// - Parameter state: The state that uses the icon color. Supports only (.normal, .selected, .disabled)
@@ -65,11 +64,10 @@ open class BaseIconLayerButton: Button {
             fatalError("unsupported state")
         }
     }
-    
+
     /// A Boolean value indicating whether the button is being animated
     open var isAnimating: Bool { return iconLayer.isAnimating }
-    
-    
+
     /// Sets the `selected` state of the button, optionally animating the transition.
     ///
     /// - Parameters:
@@ -80,33 +78,33 @@ open class BaseIconLayerButton: Button {
         iconLayer.setSelected(isSelected, animated: animated)
         self.isSelected = isSelected
     }
-    
+
     open override func prepare() {
         super.prepare()
         layer.addSublayer(iconLayer)
         contentHorizontalAlignment = .left // default was .center
         reloadImage()
     }
-    
+
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // pulse.animation set to .none so that when we call `super.touchesBegan`
         // pulse will not expand as there is a `guard` against .none case
         pulse.animation = .none
         super.touchesBegan(touches, with: event)
         pulse.animation = .point
-        
+
         // expand pulse from the center of iconLayer/visualLayer (`point` is relative to self.view/self.layer)
         pulse.expand(point: iconLayer.frame.center)
     }
-    
+
     open override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         // positioning iconLayer
         let insets = iconEdgeInsets
         iconLayer.frame.size = CGSize(width: iconSize, height: iconSize)
         iconLayer.frame.origin = CGPoint(x: imageView!.frame.minX + insets.left, y: imageView!.frame.minY + insets.top)
-        
+
         // visualLayer is the layer where pulse layer is expanding.
         // So we position it at the center of iconLayer, and make it
         // small circle, so that the expansion of pulse layer is clipped off
@@ -117,7 +115,7 @@ open class BaseIconLayerButton: Button {
         visualLayer.frame.center = iconLayer.frame.center
         visualLayer.cornerRadius = pulseSize / 2
     }
-    
+
     /// Size of the icon
     ///
     /// This property affects `intrinsicContentSize` and `sizeThatFits(_:)`
@@ -127,7 +125,7 @@ open class BaseIconLayerButton: Button {
             reloadImage()
         }
     }
-    
+
     /// The *outset* margins for the rectangle around the button’s icon.
     ///
     /// You can specify a different value for each of the four margins (top, left, bottom, right)
@@ -142,8 +140,7 @@ open class BaseIconLayerButton: Button {
             reloadImage()
         }
     }
-    
-    
+
     /// This might be considered as a hackish way, but it's just manipulation
     /// UIButton considers size of the `currentImage` to determine `intrinsicContentSize`
     /// and `sizeThatFits(_:)`, and to position `titleLabel`.
@@ -167,14 +164,13 @@ internal class BaseIconLayer: CALayer {
     var selectedColor = Color.blue.base
     var normalColor = Color.lightGray
     var disabledColor = Color.gray
-    
-    
+
     func prepareForFirstAnimation() {}
     func firstAnimation() {}
-    
+
     func prepareForSecondAnimation() {}
     func secondAnimation() {}
-    
+
     private(set) var isAnimating = false
     private(set) var isSelected = false
     var isEnabled = true {
@@ -184,26 +180,26 @@ internal class BaseIconLayer: CALayer {
             disabledColor = { disabledColor }()
         }
     }
-    
+
     override init() {
         super.init()
         prepare()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         prepare()
     }
-    
+
     func prepare() {
         normalColor = { normalColor }() // calling didSet
         selectedColor = { selectedColor }() // calling didSet
     }
-    
+
     func setSelected(_ isSelected: Bool, animated: Bool) {
         guard self.isSelected != isSelected, !isAnimating else { return }
         self.isSelected = isSelected
-        
+
         if animated {
             animate()
         } else {
@@ -215,10 +211,10 @@ internal class BaseIconLayer: CALayer {
             }
         }
     }
-    
+
     private func animate() {
         guard !isAnimating else { return }
-        
+
         prepareForFirstAnimation()
         Motion.animate(duration: Constants.partialDuration, timingFunction: .easeInOut, animations: {
             self.isAnimating = true
@@ -234,9 +230,9 @@ internal class BaseIconLayer: CALayer {
             }
         })
     }
-    
+
     var sideLength: CGFloat { return frame.height }
-    
+
     struct Constants {
         static let totalDuration = 0.5
         static let delayFactor = 0.33
@@ -249,14 +245,13 @@ internal class BaseIconLayer: CALayer {
 private extension CGRect {
     var center: CGPoint {
         get {
-            return CGPoint(x: minX + width / 2 , y: minY + height / 2)
+            return CGPoint(x: minX + width / 2, y: minY + height / 2)
         }
         set {
             origin = CGPoint(x: newValue.x - width / 2, y: newValue.y - height / 2)
         }
     }
 }
-
 
 internal extension CALayer {
     /// Animates the propery of CALayer from current value to the specified value
@@ -271,7 +266,7 @@ internal extension CALayer {
         animation.timingFunction = .easeIn
         animation.fromValue = self.value(forKeyPath: keyPath) // from current value
         animation.duration = dur
-        
+
         setValue(to, forKeyPath: keyPath)
         self.add(animation, forKey: nil)
     }
@@ -282,4 +277,3 @@ internal extension CATransform3D {
         return CATransform3DIdentity
     }
 }
-

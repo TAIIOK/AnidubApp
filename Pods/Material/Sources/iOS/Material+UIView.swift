@@ -38,14 +38,14 @@ extension UIView {
       guard let v = layer.shadowColor else {
         return nil
       }
-      
+
       return UIColor(cgColor: v)
     }
     set(value) {
       layer.shadowColor = value?.cgColor
     }
   }
-  
+
   /// A property that accesses the layer.borderColor property.
   @objc
   open var borderColor: UIColor? {
@@ -59,7 +59,7 @@ extension UIView {
       layer.borderColor = value?.cgColor
     }
   }
-  
+
   /// HeightPreset value.
   @objc
   open var heightPreset: HeightPreset {
@@ -70,7 +70,7 @@ extension UIView {
       layer.heightPreset = value
     }
   }
-  
+
   /**
    A property that manages the overall shape for the object. If either the
    width or height property is set, the other will be automatically adjusted
@@ -85,7 +85,7 @@ extension UIView {
       layer.shapePreset = value
     }
   }
-  
+
   /// A preset value for Depth.
   @objc
   open var depthPreset: DepthPreset {
@@ -96,7 +96,7 @@ extension UIView {
       layer.depthPreset = value
     }
   }
-  
+
   /// Depth reference.
   open var depth: Depth {
     get {
@@ -106,10 +106,9 @@ extension UIView {
       layer.depth = value
     }
   }
-  
+
   /// Enables automatic shadowPath sizing.
   @IBInspectable
-  @objc
   open var isShadowPathAutoSizing: Bool {
     get {
       return layer.isShadowPathAutoSizing
@@ -118,7 +117,7 @@ extension UIView {
       layer.isShadowPathAutoSizing = value
     }
   }
-  
+
   /// A property that sets the cornerRadius of the backing layer.
   @objc
   open var cornerRadiusPreset: CornerRadiusPreset {
@@ -129,7 +128,7 @@ extension UIView {
       layer.cornerRadiusPreset = value
     }
   }
-  
+
   /// A preset property to set the borderWidth.
   @objc
   open var borderWidthPreset: BorderWidthPreset {
@@ -147,7 +146,7 @@ internal extension UIView {
   func layoutShape() {
     layer.layoutShape()
   }
-  
+
   /// Sets the shadow path.
   func layoutShadowPath() {
     layer.layoutShadowPath()

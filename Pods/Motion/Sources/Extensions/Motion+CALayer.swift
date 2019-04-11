@@ -36,12 +36,12 @@ internal extension CALayer {
         method_exchangeImplementations(originalMethod, swizzledMethod)
       }
     }
-    
+
     swizzling(CALayer.self, #selector(add(_:forKey:)), #selector(motionAdd(anim:forKey:)))
-    
+
     return nil
   }()
-  
+
   @objc
   dynamic func motionAdd(anim: CAAnimation, forKey: String?) {
     if nil == CALayer.motionAddedAnimations {
@@ -52,18 +52,18 @@ internal extension CALayer {
       CALayer.motionAddedAnimations?.append((self, forKey!, copiedAnim))
     }
   }
-  
+
   /// Retrieves all currently running animations for the layer.
   var animations: [(String, CAAnimation)] {
     guard let keys = animationKeys() else {
       return []
     }
-    
+
     return keys.map {
       return ($0, self.animation(forKey: $0)!.copy() as! CAAnimation)
     }
   }
-  
+
   /**
    Concats transforms and returns the result.
    - Parameters layer: A CALayer.
@@ -72,21 +72,21 @@ internal extension CALayer {
   func flatTransformTo(layer: CALayer) -> CATransform3D {
     var l = layer
     var t = l.transform
-    
+
     while let sl = l.superlayer, self != sl {
       t = CATransform3DConcat(sl.transform, t)
       l = sl
     }
-    
+
     return t
   }
-  
+
   /// Removes all Motion animations.
   func removeAllMotionAnimations() {
     guard let keys = animationKeys() else {
       return
     }
-    
+
     for animationKey in keys where animationKey.hasPrefix("motion.") {
       removeAnimation(forKey: animationKey)
     }
@@ -102,7 +102,7 @@ public extension CALayer {
   func animate(_ animations: CAAnimation...) {
     animate(animations)
   }
-  
+
   /**
    A function that accepts CAAnimation objects and executes them on the
    view's backing layer.
@@ -113,11 +113,11 @@ public extension CALayer {
       if nil == animation.delegate {
         animation.delegate = self
       }
-      
+
       if let a = animation as? CABasicAnimation {
         a.fromValue = (presentation() ?? self).value(forKeyPath: a.keyPath!)
       }
-      
+
       if let a = animation as? CAPropertyAnimation {
         add(a, forKey: a.keyPath!)
       } else if let a = animation as? CAAnimationGroup {
@@ -127,13 +127,13 @@ public extension CALayer {
       }
     }
   }
-  
+
   /**
    Executed when an animation has started. 
    - Parameter _ anim: A CAAnimation.
    */
   func animationDidStart(_ anim: CAAnimation) {}
-  
+
   /**
    A delegation function that is executed when the backing layer stops
    running an animation.
@@ -151,23 +151,23 @@ public extension CALayer {
       }
       return
     }
-    
+
     guard let b = a as? CABasicAnimation else {
       return
     }
-    
+
     guard let v = b.toValue else {
       return
     }
-    
+
     guard let k = b.keyPath else {
       return
     }
-    
+
     setValue(v, forKeyPath: k)
     removeAnimation(forKey: k)
   }
-  
+
   /**
    A function that accepts a list of MotionAnimation values and executes them.
    - Parameter animations: A list of MotionAnimation values.
@@ -175,7 +175,7 @@ public extension CALayer {
   func animate(_ animations: MotionAnimation...) {
     animate(animations)
   }
-  
+
   /**
    A function that accepts an Array of MotionAnimation values and executes them.
    - Parameter animations: An Array of MotionAnimation values.
@@ -194,144 +194,144 @@ fileprivate extension CALayer {
    */
   func startAnimations(_ animations: [MotionAnimation], completion: (() -> Void)? = nil) {
     let ts = MotionAnimationState(animations: animations)
-    
+
     Motion.delay(ts.delay) { [weak self,
       ts = ts,
       completion = completion] in
-      
+
       guard let `self` = self else {
         return
       }
-      
+
       var anims = [CABasicAnimation]()
       var duration = 0 == ts.duration ? 0.01 : ts.duration
-      
+
       if let v = ts.backgroundColor {
         let a = MotionCAAnimation.background(color: UIColor(cgColor: v))
         a.fromValue = self.backgroundColor
         anims.append(a)
       }
-      
+
       if let v = ts.borderColor {
         let a = MotionCAAnimation.border(color: UIColor(cgColor: v))
         a.fromValue = self.borderColor
         anims.append(a)
       }
-      
+
       if let v = ts.borderWidth {
         let a = MotionCAAnimation.border(width: v)
         a.fromValue = NSNumber(floatLiteral: Double(self.borderWidth))
         anims.append(a)
       }
-      
+
       if let v = ts.cornerRadius {
         let a = MotionCAAnimation.corner(radius: v)
         a.fromValue = NSNumber(floatLiteral: Double(self.cornerRadius))
         anims.append(a)
       }
-      
+
       if let v = ts.transform {
         let a = MotionCAAnimation.transform(v)
         a.fromValue = NSValue(caTransform3D: self.transform)
         anims.append(a)
       }
-      
+
       if let v = ts.spin {
         var a = MotionCAAnimation.spin(x: v.x)
         a.fromValue = NSNumber(floatLiteral: 0)
         anims.append(a)
-        
+
         a = MotionCAAnimation.spin(y: v.y)
         a.fromValue = NSNumber(floatLiteral: 0)
         anims.append(a)
-        
+
         a = MotionCAAnimation.spin(z: v.z)
         a.fromValue = NSNumber(floatLiteral: 0)
         anims.append(a)
       }
-      
+
       if let v = ts.position {
         let a = MotionCAAnimation.position(v)
         a.fromValue = NSValue(cgPoint: self.position)
         anims.append(a)
       }
-      
+
       if let v = ts.opacity {
         let a = MotionCAAnimation.fade(v)
         a.fromValue = self.value(forKeyPath: MotionAnimationKeyPath.opacity.rawValue) ?? NSNumber(floatLiteral: 1)
         anims.append(a)
       }
-      
+
       if let v = ts.zPosition {
         let a = MotionCAAnimation.zPosition(v)
         a.fromValue = self.value(forKeyPath: MotionAnimationKeyPath.zPosition.rawValue) ?? NSNumber(floatLiteral: 0)
         anims.append(a)
       }
-      
+
       if let v = ts.size {
         let a = MotionCAAnimation.size(v)
         a.fromValue = NSValue(cgSize: self.bounds.size)
         anims.append(a)
       }
-      
+
       if let v = ts.shadowPath {
         let a = MotionCAAnimation.shadow(path: v)
         a.fromValue = self.shadowPath
         anims.append(a)
       }
-      
+
       if let v = ts.shadowColor {
         let a = MotionCAAnimation.shadow(color: UIColor(cgColor: v))
         a.fromValue = self.shadowColor
         anims.append(a)
       }
-      
+
       if let v = ts.shadowOffset {
         let a = MotionCAAnimation.shadow(offset: v)
         a.fromValue = NSValue(cgSize: self.shadowOffset)
         anims.append(a)
       }
-      
+
       if let v = ts.shadowOpacity {
         let a = MotionCAAnimation.shadow(opacity: v)
         a.fromValue = NSNumber(floatLiteral: Double(self.shadowOpacity))
         anims.append(a)
       }
-      
+
       if let v = ts.shadowRadius {
         let a = MotionCAAnimation.shadow(radius: v)
         a.fromValue = NSNumber(floatLiteral: Double(self.shadowRadius))
         anims.append(a)
       }
-      
+
       if #available(iOS 9.0, *), let (stiffness, damping) = ts.spring {
         for i in 0..<anims.count where nil != anims[i].keyPath {
           let v = anims[i]
-          
+
           guard "cornerRadius" != v.keyPath else {
             continue
           }
-          
+
           let a = MotionCAAnimation.convert(animation: v, stiffness: stiffness, damping: damping)
           anims[i] = a
-          
+
           if a.settlingDuration > duration {
             duration = a.settlingDuration
           }
         }
       }
-      
+
       let g = Motion.animate(group: anims, duration: duration)
       g.fillMode = MotionAnimationFillModeToValue(mode: .both)
       g.isRemovedOnCompletion = false
       g.timingFunction = ts.timingFunction
-      
+
       self.animate(g)
-      
+
       if let v = ts.completion {
         Motion.delay(duration, execute: v)
       }
-      
+
       if let v = completion {
         Motion.delay(duration, execute: v)
       }

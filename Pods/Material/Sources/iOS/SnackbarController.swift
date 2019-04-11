@@ -40,7 +40,7 @@ public protocol SnackbarControllerDelegate {
    */
   @objc
   optional func snackbarController(snackbarController: SnackbarController, willShow snackbar: Snackbar)
-  
+
   /**
    A delegation method that is executed when a Snackbar did show.
    - Parameter snackbarController: A SnackbarController.
@@ -48,7 +48,7 @@ public protocol SnackbarControllerDelegate {
    */
   @objc
   optional func snackbarController(snackbarController: SnackbarController, didShow snackbar: Snackbar)
-  
+
   /**
    A delegation method that is executed when a Snackbar will hide.
    - Parameter snackbarController: A SnackbarController.
@@ -56,7 +56,7 @@ public protocol SnackbarControllerDelegate {
    */
   @objc
   optional func snackbarController(snackbarController: SnackbarController, willHide snackbar: Snackbar)
-  
+
   /**
    A delegation method that is executed when a Snackbar did hide.
    - Parameter snackbarController: A SnackbarController.
@@ -86,23 +86,23 @@ extension UIViewController {
 open class SnackbarController: TransitionController {
   /// Reference to the Snackbar.
   open let snackbar = Snackbar()
-  
+
   /// A boolean indicating if the Snacbar is animating.
   open internal(set) var isAnimating = false
-  
+
   /// Delegation handler.
   open weak var delegate: SnackbarControllerDelegate?
-  
+
   /// Snackbar alignment setting.
   open var snackbarAlignment = SnackbarAlignment.bottom
-  
+
   /// A preset wrapper around snackbarEdgeInsets.
   open var snackbarEdgeInsetsPreset = EdgeInsetsPreset.none {
     didSet {
       snackbarEdgeInsets = EdgeInsetsPresetToValue(preset: snackbarEdgeInsetsPreset)
     }
   }
-  
+
   /// A reference to snackbarEdgeInsets.
   @IBInspectable
   open var snackbarEdgeInsets = EdgeInsets.zero {
@@ -110,7 +110,7 @@ open class SnackbarController: TransitionController {
       layoutSubviews()
     }
   }
-  
+
   /**
    Animates to a SnackbarStatus.
    - Parameter status: A SnackbarStatus enum value.
@@ -121,59 +121,59 @@ open class SnackbarController: TransitionController {
       guard let s = self else {
         return
       }
-      
+
       if .visible == status {
         s.delegate?.snackbarController?(snackbarController: s, willShow: s.snackbar)
       } else {
         s.delegate?.snackbarController?(snackbarController: s, willHide: s.snackbar)
       }
-      
+
       s.isAnimating = true
       s.isUserInteractionEnabled = false
-      
+
       UIView.animate(withDuration: 0.25, animations: { [weak self, status = status, animations = animations] in
         guard let s = self else {
           return
         }
-        
+
         s.layoutSnackbar(status: status)
-        
+
         animations?(s.snackbar)
       }) { [weak self, status = status, completion = completion] _ in
         guard let s = self else {
           return
         }
-        
+
         s.isAnimating = false
         s.isUserInteractionEnabled = true
         s.snackbar.status = status
         s.layoutSubviews()
-        
+
         if .visible == status {
           s.delegate?.snackbarController?(snackbarController: s, didShow: s.snackbar)
         } else {
           s.delegate?.snackbarController?(snackbarController: s, didHide: s.snackbar)
         }
-        
+
         completion?(s.snackbar)
       }
     }
   }
-  
+
   open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     super.viewWillTransition(to: size, with: coordinator)
     reload()
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     guard !isAnimating else {
       return
     }
-    
+
     reload()
   }
-  
+
   /// Reloads the view.
   open func reload() {
     snackbar.frame.origin.x = snackbarEdgeInsets.left
@@ -181,18 +181,18 @@ open class SnackbarController: TransitionController {
     rootViewController.view.frame = view.bounds
     layoutSnackbar(status: snackbar.status)
   }
-  
+
   open override func prepare() {
     super.prepare()
     prepareSnackbar()
   }
-  
+
   /// Prepares the snackbar.
   private func prepareSnackbar() {
     snackbar.layer.zPosition = 10000
     view.addSubview(snackbar)
   }
-  
+
   /**
    Lays out the Snackbar.
    - Parameter status: A SnackbarStatus enum value.

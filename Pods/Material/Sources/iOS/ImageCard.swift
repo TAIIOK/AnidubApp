@@ -41,14 +41,14 @@ open class ImageCard: Card {
       layoutSubviews()
     }
   }
-  
+
   /// A preset wrapper around imageViewEdgeInsets.
   open var imageViewEdgeInsetsPreset = EdgeInsetsPreset.none {
     didSet {
       imageViewEdgeInsets = EdgeInsetsPresetToValue(preset: imageViewEdgeInsetsPreset)
     }
   }
-  
+
   /// A reference to imageViewEdgeInsets.
   @IBInspectable
   open var imageViewEdgeInsets = EdgeInsets.zero {
@@ -56,51 +56,51 @@ open class ImageCard: Card {
       layoutSubviews()
     }
   }
-  
+
   /// A reference to the imageView.
   @IBInspectable
   open var imageView: UIImageView? {
     didSet {
       oldValue?.removeFromSuperview()
-      
+
       if let v = imageView {
         container.addSubview(v)
       }
-      
+
       layoutSubviews()
     }
   }
-  
+
   /// An ImageCardToolbarAlignment value.
   open var toolbarAlignment = ToolbarAlignment.bottom {
     didSet {
       layoutSubviews()
     }
   }
-  
+
   /// Reloads the view.
   open override func reload() {
     var h: CGFloat = 0
-    
+
     if let v = imageView {
       h = prepare(view: v, with: imageViewEdgeInsets, from: h)
       container.sendSubview(toBack: v)
     }
-    
+
     if let v = toolbar {
       prepare(view: v, with: toolbarEdgeInsets, from: h)
       v.frame.origin.y = .top == toolbarAlignment ? toolbarEdgeInsets.top : h - v.bounds.height - toolbarEdgeInsets.bottom
       container.bringSubview(toFront: v)
     }
-    
+
     if let v = contentView {
       h = prepare(view: v, with: contentViewEdgeInsets, from: h)
     }
-    
+
     if let v = bottomBar {
       h = prepare(view: v, with: bottomBarEdgeInsets, from: h)
     }
-    
+
     container.frame.size.height = h
     bounds.size.height = h
   }

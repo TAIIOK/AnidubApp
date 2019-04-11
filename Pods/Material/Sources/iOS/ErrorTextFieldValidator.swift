@@ -50,22 +50,22 @@ import Motion
 open class ErrorTextFieldValidator {
   /// A typealias for validation closure.
   public typealias ValidationClosure = (_ text: String) -> Bool
-  
+
   /// Validation closures and their error messages.
   open var closures: [(code: ValidationClosure, message: String)] = []
-  
+
   /// A reference to the textField.
   open weak var textField: ErrorTextField?
-  
+
   /// Behavior for auto-validation.
   open var autoValidationType: AutoValidationType = .default
-  
+
   /**
    A flag indicating if error message is shown at least once.
    Used for `AutoValidationType.default`.
    */
   open var isErrorShownOnce = false
-  
+
   /**
    Initializes validator.
    - Parameter textField: An ErrorTextField to validate.
@@ -74,7 +74,7 @@ open class ErrorTextFieldValidator {
     self.textField = textField
     prepare()
   }
-  
+
   /**
    Prepares the validator instance when intialized. When subclassing,
    it is recommended to override the prepare method
@@ -85,7 +85,7 @@ open class ErrorTextFieldValidator {
   open func prepare() {
     textField?.addTarget(self, action: #selector(autoValidate), for: .editingChanged)
   }
-  
+
   /**
    Validates textField based on `autoValidationType`.
    This method is called when textField.text changes.
@@ -93,7 +93,7 @@ open class ErrorTextFieldValidator {
   @objc
   private func autoValidate() {
     guard let textField = textField else { return }
-    
+
     switch autoValidationType {
     case .none: break
     case .custom(let closure):
@@ -105,7 +105,7 @@ open class ErrorTextFieldValidator {
       textField.isValid()
     }
   }
-  
+
   /**
    Validates textField.text against criteria defined in `closures`
    and shows relevant error message on failure.
@@ -128,8 +128,7 @@ open class ErrorTextFieldValidator {
     if !isDeferred { textField.isErrorRevealed = false }
     return true
   }
-  
-  
+
   /** Adds provided closure and its error message to the validation chain.
    - Parameter message: A message to be shown when validation fails.
    - Parameter code: Closure to run for validation.
@@ -140,8 +139,7 @@ open class ErrorTextFieldValidator {
     closures.append((code, message))
     return self
   }
-  
-  
+
   /**
    Types for determining behaviour of auto-validation
    which is run when textField.text changes.
@@ -149,13 +147,13 @@ open class ErrorTextFieldValidator {
   public enum AutoValidationType {
     /// Turn off.
     case none
-    
+
     /// Run validation only if error is shown once.
     case `default`
-    
+
     /// Always run validation.
     case always
-    
+
     /**
      Custom auto-validation logic passed as closure
      which accepts ErrorTextField. Closure is called
@@ -179,7 +177,7 @@ extension ErrorTextField {
       AssociatedObject.set(base: self, key: &AssociatedInstanceKey, value: value)
     }
   }
-  
+
   /**
    Validates textField.text against criteria defined in `closures`
    and shows relevant error message on failure.
@@ -202,7 +200,7 @@ public extension ErrorTextFieldValidator {
   func email(message: String) -> Self {
     return regex(message: message, pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
   }
-  
+
   /**
    Validate that field contains allowed usernames characters.
    - Parameter message: A message to show for disallowed usernames.
@@ -212,7 +210,7 @@ public extension ErrorTextFieldValidator {
   func username(message: String) -> Self {
     return regex(message: message, pattern: "^[a-zA-Z0-9]+([_\\s\\-\\.\\']?[a-zA-Z0-9])*$")
   }
-  
+
   /**
    Validate that field text matches provided regex pattern.
    - Parameter message: A message to show for unmatched texts.
@@ -226,7 +224,7 @@ public extension ErrorTextFieldValidator {
       return pred.evaluate(with: $0)
     }
   }
-  
+
   /**
    Validate that field text has minimum `length`.
    - Parameter length: Minimum allowed text length.
@@ -241,7 +239,7 @@ public extension ErrorTextFieldValidator {
       $0.trimmingCharacters(in: trimmingSet).count >= length
     }
   }
-  
+
   /**
    Validate that field text has maximum `length`.
    - Parameter length: Minimum allowed text length.
@@ -256,7 +254,7 @@ public extension ErrorTextFieldValidator {
       $0.trimmingCharacters(in: trimmingSet).count <= length
     }
   }
-  
+
   /**
    Validate that field text is not empty.
    - Parameter message: A message to show when requirement is not met.
@@ -270,8 +268,7 @@ public extension ErrorTextFieldValidator {
       $0.trimmingCharacters(in: trimmingSet).isEmpty == false
     }
   }
-  
-  
+
   /**
    Validate that field text contains no whitespaces.
    - Parameter message: A message to show when requirement is not met.

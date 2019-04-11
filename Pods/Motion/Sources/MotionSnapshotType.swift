@@ -36,13 +36,13 @@ public enum MotionSnapshotType {
    In that case, use .normal or .slowRender to disable the optimization.
    */
   case optimized
-  
+
   /// snapshotView(afterScreenUpdates:)
   case normal
-  
+
   /// layer.render(in: currentContext)
   case layerRender
-  
+
   /**
    This setting will not create a snapshot. It will animate the view directly.
    This will mess up the view hierarchy, therefore, view controllers have to rebuild

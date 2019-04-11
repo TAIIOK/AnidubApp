@@ -33,7 +33,7 @@ import UIKit
 public struct Icon {
   /// An internal reference to the icons bundle.
   private static var internalBundle: Bundle?
-  
+
   /**
    A public reference to the icons bundle, that aims to detect
    the correct bundle to use.
@@ -49,12 +49,12 @@ public struct Icon {
     }
     return Icon.internalBundle!
   }
-  
+
   /// Get the icon by the file name.
   public static func icon(_ name: String) -> UIImage? {
     return UIImage(named: name, in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
   }
-  
+
   /// Google icons.
   public static var add = Icon.icon("ic_add_white")
   public static var addCircle = Icon.icon("ic_add_circle_white")
@@ -97,7 +97,7 @@ public struct Icon {
   public static var visibility = Icon.icon("ic_visibility_white")
   public static var visibilityOff = Icon.icon("ic_visibility_off_white")
   public static var work = Icon.icon("ic_work_white")
-  
+
   /// CosmicMind icons.
   public struct cm {
     public static var add = Icon.icon("cm_add_white")

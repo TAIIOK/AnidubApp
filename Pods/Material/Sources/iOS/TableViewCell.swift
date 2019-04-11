@@ -39,15 +39,15 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
    the image to a desired shape within the visualLayer.
    */
   open let visualLayer = CAShapeLayer()
-  
+
   /// A Pulse reference.
   internal var pulse: Pulse!
-  
+
   /// A reference to the pulse layer.
   internal var pulseLayer: CALayer? {
     return pulse.pulseLayer
   }
-  
+
   /// PulseAnimation value.
   open var pulseAnimation: PulseAnimation {
     get {
@@ -57,7 +57,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
       pulse.animation = value
     }
   }
-  
+
   /// PulseAnimation color.
   @IBInspectable
   open var pulseColor: UIColor {
@@ -68,7 +68,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
       pulse.color = value
     }
   }
-  
+
   /// Pulse opacity.
   @IBInspectable
   open var pulseOpacity: CGFloat {
@@ -79,7 +79,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
       pulse.opacity = value
     }
   }
-  
+
   /// A property that accesses the backing layer's background
   @IBInspectable
   open override var backgroundColor: UIColor? {
@@ -87,7 +87,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
       layer.backgroundColor = backgroundColor?.cgColor
     }
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -96,7 +96,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
     super.init(coder: aDecoder)
     prepare()
   }
-  
+
   /**
    An initializer that initializes the object.
    - Parameter style: A UITableViewCellStyle enum.
@@ -106,7 +106,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
     super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     prepare()
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     layoutShape()
@@ -114,7 +114,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
     layoutShadowPath()
     layoutDivider()
   }
-  
+
   /**
    Triggers the pulse animation.
    - Parameter point: A Optional point to pulse from, otherwise pulses
@@ -126,7 +126,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
       self?.pulse.contract()
     }
   }
-  
+
   /**
    A delegation method that is executed when the view has began a
    touch event.
@@ -137,7 +137,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
     super.touchesBegan(touches, with: event)
     pulse.expand(point: layer.convert(touches.first!.location(in: self), from: layer))
   }
-  
+
   /**
    A delegation method that is executed when the view touch event has
    ended.
@@ -148,7 +148,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
     super.touchesEnded(touches, with: event)
     pulse.contract()
   }
-  
+
   /**
    A delegation method that is executed when the view touch event has
    been cancelled.
@@ -159,7 +159,7 @@ open class TableViewCell: UITableViewCell, Pulseable, PulseableLayer {
     super.touchesCancelled(touches, with: event)
     pulse.contract()
   }
-  
+
   /**
    Prepares the view instance when intialized. When subclassing,
    it is recommended to override the prepare method
@@ -184,7 +184,7 @@ extension TableViewCell {
   fileprivate func preparePulse() {
     pulse = Pulse(pulseView: self, pulseLayer: visualLayer)
   }
-  
+
   /// Prepares the visualLayer property.
   fileprivate func prepareVisualLayer() {
     visualLayer.zPosition = 0

@@ -51,7 +51,7 @@ open class NavigationController: UINavigationController {
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   /**
    An initializer that initializes the object with an Optional nib and bundle.
    - Parameter nibNameOrNil: An Optional String for the nib.
@@ -60,7 +60,7 @@ open class NavigationController: UINavigationController {
   public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
   }
-  
+
   /**
    An initializer that initializes the object with a rootViewController.
    - Parameter rootViewController: A UIViewController for the rootViewController.
@@ -69,54 +69,54 @@ open class NavigationController: UINavigationController {
     super.init(navigationBarClass: NavigationBar.self, toolbarClass: nil)
     setViewControllers([rootViewController], animated: false)
   }
-    
+
     public init(rootViewController: UIViewController, navigationBarClass: Swift.AnyClass?) {
         super.init(navigationBarClass: navigationBarClass, toolbarClass: nil)
         setViewControllers([rootViewController], animated: false)
     }
-  
+
   open override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     guard let v = interactivePopGestureRecognizer else {
       return
     }
-    
+
     guard let x = navigationDrawerController else {
       return
     }
-    
+
     if let l = x.leftPanGesture {
       l.require(toFail: v)
     }
-    
+
     if let r = x.rightPanGesture {
       r.require(toFail: v)
     }
   }
-  
+
   open override func viewDidLoad() {
     super.viewDidLoad()
     prepare()
   }
-  
+
   open override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     guard let v = navigationBar as? NavigationBar else {
       return
     }
-    
+
     guard let item = v.topItem else {
       return
     }
-    
+
     v.layoutNavigationItem(item: item)
   }
-  
+
   open override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     layoutSubviews()
   }
-  
+
   /**
    Prepares the view instance when intialized. When subclassing,
    it is recommended to override the prepare method
@@ -127,18 +127,18 @@ open class NavigationController: UINavigationController {
   open func prepare() {
     navigationBar.frame.size.width = view.bounds.width
     navigationBar.heightPreset = .normal
-    
+
     view.clipsToBounds = true
     view.backgroundColor = .white
     view.contentScaleFactor = Screen.scale
-    
+
     // This ensures the panning gesture is available when going back between views.
     if let v = interactivePopGestureRecognizer {
       v.isEnabled = true
       v.delegate = self
     }
   }
-  
+
   /// Calls the layout functions for the view heirarchy.
   open func layoutSubviews() {
     navigationBar.setNeedsUpdateConstraints()
@@ -162,27 +162,27 @@ extension NavigationController: UINavigationBarDelegate {
       if nil == item.backButton.image && nil == item.backButton.title {
         item.backButton.image = v.backButtonImage
       }
-      
+
       if !item.backButton.isHidden {
         item.leftViews.insert(item.backButton, at: 0)
       }
-      
+
       item.backButton.addTarget(self, action: #selector(handle(backButton:)), for: .touchUpInside)
-      
+
       item.hidesBackButton = false
       item.setHidesBackButton(true, animated: false)
-      
+
       v.layoutNavigationItem(item: item)
     }
-    
+
     return true
   }
-  
+
   public func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem) {
     if let index = item.leftViews.index(of: item.backButton) {
       item.leftViews.remove(at: index)
     }
-    
+
     item.backButton.removeTarget(self, action: #selector(handle(backButton:)), for: .touchUpInside)
   }
 }

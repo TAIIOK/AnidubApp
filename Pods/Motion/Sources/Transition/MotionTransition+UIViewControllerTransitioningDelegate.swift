@@ -33,37 +33,37 @@ extension MotionTransition: UIViewControllerTransitioningDelegate {
   var interactiveTransitioning: UIViewControllerInteractiveTransitioning? {
     return forceNonInteractive ? nil : self
   }
-  
+
   public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     guard !isTransitioning else {
       return nil
     }
-    
+
     state = .notified
     isPresenting = true
     isModalTransition = true
     fromViewController = fromViewController ?? presenting
     toViewController = toViewController ?? presented
-    
+
     return self
   }
-  
+
   public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     guard !isTransitioning else {
       return nil
     }
-    
+
     state = .notified
     isPresenting = false
     isModalTransition = true
     fromViewController = fromViewController ?? dismissed
     return self
   }
-  
+
   public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
-  
+
   public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
@@ -79,10 +79,10 @@ extension MotionTransition: UIViewControllerAnimatedTransitioning {
     fromViewController = fromViewController ?? context.viewController(forKey: .from)
     toViewController = toViewController ?? context.viewController(forKey: .to)
     transitionContainer = context.containerView
-    
+
     start()
   }
-  
+
   /**
    Returns the transition duration time interval.
    - Parameter using transitionContext: An optional UIViewControllerContextTransitioning.
@@ -91,7 +91,7 @@ extension MotionTransition: UIViewControllerAnimatedTransitioning {
   public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
     return 0 // Time will be updated dynamically.
   }
-  
+
   public func animationEnded(_ transitionCompleted: Bool) {
     state = .possible
   }
@@ -101,7 +101,7 @@ extension MotionTransition: UIViewControllerInteractiveTransitioning {
   public var wantsInteractiveStart: Bool {
     return true
   }
-  
+
   public func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
     animateTransition(using: transitionContext)
   }

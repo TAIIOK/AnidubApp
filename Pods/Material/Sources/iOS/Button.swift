@@ -39,15 +39,15 @@ open class Button: UIButton, Pulseable, PulseableLayer {
    the image to a desired shape within the visualLayer.
    */
   open let visualLayer = CAShapeLayer()
-  
+
   /// A Pulse reference.
   internal var pulse: Pulse!
-  
+
   /// A reference to the pulse layer.
   internal var pulseLayer: CALayer? {
     return pulse.pulseLayer
   }
-  
+
   /// PulseAnimation value.
   open var pulseAnimation: PulseAnimation {
     get {
@@ -57,7 +57,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       pulse.animation = value
     }
   }
-  
+
   /// PulseAnimation color.
   @IBInspectable
   open var pulseColor: UIColor {
@@ -68,7 +68,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       pulse.color = value
     }
   }
-  
+
   /// Pulse opacity.
   @IBInspectable
   open var pulseOpacity: CGFloat {
@@ -79,7 +79,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       pulse.opacity = value
     }
   }
-  
+
   /// A property that accesses the backing layer's background
   @IBInspectable
   open override var backgroundColor: UIColor? {
@@ -87,14 +87,14 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       layer.backgroundColor = backgroundColor?.cgColor
     }
   }
-  
+
   /// A preset property for updated contentEdgeInsets.
   open var contentEdgeInsetsPreset = EdgeInsetsPreset.none {
     didSet {
       contentEdgeInsets = EdgeInsetsPresetToValue(preset: contentEdgeInsetsPreset)
     }
   }
-  
+
   /// Sets the normal and highlighted image for the button.
   @IBInspectable
   open var image: UIImage? {
@@ -103,7 +103,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       setImage(image, for: .selected)
       setImage(image, for: .highlighted)
       setImage(image, for: .disabled)
-      
+
       if #available(iOS 9, *) {
         setImage(image, for: .application)
         setImage(image, for: .focused)
@@ -111,7 +111,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       }
     }
   }
-  
+
   /// Sets the normal and highlighted title for the button.
   @IBInspectable
   open var title: String? {
@@ -120,25 +120,25 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       setTitle(title, for: .selected)
       setTitle(title, for: .highlighted)
       setTitle(title, for: .disabled)
-      
+
       if #available(iOS 9, *) {
         setTitle(title, for: .application)
         setTitle(title, for: .focused)
         setTitle(title, for: .reserved)
       }
-      
+
       guard nil != title else {
         return
       }
-      
+
       guard nil == titleColor else {
         return
       }
-      
+
       titleColor = Color.blue.base
     }
   }
-  
+
   /// Sets the normal and highlighted titleColor for the button.
   @IBInspectable
   open var titleColor: UIColor? {
@@ -146,11 +146,11 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       setTitleColor(titleColor, for: .normal)
       setTitleColor(titleColor, for: .highlighted)
       setTitleColor(titleColor, for: .disabled)
-      
+
       if nil == selectedTitleColor {
         setTitleColor(titleColor, for: .selected)
       }
-      
+
       if #available(iOS 9, *) {
         setTitleColor(titleColor, for: .application)
         setTitleColor(titleColor, for: .focused)
@@ -158,7 +158,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       }
     }
   }
-  
+
   /// Sets the selected titleColor for the button.
   @IBInspectable
   open var selectedTitleColor: UIColor? {
@@ -166,7 +166,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       setTitleColor(selectedTitleColor, for: .selected)
     }
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -175,7 +175,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
     super.init(coder: aDecoder)
     prepare()
   }
-  
+
   /**
    An initializer that initializes the object with a CGRect object.
    If AutoLayout is used, it is better to initilize the instance
@@ -187,7 +187,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
     tintColor = Color.blue.base
     prepare()
   }
-  
+
   /**
    A convenience initializer that acceps an image and tint
    - Parameter image: A UIImage.
@@ -198,7 +198,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
     prepare(with: image, tintColor: tintColor)
     prepare()
   }
-  
+
   /**
    A convenience initializer that acceps a title and title
    - Parameter title: A String.
@@ -209,14 +209,14 @@ open class Button: UIButton, Pulseable, PulseableLayer {
     prepare(with: title, titleColor: titleColor)
     prepare()
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     layoutShape()
     layoutVisualLayer()
     layoutShadowPath()
   }
-  
+
   /**
    Triggers the pulse animation.
    - Parameter point: A Optional point to pulse from, otherwise pulses
@@ -228,7 +228,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       self?.pulse.contract()
     }
   }
-  
+
   /**
    A delegation method that is executed when the view has began a
    touch event.
@@ -239,7 +239,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
     super.touchesBegan(touches, with: event)
     pulse.expand(point: layer.convert(touches.first!.location(in: self), from: layer))
   }
-  
+
   /**
    A delegation method that is executed when the view touch event has
    ended.
@@ -250,7 +250,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
     super.touchesEnded(touches, with: event)
     pulse.contract()
   }
-  
+
   /**
    A delegation method that is executed when the view touch event has
    been cancelled.
@@ -261,15 +261,15 @@ open class Button: UIButton, Pulseable, PulseableLayer {
     super.touchesCancelled(touches, with: event)
     pulse.contract()
   }
-  
+
   open func bringImageViewToFront() {
     guard let v = imageView else {
       return
     }
-    
+
     bringSubview(toFront: v)
   }
-  
+
   /**
    Prepares the view instance when intialized. When subclassing,
    it is recommended to override the prepare method
@@ -291,12 +291,12 @@ extension Button {
     visualLayer.masksToBounds = true
     layer.addSublayer(visualLayer)
   }
-  
+
   /// Prepares the pulse motion.
   fileprivate func preparePulse() {
     pulse = Pulse(pulseView: self, pulseLayer: visualLayer)
   }
-  
+
   /**
    Prepares the Button with an image and tint
    - Parameter image: A UIImage.
@@ -306,7 +306,7 @@ extension Button {
     self.image = image
     self.tintColor = tintColor
   }
-  
+
   /**
    Prepares the Button with a title and title
    - Parameter title: A String.

@@ -54,10 +54,10 @@ extension UIViewController {
 open class TableViewController: ViewController {
   /// A reference to a Reminder.
   open let tableView = TableView()
-  
+
   /// An Array of DataSourceItems.
   open var dataSourceItems = [DataSourceItem]()
-  
+
   open override func prepare() {
     super.prepare()
     prepareTableView()
@@ -80,12 +80,12 @@ extension TableViewController: TableViewDataSource {
   open func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
-  
+
   @objc
   open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return dataSourceItems.count
   }
-  
+
   @objc
   open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     return UITableViewCell()

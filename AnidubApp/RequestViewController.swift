@@ -8,26 +8,24 @@
 
 import UIKit
 
-
-class RequestViewController: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource {
+class RequestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var TypePicker: UIPickerView!
-    
+
     @IBOutlet weak var SubjectPicker: UIPickerView!
-    
-    
+
     var Listepisodes = [[episodes]]()
-    
+
     let headerTitles = ["Альтернативный", "Анидаб"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.TypePicker.delegate = self
         self.TypePicker.dataSource = self
-        
+
         self.SubjectPicker.delegate = self
         self.SubjectPicker.dataSource = self
-        
+
         // Do any additional setup after loading the view.
     }
 
@@ -35,58 +33,52 @@ class RequestViewController: UIViewController , UIPickerViewDelegate , UIPickerV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-   
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
-        if pickerView == TypePicker
-        {
-            if(Listepisodes.first?.count == 0 || Listepisodes.last?.count == 0){
+        if pickerView == TypePicker {
+            if(Listepisodes.first?.count == 0 || Listepisodes.last?.count == 0) {
                 return 1
             }
             return headerTitles.count
         }
-        
-        
-        if(self.TypePicker.selectedRow(inComponent: component) == 0){
+
+        if(self.TypePicker.selectedRow(inComponent: component) == 0) {
             return (Listepisodes.first?.count)!
         }
-        
+
         return (Listepisodes.last?.count)!
-        
+
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == TypePicker
-        {
-            if(Listepisodes.first?.count == 0){
+        if pickerView == TypePicker {
+            if(Listepisodes.first?.count == 0) {
                 return headerTitles[1]
             }
-            if(Listepisodes.last?.count == 0){
+            if(Listepisodes.last?.count == 0) {
                 return headerTitles[0]
             }
 
             return headerTitles[row]
         }
-        
-        if(self.TypePicker.selectedRow(inComponent: component) == 0){
+
+        if(self.TypePicker.selectedRow(inComponent: component) == 0) {
             return Listepisodes.first?[row].Name
         }
         return Listepisodes.last?[row].Name
 
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == TypePicker
-        {
+        if pickerView == TypePicker {
             self.SubjectPicker.reloadAllComponents()
         }
     }
-    
 
     /*
     // MARK: - Navigation

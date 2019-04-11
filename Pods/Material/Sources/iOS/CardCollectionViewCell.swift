@@ -35,15 +35,15 @@ open class CardCollectionViewCell: CollectionViewCell {
   open var card: Card? {
     didSet {
       oldValue?.removeFromSuperview()
-      
+
       guard let v = card else {
         return
       }
-      
+
       contentView.addSubview(v)
     }
   }
-  
+
   open override func prepare() {
     super.prepare()
     pulseAnimation = .none

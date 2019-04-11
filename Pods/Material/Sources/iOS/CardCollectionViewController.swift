@@ -44,17 +44,17 @@ extension UIViewController {
 open class CardCollectionViewController: ViewController {
   /// A reference to a Reminder.
   open let collectionView = CollectionView()
-  
+
   open var dataSourceItems = [DataSourceItem]()
-  
+
   /// An index of IndexPath to DataSourceItem.
   open var dataSourceItemsIndexPaths = [IndexPath: Any]()
-  
+
   open override func prepare() {
     super.prepare()
     prepareCollectionView()
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     layoutCollectionView()
@@ -86,27 +86,26 @@ extension CardCollectionViewController: CollectionViewDataSource {
   open func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
-  
+
   @objc
   open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return dataSourceItems.count
   }
-  
+
   @objc
   open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
-    
+
     guard let card = dataSourceItems[indexPath.item].data as? Card else {
       return cell
     }
-    
+
     dataSourceItemsIndexPaths[indexPath] = card
-    
+
     card.frame = cell.bounds
-    
+
     cell.card = card
-    
+
     return cell
   }
 }
-

@@ -47,21 +47,21 @@ public enum FABMenuDirection: Int {
 open class FABMenuItem: View {
   /// A reference to the titleLabel.
   open let titleLabel = UILabel()
-  
+
   /// The titleLabel side.
   open var titleLabelPosition = FABMenuItemTitleLabelPosition.left
-  
+
   /// A reference to the fabButton.
   open let fabButton = FABButton()
-  
+
   open override func prepare() {
     super.prepare()
     backgroundColor = nil
-    
+
     prepareFABButton()
     prepareTitleLabel()
   }
-  
+
   /// A reference to the titleLabel text.
   open var title: String? {
     get {
@@ -72,14 +72,14 @@ open class FABMenuItem: View {
       layoutSubviews()
     }
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     guard let t = title, 0 < t.utf16.count else {
       titleLabel.removeFromSuperview()
       return
     }
-    
+
     if nil == titleLabel.superview {
       addSubview(titleLabel)
     }
@@ -90,31 +90,31 @@ extension FABMenuItem {
   /// Shows the titleLabel.
   open func showTitleLabel() {
     let interimSpace = InterimSpacePresetToValue(preset: .interimSpace6)
-    
+
     titleLabel.sizeToFit()
     titleLabel.frame.size.width += 1.5 * interimSpace
     titleLabel.frame.size.height += interimSpace / 2
     titleLabel.frame.origin.y = (bounds.height - titleLabel.bounds.height) / 2
-    
+
     switch titleLabelPosition {
     case .left:
       titleLabel.frame.origin.x = -titleLabel.bounds.width - interimSpace
     case .right:
       titleLabel.frame.origin.x = frame.bounds.width + interimSpace
     }
-    
+
     titleLabel.alpha = 0
     titleLabel.isHidden = false
-    
+
     UIView.animate(withDuration: 0.25, animations: { [weak self] in
       guard let `self` = self else {
         return
       }
-      
+
       `self`.titleLabel.alpha = 1
     })
   }
-  
+
   /// Hides the titleLabel.
   open func hideTitleLabel() {
     titleLabel.isHidden = true
@@ -126,7 +126,7 @@ extension FABMenuItem {
   fileprivate func prepareFABButton() {
     layout(fabButton).edges()
   }
-  
+
   /// Prepares the titleLabel.
   fileprivate func prepareTitleLabel() {
     titleLabel.font = RobotoFont.regular(with: 14)
@@ -145,42 +145,42 @@ public protocol FABMenuDelegate {
    */
   @objc
   optional func fabMenuShouldOpen(fabMenu: FABMenu) -> Bool
-  
+
   /**
    A delegation method that is execited when the fabMenu will open.
    - Parameter fabMenu: A FABMenu.
    */
   @objc
   optional func fabMenuWillOpen(fabMenu: FABMenu)
-  
+
   /**
    A delegation method that is execited when the fabMenu did open.
    - Parameter fabMenu: A FABMenu.
    */
   @objc
   optional func fabMenuDidOpen(fabMenu: FABMenu)
-  
+
   /**
    A delegation method that is executed to determine whether fabMenu should close.
    - Parameter fabMenu: A FABMenu.
    */
   @objc
   optional func fabMenuShouldClose(fabMenu: FABMenu) -> Bool
-  
+
   /**
    A delegation method that is execited when the fabMenu will close.
    - Parameter fabMenu: A FABMenu.
    */
   @objc
   optional func fabMenuWillClose(fabMenu: FABMenu)
-  
+
   /**
    A delegation method that is execited when the fabMenu did close.
    - Parameter fabMenu: A FABMenu.
    */
   @objc
   optional func fabMenuDidClose(fabMenu: FABMenu)
-  
+
   /**
    A delegation method that is executed when the user taps while
    the menu is opened.
@@ -197,11 +197,10 @@ public protocol FABMenuDelegate {
 open class FABMenu: View {
   /// A flag to avoid the double tap.
   fileprivate var shouldAvoidHitTest = false
-  
-  
+
   /// A reference to the SpringAnimation object.
   let spring = SpringAnimation()
-  
+
   open var fabMenuDirection: FABMenuDirection {
     get {
       switch spring.springDirection {
@@ -226,38 +225,38 @@ open class FABMenu: View {
       case .right:
         spring.springDirection = .right
       }
-      
+
       layoutSubviews()
     }
   }
-  
+
   /// A reference to the base FABButton.
   open var fabButton: FABButton? {
     didSet {
       oldValue?.removeFromSuperview()
-      
+
       guard let v = fabButton else {
         return
       }
-      
+
       addSubview(v)
-      
+
       v.addTarget(self, action: #selector(handleFABButton(button:)), for: .touchUpInside)
     }
   }
-  
+
   /// An open handler for the FABButton.
   open var handleFABButtonCallback: ((UIButton) -> Void)?
-  
+
   /// An internal handler for the open function.
   internal var handleOpenCallback: (() -> Void)?
-  
+
   /// An internal handler for the close function.
   internal var handleCloseCallback: (() -> Void)?
-  
+
   /// An internal handler for the completion function.
   internal var handleCompletionCallback: ((UIView) -> Void)?
-  
+
   /// Size of FABMenuItems.
   open var fabMenuItemSize: CGSize {
     get {
@@ -267,7 +266,7 @@ open class FABMenu: View {
       spring.itemSize = value
     }
   }
-  
+
   /// A preset wrapper around interimSpace.
   open var interimSpacePreset: InterimSpacePreset {
     get {
@@ -277,7 +276,7 @@ open class FABMenu: View {
       spring.interimSpacePreset = value
     }
   }
-  
+
   /// The space between views.
   open var interimSpace: InterimSpace {
     get {
@@ -287,7 +286,7 @@ open class FABMenu: View {
       spring.interimSpace = value
     }
   }
-  
+
   /// A boolean indicating if the menu is open or not.
   open var isOpened: Bool {
     get {
@@ -297,7 +296,7 @@ open class FABMenu: View {
       spring.isOpened = value
     }
   }
-  
+
   /// A boolean indicating if the menu is enabled.
   open var isEnabled: Bool {
     get {
@@ -307,10 +306,10 @@ open class FABMenu: View {
       spring.isEnabled = value
     }
   }
-  
+
   /// An optional delegation handler.
   open weak var delegate: FABMenuDelegate?
-  
+
   /// A reference to the FABMenuItems
   open var fabMenuItems: [FABMenuItem] {
     get {
@@ -320,15 +319,15 @@ open class FABMenu: View {
       for v in spring.views {
         v.removeFromSuperview()
       }
-      
+
       for v in value {
         addSubview(v)
       }
-      
+
       spring.views = value
     }
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     fabButton?.frame = bounds
@@ -336,7 +335,7 @@ open class FABMenu: View {
     fabButton?.layoutIfNeeded()
     spring.baseSize = bounds.size
   }
-  
+
   open override func prepare() {
     super.prepare()
     backgroundColor = nil
@@ -358,7 +357,7 @@ extension FABMenu {
   open func open(duration: TimeInterval = 0.15, delay: TimeInterval = 0, usingSpringWithDamping: CGFloat = 0.5, initialSpringVelocity: CGFloat = 0, options: UIViewAnimationOptions = [], animations: ((UIView) -> Void)? = nil, completion: ((UIView) -> Void)? = nil) {
     open(isTriggeredByUserInteraction: false, duration: duration, delay: delay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: options, animations: animations, completion: completion)
   }
-  
+
   /**
    Open the Menu component with animation options.
    - Parameter isTriggeredByUserInteraction: A boolean indicating whether the
@@ -372,33 +371,33 @@ extension FABMenu {
    - Parameter completion: A completion block to execute on each view's animation.
    */
   open func open(isTriggeredByUserInteraction: Bool, duration: TimeInterval = 0.15, delay: TimeInterval = 0, usingSpringWithDamping: CGFloat = 0.5, initialSpringVelocity: CGFloat = 0, options: UIViewAnimationOptions = [], animations: ((UIView) -> Void)? = nil, completion: ((UIView) -> Void)? = nil) {
-    
+
     if isTriggeredByUserInteraction && false == delegate?.fabMenuShouldOpen?(fabMenu: self) {
       return
     }
-    
+
     handleOpenCallback?()
-    
+
     if isTriggeredByUserInteraction {
       delegate?.fabMenuWillOpen?(fabMenu: self)
     }
-    
+
     spring.expand(duration: duration, delay: delay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: options, animations: animations) { [weak self, isTriggeredByUserInteraction = isTriggeredByUserInteraction, completion = completion] (view) in
       guard let `self` = self else {
         return
       }
-      
+
       (view as? FABMenuItem)?.showTitleLabel()
-      
+
       if isTriggeredByUserInteraction && view == self.fabMenuItems.last {
         self.delegate?.fabMenuDidOpen?(fabMenu: self)
       }
-      
+
       completion?(view)
       self.handleCompletionCallback?(view)
     }
   }
-  
+
   /**
    Close the Menu component with animation options.
    - Parameter duration: The time for each view's animation.
@@ -412,7 +411,7 @@ extension FABMenu {
   open func close(duration: TimeInterval = 0.15, delay: TimeInterval = 0, usingSpringWithDamping: CGFloat = 0.5, initialSpringVelocity: CGFloat = 0, options: UIViewAnimationOptions = [], animations: ((UIView) -> Void)? = nil, completion: ((UIView) -> Void)? = nil) {
     close(isTriggeredByUserInteraction: false, duration: duration, delay: delay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: options, animations: animations, completion: completion)
   }
-  
+
   /**
    Close the Menu component with animation options.
    - Parameter isTriggeredByUserInteraction: A boolean indicating whether the
@@ -426,28 +425,28 @@ extension FABMenu {
    - Parameter completion: A completion block to execute on each view's animation.
    */
   open func close(isTriggeredByUserInteraction: Bool, duration: TimeInterval = 0.15, delay: TimeInterval = 0, usingSpringWithDamping: CGFloat = 0.5, initialSpringVelocity: CGFloat = 0, options: UIViewAnimationOptions = [], animations: ((UIView) -> Void)? = nil, completion: ((UIView) -> Void)? = nil) {
-    
+
     if isTriggeredByUserInteraction && false == delegate?.fabMenuShouldClose?(fabMenu: self) {
       return
     }
-    
+
     handleCloseCallback?()
-    
+
     if isTriggeredByUserInteraction {
       delegate?.fabMenuWillClose?(fabMenu: self)
     }
-    
+
     spring.contract(duration: duration, delay: delay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: options, animations: animations) { [weak self, isTriggeredByUserInteraction = isTriggeredByUserInteraction, completion = completion] (view) in
       guard let `self` = self else {
         return
       }
-      
+
       (view as? FABMenuItem)?.hideTitleLabel()
-      
+
       if isTriggeredByUserInteraction && view == self.fabMenuItems.last {
         self.delegate?.fabMenuDidClose?(fabMenu: self)
       }
-      
+
       completion?(view)
       self.handleCompletionCallback?(view)
     }
@@ -465,7 +464,7 @@ extension FABMenu {
     guard isOpened, isEnabled else {
       return super.hitTest(point, with: event)
     }
-    
+
     for v in subviews {
       let p = v.convert(point, from: self)
       if v.bounds.contains(p) {
@@ -476,11 +475,11 @@ extension FABMenu {
         return v.hitTest(p, with: event)
       }
     }
-    
+
     delegate?.fabMenu?(fabMenu: self, tappedAt: point, isOutside: true)
-    
+
     close(isTriggeredByUserInteraction: true)
-    
+
     return super.hitTest(point, with: event)
   }
 }
@@ -496,12 +495,12 @@ extension FABMenu {
       handleFABButtonCallback?(button)
       return
     }
-    
+
     guard isOpened else {
       open(isTriggeredByUserInteraction: true)
       return
     }
-    
+
     close(isTriggeredByUserInteraction: true)
   }
 }

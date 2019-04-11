@@ -32,17 +32,17 @@ import UIKit
 import Motion
 
 /// A memory reference to the NavigationItem instance.
-fileprivate var NavigationItemKey: UInt8 = 0
-fileprivate var NavigationItemContext: UInt8 = 0
+private var NavigationItemKey: UInt8 = 0
+private var NavigationItemContext: UInt8 = 0
 
-fileprivate class NavigationItem: NSObject {
+private class NavigationItem: NSObject {
   /// A reference to the toolbar.
   @objc
   let toolbar = Toolbar()
-  
+
   /// Back Button.
   lazy var backButton = IconButton()
-  
+
   /// An optional reference to the NavigationBar.
   var navigationBar: NavigationBar? {
     var v = toolbar.contentView.superview
@@ -87,27 +87,27 @@ extension UINavigationItem {
       toolbar.contentViewAlignment = value
     }
   }
-  
+
   /// Content View.
   open var contentView: UIView {
     return toolbar.contentView
   }
-  
+
   /// Back Button.
   open var backButton: IconButton {
     return navigationItem.backButton
   }
-  
+
   /// Title Label.
   open var titleLabel: UILabel {
     return toolbar.titleLabel
   }
-  
+
   /// Detail Label.
   open var detailLabel: UILabel {
     return toolbar.detailLabel
   }
-  
+
   /// Left side UIViews.
   open var leftViews: [UIView] {
     get {
@@ -117,7 +117,7 @@ extension UINavigationItem {
       toolbar.leftViews = value
     }
   }
-  
+
   /// Right side UIViews.
   open var rightViews: [UIView] {
     get {
@@ -127,7 +127,7 @@ extension UINavigationItem {
       toolbar.rightViews = value
     }
   }
-  
+
   /// Center UIViews.
   open var centerViews: [UIView] {
     get {

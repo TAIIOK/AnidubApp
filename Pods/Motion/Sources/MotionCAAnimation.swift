@@ -108,7 +108,7 @@ public extension MotionCAAnimation {
   static func background(color: UIColor) -> CABasicAnimation {
     return createAnimation(keyPath: .backgroundColor, toValue: color.cgColor)
   }
-  
+
   /**
    Creates a CABasicAnimation for the borderColor key path.
    - Parameter color: A UIColor.
@@ -117,7 +117,7 @@ public extension MotionCAAnimation {
   static func border(color: UIColor) -> CABasicAnimation {
     return createAnimation(keyPath: .borderColor, toValue: color.cgColor)
   }
-  
+
   /**
    Creates a CABasicAnimation for the borderWidth key path.
    - Parameter width: A CGFloat.
@@ -126,7 +126,7 @@ public extension MotionCAAnimation {
   static func border(width: CGFloat) -> CABasicAnimation {
     return createAnimation(keyPath: .borderWidth, toValue: NSNumber(floatLiteral: Double(width)))
   }
-  
+
   /**
    Creates a CABasicAnimation for the cornerRadius key path.
    - Parameter radius: A CGFloat.
@@ -135,7 +135,7 @@ public extension MotionCAAnimation {
   static func corner(radius: CGFloat) -> CABasicAnimation {
     return createAnimation(keyPath: .cornerRadius, toValue: NSNumber(floatLiteral: Double(radius)))
   }
-  
+
   /**
    Creates a CABasicAnimation for the transform key path.
    - Parameter _ t: A CATransform3D object.
@@ -144,7 +144,7 @@ public extension MotionCAAnimation {
   static func transform(_ t: CATransform3D) -> CABasicAnimation {
     return createAnimation(keyPath: .transform, toValue: NSValue(caTransform3D: t))
   }
-  
+
   /**
    Creates a CABasicAnimation for the transform.scale key path.
    - Parameter xyz: A CGFloat.
@@ -155,7 +155,7 @@ public extension MotionCAAnimation {
     a.toValue = NSNumber(value: Double(xyz))
     return a
   }
-  
+
   /**
    Creates a CABasicAnimation for the transform.scale.x key path.
    - Parameter x: A CGFloat.
@@ -166,7 +166,7 @@ public extension MotionCAAnimation {
     a.toValue = NSNumber(value: Double(x))
     return a
   }
-  
+
   /**
    Creates a CABasicAnimation for the transform.scale.y key path.
    - Parameter y: A CGFloat.
@@ -177,7 +177,7 @@ public extension MotionCAAnimation {
     a.toValue = NSNumber(value: Double(y))
     return a
   }
-  
+
   /**
    Creates a CABasicAnimation for the transform.scale.z key path.
    - Parameter z: A CGFloat.
@@ -188,7 +188,7 @@ public extension MotionCAAnimation {
     a.toValue = NSNumber(value: Double(z))
     return a
   }
-  
+
   /**
    Creates a CABasicAnimation for the transform.rotate.x key path.
    - Parameter x: An optional CGFloat.
@@ -197,7 +197,7 @@ public extension MotionCAAnimation {
   static func spin(x: CGFloat) -> CABasicAnimation {
     return createAnimation(keyPath: .rotateX, toValue: NSNumber(value: Double(CGFloat(Double.pi) * 2 * x)))
   }
-  
+
   /**
    Creates a CABasicAnimation for the transform.rotate.y key path.
    - Parameter y: An optional CGFloat.
@@ -206,7 +206,7 @@ public extension MotionCAAnimation {
   static func spin(y: CGFloat) -> CABasicAnimation {
     return createAnimation(keyPath: .rotateY, toValue: NSNumber(value: Double(CGFloat(Double.pi) * 2 * y)))
   }
-  
+
   /**
    Creates a CABasicAnimation for the transform.rotate.z key path.
    - Parameter z: An optional CGFloat.
@@ -215,7 +215,7 @@ public extension MotionCAAnimation {
   static func spin(z: CGFloat) -> CABasicAnimation {
     return createAnimation(keyPath: .rotateZ, toValue: NSNumber(value: Double(CGFloat(Double.pi) * 2 * z)))
   }
-  
+
   /**
    Creates a CABasicAnimation for the position key path.
    - Parameter _ point: A CGPoint.
@@ -224,7 +224,7 @@ public extension MotionCAAnimation {
   static func position(_ point: CGPoint) -> CABasicAnimation {
     return createAnimation(keyPath: .position, toValue: NSValue(cgPoint: point))
   }
-  
+
   /**
    Creates a CABasicAnimation for the opacity key path.
    - Parameter _ opacity: A Double.
@@ -233,7 +233,7 @@ public extension MotionCAAnimation {
   static func fade(_ opacity: Double) -> CABasicAnimation {
     return createAnimation(keyPath: .opacity, toValue: NSNumber(floatLiteral: opacity))
   }
-  
+
   /**
    Creates a CABasicaAnimation for the zPosition key path.
    - Parameter _ position: A CGFloat.
@@ -242,7 +242,7 @@ public extension MotionCAAnimation {
   static func zPosition(_ position: CGFloat) -> CABasicAnimation {
     return createAnimation(keyPath: .zPosition, toValue: NSNumber(value: Double(position)))
   }
-  
+
   /**
    Creates a CABasicaAnimation for the width key path.
    - Parameter width: A CGFloat.
@@ -251,7 +251,7 @@ public extension MotionCAAnimation {
   static func width(_ width: CGFloat) -> CABasicAnimation {
     return createAnimation(keyPath: .width, toValue: NSNumber(floatLiteral: Double(width)))
   }
-  
+
   /**
    Creates a CABasicaAnimation for the height key path.
    - Parameter height: A CGFloat.
@@ -260,7 +260,7 @@ public extension MotionCAAnimation {
   static func height(_ height: CGFloat) -> CABasicAnimation {
     return createAnimation(keyPath: .height, toValue: NSNumber(floatLiteral: Double(height)))
   }
-  
+
   /**
    Creates a CABasicaAnimation for the height key path.
    - Parameter size: A CGSize.
@@ -269,7 +269,7 @@ public extension MotionCAAnimation {
   static func size(_ size: CGSize) -> CABasicAnimation {
     return createAnimation(keyPath: .size, toValue: NSValue(cgSize: size))
   }
-  
+
   /**
    Creates a CABasicAnimation for the shadowPath key path.
    - Parameter path: A CGPath.
@@ -278,7 +278,7 @@ public extension MotionCAAnimation {
   static func shadow(path: CGPath) -> CABasicAnimation {
     return createAnimation(keyPath: .shadowPath, toValue: path)
   }
-  
+
   /**
    Creates a CABasicAnimation for the shadowColor key path.
    - Parameter color: A UIColor.
@@ -287,7 +287,7 @@ public extension MotionCAAnimation {
   static func shadow(color: UIColor) -> CABasicAnimation {
     return createAnimation(keyPath: .shadowColor, toValue: color.cgColor)
   }
-  
+
   /**
    Creates a CABasicAnimation for the shadowOffset key path.
    - Parameter offset: A CGSize.
@@ -296,7 +296,7 @@ public extension MotionCAAnimation {
   static func shadow(offset: CGSize) -> CABasicAnimation {
     return createAnimation(keyPath: .shadowOffset, toValue: NSValue(cgSize: offset))
   }
-  
+
   /**
    Creates a CABasicAnimation for the shadowOpacity key path.
    - Parameter opacity: A Float.
@@ -305,7 +305,7 @@ public extension MotionCAAnimation {
   static func shadow(opacity: Float) -> CABasicAnimation {
     return createAnimation(keyPath: .shadowOpacity, toValue: NSNumber(floatLiteral: Double(opacity)))
   }
-  
+
   /**
    Creates a CABasicAnimation for the shadowRadius key path.
    - Parameter radius: A CGFloat.

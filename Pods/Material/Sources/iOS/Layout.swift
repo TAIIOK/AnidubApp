@@ -34,10 +34,10 @@ import Motion
 public class Layout {
   /// Parent UIView context.
   internal weak var parent: UIView?
-  
+
   /// Child UIView context.
   internal weak var child: UIView?
-  
+
   /**
    An initializer that takes in a parent context.
    - Parameter parent: An optional parent UIView.
@@ -45,7 +45,7 @@ public class Layout {
   public init(parent: UIView?) {
     self.parent = parent
   }
-  
+
   /**
    An initializer that takes in a parent context and child context.
    - Parameter parent: An optional parent UIView.
@@ -55,7 +55,7 @@ public class Layout {
     self.parent = parent
     self.child = child
   }
-  
+
   /**
    Prints a debug message when the parent context is not available.
    - Parameter function: A String representation of the function that
@@ -66,7 +66,7 @@ public class Layout {
     debugPrint("[Material Layout Error: Parent view context is not available for \(function).")
     return self
   }
-  
+
   /**
    Prints a debug message when the child context is not available.
    - Parameter function: A String representation of the function that
@@ -77,7 +77,7 @@ public class Layout {
     debugPrint("[Material Layout Error: Child view context is not available for \(function).")
     return self
   }
-  
+
   /**
    Sets the width of a view.
    - Parameter child: A child UIView to layout.
@@ -93,7 +93,7 @@ public class Layout {
     Layout.width(parent: v, child: child, width: width)
     return self
   }
-  
+
   /**
    Sets the width of a view assuming a child context view.
    - Parameter width: A CGFloat value.
@@ -106,7 +106,7 @@ public class Layout {
     }
     return self.width(v, width: width)
   }
-  
+
   /**
    Sets the height of a view.
    - Parameter child: A child UIView to layout.
@@ -122,7 +122,7 @@ public class Layout {
     Layout.height(parent: v, child: child, height: height)
     return self
   }
-  
+
   /**
    Sets the height of a view assuming a child context view.
    - Parameter height: A CGFloat value.
@@ -135,7 +135,7 @@ public class Layout {
     }
     return self.height(v, height: height)
   }
-  
+
   /**
    Sets the width and height of a view.
    - Parameter child: A child UIView to layout.
@@ -151,7 +151,7 @@ public class Layout {
     Layout.size(parent: v, child: child, size: size)
     return self
   }
-  
+
   /**
    Sets the width and height of a view assuming a child context view.
    - Parameter size: A CGSize value.
@@ -164,7 +164,7 @@ public class Layout {
     }
     return self.size(v, size: size)
   }
-  
+
   /**
    A collection of children views are horizontally stretched with optional left,
    right padding and interim interimSpace.
@@ -182,7 +182,7 @@ public class Layout {
     Layout.horizontally(parent: v, children: children, left: left, right: right, interimSpace: interimSpace)
     return self
   }
-  
+
   /**
    A collection of children views are vertically stretched with optional top,
    bottom padding and interim interimSpace.
@@ -200,7 +200,7 @@ public class Layout {
     Layout.vertically(parent: v, children: children, top: top, bottom: bottom, interimSpace: interimSpace)
     return self
   }
-  
+
   /**
    A child view is horizontally stretched with optional left and right padding.
    - Parameter child: A child UIView to layout.
@@ -217,7 +217,7 @@ public class Layout {
     Layout.horizontally(parent: v, child: child, left: left, right: right)
     return self
   }
-  
+
   /**
    A child view is horizontally stretched with optional left and right padding.
    - Parameter left: A CGFloat value for padding the left side.
@@ -231,7 +231,7 @@ public class Layout {
     }
     return horizontally(v, left: left, right: right)
   }
-  
+
   /**
    A child view is vertically stretched with optional left and right padding.
    - Parameter child: A child UIView to layout.
@@ -248,7 +248,7 @@ public class Layout {
     Layout.vertically(parent: v, child: child, top: top, bottom: bottom)
     return self
   }
-  
+
   /**
    A child view is vertically stretched with optional left and right padding.
    - Parameter top: A CGFloat value for padding the top side.
@@ -262,7 +262,7 @@ public class Layout {
     }
     return vertically(v, top: top, bottom: bottom)
   }
-  
+
   /**
    A child view is vertically and horizontally stretched with optional top, left, bottom and right padding.
    - Parameter child: A child UIView to layout.
@@ -281,7 +281,7 @@ public class Layout {
     Layout.edges(parent: v, child: child, top: top, left: left, bottom: bottom, right: right)
     return self
   }
-  
+
   /**
    A child view is vertically and horizontally stretched with optional top, left, bottom and right padding.
    - Parameter child: A child UIView to layout.
@@ -298,7 +298,7 @@ public class Layout {
     }
     return edges(v, top: top, left: left, bottom: bottom, right: right)
   }
-  
+
   /**
    A child view is aligned from the top with optional top padding.
    - Parameter child: A child UIView to layout.
@@ -314,7 +314,7 @@ public class Layout {
     Layout.top(parent: v, child: child, top: top)
     return self
   }
-  
+
   /**
    A child view is aligned from the top with optional top padding.
    - Parameter top: A CGFloat value for padding the top side.
@@ -327,7 +327,7 @@ public class Layout {
     }
     return self.top(v, top: top)
   }
-  
+
   /**
    A child view is aligned from the left with optional left padding.
    - Parameter child: A child UIView to layout.
@@ -343,7 +343,7 @@ public class Layout {
     Layout.left(parent: v, child: child, left: left)
     return self
   }
-  
+
   /**
    A child view is aligned from the left with optional left padding.
    - Parameter left: A CGFloat value for padding the left side.
@@ -356,7 +356,7 @@ public class Layout {
     }
     return self.left(v, left: left)
   }
-  
+
   /**
    A child view is aligned from the bottom with optional bottom padding.
    - Parameter child: A child UIView to layout.
@@ -372,7 +372,7 @@ public class Layout {
     Layout.bottom(parent: v, child: child, bottom: bottom)
     return self
   }
-  
+
   /**
    A child view is aligned from the bottom with optional bottom padding.
    - Parameter bottom: A CGFloat value for padding the bottom side.
@@ -385,7 +385,7 @@ public class Layout {
     }
     return self.bottom(v, bottom: bottom)
   }
-  
+
   /**
    A child view is aligned from the right with optional right padding.
    - Parameter child: A child UIView to layout.
@@ -401,7 +401,7 @@ public class Layout {
     Layout.right(parent: v, child: child, right: right)
     return self
   }
-  
+
   /**
    A child view is aligned from the right with optional right padding.
    - Parameter right: A CGFloat value for padding the right side.
@@ -414,7 +414,7 @@ public class Layout {
     }
     return self.right(v, right: right)
   }
-  
+
   /**
    A child view is aligned from the top left with optional top and left padding.
    - Parameter child: A child UIView to layout.
@@ -431,7 +431,7 @@ public class Layout {
     Layout.topLeft(parent: v, child: child, top: top, left: left)
     return self
   }
-  
+
   /**
    A child view is aligned from the top left with optional top and left padding.
    - Parameter top: A CGFloat value for padding the top side.
@@ -445,7 +445,7 @@ public class Layout {
     }
     return topLeft(v, top: top, left: left)
   }
-  
+
   /**
    A child view is aligned from the top right with optional top and right padding.
    - Parameter child: A child UIView to layout.
@@ -462,7 +462,7 @@ public class Layout {
     Layout.topRight(parent: v, child: child, top: top, right: right)
     return self
   }
-  
+
   /**
    A child view is aligned from the top right with optional top and right padding.
    - Parameter top: A CGFloat value for padding the top side.
@@ -476,7 +476,7 @@ public class Layout {
     }
     return topRight(v, top: top, right: right)
   }
-  
+
   /**
    A child view is aligned from the bottom left with optional bottom and left padding.
    - Parameter child: A child UIView to layout.
@@ -493,7 +493,7 @@ public class Layout {
     Layout.bottomLeft(parent: v, child: child, bottom: bottom, left: left)
     return self
   }
-  
+
   /**
    A child view is aligned from the bottom left with optional bottom and left padding.
    - Parameter bottom: A CGFloat value for padding the bottom side.
@@ -507,7 +507,7 @@ public class Layout {
     }
     return bottomLeft(v, bottom: bottom, left: left)
   }
-  
+
   /**
    A child view is aligned from the bottom right with optional bottom and right padding.
    - Parameter child: A child UIView to layout.
@@ -524,7 +524,7 @@ public class Layout {
     Layout.bottomRight(parent: v, child: child, bottom: bottom, right: right)
     return self
   }
-  
+
   /**
    A child view is aligned from the bottom right with optional bottom and right padding.
    - Parameter bottom: A CGFloat value for padding the bottom side.
@@ -538,7 +538,7 @@ public class Layout {
     }
     return bottomRight(v, bottom: bottom, right: right)
   }
-  
+
   /**
    A child view is aligned at the center with an optional offsetX and offsetY value.
    - Parameter child: A child UIView to layout.
@@ -555,7 +555,7 @@ public class Layout {
     Layout.center(parent: v, child: child, offsetX: offsetX, offsetY: offsetY)
     return self
   }
-  
+
   /**
    A child view is aligned at the center with an optional offsetX and offsetY value.
    - Parameter offsetX: A CGFloat value for the offset along the x axis.
@@ -569,7 +569,7 @@ public class Layout {
     }
     return center(v, offsetX: offsetX, offsetY: offsetY)
   }
-  
+
   /**
    A child view is aligned at the center horizontally with an optional offset value.
    - Parameter child: A child UIView to layout.
@@ -585,7 +585,7 @@ public class Layout {
     Layout.centerHorizontally(parent: v, child: child, offset: offset)
     return self
   }
-  
+
   /**
    A child view is aligned at the center horizontally with an optional offset value.
    - Parameter offset: A CGFloat value for the offset along the x axis.
@@ -598,7 +598,7 @@ public class Layout {
     }
     return centerHorizontally(v, offset: offset)
   }
-  
+
   /**
    A child view is aligned at the center vertically with an optional offset value.
    - Parameter child: A child UIView to layout.
@@ -614,7 +614,7 @@ public class Layout {
     Layout.centerVertically(parent: v, child: child, offset: offset)
     return self
   }
-  
+
   /**
    A child view is aligned at the center vertically with an optional offset value.
    - Parameter offset: A CGFloat value for the offset along the y axis.
@@ -640,7 +640,7 @@ fileprivate extension Layout {
     view.setNeedsLayout()
     view.layoutIfNeeded()
   }
-  
+
   /**
    Updates the constraints for a given Array of views.
    - Parameter for [view]: An Array of UIViews.
@@ -665,7 +665,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width))
     updateConstraints(for: child)
   }
-  
+
   /**
    Sets the height of a view.
    - Parameter parent: A parent UIView context.
@@ -677,7 +677,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: height))
     updateConstraints(for: child)
   }
-  
+
   /**
    Sets the width and height of a view.
    - Parameter parent: A parent UIView context.
@@ -688,7 +688,7 @@ extension Layout {
     Layout.width(parent: parent, child: child, width: size.width)
     Layout.height(parent: parent, child: child, height: size.height)
   }
-  
+
   /**
    A collection of children views are horizontally stretched with optional left,
    right padding and interim interimSpace.
@@ -700,7 +700,7 @@ extension Layout {
    */
   public class func horizontally(parent: UIView, children: [UIView], left: CGFloat = 0, right: CGFloat = 0, interimSpace: InterimSpace = 0) {
     prepareForConstraint(parent, children: children)
-    
+
     if 0 < children.count {
       parent.addConstraint(NSLayoutConstraint(item: children[0], attribute: .left, relatedBy: .equal, toItem: parent, attribute: .left, multiplier: 1, constant: left))
       for i in 1..<children.count {
@@ -709,10 +709,10 @@ extension Layout {
       }
       parent.addConstraint(NSLayoutConstraint(item: children[children.count - 1], attribute: .right, relatedBy: .equal, toItem: parent, attribute: .right, multiplier: 1, constant: -right))
     }
-    
+
     updateConstraints(for: children)
   }
-  
+
   /**
    A collection of children views are vertically stretched with optional top,
    bottom padding and interim interimSpace.
@@ -724,7 +724,7 @@ extension Layout {
    */
   public class func vertically(parent: UIView, children: [UIView], top: CGFloat = 0, bottom: CGFloat = 0, interimSpace: InterimSpace = 0) {
     prepareForConstraint(parent, children: children)
-    
+
     if 0 < children.count {
       parent.addConstraint(NSLayoutConstraint(item: children[0], attribute: .top, relatedBy: .equal, toItem: parent, attribute: .top, multiplier: 1, constant: top))
       for i in 1..<children.count {
@@ -733,10 +733,10 @@ extension Layout {
       }
       parent.addConstraint(NSLayoutConstraint(item: children[children.count - 1], attribute: .bottom, relatedBy: .equal, toItem: parent, attribute: .bottom, multiplier: 1, constant: -bottom))
     }
-    
+
     updateConstraints(for: children)
   }
-  
+
   /**
    A child view is horizontally stretched with optional left and right padding.
    - Parameter parent: A parent UIView context.
@@ -750,7 +750,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .right, relatedBy: .equal, toItem: parent, attribute: .right, multiplier: 1, constant: -right))
     updateConstraints(for: child)
   }
-  
+
   /**
    A child view is vertically stretched with optional left and right padding.
    - Parameter parent: A parent UIView context.
@@ -764,7 +764,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .bottom, relatedBy: .equal, toItem: parent, attribute: .bottom, multiplier: 1, constant: -bottom))
     updateConstraints(for: child)
   }
-  
+
   /**
    A child view is vertically and horizontally stretched with optional top, left, bottom and right padding.
    - Parameter parent: A parent UIView context.
@@ -778,7 +778,7 @@ extension Layout {
     horizontally(parent: parent, child: child, left: left, right: right)
     vertically(parent: parent, child: child, top: top, bottom: bottom)
   }
-  
+
   /**
    A child view is aligned from the top with optional top padding.
    - Parameter parent: A parent UIView context.
@@ -791,7 +791,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .top, relatedBy: .equal, toItem: parent, attribute: .top, multiplier: 1, constant: top))
     updateConstraints(for: child)
   }
-  
+
   /**
    A child view is aligned from the left with optional left padding.
    - Parameter parent: A parent UIView context.
@@ -804,7 +804,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .left, relatedBy: .equal, toItem: parent, attribute: .left, multiplier: 1, constant: left))
     updateConstraints(for: child)
   }
-  
+
   /**
    A child view is aligned from the bottom with optional bottom padding.
    - Parameter parent: A parent UIView context.
@@ -817,7 +817,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .bottom, relatedBy: .equal, toItem: parent, attribute: .bottom, multiplier: 1, constant: -bottom))
     updateConstraints(for: child)
   }
-  
+
   /**
    A child view is aligned from the right with optional right padding.
    - Parameter parent: A parent UIView context.
@@ -830,7 +830,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .right, relatedBy: .equal, toItem: parent, attribute: .right, multiplier: 1, constant: -right))
     updateConstraints(for: child)
   }
-  
+
   /**
    A child view is aligned from the top left with optional top and left padding.
    - Parameter parent: A parent UIView context.
@@ -843,7 +843,7 @@ extension Layout {
     top(parent: parent, child: child, top: t)
     left(parent: parent, child: child, left: l)
   }
-  
+
   /**
    A child view is aligned from the top right with optional top and right padding.
    - Parameter parent: A parent UIView context.
@@ -856,7 +856,7 @@ extension Layout {
     top(parent: parent, child: child, top: t)
     right(parent: parent, child: child, right: r)
   }
-  
+
   /**
    A child view is aligned from the bottom left with optional bottom and left padding.
    - Parameter parent: A parent UIView context.
@@ -869,7 +869,7 @@ extension Layout {
     bottom(parent: parent, child: child, bottom: b)
     left(parent: parent, child: child, left: l)
   }
-  
+
   /**
    A child view is aligned from the bottom right with optional bottom and right padding.
    - Parameter parent: A parent UIView context.
@@ -882,7 +882,7 @@ extension Layout {
     bottom(parent: parent, child: child, bottom: b)
     right(parent: parent, child: child, right: r)
   }
-  
+
   /**
    A child view is aligned at the center with an optional offsetX and offsetY value.
    - Parameter parent: A parent UIView context.
@@ -895,7 +895,7 @@ extension Layout {
     centerHorizontally(parent: parent, child: child, offset: offsetX)
     centerVertically(parent: parent, child: child, offset: offsetY)
   }
-  
+
   /**
    A child view is aligned at the center horizontally with an optional offset value.
    - Parameter parent: A parent UIView context.
@@ -908,7 +908,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .centerX, relatedBy: .equal, toItem: parent, attribute: .centerX, multiplier: 1, constant: offset))
     updateConstraints(for: child)
   }
-  
+
   /**
    A child view is aligned at the center vertically with an optional offset value.
    - Parameter parent: A parent UIView context.
@@ -921,7 +921,7 @@ extension Layout {
     parent.addConstraint(NSLayoutConstraint(item: child, attribute: .centerY, relatedBy: .equal, toItem: parent, attribute: .centerY, multiplier: 1, constant: offset))
     updateConstraints(for: child)
   }
-  
+
   /**
    Creats an Array with a NSLayoutConstraint value.
    - Parameter format: The VFL format string.
@@ -943,7 +943,7 @@ extension Layout {
       views: views
     )
   }
-  
+
   /**
    Prepares the relationship between the parent view context and child view
    to layout. If the child is not already added to the view hierarchy as the
@@ -958,7 +958,7 @@ extension Layout {
     }
     child.translatesAutoresizingMaskIntoConstraints = false
   }
-  
+
   /**
    Prepares the relationship between the parent view context and an Array of
    child UIViews.
@@ -973,7 +973,7 @@ extension Layout {
 }
 
 /// A memory reference to the LayoutKey instance for UIView extensions.
-fileprivate var LayoutKey: UInt8 = 0
+private var LayoutKey: UInt8 = 0
 
 /// Layout extension for UIView.
 extension UIView {
@@ -988,7 +988,7 @@ extension UIView {
       AssociatedObject.set(base: self, key: &LayoutKey, value: value)
     }
   }
-  
+
   /**
    Used to chain layout constraints on a child context.
    - Parameter child: A child UIView to layout.

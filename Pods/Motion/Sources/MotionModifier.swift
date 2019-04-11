@@ -31,7 +31,7 @@ import UIKit
 public final class MotionModifier {
   /// A reference to the callback that applies the MotionModifier.
   internal let apply: (inout MotionTargetState) -> Void
-  
+
   /**
    An initializer that accepts a given callback.
    - Parameter applyFunction: A given callback.
@@ -52,7 +52,7 @@ public extension MotionModifier {
       $0.motionIdentifier = motionIdentifier
     }
   }
-  
+
   /**
    Animates the view's current masksToBounds to the
    given masksToBounds.
@@ -65,7 +65,7 @@ public extension MotionModifier {
       $0.masksToBounds = masksToBounds
     }
   }
-  
+
   /**
    Animates the view's current background color to the
    given color.
@@ -77,7 +77,7 @@ public extension MotionModifier {
       $0.backgroundColor = color.cgColor
     }
   }
-  
+
   /**
    Animates the view's current border color to the
    given color.
@@ -89,7 +89,7 @@ public extension MotionModifier {
       $0.borderColor = color.cgColor
     }
   }
-  
+
   /**
    Animates the view's current border width to the
    given width.
@@ -101,7 +101,7 @@ public extension MotionModifier {
       $0.borderWidth = width
     }
   }
-  
+
   /**
    Animates the view's current corner radius to the
    given radius.
@@ -113,7 +113,7 @@ public extension MotionModifier {
       $0.cornerRadius = radius
     }
   }
-  
+
   /**
    Animates the view's current transform (perspective, scale, rotate)
    to the given one.
@@ -125,7 +125,7 @@ public extension MotionModifier {
       $0.transform = transform
     }
   }
-  
+
   /**
    Animates the view's current perspective to the given one through
    a CATransform3D object.
@@ -139,7 +139,7 @@ public extension MotionModifier {
       $0.transform = t
     }
   }
-  
+
   /**
    Animates the view's current rotate to the given x, y,
    and z values.
@@ -155,7 +155,7 @@ public extension MotionModifier {
       $0.transform = CATransform3DRotate($0.transform!, z, 0, 0, 1)
     }
   }
-  
+
   /**
    Animates the view's current rotate to the given point.
    - Parameter _ point: A CGPoint.
@@ -165,7 +165,7 @@ public extension MotionModifier {
   static func rotate(_ point: CGPoint, z: CGFloat = 0) -> MotionModifier {
     return .rotate(x: point.x, y: point.y, z: z)
   }
-  
+
   /**
    Rotate 2d.
    - Parameter _ z: A CGFloat.
@@ -174,7 +174,7 @@ public extension MotionModifier {
   static func rotate(_ z: CGFloat) -> MotionModifier {
     return .rotate(z: z)
   }
-  
+
   /**
    Animates the view's current scale to the given x, y, z scale values.
    - Parameter x: A CGFloat.
@@ -187,7 +187,7 @@ public extension MotionModifier {
       $0.transform = CATransform3DScale($0.transform ?? CATransform3DIdentity, x, y, z)
     }
   }
-  
+
   /**
    Animates the view's current x & y scale to the given scale value.
    - Parameter _ xy: A CGFloat.
@@ -196,7 +196,7 @@ public extension MotionModifier {
   static func scale(_ xy: CGFloat) -> MotionModifier {
     return .scale(x: xy, y: xy)
   }
-  
+
   /**
    Animates the view's current translation to the given
    x, y, and z values.
@@ -210,7 +210,7 @@ public extension MotionModifier {
       $0.transform = CATransform3DTranslate($0.transform ?? CATransform3DIdentity, x, y, z)
     }
   }
-  
+
   /**
    Animates the view's current translation to the given
    point value (x & y), and a z value.
@@ -221,7 +221,7 @@ public extension MotionModifier {
   static func translate(_ point: CGPoint, z: CGFloat = 0) -> MotionModifier {
     return .translate(x: point.x, y: point.y, z: z)
   }
-  
+
   /**
    Animates the view's current position to the given point.
    - Parameter _ point: A CGPoint.
@@ -232,7 +232,7 @@ public extension MotionModifier {
       $0.position = point
     }
   }
-  
+
   /**
    Animates a view's current position to the given x and y values.
    - Parameter x: A CGloat.
@@ -242,18 +242,18 @@ public extension MotionModifier {
   static func position(x: CGFloat, y: CGFloat) -> MotionModifier {
     return .position(CGPoint(x: x, y: y))
   }
-  
+
   /// Forces the view to not fade during a transition.
   static var forceNonFade = MotionModifier {
     $0.nonFade = true
   }
-  
+
   /// Fades the view in during a transition.
   static var fadeIn = MotionModifier.fade(1)
-  
+
   /// Fades the view out during a transition.
   static var fadeOut = MotionModifier.fade(0)
-  
+
   /**
    Animates the view's current opacity to the given one.
    - Parameter to opacity: A Double.
@@ -264,7 +264,7 @@ public extension MotionModifier {
       $0.opacity = opacity
     }
   }
-  
+
   /**
    Animates the view's current opacity to the given one.
    - Parameter _ opacity: A Double.
@@ -275,7 +275,7 @@ public extension MotionModifier {
       $0.opacity = opacity
     }
   }
-  
+
   /**
    Animates the view's current zPosition to the given position.
    - Parameter _ position: An Int.
@@ -286,7 +286,7 @@ public extension MotionModifier {
       $0.zPosition = position
     }
   }
-  
+
   /**
    Animates the view's current size to the given one.
    - Parameter _ size: A CGSize.
@@ -297,7 +297,7 @@ public extension MotionModifier {
       $0.size = size
     }
   }
-  
+
   /**
    Animates the view's current size to the given width and height.
    - Parameter width: A CGFloat.
@@ -307,7 +307,7 @@ public extension MotionModifier {
   static func size(width: CGFloat, height: CGFloat) -> MotionModifier {
     return .size(CGSize(width: width, height: height))
   }
-  
+
   /**
    Animates the view's current shadow path to the given one.
    - Parameter path: A CGPath.
@@ -318,7 +318,7 @@ public extension MotionModifier {
       $0.shadowPath = path
     }
   }
-  
+
   /**
    Animates the view's current shadow color to the given one.
    - Parameter color: A UIColor.
@@ -329,7 +329,7 @@ public extension MotionModifier {
       $0.shadowColor = color.cgColor
     }
   }
-  
+
   /**
    Animates the view's current shadow offset to the given one.
    - Parameter offset: A CGSize.
@@ -340,7 +340,7 @@ public extension MotionModifier {
       $0.shadowOffset = offset
     }
   }
-  
+
   /**
    Animates the view's current shadow opacity to the given one.
    - Parameter opacity: A Float.
@@ -351,7 +351,7 @@ public extension MotionModifier {
       $0.shadowOpacity = opacity
     }
   }
-  
+
   /**
    Animates the view's current shadow radius to the given one.
    - Parameter radius: A CGFloat.
@@ -362,7 +362,7 @@ public extension MotionModifier {
       $0.shadowRadius = radius
     }
   }
-  
+
   /**
    Animates the view's contents rect to the given one.
    - Parameter rect: A CGRect.
@@ -373,7 +373,7 @@ public extension MotionModifier {
       $0.contentsRect = rect
     }
   }
-  
+
   /**
    Animates the view's contents scale to the given one.
    - Parameter scale: A CGFloat.
@@ -384,7 +384,7 @@ public extension MotionModifier {
       $0.contentsScale = scale
     }
   }
-  
+
   /**
    The duration of the view's animation.
    - Parameter _ duration: A TimeInterval.
@@ -395,7 +395,7 @@ public extension MotionModifier {
       $0.duration = duration
     }
   }
-  
+
   /**
    Sets the view's animation duration to the longest
    running animation within a transition.
@@ -403,7 +403,7 @@ public extension MotionModifier {
   static var durationMatchLongest = MotionModifier {
     $0.duration = .infinity
   }
-  
+
   /**
    Delays the animation of a given view.
    - Parameter _ time: TimeInterval.
@@ -414,7 +414,7 @@ public extension MotionModifier {
       $0.delay = time
     }
   }
-  
+
   /**
    Sets the view's timing function for the transition.
    - Parameter _ timingFunction: A CAMediaTimingFunction.
@@ -425,7 +425,7 @@ public extension MotionModifier {
       $0.timingFunction = timingFunction
     }
   }
-  
+
   /**
    Available in iOS 9+, animates a view using the spring API,
    given a stiffness and damping.
@@ -439,7 +439,7 @@ public extension MotionModifier {
       $0.spring = (stiffness, damping)
     }
   }
-  
+
   /**
    Animates the natural curve of a view. A value of 1 represents
    a curve in a downward direction, and a value of -1
@@ -452,7 +452,7 @@ public extension MotionModifier {
       $0.arc = intensity
     }
   }
-  
+
   /**
    Animates subviews with an increasing delay between each animation.
    - Parameter delta: A TimeInterval.
@@ -466,7 +466,7 @@ public extension MotionModifier {
       $0.cascade = (delta, direction, animationDelayedUntilMatchedViews)
     }
   }
-  
+
   /**
    Creates an overlay on the animating view with a given color and opacity.
    - Parameter color: A UIColor.
@@ -488,20 +488,20 @@ public extension MotionModifier {
    - Returns: A Boolean.
    */
   static func when(_ condition: @escaping (MotionConditionalContext) -> Bool, _ modifiers: [MotionModifier]) -> MotionModifier {
-    
+
     return MotionModifier {
       if nil == $0.conditionalModifiers {
         $0.conditionalModifiers = []
       }
-      
+
       $0.conditionalModifiers!.append((condition, modifiers))
     }
   }
-  
+
   static func when(_ condition: @escaping (MotionConditionalContext) -> Bool, _ modifiers: MotionModifier...) -> MotionModifier {
     return .when(condition, modifiers)
   }
-  
+
   /**
    Apply modifiers when matched.
    - Parameter _ modifiers: A list of modifiers.
@@ -510,7 +510,7 @@ public extension MotionModifier {
   static func whenMatched(_ modifiers: MotionModifier...) -> MotionModifier {
     return .when({ $0.isMatched }, modifiers)
   }
-  
+
   /**
    Apply modifiers when presenting.
    - Parameter _ modifiers: A list of modifiers.
@@ -519,7 +519,7 @@ public extension MotionModifier {
   static func whenPresenting(_ modifiers: MotionModifier...) -> MotionModifier {
     return .when({ $0.isPresenting }, modifiers)
   }
-  
+
   /**
    Apply modifiers when dismissing.
    - Parameter _ modifiers: A list of modifiers.
@@ -528,7 +528,7 @@ public extension MotionModifier {
   static func whenDismissing(_ modifiers: MotionModifier...) -> MotionModifier {
     return .when({ !$0.isPresenting }, modifiers)
   }
-  
+
   /**
    Apply modifiers when appearingg.
    - Parameter _ modifiers: A list of modifiers.
@@ -537,7 +537,7 @@ public extension MotionModifier {
   static func whenAppearing(_ modifiers: MotionModifier...) -> MotionModifier {
     return .when({ $0.isAppearing }, modifiers)
   }
-  
+
   /**
    Apply modifiers when disappearing.
    - Parameter _ modifiers: A list of modifiers.
@@ -560,19 +560,19 @@ public extension MotionModifier {
       if nil == $0.beginState {
         $0.beginState = []
       }
-      
+
       $0.beginState?.append(contentsOf: modifiers)
     }
   }
-  
+
   static func beginWith(modifiers: [MotionModifier]) -> MotionModifier {
     return .beginWith(modifiers)
   }
-  
+
   static func beginWith(_ modifiers: MotionModifier...) -> MotionModifier {
     return .beginWith(modifiers)
   }
-  
+
   /**
    Use global coordinate space.
    
@@ -586,10 +586,10 @@ public extension MotionModifier {
   static var useGlobalCoordinateSpace = MotionModifier {
     $0.coordinateSpace = .global
   }
-  
+
   /// Ignore all motion transition attributes for a view's direct subviews.
   static var ignoreSubviewTransitions: MotionModifier = .ignoreSubviewTransitions()
-  
+
   /**
    Ignore all motion transition attributes for a view's subviews.
    - Parameter recursive: If false, will only ignore direct subviews' transitions. 
@@ -600,7 +600,7 @@ public extension MotionModifier {
       $0.ignoreSubviewTransitions = recursive
     }
   }
-  
+
   /**
    This will create a snapshot optimized for different view types.
    For custom views or views with masking, useOptimizedSnapshot might create snapshots
@@ -612,12 +612,12 @@ public extension MotionModifier {
   static var useOptimizedSnapshot = MotionModifier {
     $0.snapshotType = .optimized
   }
-  
+
   /// Create a snapshot using snapshotView(afterScreenUpdates:).
   static var useNormalSnapshot = MotionModifier {
     $0.snapshotType = .normal
   }
-  
+
   /**
    Create a snapshot using layer.render(in: currentContext).
    This is slower than .useNormalSnapshot but gives more accurate snapshots for some views 
@@ -626,7 +626,7 @@ public extension MotionModifier {
   static var useLayerRenderSnapshot = MotionModifier {
     $0.snapshotType = .layerRender
   }
-  
+
   /**
    Force Motion to not create any snapshots when animating this view.
    This will mess up the view hierarchy, therefore, view controllers have to rebuild
@@ -635,7 +635,7 @@ public extension MotionModifier {
   static var useNoSnapshot = MotionModifier {
     $0.snapshotType = .noSnapshot
   }
-  
+
   /**
    Force the view to animate (Motion will create animation contexts & snapshots for them, so 
    that they can be interactive).
@@ -643,7 +643,7 @@ public extension MotionModifier {
   static var forceAnimate = MotionModifier {
     $0.forceAnimate = true
   }
-  
+
   /**
    Force Motion to use scale based size animation. This will convert all .size transitions into 
    a .scale transition. This is to help Motion animate layers that doesn't support bounds animations.

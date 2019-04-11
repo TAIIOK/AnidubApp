@@ -44,15 +44,14 @@ public extension UIColor {
     let r = argb >> 16
     let g = argb >> 8
     let b = argb >> 0
-    
+
     func f(_ v: UInt32) -> CGFloat {
       return CGFloat(v & 0xff) / 255
     }
-    
+
     self.init(red: f(r), green: f(g), blue: f(b), alpha: f(a))
   }
-  
-  
+
   /**
    A convenience initializer that creates color from
    rgb(red green blue) hexadecimal representation with alpha value 1.

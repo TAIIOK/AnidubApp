@@ -40,7 +40,7 @@ open class CollectionView: UICollectionView {
       (collectionViewLayout as? CollectionViewLayout)!.contentEdgeInsetsPreset = value
     }
   }
-  
+
   open var contentEdgeInsets: EdgeInsets {
     get {
       return (collectionViewLayout as? CollectionViewLayout)!.contentEdgeInsets
@@ -49,7 +49,7 @@ open class CollectionView: UICollectionView {
       (collectionViewLayout as? CollectionViewLayout)!.contentEdgeInsets = value
     }
   }
-  
+
   /// Scroll direction.
   open var scrollDirection: UICollectionViewScrollDirection {
     get {
@@ -59,7 +59,7 @@ open class CollectionView: UICollectionView {
       (collectionViewLayout as? CollectionViewLayout)!.scrollDirection = value
     }
   }
-  
+
   /// A preset wrapper around interimSpace.
   open var interimSpacePreset: InterimSpacePreset {
     get {
@@ -69,7 +69,7 @@ open class CollectionView: UICollectionView {
       (collectionViewLayout as? CollectionViewLayout)!.interimSpacePreset = value
     }
   }
-  
+
   /// Spacing between items.
   @IBInspectable
   open var interimSpace: InterimSpace {
@@ -80,7 +80,7 @@ open class CollectionView: UICollectionView {
       (collectionViewLayout as? CollectionViewLayout)!.interimSpace = value
     }
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -89,7 +89,7 @@ open class CollectionView: UICollectionView {
     super.init(coder: aDecoder)
     prepare()
   }
-  
+
   /**
    An initializer that initializes the object.
    - Parameter frame: A CGRect defining the view's frame.
@@ -99,7 +99,7 @@ open class CollectionView: UICollectionView {
     super.init(frame: frame, collectionViewLayout: layout)
     prepare()
   }
-  
+
   /**
    An initializer that initializes the object.
    - Parameter collectionViewLayout: A UICollectionViewLayout reference.
@@ -108,7 +108,7 @@ open class CollectionView: UICollectionView {
     super.init(frame: .zero, collectionViewLayout: layout)
     prepare()
   }
-  
+
   /**
    An initializer that initializes the object.
    - Parameter frame: A CGRect defining the view's frame.
@@ -118,14 +118,14 @@ open class CollectionView: UICollectionView {
     super.init(frame: frame, collectionViewLayout: layout)
     prepare()
   }
-  
+
   /// A convenience initializer that initializes the object.
   public init() {
     let layout = CollectionViewLayout()
     super.init(frame: .zero, collectionViewLayout: layout)
     prepare()
   }
-  
+
   /**
    Prepares the view instance when intialized. When subclassing,
    it is recommended to override the prepare method

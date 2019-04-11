@@ -41,7 +41,7 @@ public protocol TextStorageDelegate: NSTextStorageDelegate {
    */
   @objc
   optional func textStorage(textStorage: TextStorage, willProcessEditing text: String, range: NSRange)
-  
+
   /**
    A delegation method that is executed when text has been
    processed after editing.
@@ -58,15 +58,15 @@ public protocol TextStorageDelegate: NSTextStorageDelegate {
 open class TextStorage: NSTextStorage {
   /// A storage facility for attributed text.
   open let storage = NSMutableAttributedString()
-  
+
   /// The regular expression to match text fragments against.
   open var expression: NSRegularExpression?
-  
+
   /// Initializer.
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   /// Initializer.
   public override init() {
     super.init()
@@ -78,22 +78,22 @@ extension TextStorage {
   open override var string: String {
     return storage.string
   }
-  
+
   /// Processes the text when editing.
   open override func processEditing() {
     let range = (string as NSString).paragraphRange(for: editedRange)
-    
+
     (delegate as? TextStorageDelegate)?.textStorage?(textStorage: self, willProcessEditing: string, range: range)
-    
+
     expression?.enumerateMatches(in: string, options: [], range: range) { [unowned self] (result: NSTextCheckingResult?, flags: NSRegularExpression.MatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
       (self.delegate as? TextStorageDelegate)?.textStorage?(textStorage: self, didProcessEditing: self.string, result: result, flags: flags, stop: stop)
     }
-    
+
     storage.fixAttributes(in: range)
-    
+
     super.processEditing()
   }
-  
+
   /**
    Returns the attributes for the character at a given index.
    - Parameter location: An Int
@@ -108,7 +108,7 @@ extension TextStorage {
   open override func attributes(at location: Int, effectiveRange range: NSRangePointer?) -> [NSAttributedStringKey: Any] {
     return storage.attributes(at: location, effectiveRange: range)
   }
-  
+
   /**
    Replaces a range of text with a string value.
    - Parameter range: The character range to replace.
@@ -119,18 +119,18 @@ extension TextStorage {
     storage.replaceCharacters(in: range, with: str)
     edited(.editedCharacters, range: range, changeInLength: str.utf16.count - range.length)
   }
-  
+
   /**
    Sets the attributedString attribute values.
    - Parameter attrs: The attributes to set.
    - Parameter range: A range of characters that will have their
    attributes updated.
    */
-  open override func setAttributes(_ attrs: [NSAttributedStringKey : Any]?, range: NSRange) {
+  open override func setAttributes(_ attrs: [NSAttributedStringKey: Any]?, range: NSRange) {
     storage.setAttributes(attrs, range: range)
     edited(.editedAttributes, range: range, changeInLength: 0)
   }
-  
+
   /**
    Adds an individual attribute.
    - Parameter _ name: Attribute name.
@@ -142,7 +142,7 @@ extension TextStorage {
     storage.addAttribute(name, value: value, range: range)
     edited(.editedAttributes, range: range, changeInLength: 0)
   }
-  
+
   /**
    Removes an individual attribute.
    - Parameter _ name: Attribute name.

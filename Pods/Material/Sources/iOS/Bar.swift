@@ -41,18 +41,18 @@ open class Bar: View {
   open var willLayout: Bool {
     return 0 < bounds.width && 0 < bounds.height && nil != superview && !grid.isDeferred
   }
-  
+
   open override var intrinsicContentSize: CGSize {
     return bounds.size
   }
-  
+
   /// Should center the contentView.
   open var contentViewAlignment = ContentViewAlignment.full {
     didSet {
       layoutSubviews()
     }
   }
-  
+
   /// A preset wrapper around contentEdgeInsets.
   open var contentEdgeInsetsPreset: EdgeInsetsPreset {
     get {
@@ -62,7 +62,7 @@ open class Bar: View {
       grid.contentEdgeInsetsPreset = value
     }
   }
-  
+
   /// A reference to EdgeInsets.
   @IBInspectable
   open var contentEdgeInsets: EdgeInsets {
@@ -73,7 +73,7 @@ open class Bar: View {
       grid.contentEdgeInsets = value
     }
   }
-  
+
   /// A preset wrapper around interimSpace.
   open var interimSpacePreset: InterimSpacePreset {
     get {
@@ -83,7 +83,7 @@ open class Bar: View {
       grid.interimSpacePreset = value
     }
   }
-  
+
   /// A wrapper around grid.interimSpace.
   @IBInspectable
   open var interimSpace: InterimSpace {
@@ -94,7 +94,7 @@ open class Bar: View {
       grid.interimSpace = value
     }
   }
-  
+
   /// Grid cell factor.
   @IBInspectable
   open var gridFactor: CGFloat = 12 {
@@ -103,32 +103,32 @@ open class Bar: View {
       layoutSubviews()
     }
   }
-  
+
   /// ContentView that holds the any desired subviews.
   open let contentView = UIView()
-  
+
   /// Left side UIViews.
   open var leftViews = [UIView]() {
     didSet {
       oldValue.forEach {
         $0.removeFromSuperview()
       }
-      
+
       layoutSubviews()
     }
   }
-  
+
   /// Right side UIViews.
   open var rightViews = [UIView]() {
     didSet {
       oldValue.forEach {
         $0.removeFromSuperview()
       }
-      
+
       layoutSubviews()
     }
   }
-  
+
   /// Center UIViews.
   open var centerViews: [UIView] {
     get {
@@ -138,7 +138,7 @@ open class Bar: View {
       contentView.grid.views = value
     }
   }
-  
+
   /**
    An initializer that initializes the object with a NSCoder object.
    - Parameter aDecoder: A NSCoder instance.
@@ -146,7 +146,7 @@ open class Bar: View {
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   /**
    An initializer that initializes the object with a CGRect object.
    If AutoLayout is used, it is better to initilize the instance
@@ -156,7 +156,7 @@ open class Bar: View {
   public override init(frame: CGRect) {
     super.init(frame: frame)
   }
-  
+
   /**
    A convenience initializer with parameter settings.
    - Parameter leftViews: An Array of UIViews that go on the left side.
@@ -169,57 +169,57 @@ open class Bar: View {
     self.rightViews = rightViews ?? []
     self.centerViews = centerViews ?? []
   }
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     guard willLayout else {
       return
     }
-    
+
     var lc = 0
     var rc = 0
-    
+
     grid.begin()
     grid.views.removeAll()
-    
+
     for v in leftViews {
       if let b = v as? UIButton {
         b.contentEdgeInsets = .zero
         b.titleEdgeInsets = .zero
       }
-      
+
       v.frame.size.width = v.intrinsicContentSize.width
       v.sizeToFit()
       v.grid.columns = Int(ceil(v.bounds.width / gridFactor)) + 2
-      
+
       lc += v.grid.columns
-      
+
       grid.views.append(v)
     }
-    
+
     grid.views.append(contentView)
-    
+
     for v in rightViews {
       if let b = v as? UIButton {
         b.contentEdgeInsets = .zero
         b.titleEdgeInsets = .zero
       }
-      
+
       v.frame.size.width = v.intrinsicContentSize.width
       v.sizeToFit()
       v.grid.columns = Int(ceil(v.bounds.width / gridFactor)) + 2
-      
+
       rc += v.grid.columns
-      
+
       grid.views.append(v)
     }
-    
+
     contentView.grid.begin()
     contentView.grid.offset.columns = 0
-    
+
     var l: CGFloat = 0
     var r: CGFloat = 0
-    
+
     if .center == contentViewAlignment {
       if leftViews.count < rightViews.count {
         r = CGFloat(rightViews.count) * interimSpace
@@ -229,10 +229,10 @@ open class Bar: View {
         r = l
       }
     }
-    
+
     let p = bounds.width - l - r - contentEdgeInsets.left - contentEdgeInsets.right
     let columns = Int(ceil(p / gridFactor))
-    
+
     if .center == contentViewAlignment {
       if lc < rc {
         contentView.grid.columns = columns - 2 * rc
@@ -244,21 +244,21 @@ open class Bar: View {
     } else {
       contentView.grid.columns = columns - lc - rc
     }
-    
+
     grid.axis.columns = columns
     grid.commit()
     contentView.grid.commit()
-    
+
     layoutDivider()
   }
-  
+
   open override func prepare() {
     super.prepare()
     heightPreset = .normal
     autoresizingMask = .flexibleWidth
     interimSpacePreset = .interimSpace3
     contentEdgeInsetsPreset = .square1
-    
+
     prepareContentView()
   }
 }

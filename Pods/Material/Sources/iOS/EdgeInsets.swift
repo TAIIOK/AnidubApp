@@ -33,7 +33,7 @@ import UIKit
 @objc(EdgeInsetsPreset)
 public enum EdgeInsetsPreset: Int {
   case none
-  
+
   // square
   case square1
   case square2
@@ -50,7 +50,7 @@ public enum EdgeInsetsPreset: Int {
   case square13
   case square14
   case square15
-  
+
   // rectangle
   case wideRectangle1
   case wideRectangle2
@@ -61,7 +61,7 @@ public enum EdgeInsetsPreset: Int {
   case wideRectangle7
   case wideRectangle8
   case wideRectangle9
-  
+
   // flipped rectangle
   case tallRectangle1
   case tallRectangle2
@@ -72,14 +72,14 @@ public enum EdgeInsetsPreset: Int {
   case tallRectangle7
   case tallRectangle8
   case tallRectangle9
-  
+
   /// horizontally
   case horizontally1
   case horizontally2
   case horizontally3
   case horizontally4
   case horizontally5
-  
+
   /// vertically
   case vertically1
   case vertically2
@@ -95,7 +95,7 @@ public func EdgeInsetsPresetToValue(preset: EdgeInsetsPreset) -> EdgeInsets {
   switch preset {
   case .none:
     return .zero
-    
+
   // square
   case .square1:
     return EdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
@@ -127,7 +127,7 @@ public func EdgeInsetsPresetToValue(preset: EdgeInsetsPreset) -> EdgeInsets {
     return EdgeInsets(top: 60, left: 60, bottom: 60, right: 60)
   case .square15:
     return EdgeInsets(top: 64, left: 64, bottom: 64, right: 64)
-    
+
   // rectangle
   case .wideRectangle1:
     return EdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
@@ -147,7 +147,7 @@ public func EdgeInsetsPresetToValue(preset: EdgeInsetsPreset) -> EdgeInsets {
     return EdgeInsets(top: 28, left: 56, bottom: 28, right: 56)
   case .wideRectangle9:
     return EdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
-    
+
   // flipped rectangle
   case .tallRectangle1:
     return EdgeInsets(top: 4, left: 2, bottom: 4, right: 2)
@@ -167,7 +167,7 @@ public func EdgeInsetsPresetToValue(preset: EdgeInsetsPreset) -> EdgeInsets {
     return EdgeInsets(top: 56, left: 28, bottom: 56, right: 28)
   case .tallRectangle9:
     return EdgeInsets(top: 64, left: 32, bottom: 64, right: 32)
-    
+
   /// horizontally
   case .horizontally1:
     return EdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
@@ -179,7 +179,7 @@ public func EdgeInsetsPresetToValue(preset: EdgeInsetsPreset) -> EdgeInsets {
     return EdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
   case .horizontally5:
     return EdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
-    
+
   /// vertically
   case .vertically1:
     return EdgeInsets(top: 2, left: 0, bottom: 2, right: 0)

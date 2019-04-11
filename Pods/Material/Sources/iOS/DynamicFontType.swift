@@ -44,23 +44,23 @@ public protocol DynamicFontTypeDelegate {
 open class DynamicFontType: NSObject {
   /// A weak reference to a DynamicFontTypeDelegate.
   open weak var delegate: DynamicFontTypeDelegate?
-  
+
   /// Initializer.
   public override init() {
     super.init()
     prepare()
   }
-  
+
   @objc
   internal func handleContentSizeChange() {
     delegate?.dynamicFontType(dynamicFontType: self)
   }
-  
+
   /// Prepare the instance object.
   private func prepare() {
     prepareContentSizeObservation()
   }
-  
+
   /// Prepares observation for content size changes.
   private func prepareContentSizeObservation() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleContentSizeChange), name: .UIContentSizeCategoryDidChange, object: nil)

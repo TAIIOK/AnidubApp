@@ -14,63 +14,61 @@ import Material
 private let avatarListLayoutSize: CGFloat = 200.0
 
 class UserCollectionViewCell: UICollectionViewCell, CellInterface {
-    
+
     @IBOutlet fileprivate weak var avatarImageView: UIImageView!
     @IBOutlet fileprivate weak var backgroundGradientView: UIView!
     @IBOutlet fileprivate weak var nameListLabel: UILabel!
     @IBOutlet fileprivate weak var nameGridLabel: UILabel!
     @IBOutlet weak var statisticLabel: UILabel!
-    
+
     @IBOutlet weak var Image_fav: UIImageView!
     // avatarImageView constraints
     @IBOutlet fileprivate weak var avatarImageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var avatarImageViewHeightConstraint: NSLayoutConstraint!
-    
+
     // nameListLabel constraints
     @IBOutlet var nameListLabelLeadingConstraint: NSLayoutConstraint! {
         didSet {
             initialLabelsLeadingConstraintValue = nameListLabelLeadingConstraint.constant
         }
     }
-    
+
     // statisticLabel constraints
     @IBOutlet weak var statisticLabelLeadingConstraint: NSLayoutConstraint!
-    
+
     fileprivate var avatarGridLayoutSize: CGFloat = 0.0
     fileprivate var initialLabelsLeadingConstraintValue: CGFloat = 0.0
 
-    func setImage(image:UIImage)
-    {
+    func setImage(image: UIImage) {
         avatarImageView.image = image
     }
-    
-    func setImage(image:String)
-    {
+
+    func setImage(image: String) {
 
         avatarImageView.sd_setImage(with: URL(string: image), placeholderImage: nil, options: .highPriority, progress: nil, completed: nil)
        // avatarImageView.sd_setImage(with: <#T##StorageReference#>, placeholderImage: <#T##UIImage?#>)
     }
 
-    func setTitle(title:String){
+    func setTitle(title: String) {
         nameListLabel.text = title
         nameGridLabel.text = title
     }
-    
-    func setTextColor(color : UIColor){
+
+    func setTextColor(color: UIColor) {
         nameGridLabel.textColor = color
         nameListLabel.textColor = color
     }
-    
-    func setBackgroundColor(color : UIColor){
+
+    func setBackgroundColor(color: UIColor) {
         backgroundGradientView.backgroundColor = color
     }
- 
+
     override func prepareForReuse() {
         super.prepareForReuse()
         avatarImageView.sd_cancelCurrentImageLoad()
         avatarImageView.image = nil
     }
-    
+
     func setupGridLayoutConstraints(_ transitionProgress: CGFloat, cellWidth: CGFloat) {
          avatarImageViewHeightConstraint.constant = ceil((cellWidth - avatarListLayoutSize) * transitionProgress + avatarListLayoutSize)
         avatarImageViewWidthConstraint.constant = avatarImageViewHeightConstraint.constant/1.3
@@ -80,7 +78,7 @@ class UserCollectionViewCell: UICollectionViewCell, CellInterface {
         nameListLabel.alpha =  transitionProgress
         //statisticLabel.alpha = transitionProgress
     }
-    
+
     func setupListLayoutConstraints(_ transitionProgress: CGFloat, cellWidth: CGFloat) {
         avatarImageViewHeightConstraint.constant = ceil(avatarGridLayoutSize - (avatarGridLayoutSize - avatarListLayoutSize) * transitionProgress)
         avatarImageViewWidthConstraint.constant = avatarImageViewHeightConstraint.constant/1.3
@@ -90,7 +88,7 @@ class UserCollectionViewCell: UICollectionViewCell, CellInterface {
         nameListLabel.alpha =  transitionProgress
         //statisticLabel.alpha = transitionProgress
     }
-    
+
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         if let attributes = layoutAttributes as? DisplaySwitchLayoutAttributes {

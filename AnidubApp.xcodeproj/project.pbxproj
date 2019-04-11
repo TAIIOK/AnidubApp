@@ -339,6 +339,7 @@
 			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				ru,
 				Base,
 			);
 			mainGroup = A06B8BE820728AF800E2C030;

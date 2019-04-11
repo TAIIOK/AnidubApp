@@ -43,18 +43,18 @@ public enum DepthPreset: Int {
 public struct Depth {
   /// Offset.
   public var offset: Offset
-  
+
   /// Opacity.
   public var opacity: Float
-  
+
   /// Radius.
   public var radius: CGFloat
-  
+
   /// A tuple of raw values.
   public var rawValue: (CGSize, Float, CGFloat) {
     return (offset.asSize, opacity, radius)
   }
-  
+
   /// Preset.
   public var preset = DepthPreset.none {
     didSet {
@@ -64,7 +64,7 @@ public struct Depth {
       radius = depth.radius
     }
   }
-  
+
   /**
    Initializer that takes in an offset, opacity, and radius.
    - Parameter offset: A UIOffset.
@@ -76,7 +76,7 @@ public struct Depth {
     self.opacity = opacity
     self.radius = radius
   }
-  
+
   /**
    Initializer that takes in a DepthPreset.
    - Parameter preset: DepthPreset.
@@ -85,7 +85,7 @@ public struct Depth {
     self.init()
     self.preset = preset
   }
-  
+
   /**
    Static constructor for Depth with values of 0.
    - Returns: A Depth struct with values of 0.

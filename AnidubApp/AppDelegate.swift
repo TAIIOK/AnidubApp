@@ -20,38 +20,37 @@ let BASE_URL =  "https://anidubapp-b270a.firebaseio.com/"
 var global_fcmToken = ""
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate  {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
 
     var isFullScreen = false
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
 
         let audioSession = AVAudioSession.sharedInstance()
-        
+
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayback)
         } catch {
             print("Setting category to AVAudioSessionCategoryPlayback failed.")
         }
-        
+
         get_title_anilibria(page: 0)
-        
+
         let theme = ThemeManager.currentTheme()
-        
+
         ThemeManager.applyTheme(theme: theme)
-   
-        
+
         Fabric.with([Crashlytics.self])
-    
+
         UIApplication.shared.isStatusBarHidden = false
-        
+
         Database.database().isPersistenceEnabled = false
-        
+
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
         // [END set_messaging_delegate]
@@ -78,28 +77,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
             } else {
-        Auth.auth().signInAnonymously() { (authResult, error) in
+        Auth.auth().signInAnonymously { (_, _) in
         }
             }}
         GADMobileAds.configure(withApplicationID: "ca-app-pub-6296201459697561~7604273760")
-        
 
-       
-    
         return true
     }
 
-    
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        
+
         if let presentedViewController = window?.rootViewController?.presentedViewController {
             let className = String(describing: type(of: presentedViewController))
-            if ["MPInlineVideoFullscreenViewController", "MPMoviePlayerViewController", "AVFullScreenViewController"].contains(className)
-            {
+            if ["MPInlineVideoFullscreenViewController", "MPMoviePlayerViewController", "AVFullScreenViewController"].contains(className) {
                 return UIInterfaceOrientationMask.allButUpsideDown
             }
         }
-        
+
         return UIInterfaceOrientationMask.portrait
     }
 
@@ -125,7 +119,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
@@ -138,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
             print("Message ID: \(messageID)")
         }
          UIApplication.shared.applicationIconBadgeNumber = 0
-        
+
         // Print full message.
         print(userInfo)
     }
@@ -170,18 +163,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
     // the FCM registration token.
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
-        
 
         // With swizzling disabled you must set the APNs token here.
          Messaging.messaging().apnsToken = deviceToken
- 
-        
+
     }
 }
 
 // [START ios_10_message_handling]
 @available(iOS 10, *)
-extension AppDelegate : UNUserNotificationCenterDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate {
 
     // Receive displayed notifications for iOS 10 devices.
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -214,30 +205,28 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
 
         UIApplication.shared.applicationIconBadgeNumber = 0
-        
+
         // Print full message.
         print(userInfo)
 
         completionHandler()
     }
 
-
 }
-
 
 // [END ios_10_message_handling]
 
-extension AppDelegate : MessagingDelegate {
+extension AppDelegate: MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
 
         global_fcmToken = fcmToken
-        
+
         let user = Auth.auth().currentUser
         if let user = user {
-            add_user(User_id:user.uid)
-            add_device(Device_id: fcmToken, User_id: user.uid,Remove: 0)
+            add_user(User_id: user.uid)
+            add_device(Device_id: fcmToken, User_id: user.uid, Remove: 0)
         }
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
@@ -248,9 +237,7 @@ extension AppDelegate : MessagingDelegate {
     // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
-        
+
     }
     // [END ios_10_data_message]
 }
-
-

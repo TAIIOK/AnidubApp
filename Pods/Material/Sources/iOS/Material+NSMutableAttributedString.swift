@@ -41,7 +41,7 @@ extension NSMutableAttributedString {
     removeAttribute(name, range: range)
     addAttribute(name, value: value, range: range)
   }
-  
+
   /**
    Updates a Dictionary of NSAttributedStringKeys for a given range.
    - Parameter _ attrs: A Dictionary of NSAttributedStringKey type keys and Any type values.
@@ -52,7 +52,7 @@ extension NSMutableAttributedString {
       updateAttribute(k, value: v, range: range)
     }
   }
-  
+
   /**
    Removes a Dictionary of NSAttributedStringKeys for a given range.
    - Parameter _ attrs: An Array of attributedStringKeys.

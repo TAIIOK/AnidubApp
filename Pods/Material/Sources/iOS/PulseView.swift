@@ -34,12 +34,12 @@ import Motion
 open class PulseView: View, Pulseable, PulseableLayer {
   /// A Pulse reference.
   internal var pulse: Pulse!
-  
+
   /// A reference to the pulse layer.
   internal var pulseLayer: CALayer? {
     return pulse.pulseLayer
   }
-  
+
   /// PulseAnimation value.
   open var pulseAnimation: PulseAnimation {
     get {
@@ -49,7 +49,7 @@ open class PulseView: View, Pulseable, PulseableLayer {
       pulse.animation = value
     }
   }
-  
+
   /// PulseAnimation color.
   @IBInspectable
   open var pulseColor: UIColor {
@@ -60,7 +60,7 @@ open class PulseView: View, Pulseable, PulseableLayer {
       pulse.color = value
     }
   }
-  
+
   /// Pulse opacity.
   @IBInspectable
   open var pulseOpacity: CGFloat {
@@ -71,7 +71,7 @@ open class PulseView: View, Pulseable, PulseableLayer {
       pulse.opacity = value
     }
   }
-  
+
   /**
    Triggers the pulse animation.
    - Parameter point: A Optional point to pulse from, otherwise pulses
@@ -83,7 +83,7 @@ open class PulseView: View, Pulseable, PulseableLayer {
       self?.pulse.contract()
     }
   }
-  
+
   /**
    A delegation method that is executed when the view has began a
    touch event.
@@ -94,7 +94,7 @@ open class PulseView: View, Pulseable, PulseableLayer {
     super.touchesBegan(touches, with: event)
     pulse.expand(point: layer.convert(touches.first!.location(in: self), from: layer))
   }
-  
+
   /**
    A delegation method that is executed when the view touch event has
    ended.
@@ -105,7 +105,7 @@ open class PulseView: View, Pulseable, PulseableLayer {
     super.touchesEnded(touches, with: event)
     pulse.contract()
   }
-  
+
   /**
    A delegation method that is executed when the view touch event has
    been cancelled.
@@ -116,7 +116,7 @@ open class PulseView: View, Pulseable, PulseableLayer {
     super.touchesCancelled(touches, with: event)
     pulse.contract()
   }
-  
+
   open override func prepare() {
     super.prepare()
     preparePulse()

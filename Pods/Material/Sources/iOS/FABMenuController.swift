@@ -51,21 +51,21 @@ open class FABMenuController: TransitionController {
   /// Reference to the MenuView.
   @IBInspectable
   open var fabMenu = FABMenu()
-  
+
   /// A FABMenuBacking value type.
   open var fabMenuBacking = FABMenuBacking.blur
-  
+
   /// The fabMenuBacking UIBlurEffectStyle.
   open var fabMenuBackingBlurEffectStyle = UIBlurEffectStyle.light
-  
+
   /// A reference to the blurView.
   open fileprivate(set) var blurView: UIView?
-  
+
   open override func layoutSubviews() {
     super.layoutSubviews()
     rootViewController.view.frame = view.bounds
   }
-  
+
   open override func prepare() {
     super.prepare()
     prepareFABMenu()
@@ -79,23 +79,23 @@ fileprivate extension FABMenuController {
   func prepareFABMenu() {
     fabMenu.delegate = self
     fabMenu.layer.zPosition = 1000
-    
+
     fabMenu.handleFABButtonCallback = { [weak self] in
       self?.handleFABButtonCallback(button: $0)
     }
-    
+
     fabMenu.handleOpenCallback = { [weak self] in
       self?.handleOpenCallback()
     }
-    
+
     fabMenu.handleCloseCallback = { [weak self] in
       self?.handleCloseCallback()
     }
-    
+
     fabMenu.handleCompletionCallback = { [weak self] in
       self?.handleCompletionCallback(view: $0)
     }
-    
+
     view.addSubview(fabMenu)
   }
 }
@@ -106,73 +106,73 @@ fileprivate extension FABMenuController {
     showFade()
     showBlurView()
   }
-  
+
   /// Hides the fabMenuBacking.
   func hideFabMenuBacking() {
     hideFade()
     hideBlurView()
   }
-  
+
   /// Shows the blurView.
   func showBlurView() {
     guard .blur == fabMenuBacking else {
       return
     }
-    
+
     guard !fabMenu.isOpened, fabMenu.isEnabled else {
       return
     }
-    
+
     guard nil == blurView else {
       return
     }
-    
+
     let blur = UIVisualEffectView(effect: UIBlurEffect(style: fabMenuBackingBlurEffectStyle))
     blurView = UIView()
     blurView?.layout(blur).edges()
     view.layout(blurView!).edges()
     view.bringSubview(toFront: fabMenu)
   }
-  
+
   /// Hides the blurView.
   func hideBlurView() {
     guard .blur == fabMenuBacking else {
       return
     }
-    
+
     guard fabMenu.isOpened, fabMenu.isEnabled else {
       return
     }
-    
+
     blurView?.removeFromSuperview()
     blurView = nil
   }
-  
+
   /// Shows the fade.
   func showFade() {
     guard .fade == fabMenuBacking else {
       return
     }
-    
+
     guard !fabMenu.isOpened, fabMenu.isEnabled else {
       return
     }
-    
+
     UIView.animate(withDuration: 0.15, animations: { [weak self] in
       self?.rootViewController.view.alpha = 0.15
     })
   }
-  
+
   /// Hides the fade.
   func hideFade() {
     guard .fade == fabMenuBacking else {
       return
     }
-    
+
     guard fabMenu.isOpened, fabMenu.isEnabled else {
       return
     }
-    
+
     UIView.animate(withDuration: 0.15, animations: { [weak self] in
       self?.rootViewController.view.alpha = 1
     })
@@ -189,22 +189,22 @@ fileprivate extension FABMenuController {
       fabMenu.open(isTriggeredByUserInteraction: true)
       return
     }
-    
+
     fabMenu.close(isTriggeredByUserInteraction: true)
   }
-  
+
   /// Handler for when the FABMenu.open function is called.
   func handleOpenCallback() {
     isUserInteractionEnabled = false
     showFabMenuBacking()
   }
-  
+
   /// Handler for when the FABMenu.close function is called.
   func handleCloseCallback() {
     isUserInteractionEnabled = false
     hideFabMenuBacking()
   }
-  
+
   /**
    Completion handler for FABMenu open and close calls.
    - Parameter view: A UIView.
