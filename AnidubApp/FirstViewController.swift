@@ -22,6 +22,8 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
 
      var tap: UITapGestureRecognizer!
      var isTransitionAvailable = true
+    
+    var selectedTabIndex = 0
     var listLayout = DisplaySwitchLayout(staticCellHeight: listLayoutStaticCellHeight, nextLayoutStaticCellHeight: gridLayoutStaticCellHeight, layoutState: .list)
      var gridLayout = DisplaySwitchLayout(staticCellHeight: gridLayoutStaticCellHeight, nextLayoutStaticCellHeight: listLayoutStaticCellHeight, layoutState: .grid)
      var layoutState: LayoutState = .list
@@ -53,10 +55,11 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         if(self.source_segment == nil) {
              return   titleslist.count
         }
-        if (self.source_segment.selectedSegmentIndex == 0) {
+        if (id == 0) {
           return   titleslist.count
-        }
-        return titleslist_anilibria.count
+        }else if(id == 1){
+            return titleslist_anilibria.count}
+        return titleslist.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -82,28 +85,21 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionViewCell", for: indexPath) as! newUserCollectionViewCell
 
         if(searchflag == false) {
-        if (self.source_segment.selectedSegmentIndex == 0) {
+        if (id == 0 || id == 2) {
         if(indexPath.row > titleslist.count) {
             return cell
             }}
-        if (self.source_segment.selectedSegmentIndex == 1) {
+        if (id == 1) {
             if(indexPath.row > titleslist_anilibria.count) {
                 return cell
             }
         }
+            
         }
-        /*
-        if layoutState == .grid {
-            cell.setupGridLayoutConstraints(1, cellWidth: cell.frame.width)
-        } else {
-            cell.setupListLayoutConstraints(1, cellWidth: cell.frame.width)
-            print(cell.frame.width)
-        }
- */
 
         if(searchflag == false) {
 
-            if (self.source_segment.selectedSegmentIndex == 0) {
+            if (id == 0) {
                 var temp: String = (titleslist[indexPath.row] as? fullTitle)!.Title.fullName
                 let index = temp.index(of: "/") ?? temp.endIndex
                 let beginning = temp[..<index]
@@ -122,18 +118,25 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
                     titleslist[indexPath.row]  = tempTitle as AnyObject
                 }
             }
-            if (self.source_segment.selectedSegmentIndex == 1) {
+            if (id == 1) {
                 cell.setEpisodes(episodes: (titleslist_anilibria[indexPath.row] as? fullTitle)!.Information.Episodes)
             }
-            if (self.source_segment.selectedSegmentIndex == 0) {
+            if(id == 2){
+                cell.setEpisodes(episodes: (titleslist[indexPath.row] as? News)!.Category)
+            }
+            if (id == 0) {
             cell.setTitle(title: (titleslist[indexPath.row] as? fullTitle)!.Title.Russian)
             cell.setGenres(genres: (titleslist[indexPath.row] as? fullTitle)!.Information.Genres)
             }
-            if (self.source_segment.selectedSegmentIndex == 1) {
+            if (id == 1) {
                 cell.setTitle(title: (titleslist_anilibria[indexPath.row] as? fullTitle)!.Title.Russian)
                 cell.setGenres(genres: (titleslist_anilibria[indexPath.row] as? fullTitle)!.Information.Genres)
             }
-            if (self.source_segment.selectedSegmentIndex == 0) {
+            if(id == 2){
+                cell.setTitle(title: (titleslist[indexPath.row] as? News)!.Title)
+                cell.setGenres(genres: (titleslist[indexPath.row] as? News)!.description)
+            }
+            if (id == 0) {
             if((titleslist[indexPath.row] as? fullTitle)!.Rating.Grade.contains("%")) {
                 var temp_rating: String = (titleslist[indexPath.row] as? fullTitle)!.Rating.Grade
                 temp_rating.removeLast()
@@ -143,7 +146,7 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
             cell.setRating(rating: (titleslist[indexPath.row] as? fullTitle)!.Rating.Grade)
             }
             }
-            if (self.source_segment.selectedSegmentIndex == 1) {
+            if (id == 1) {
                 if((titleslist_anilibria[indexPath.row] as? fullTitle)!.Rating.Grade.contains("%")) {
                     var temp_rating: String = (titleslist_anilibria[indexPath.row] as? fullTitle)!.Rating.Grade
                     temp_rating.removeLast()
@@ -194,11 +197,14 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
 
         }
         if(searchflag == false) {
-            if (self.source_segment.selectedSegmentIndex == 0) {
+            if (id == 0) {
         cell.setImage(image: ((titleslist[indexPath.row] as? fullTitle)?.Poster)!)
             }
-            if (self.source_segment.selectedSegmentIndex == 1) {
+            if (id == 1) {
                 cell.setImage(image: ((titleslist_anilibria[indexPath.row] as? fullTitle)?.Poster)!)
+            }
+            if (id == 2){
+                cell.setImage(image: (titleslist[indexPath.row] as? News)!.image)
             }
         } else {
            cell.setImage(image: ((searchtitles[indexPath.row] as? fullTitle)?.Poster)!)
@@ -209,6 +215,15 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         cell.setBackgroundColor(color: ThemeManager.currentTheme().backgroundCellColor)
         cell.setTextColor(color: ThemeManager.currentTheme().TextCellColor)
 
+        if(id == 2){
+            cell.removeReting()
+            if(cell.Star_view != nil) {
+            cell.Star_view.removeFromSuperview()
+            cell.currentRating.removeFromSuperview()
+            }
+            cell.genresLabel.updateConstraints()
+     
+        }
         return cell
 
     }
@@ -216,19 +231,19 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         let destination = InfoViewController() // Your destination
-             if (self.source_segment.selectedSegmentIndex == 1) {
+             if (id == 1) {
                 destination.isAnilibria = true
             }
-            if (self.source_segment.selectedSegmentIndex == 0) {
+            if (id == 0) {
                 destination.isAnilibria = false
             }
         navigationController?.pushViewController(destination, animated: true)
 
         if(searchflag==false) {
-            if (self.source_segment.selectedSegmentIndex == 0) {
+            if (id == 0) {
               currentTitle.append((titleslist[indexPath.row ] as! fullTitle))
             }
-            if (self.source_segment.selectedSegmentIndex == 1) {
+            if (id == 1) {
                 currentTitle.append((titleslist_anilibria[indexPath.row ] as! fullTitle))
             }
         } else {
@@ -240,18 +255,25 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if(!searchflag) {
 
-        if (self.source_segment.selectedSegmentIndex == 0) {
-        if (indexPath.item == (titleslist.count - 7) && searchflag == false && tabBarController?.selectedIndex == 0) {
+        if (self.id == 0) {
+        if (indexPath.item == (titleslist.count - 7) && searchflag == false && selectedTabIndex == 0) {
                 loadTitles()
            // addBannerAds()
         }
         }
-        if (self.source_segment.selectedSegmentIndex == 1) {
-            if (indexPath.item == (titleslist_anilibria.count - 10) && searchflag == false && tabBarController?.selectedIndex == 0) {
+        else if (self.id == 1) {
+            if (indexPath.item == (titleslist_anilibria.count - 10) && searchflag == false && selectedTabIndex == 0) {
                 loadTitles()
                 // addBannerAds()
             }
         }
+        else if(self.id == 2){
+            if (indexPath.item == (titleslist.count - 7)) {
+                loadNews()
+                // addBannerAds()
+            }
+            }
+            
         }
     }
 
@@ -308,12 +330,11 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     override func viewDidAppear(_ animated: Bool) {
 
         self.tabBarController?.tabBar.isHidden = false
-        let selectedTabIndex = tabBarController?.selectedIndex
-
+        print("selected Index:", selectedTabIndex)
         switch selectedTabIndex {
         case 0: print("0"); source_segment.isHidden = false; loadBookmarks(replace: false); loadTitles(); break  // Customize ViewController for tab 1
         case 1: print("1");source_segment.isHidden = true; self.navigationItem.title = "Закладки"; titleslist.removeAll(); loadBookmarks(replace: true) ;break  // Customize ViewController for tab 2
-        case 2: print("2"); source_segment.isHidden = true;  loadRecent(); break  // Customize ViewController for tab 3
+        case 2: print("2"); source_segment.isHidden = true; self.page = 1; loadNews(); break  // Customize ViewController for tab 3
         default: print("default"); break
         }
 
@@ -385,26 +406,26 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     }
 
     @objc func myRefreshMethod() {
-        if (self.source_segment.selectedSegmentIndex == 0) {
+        if (id == 0) {
         titleslist.removeAll()
         }
-        if (self.source_segment.selectedSegmentIndex == 1) {
+        if (id == 1) {
         titleslist_anilibria.removeAll()
         }
         self.collectionView?.reloadData()
-        if(tabBarController?.selectedIndex == 0) {
+        if(selectedTabIndex == 0) {
         loadTitles()
-           if (self.source_segment.selectedSegmentIndex == 0) {
+           if (id == 0) {
         page = 0
             }
-            if (self.source_segment.selectedSegmentIndex == 1) {
+            if (id == 1) {
             page_anilibria = 0
             }
 
-        } else if(tabBarController?.selectedIndex == 1) {
+        } else if(selectedTabIndex == 1) {
             loadBookmarks(replace: true)
-        } else if(tabBarController?.selectedIndex == 2) {
-        loadRecent()
+        } else if(selectedTabIndex == 2) {
+        loadNews()
         }
         self.collectionView?.refreshControl?.endRefreshing()
 
@@ -477,26 +498,20 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     }
 
     func loadTitles() {
-        var id = 0
-        if (self.source_segment.selectedSegmentIndex == 0) {
-            id = 0
-        }
-        if (self.source_segment.selectedSegmentIndex == 1) {
-            id = 1
-        }
+
         DispatchQueue.global(qos: .background).async {
             var input: [fullTitle] = [fullTitle]()
 
-            if (id == 0) {
+            if (self.id == 0) {
              input  = getTitle_list(page: self.page )
             }
-            if (id == 1) {
+            if (self.id == 1) {
 
                 input  = get_title_anilibria(page: self.page_anilibria)
             }
             for title in input {
                 var res = -1
-                if(id == 0) {
+                if(self.id == 0) {
                 for item in self.titleslist {
                     if (item is fullTitle) {
                         if( (item as? fullTitle)!.ID == title.ID) {
@@ -506,7 +521,7 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
                     }
                 }
                 }
-                if(id == 1) {
+                if(self.id == 1) {
                     for item in self.titleslist_anilibria {
                         if (item is fullTitle) {
                             if((item as? fullTitle)!.Title.Russian == title.Title.Russian) {
@@ -518,20 +533,20 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
                 }
 
                 if( res == -1 ) {
-                    if (id == 0) {
+                    if (self.id == 0) {
                         self.titleslist.append(title as AnyObject)
 
                     }
-                    if (id == 1) {
+                    if (self.id == 1) {
                         self.titleslist_anilibria.append(title as AnyObject)
                     }
                 }
             }
 
-             if (id == 0) {
+            if (self.id == 0) {
             self.page = self.page + 1
             }
-             if (id == 1) {
+            if (self.id == 1) {
                 self.page_anilibria = self.page_anilibria + 1
             }
             DispatchQueue.main.async {
@@ -541,8 +556,7 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     }
 
     func loadBookmarks(replace: Bool) {
-        let id = self.source_segment.selectedSegmentIndex
-        if(self.tabBarController?.selectedIndex == 1) {
+        if(selectedTabIndex == 1) {
             if (id == 0) {
                 self.titleslist = bookmarks as [AnyObject]
             }
@@ -557,11 +571,11 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
                 DispatchQueue.global(qos: .background).async {
 
                     bookmarks = get_fav_new(User_id: user.uid)
-                    if(replace && self.tabBarController?.selectedIndex == 1) {
-                        if (id == 0) {
+                    if(replace && self.selectedTabIndex == 1) {
+                        if (self.id == 0) {
                             self.titleslist = bookmarks as [AnyObject]
                         }
-                        if (id  == 1) {
+                        if (self.id  == 1) {
                             self.titleslist_anilibria = bookmarks as [AnyObject]
                         }
                     }
@@ -584,10 +598,10 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
                 print("User is signed out.")
                 if(replace) {
                 DispatchQueue.main.async {
-                    if (id == 0) {
+                    if (self.id == 0) {
                         self.titleslist.removeAll()
                     }
-                    if (id == 1) {
+                    if (self.id == 1) {
                         self.titleslist_anilibria.removeAll()
                     }
 
@@ -600,28 +614,14 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
 
     }
 
-    func loadRecent() {
-        self.navigationItem.title = "Недавние"
-        /*
-        Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
+    func loadNews() {
         DispatchQueue.global(qos: .background).async {
-                get_recent(u_id: "test", completion: {result in
-                    self.titleslist = result as [AnyObject]
-                    self.mycollection.reloadData()
-                })
+            self.titleslist +=  get_news_list(page: self.page) as [AnyObject]
+            self.page = self.page + 1
             DispatchQueue.main.async {
-                self.mycollection.reloadData()
+                self.collectionView?.reloadData()
             }
         }
-        }
-            else{
-                print("User is signed out.")
-                self.titleslist.removeAll()
-                self.mycollection.reloadData()
-            }
-        }
-         */
     }
 
     // MARK: - GADBannerView delegate methods

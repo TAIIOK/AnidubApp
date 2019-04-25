@@ -21,11 +21,18 @@ class newUserCollectionViewCell: UICollectionViewCell, CellInterface {
     @IBOutlet weak var currentRating: UILabel!
 
     @IBOutlet weak var episodesLabel: UILabel!
-
+    
+    @IBOutlet weak var Star_view: UIImageView!
+    
+    
     func setImage(image: UIImage) {
         avatarImageView.image = image
         avatarImageView.layer.cornerRadius = 8.0
         avatarImageView.clipsToBounds = true
+    }
+    
+    func removeReting(){
+
     }
 
     func setImage(image: String) {
@@ -55,9 +62,10 @@ class newUserCollectionViewCell: UICollectionViewCell, CellInterface {
         nameLabel.textColor = color
 
         //genresLabel.textColor = color
+        if(currentRating != nil){
         currentRating.textColor = color
         //episodesLabel.textColor = color
-
+        }
     }
 
     func setBackgroundColor(color: UIColor) {

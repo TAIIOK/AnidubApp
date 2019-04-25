@@ -57,7 +57,7 @@ class FifthViewController: UITableViewController, UINavigationControllerDelegate
 
         self.navigationItem.title = "Профиль"
        ButtonInCell.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-
+   
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -262,8 +262,9 @@ class FifthViewController: UITableViewController, UINavigationControllerDelegate
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
 
+        view.backgroundColor = ThemeManager.currentTheme().backgroundTableColor
         tableView.separatorColor = ThemeManager.currentTheme().secondaryColor
         tableView.backgroundColor = ThemeManager.currentTheme().backgroundTableColor
         self.tabBarController?.tabBar.barStyle =  ThemeManager.currentTheme().barStyle
@@ -276,6 +277,7 @@ class FifthViewController: UITableViewController, UINavigationControllerDelegate
         }
 
         Auth.auth().addStateDidChangeListener { auth, user in
+             var res = get_news_list(page: 1)
             if let user = user {
 
                 print("User is signed in.")

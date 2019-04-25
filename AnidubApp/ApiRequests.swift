@@ -146,8 +146,42 @@ func get_episodes_new(User_id: String, Title_id: Int) -> [String] {
     _ = semaphore.wait(timeout: .distantFuture)
 
     return result
-
 }
+
+func get_news_list(page: Int) -> [News] {
+    var result = [News]()
+    var request = URLRequest(url: URL(string: "http://taiiok.online/get_news_list.php?page=\(page)")!)
+    let semaphore = DispatchSemaphore(value: 0)
+    let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        guard let data = data else {
+            print("request failed \(error)")
+            return
+        }
+        do {
+            if let convertedJsonIntoDict = try? JSONSerialization.jsonObject(with: data, options: []) {
+                
+                // print(convertedJsonIntoDict)
+                let Data = convertedJsonIntoDict as?  Array<Any>
+                if(Data != nil) {
+                    for case let temp_fav in Data! {
+                        let news  = temp_fav as? [String: Any]
+                        result.append(News(description: news!["description"]! as! String, image: news!["image"]! as! String, Title: news!["title"]! as! String, Category: news!["category"]! as! String, Url: news!["url"]! as! String))
+                    }
+                }
+            }
+            semaphore.signal()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    task.resume()
+    
+    _ = semaphore.wait(timeout: .distantFuture)
+    
+    return result
+}
+
+
 
 func get_fav_new(User_id: String) -> [fullTitle] {
     var result = [fullTitle]()

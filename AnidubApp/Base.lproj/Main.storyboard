@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="niN-CS-wIr">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -116,7 +116,7 @@
                 <navigationController id="niN-CS-wIr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="kekes" id="UeY-3u-StU" userLabel="PIDORAS EBANIII SYKA"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f2T-GR-cvs">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -125,17 +125,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="Tic-82-3gN" kind="relationship" relationship="rootViewController" id="536-ID-PrX"/>
+                        <segue destination="SMU-Go-dPy" kind="relationship" relationship="rootViewController" id="UeL-HR-vgl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xy7-qw-RZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="-815"/>
+            <point key="canvasLocation" x="-64" y="-815"/>
         </scene>
-        <!--Главная-->
+        <!--First View Controller-->
         <scene sceneID="6c3-yH-PmB">
             <objects>
-                <collectionViewController id="Tic-82-3gN" customClass="FirstViewController" customModule="AnidubApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="MainVC" id="Tic-82-3gN" customClass="FirstViewController" customModule="AnidubApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="TW0-E1-Fee">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,16 +162,16 @@
                                             <rect key="frame" x="6" y="181" width="177" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fdfd" lineBreakMode="clip" numberOfLines="16" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="yYQ-n3-Pdo">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fdfd" lineBreakMode="clip" numberOfLines="16" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYQ-n3-Pdo">
                                             <rect key="frame" x="182" y="14" width="136" height="74"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="приключения, фэнтези" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Dvj-6Z-ryI">
                                             <rect key="frame" x="185" y="98" width="136" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -198,6 +198,7 @@
                                 </view>
                                 <viewLayoutGuide key="safeArea" id="4gc-hf-oya"/>
                                 <connections>
+                                    <outlet property="Star_view" destination="lPU-xR-06t" id="DCs-0N-xjD"/>
                                     <outlet property="avatarImageView" destination="f6x-mk-lBe" id="LNQ-ki-5kq"/>
                                     <outlet property="currentRating" destination="ogN-3l-IXW" id="CRC-ZN-AHR"/>
                                     <outlet property="episodesLabel" destination="WJ6-k2-7vN" id="qkC-dg-U13"/>
@@ -211,7 +212,6 @@
                             <outlet property="delegate" destination="Tic-82-3gN" id="YPC-Eu-Mk6"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Главная" image="Discover-24" id="Bji-hT-iob"/>
                     <navigationItem key="navigationItem" id="LjM-fg-WhG">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="r9v-wd-F1c">
@@ -224,14 +224,14 @@
                         </segmentedControl>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="source_segment" destination="r9v-wd-F1c" id="caJ-C5-lUX"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRh-rX-bVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975" y="-1063"/>
+            <point key="canvasLocation" x="1028" y="-1063"/>
         </scene>
         <!--InfoViewController-->
         <scene sceneID="PpK-Yv-Htm">
@@ -320,33 +320,10 @@
             </objects>
             <point key="canvasLocation" x="2663.1999999999998" y="-618.44077961019491"/>
         </scene>
-        <!--LIL-->
-        <scene sceneID="yl2-sM-qoP">
-            <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="LIL" id="yeK-0M-V6o"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" id="W28-zg-YXA">
-                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="niN-CS-wIr" kind="relationship" relationship="viewControllers" id="FO2-0q-7qn"/>
-                        <segue destination="niN-CS-wIr" kind="relationship" relationship="viewControllers" id="fhb-sw-K0V"/>
-                        <segue destination="niN-CS-wIr" kind="relationship" relationship="viewControllers" id="vJD-Vc-qu7"/>
-                        <segue destination="DC5-XH-FoJ" kind="relationship" relationship="viewControllers" id="G1D-B7-ueg"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-153" y="15"/>
-        </scene>
         <!--Fifth View Controller-->
         <scene sceneID="CQK-Fp-hQY">
             <objects>
-                <tableViewController id="sqJ-pZ-YFq" customClass="FifthViewController" customModule="AnidubApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Profile" id="sqJ-pZ-YFq" customClass="FifthViewController" customModule="AnidubApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="3" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="2de-c1-Zye">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -519,7 +496,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q18-kf-CeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1525.5999999999999" y="386.35682158920542"/>
+            <point key="canvasLocation" x="1028" y="402"/>
         </scene>
         <!--Учетная запись-->
         <scene sceneID="GVg-Aa-QKu">
@@ -557,36 +534,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMq-VK-w8r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2256.8000000000002" y="546.47676161919048"/>
+            <point key="canvasLocation" x="1924" y="401"/>
         </scene>
-        <!--Профиль-->
-        <scene sceneID="RsS-DI-g09">
+        <!--Tutorial Page View Controller-->
+        <scene sceneID="3Fe-kX-R3L">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DC5-XH-FoJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Профиль" image="Account50" id="v7w-ei-a77"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LYg-8t-5p4">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="sqJ-pZ-YFq" kind="relationship" relationship="rootViewController" id="g0Q-87-Psh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PSE-d3-LK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="q38-H4-FSx" customClass="TutorialPageViewController" customModule="UIPageViewController_Post" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kpZ-Yj-jcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="586.39999999999998" y="386.35682158920542"/>
+            <point key="canvasLocation" x="1924" y="-1348"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="zdd-4m-ucg">
+            <objects>
+                <viewController id="SMU-Go-dPy" customClass="TutorialViewController" customModule="UIPageViewController_Post" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BDi-1v-psj"/>
+                        <viewControllerLayoutGuide type="bottom" id="NAa-5y-Jzd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wAp-yz-nv0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCE-ct-5OT">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <connections>
+                                    <segue destination="tgC-XF-rD0" kind="embed" id="plB-rG-wwF"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WCE-ct-5OT" firstAttribute="leading" secondItem="wAp-yz-nv0" secondAttribute="leading" id="FYe-j1-MdJ"/>
+                            <constraint firstAttribute="trailing" secondItem="WCE-ct-5OT" secondAttribute="trailing" id="Ue9-Cw-zZd"/>
+                            <constraint firstItem="NAa-5y-Jzd" firstAttribute="top" secondItem="WCE-ct-5OT" secondAttribute="bottom" id="axv-wt-WyV"/>
+                            <constraint firstItem="WCE-ct-5OT" firstAttribute="top" secondItem="BDi-1v-psj" secondAttribute="bottom" id="hlH-tr-gyv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oz0-sa-pfQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="azf-7D-OSK">
+                        <barButtonItem key="rightBarButtonItem" title="profile" image="Account50" id="bJf-yw-EoV">
+                            <connections>
+                                <action selector="profilebutton:" destination="SMU-Go-dPy" id="iaZ-Fr-cuj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="containerView" destination="WCE-ct-5OT" id="Sqn-OX-hMl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F84-Il-xAB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-66" y="-1558"/>
+        </scene>
+        <!--Tutorial Page View Controller-->
+        <scene sceneID="h6n-CX-HTN">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r0h-MX-MwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="tgC-XF-rD0" customClass="TutorialPageViewController" customModule="UIPageViewController_Post" customModuleProvider="target" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="1106" y="-1878"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Account50" width="72" height="72"/>
-        <image name="Discover-24" width="72" height="72"/>
-        <image name="avatar" width="40.799999237060547" height="40.799999237060547"/>
+        <image name="Account50" width="36" height="36"/>
+        <image name="Discover-24" width="36" height="36"/>
+        <image name="avatar" width="170" height="170"/>
         <image name="episodes" width="96" height="19"/>
-        <image name="new_star" width="37.5" height="37.5"/>
+        <image name="new_star" width="50" height="50"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="vJD-Vc-qu7"/>
-    </inferredMetricsTieBreakers>
 </document>

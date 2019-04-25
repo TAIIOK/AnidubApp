@@ -1,6 +1,14 @@
 import Foundation
 import UIKit
 
+struct News{
+    var description: String
+    var image: String
+    var Title: String
+    var Category:String
+    var Url:String
+}
+
 struct Title {
     var fullName: String
     var Russian: String
