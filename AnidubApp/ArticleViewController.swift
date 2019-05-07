@@ -114,6 +114,8 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
     open var autoColored: Bool = false
 
     open var isAnilibria: Bool = false
+    
+    open var isNews: Bool = false
 
     open var episodeButton = UIButton()
 
@@ -199,6 +201,7 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
     fileprivate let bodyLabel = UILabel()
     fileprivate let tableView: UITableView = UITableView()
     fileprivate let segment = UISegmentedControl(items: ["Альтернативный", "Анидаб"])
+    fileprivate let NewsView = WKWebView()
 
     fileprivate var backgroundColorSet = false
     fileprivate var headlineColorSet = false
@@ -258,6 +261,11 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
 
     open func setupUI() {
 
+        if (isNews){
+            setupScrollView()
+            setupWKWebView()
+        }
+        else{
         setupScrollView()
         setupImageView()
         setupHeadline()
@@ -265,6 +273,7 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
         setupDate()
         if(!isAnilibria || (!(currentTitle.first?.Information.Release.contains("anilibria"))!)) {
         setupBody()
+        }
         }
         //setupChoose()
 
@@ -287,6 +296,22 @@ open class ArticleViewController: UIViewController, UITableViewDataSource, UITab
         setupBody()
         setupPlayButton()
         }
+    }
+    
+    open func load_news(html:String,url:URL){
+        NewsView.loadHTMLString(html, baseURL: url)
+    }
+    
+    fileprivate func setupWKWebView() {
+       NewsView.translatesAutoresizingMaskIntoConstraints = false
+        NewsView.backgroundColor = UIColor.red
+        view.addSubview(NewsView)
+        NSLayoutConstraint(item: NewsView, attribute: .top, relatedBy: .equal, toItem: backgroundView, attribute: .top, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: NewsView, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: NewsView, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: NewsView, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: NewsView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: view.bounds.height - 40).isActive = true
+        
     }
 
     fileprivate func setupScrollView() {

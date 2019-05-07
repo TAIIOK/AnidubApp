@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Auth.auth().signInAnonymously { (_, _) in
         }
             }}
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-6296201459697561~7604273760")
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-6296201459697561~7831720698")
 
         return true
     }

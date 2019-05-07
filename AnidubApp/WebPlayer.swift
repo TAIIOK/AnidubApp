@@ -106,7 +106,7 @@ class WebPlayerController: UIViewController, WKNavigationDelegate, GADBannerView
         let bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         bannerView.delegate = self
         bannerView.rootViewController = self
-        bannerView.adUnitID = "ca-app-pub-6296201459697561/3234000130"
+        bannerView.adUnitID = "ca-app-pub-6296201459697561/4983908494"
        // bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // test
         addBannerViewToView(bannerView)
 
@@ -133,7 +133,7 @@ class WebPlayerController: UIViewController, WKNavigationDelegate, GADBannerView
     }
 
     func createAndLoadInterstitial() -> GADInterstitial {
-        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-6296201459697561/3198763549")
+        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-6296201459697561/5913846789")
         interstitial.delegate = self
         interstitial.load(GADRequest())
         return interstitial

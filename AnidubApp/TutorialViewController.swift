@@ -56,6 +56,8 @@ extension TutorialViewController: TutorialPageViewControllerDelegate {
     func tutorialPageViewController(tutorialPageViewController: TutorialPageViewController,
         didUpdatePageIndex index: Int) {
         currentpage = index
+        self.title = "Новости"
+        /*
         switch index {
         case 0:
             self.title = "Закладки Anidub"
@@ -70,6 +72,7 @@ extension TutorialViewController: TutorialPageViewControllerDelegate {
         default:
             self.title = "News"
         }
+         */
     }
     
 }

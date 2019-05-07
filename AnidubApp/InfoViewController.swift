@@ -26,7 +26,7 @@ class InfoViewController: ArticleViewController, GADInterstitialDelegate {
 
         self.tabBarController?.tabBar.isHidden = true
         autoColored = false
-
+        if (!isNews){
         //imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.layer.masksToBounds = true
         imageView.sd_setImage(with: URL(string: (currentTitle.first?.Poster)!), placeholderImage: nil, options: .highPriority, progress: nil, completed: nil)
@@ -35,6 +35,9 @@ class InfoViewController: ArticleViewController, GADInterstitialDelegate {
         author = (currentTitle.first?.Information.Dubbers)! + " " + (currentTitle.first?.Information.Studio)! + " " + (currentTitle.first?.Information.Country)!
         date = NSDate() as Date
         body =  (currentTitle.first?.Information.Description)!
+        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "favorite_border_black_24pt"), style: .plain, target: self, action: #selector(InfoViewController.bookmark))
+        navigationItem.setRightBarButtonItems([leftBarButtonItem], animated: true)
+        
         //autoColored = false
         if((currentTitle.first?.Information.Release.contains("anilibria"))!) {
             isAnilibria = true
@@ -42,11 +45,7 @@ class InfoViewController: ArticleViewController, GADInterstitialDelegate {
         }
         if(!isAnilibria) {
             load_episodes()}
-
-        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "favorite_border_black_24pt"), style: .plain, target: self, action: #selector(InfoViewController.bookmark))
-
-        navigationItem.setRightBarButtonItems([leftBarButtonItem], animated: true)
-
+        }
         print("PUSH2")
 
         view.backgroundColor = UIColor.white
@@ -56,7 +55,7 @@ class InfoViewController: ArticleViewController, GADInterstitialDelegate {
     }
 
     func createAndLoadInterstitial() -> GADInterstitial {
-        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-6296201459697561/1732940532")
+        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-6296201459697561/6439626248")
         interstitial.delegate = self
         interstitial.load(GADRequest())
         return interstitial
@@ -64,11 +63,10 @@ class InfoViewController: ArticleViewController, GADInterstitialDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
+        if(!isNews){
          self.inbookmark()
          DispatchQueue.global(qos: .background).async {
-
         self.episodes_mark =  get_episodes_new(User_id: Auth.auth().currentUser!.uid, Title_id: (currentTitle.first?.ID)!)
-
          DispatchQueue.main.async {
         self.update_table()
         }
@@ -85,6 +83,15 @@ class InfoViewController: ArticleViewController, GADInterstitialDelegate {
                 self.update_info()
             }
         }
+        }
+        }else{
+            DispatchQueue.global(qos: .background).async {
+                var res = get_news(url: currentNews.first!.Url)
+                DispatchQueue.main.async {
+                    self.load_news(html: res[0],url:URL(string: res[1])!)
+                }
+                
+            }
         }
 
         if showAdv {

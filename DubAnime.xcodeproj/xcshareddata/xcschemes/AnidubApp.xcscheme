@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A06B8BF020728AF800E2C030"
-               BuildableName = "AnidubApp.app"
-               BlueprintName = "AnidubApp"
-               ReferencedContainer = "container:AnidubApp.xcodeproj">
+               BuildableName = "DubAnime.app"
+               BlueprintName = "DubAnime"
+               ReferencedContainer = "container:DubAnime.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A06B8C0620728AFD00E2C030"
-               BuildableName = "AnidubAppTests.xctest"
-               BlueprintName = "AnidubAppTests"
-               ReferencedContainer = "container:AnidubApp.xcodeproj">
+               BuildableName = "DubAnimeTests.xctest"
+               BlueprintName = "DubAnimeTests"
+               ReferencedContainer = "container:DubAnime.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A06B8C1120728AFD00E2C030"
-               BuildableName = "AnidubAppUITests.xctest"
-               BlueprintName = "AnidubAppUITests"
-               ReferencedContainer = "container:AnidubApp.xcodeproj">
+               BuildableName = "DubAnimeUITests.xctest"
+               BlueprintName = "DubAnimeUITests"
+               ReferencedContainer = "container:DubAnime.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A06B8BF020728AF800E2C030"
-            BuildableName = "AnidubApp.app"
-            BlueprintName = "AnidubApp"
-            ReferencedContainer = "container:AnidubApp.xcodeproj">
+            BuildableName = "DubAnime.app"
+            BlueprintName = "DubAnime"
+            ReferencedContainer = "container:DubAnime.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A06B8BF020728AF800E2C030"
-            BuildableName = "AnidubApp.app"
-            BlueprintName = "AnidubApp"
-            ReferencedContainer = "container:AnidubApp.xcodeproj">
+            BuildableName = "DubAnime.app"
+            BlueprintName = "DubAnime"
+            ReferencedContainer = "container:DubAnime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A06B8BF020728AF800E2C030"
-            BuildableName = "AnidubApp.app"
-            BlueprintName = "AnidubApp"
-            ReferencedContainer = "container:AnidubApp.xcodeproj">
+            BuildableName = "DubAnime.app"
+            BlueprintName = "DubAnime"
+            ReferencedContainer = "container:DubAnime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

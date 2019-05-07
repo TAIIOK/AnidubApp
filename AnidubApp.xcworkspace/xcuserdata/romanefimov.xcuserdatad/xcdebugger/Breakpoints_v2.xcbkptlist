@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.371124"
+            timestampString = "578935204.101386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "didReceiveMemoryWarning()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.3711751"
+            timestampString = "578935204.101441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "didReceiveMemoryWarning()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/WebPlayer.swift"
-            timestampString = "576242516.016331"
+            timestampString = "578935204.101481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "190"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371233"
+            timestampString = "578419738.437863"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371278"
+            timestampString = "578419738.437914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "11"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371314"
+            timestampString = "578419738.437951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371351"
+            timestampString = "578419738.437984"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/AppDelegate.swift"
-            timestampString = "577911665.371389"
+            timestampString = "578935204.101591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "234"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/AppDelegate.swift"
-            timestampString = "577911665.3714221"
+            timestampString = "578935204.101633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "173"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/AppDelegate.swift"
-            timestampString = "577911665.371451"
+            timestampString = "578935204.101669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "241"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371482"
+            timestampString = "578419738.438043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "8"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371516"
+            timestampString = "578419738.438077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371585"
+            timestampString = "578419738.43812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371618"
+            timestampString = "578419738.438153"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371653"
+            timestampString = "578419738.438185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.3716871"
+            timestampString = "578419738.438216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.371722"
+            timestampString = "578935204.101806"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.371752"
+            timestampString = "578935204.101848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ArticleViewController.swift"
-            timestampString = "577898235.360909"
+            timestampString = "577955258.842249"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -330,7 +330,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ArticleViewController.swift"
-            timestampString = "577898235.36096"
+            timestampString = "577955258.842288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -346,7 +346,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.371807"
+            timestampString = "578419738.4382811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
@@ -395,11 +395,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.371847"
+            timestampString = "578935204.101932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "574"
-            endingLineNumber = "574"
+            startingLineNumber = "589"
+            endingLineNumber = "589"
             landmarkName = "loadBookmarks(replace:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -411,11 +411,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.372177"
+            timestampString = "578935204.1019779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -427,11 +427,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.3722121"
+            timestampString = "578935204.102013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "interstitialWillPresentScreen(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -443,11 +443,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.372244"
+            timestampString = "578935204.102047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -459,7 +459,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.372275"
+            timestampString = "578419738.438345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -475,7 +475,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.37231"
+            timestampString = "578419738.438379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -523,11 +523,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.372345"
+            timestampString = "578419738.438411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "get_title_anilibria(page:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -539,11 +539,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.37238"
+            timestampString = "578935204.102125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
+            startingLineNumber = "419"
+            endingLineNumber = "419"
             landmarkName = "segmentedControlValueChanged(segment:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -555,11 +555,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.3726259"
+            timestampString = "578935204.102167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -571,11 +571,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.37286"
+            timestampString = "578935204.1022069"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "FirstViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -587,11 +587,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.373107"
+            timestampString = "578935204.102245"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "517"
-            endingLineNumber = "517"
+            startingLineNumber = "532"
+            endingLineNumber = "532"
             landmarkName = "loadTitles()"
             landmarkType = "7">
          </BreakpointContent>
@@ -603,11 +603,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.373345"
+            timestampString = "578935204.102283"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "521"
-            endingLineNumber = "521"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
             landmarkName = "loadTitles()"
             landmarkType = "7">
          </BreakpointContent>
@@ -619,11 +619,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ArticleViewController.swift"
-            timestampString = "577898235.361352"
+            timestampString = "577955258.844049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
             landmarkName = "setupScrollView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -635,11 +635,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.373601"
+            timestampString = "578419738.43849"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
             landmarkName = "get_currenttitle_anilibria(url:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -651,11 +651,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.373642"
+            timestampString = "578935204.102354"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -667,11 +667,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.373675"
+            timestampString = "578935204.102389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -683,11 +683,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.373705"
+            timestampString = "578419738.4385411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "get_currenttitle_anilibria(url:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -699,11 +699,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.37374"
+            timestampString = "578419738.438574"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "get_currenttitle_anilibria(url:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -715,11 +715,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.373775"
+            timestampString = "578419738.438606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "get_currenttitle_anilibria(url:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -731,11 +731,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.3738329"
+            timestampString = "578419738.438638"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
             landmarkName = "get_currenttitle_anilibria(url:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -747,7 +747,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/WebPlayer.swift"
-            timestampString = "576242516.016693"
+            timestampString = "578935204.102492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
@@ -763,11 +763,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.373883"
+            timestampString = "578935204.102529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "334"
-            endingLineNumber = "334"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
             <Locations>
@@ -841,11 +841,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.374143"
+            timestampString = "578935204.102569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "InfoViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -857,11 +857,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.3741781"
+            timestampString = "578935204.102603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "bookmark()"
             landmarkType = "7">
          </BreakpointContent>
@@ -873,11 +873,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.374209"
+            timestampString = "578935204.1026371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "bookmark()"
             landmarkType = "7">
          </BreakpointContent>
@@ -889,11 +889,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.37424"
+            timestampString = "578935204.102669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "viewWillLayoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
@@ -905,11 +905,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/InfoViewController.swift"
-            timestampString = "577911665.37427"
+            timestampString = "578935204.102703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "bookmark()"
             landmarkType = "7">
             <Locations>
@@ -953,11 +953,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.374302"
+            timestampString = "578935204.102736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
+            startingLineNumber = "459"
+            endingLineNumber = "459"
             landmarkName = "hideSearchBar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -969,11 +969,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.374541"
+            timestampString = "578419738.438731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
             landmarkName = "search_anilibria(mytitle:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -985,11 +985,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.37458"
+            timestampString = "578419738.438764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "search_anilibria(mytitle:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1001,11 +1001,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.374615"
+            timestampString = "578419738.438795"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
             landmarkName = "search_anilibria(mytitle:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1017,7 +1017,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.37465"
+            timestampString = "578419738.438827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
@@ -1033,11 +1033,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.374685"
+            timestampString = "578935204.102834"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1081,7 +1081,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/TutorialViewController.swift"
-            timestampString = "577911665.374987"
+            timestampString = "578426406.633339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -1097,7 +1097,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/TutorialViewController.swift"
-            timestampString = "577911665.3750269"
+            timestampString = "578426406.633443"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -1113,7 +1113,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/TutorialViewController.swift"
-            timestampString = "577911665.375066"
+            timestampString = "578426406.633558"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -1129,11 +1129,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/TutorialPageViewController.swift"
-            timestampString = "577911665.375107"
+            timestampString = "578935204.102946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "scrollToViewController(viewController:direction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1145,11 +1145,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/TutorialPageViewController.swift"
-            timestampString = "577911665.375147"
+            timestampString = "578935204.10323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "notifyTutorialDelegateOfNewIndex()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1161,11 +1161,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/TutorialPageViewController.swift"
-            timestampString = "577911665.375186"
+            timestampString = "578935204.103429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "scrollToViewController(index:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1177,11 +1177,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/TutorialPageViewController.swift"
-            timestampString = "577911665.375221"
+            timestampString = "578935204.103632"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "scrollToNextViewController()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1193,11 +1193,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/TutorialPageViewController.swift"
-            timestampString = "577911665.3752559"
+            timestampString = "578935204.103817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "pageViewController(_:viewControllerBefore:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1209,7 +1209,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/AppDelegate.swift"
-            timestampString = "577911665.375291"
+            timestampString = "578935204.104008"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -1225,11 +1225,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.3753231"
+            timestampString = "578419738.439701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "get_news_list(page:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1241,7 +1241,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.375357"
+            timestampString = "578419738.4397351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
@@ -1257,7 +1257,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.375392"
+            timestampString = "578419738.439767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
@@ -1273,7 +1273,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.3754261"
+            timestampString = "578419738.439797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
@@ -1321,7 +1321,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/ApiRequests.swift"
-            timestampString = "577911665.375459"
+            timestampString = "578419738.439827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "156"
@@ -1337,11 +1337,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.375492"
+            timestampString = "578935204.104123"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1353,11 +1353,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.375713"
+            timestampString = "578935204.104166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "collectionView(_:willDisplay:forItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1369,11 +1369,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.375935"
+            timestampString = "578935204.104206"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "622"
-            endingLineNumber = "622"
+            startingLineNumber = "637"
+            endingLineNumber = "637"
             landmarkName = "loadNews()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1385,12 +1385,172 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "577911665.376155"
+            timestampString = "578935204.1042449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "619"
-            endingLineNumber = "619"
+            startingLineNumber = "634"
+            endingLineNumber = "634"
             landmarkName = "loadNews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.104283"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "635"
+            endingLineNumber = "635"
+            landmarkName = "loadNews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.104321"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "661"
+            endingLineNumber = "661"
+            landmarkName = "adViewDidReceiveAd(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.104371"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "667"
+            endingLineNumber = "667"
+            landmarkName = "adView(_:didFailToReceiveAdWithError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.104408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "673"
+            endingLineNumber = "673"
+            landmarkName = "adViewWillPresentScreen(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.1044461"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "678"
+            endingLineNumber = "678"
+            landmarkName = "adViewWillDismissScreen(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.1044821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "683"
+            endingLineNumber = "683"
+            landmarkName = "adViewDidDismissScreen(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.104519"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "689"
+            endingLineNumber = "689"
+            landmarkName = "adViewWillLeaveApplication(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.104555"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "746"
+            endingLineNumber = "746"
+            landmarkName = "addBannerViewToView(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.104588"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "742"
+            endingLineNumber = "742"
+            landmarkName = "addBannerViewToView(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "578935204.1046211"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "739"
+            endingLineNumber = "739"
+            landmarkName = "addBannerViewToView(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

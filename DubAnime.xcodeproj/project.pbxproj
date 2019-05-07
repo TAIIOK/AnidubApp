@@ -72,17 +72,17 @@
 		A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnidubApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A02D712320738AFD00A03E67 /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		A02D71252073A20600A03E67 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		A06B8BF120728AF800E2C030 /* AnidubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnidubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A06B8BF120728AF800E2C030 /* DubAnime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DubAnime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06B8BF420728AF800E2C030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A06B8BF620728AF800E2C030 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		A06B8BFB20728AF800E2C030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A06B8BFD20728AFD00E2C030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A06B8C0020728AFD00E2C030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A06B8C0220728AFD00E2C030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A06B8C0720728AFD00E2C030 /* AnidubAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnidubAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A06B8C0720728AFD00E2C030 /* DubAnimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DubAnimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06B8C0B20728AFD00E2C030 /* AnidubAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnidubAppTests.swift; sourceTree = "<group>"; };
 		A06B8C0D20728AFD00E2C030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A06B8C1220728AFD00E2C030 /* AnidubAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnidubAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A06B8C1220728AFD00E2C030 /* DubAnimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DubAnimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06B8C1620728AFD00E2C030 /* AnidubAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnidubAppUITests.swift; sourceTree = "<group>"; };
 		A06B8C1820728AFD00E2C030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A08EE84A21320F17007754D5 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
@@ -183,9 +183,9 @@
 		A06B8BF220728AF800E2C030 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A06B8BF120728AF800E2C030 /* AnidubApp.app */,
-				A06B8C0720728AFD00E2C030 /* AnidubAppTests.xctest */,
-				A06B8C1220728AFD00E2C030 /* AnidubAppUITests.xctest */,
+				A06B8BF120728AF800E2C030 /* DubAnime.app */,
+				A06B8C0720728AFD00E2C030 /* DubAnimeTests.xctest */,
+				A06B8C1220728AFD00E2C030 /* DubAnimeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,9 +249,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A06B8BF020728AF800E2C030 /* AnidubApp */ = {
+		A06B8BF020728AF800E2C030 /* DubAnime */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A06B8C1B20728AFD00E2C030 /* Build configuration list for PBXNativeTarget "AnidubApp" */;
+			buildConfigurationList = A06B8C1B20728AFD00E2C030 /* Build configuration list for PBXNativeTarget "DubAnime" */;
 			buildPhases = (
 				ECC9F8293AF20AC0BD1DBB1F /* [CP] Check Pods Manifest.lock */,
 				A06B8BED20728AF800E2C030 /* Sources */,
@@ -265,14 +265,14 @@
 			);
 			dependencies = (
 			);
-			name = AnidubApp;
+			name = DubAnime;
 			productName = AnidubApp;
-			productReference = A06B8BF120728AF800E2C030 /* AnidubApp.app */;
+			productReference = A06B8BF120728AF800E2C030 /* DubAnime.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A06B8C0620728AFD00E2C030 /* AnidubAppTests */ = {
+		A06B8C0620728AFD00E2C030 /* DubAnimeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A06B8C1E20728AFD00E2C030 /* Build configuration list for PBXNativeTarget "AnidubAppTests" */;
+			buildConfigurationList = A06B8C1E20728AFD00E2C030 /* Build configuration list for PBXNativeTarget "DubAnimeTests" */;
 			buildPhases = (
 				AE78F81FB3728245C01451D5 /* [CP] Check Pods Manifest.lock */,
 				A06B8C0320728AFD00E2C030 /* Sources */,
@@ -284,14 +284,14 @@
 			dependencies = (
 				A06B8C0920728AFD00E2C030 /* PBXTargetDependency */,
 			);
-			name = AnidubAppTests;
+			name = DubAnimeTests;
 			productName = AnidubAppTests;
-			productReference = A06B8C0720728AFD00E2C030 /* AnidubAppTests.xctest */;
+			productReference = A06B8C0720728AFD00E2C030 /* DubAnimeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A06B8C1120728AFD00E2C030 /* AnidubAppUITests */ = {
+		A06B8C1120728AFD00E2C030 /* DubAnimeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A06B8C2120728AFD00E2C030 /* Build configuration list for PBXNativeTarget "AnidubAppUITests" */;
+			buildConfigurationList = A06B8C2120728AFD00E2C030 /* Build configuration list for PBXNativeTarget "DubAnimeUITests" */;
 			buildPhases = (
 				7C2DBEB7B27C370B24924F54 /* [CP] Check Pods Manifest.lock */,
 				A06B8C0E20728AFD00E2C030 /* Sources */,
@@ -303,9 +303,9 @@
 			dependencies = (
 				A06B8C1420728AFD00E2C030 /* PBXTargetDependency */,
 			);
-			name = AnidubAppUITests;
+			name = DubAnimeUITests;
 			productName = AnidubAppUITests;
-			productReference = A06B8C1220728AFD00E2C030 /* AnidubAppUITests.xctest */;
+			productReference = A06B8C1220728AFD00E2C030 /* DubAnimeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -340,7 +340,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A06B8BEC20728AF800E2C030 /* Build configuration list for PBXProject "AnidubApp" */;
+			buildConfigurationList = A06B8BEC20728AF800E2C030 /* Build configuration list for PBXProject "DubAnime" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = ru;
 			hasScannedForEncodings = 0;
@@ -353,9 +353,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A06B8BF020728AF800E2C030 /* AnidubApp */,
-				A06B8C0620728AFD00E2C030 /* AnidubAppTests */,
-				A06B8C1120728AFD00E2C030 /* AnidubAppUITests */,
+				A06B8BF020728AF800E2C030 /* DubAnime */,
+				A06B8C0620728AFD00E2C030 /* DubAnimeTests */,
+				A06B8C1120728AFD00E2C030 /* DubAnimeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -601,12 +601,12 @@
 /* Begin PBXTargetDependency section */
 		A06B8C0920728AFD00E2C030 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A06B8BF020728AF800E2C030 /* AnidubApp */;
+			target = A06B8BF020728AF800E2C030 /* DubAnime */;
 			targetProxy = A06B8C0820728AFD00E2C030 /* PBXContainerItemProxy */;
 		};
 		A06B8C1420728AFD00E2C030 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A06B8BF020728AF800E2C030 /* AnidubApp */;
+			target = A06B8BF020728AF800E2C030 /* DubAnime */;
 			targetProxy = A06B8C1320728AFD00E2C030 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -770,10 +770,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
+				PRODUCT_BUNDLE_IDENTIFIER = DubAnime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "97c71203-2123-4d7e-a9eb-67f100f9ae5b";
-				PROVISIONING_PROFILE_SPECIFIER = "Anidub-Test-Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "DubAnime-dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "AnidubApp/AnidubApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -801,10 +801,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = thetaiiok.AnidubApp;
+				PRODUCT_BUNDLE_IDENTIFIER = DubAnime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "97c71203-2123-4d7e-a9eb-67f100f9ae5b";
-				PROVISIONING_PROFILE_SPECIFIER = "Anidub-Profile";
+				PROVISIONING_PROFILE_SPECIFIER = DubAnime;
 				SWIFT_OBJC_BRIDGING_HEADER = "AnidubApp/AnidubApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -829,7 +829,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnidubApp.app/AnidubApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DubAnime.app/DubAnime";
 			};
 			name = Debug;
 		};
@@ -851,7 +851,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnidubApp.app/AnidubApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DubAnime.app/DubAnime";
 			};
 			name = Release;
 		};
@@ -900,7 +900,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A06B8BEC20728AF800E2C030 /* Build configuration list for PBXProject "AnidubApp" */ = {
+		A06B8BEC20728AF800E2C030 /* Build configuration list for PBXProject "DubAnime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A06B8C1920728AFD00E2C030 /* Debug */,
@@ -909,7 +909,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A06B8C1B20728AFD00E2C030 /* Build configuration list for PBXNativeTarget "AnidubApp" */ = {
+		A06B8C1B20728AFD00E2C030 /* Build configuration list for PBXNativeTarget "DubAnime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A06B8C1C20728AFD00E2C030 /* Debug */,
@@ -918,7 +918,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A06B8C1E20728AFD00E2C030 /* Build configuration list for PBXNativeTarget "AnidubAppTests" */ = {
+		A06B8C1E20728AFD00E2C030 /* Build configuration list for PBXNativeTarget "DubAnimeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A06B8C1F20728AFD00E2C030 /* Debug */,
@@ -927,7 +927,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A06B8C2120728AFD00E2C030 /* Build configuration list for PBXNativeTarget "AnidubAppUITests" */ = {
+		A06B8C2120728AFD00E2C030 /* Build configuration list for PBXNativeTarget "DubAnimeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A06B8C2220728AFD00E2C030 /* Debug */,

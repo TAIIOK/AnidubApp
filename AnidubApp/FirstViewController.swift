@@ -11,14 +11,16 @@ import Firebase
 import DisplaySwitcher
 import GoogleMobileAds
 import Material
+import GoogleMobileAds
 
 let animationDuration: TimeInterval = 0.3
 let listLayoutStaticCellHeight: CGFloat = 200
 let gridLayoutStaticCellHeight: CGFloat = 165
 var currentTitle = [fullTitle]()
 var bookmarks = [fullTitle]()
+var currentNews = [News]()
 
-class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADBannerViewDelegate, UICollectionViewDelegateFlowLayout {
+class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADBannerViewDelegate, GADInterstitialDelegate, UICollectionViewDelegateFlowLayout {
 
      var tap: UITapGestureRecognizer!
      var isTransitionAvailable = true
@@ -237,6 +239,10 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
             if (id == 0) {
                 destination.isAnilibria = false
             }
+        
+        if (id == 2){
+            destination.isNews = true
+        }
         navigationController?.pushViewController(destination, animated: true)
 
         if(searchflag==false) {
@@ -245,6 +251,9 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
             }
             if (id == 1) {
                 currentTitle.append((titleslist_anilibria[indexPath.row ] as! fullTitle))
+            }
+            if(id == 2){
+                currentNews.append(titleslist[indexPath.row] as! News)
             }
         } else {
             currentTitle.append(searchtitles[indexPath.row])
@@ -334,13 +343,14 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         switch selectedTabIndex {
         case 0: print("0"); source_segment.isHidden = false; loadBookmarks(replace: false); loadTitles(); break  // Customize ViewController for tab 1
         case 1: print("1");source_segment.isHidden = true; self.navigationItem.title = "Закладки"; titleslist.removeAll(); loadBookmarks(replace: true) ;break  // Customize ViewController for tab 2
-        case 2: print("2"); source_segment.isHidden = true; self.page = 1; loadNews(); break  // Customize ViewController for tab 3
+        case 2: print("2"); source_segment.isHidden = true; if(page == 0){self.page = 1}; loadNews(); break  // Customize ViewController for tab 3
         default: print("default"); break
         }
 
         currentTitle.removeAll()
         listEpisodes.removeAll()
         anilibria_info.removeAll()
+        currentNews.removeAll()
 
         self.collectionView?.backgroundColor = ThemeManager.currentTheme().backgroundTableColor
 
@@ -385,12 +395,17 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         activityView.center = self.view.center
         // start animating activity view
         activityView.startAnimating()
-
         self.collectionView?.refreshControl = refreshControlView
-
         self.collectionView?.register(UINib(nibName: "Empty", bundle: nil), forCellWithReuseIdentifier: "BannerViewCell")
-
         setupCollectionView()
+        
+        let bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        bannerView.delegate = self
+        bannerView.rootViewController = self
+        bannerView.adUnitID = "ca-app-pub-6296201459697561/5984685895"
+        // bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // test
+        addBannerViewToView(bannerView)
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -625,7 +640,7 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     }
 
     // MARK: - GADBannerView delegate methods
-
+/*
     func adViewDidReceiveAd(_ adView: GADBannerView) {
         // Mark banner ad as succesfully loaded.
         loadStateForAds[adView] = true
@@ -639,7 +654,40 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         // Load the next ad in the adsToLoad list.
         preloadNextAd()
     }
-
+*/
+    
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("adViewDidReceiveAd")
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("adViewWillPresentScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewWillDismissScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewDidDismissScreen")
+    }
+    
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+        print("adViewWillLeaveApplication")
+    }
     // MARK: - UITableView source data generation
 
     /// Adds banner ads to the tableViewItems list.
@@ -685,5 +733,56 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        if #available(iOS 11.0, *) {
+            // In iOS 11, we need to constrain the view to the safe area.
+            positionBannerViewFullWidthAtBottomOfSafeArea(bannerView)
+        } else {
+            // In lower iOS versions, safe area is not available so we use
+            // bottom layout guide and view edges.
+            positionBannerViewFullWidthAtBottomOfView(bannerView)
+        }
+    }
+    
+    // MARK: - view positioning
+    @available (iOS 11, *)
+    func positionBannerViewFullWidthAtBottomOfSafeArea(_ bannerView: UIView) {
+        // Position the banner. Stick it to the bottom of the Safe Area.
+        // Make it constrained to the edges of the safe area.
+        let guide = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            guide.leftAnchor.constraint(equalTo: bannerView.leftAnchor),
+            guide.rightAnchor.constraint(equalTo: bannerView.rightAnchor),
+            guide.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor)
+            ])
+    }
+    
+    func positionBannerViewFullWidthAtBottomOfView(_ bannerView: UIView) {
+        view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .leading,
+                                              multiplier: 1,
+                                              constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                              attribute: .trailing,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .trailing,
+                                              multiplier: 1,
+                                              constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: bottomLayoutGuide,
+                                              attribute: .top,
+                                              multiplier: 1,
+                                              constant: 0))
+    }
+
 
 }
