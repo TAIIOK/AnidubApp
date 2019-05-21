@@ -19,9 +19,9 @@ var anilibria_info = [fullTitle]()
 class InfoViewController: ArticleViewController, GADInterstitialDelegate {
 
     var is_in_bookmark = false
-
     var interstitial: GADInterstitial!
 
+    var bookmarks = [fullTitle]()
     override func viewDidLoad() {
 
         self.tabBarController?.tabBar.isHidden = true

@@ -14,6 +14,8 @@ import AVKit
 import AVFoundation
 import UserNotifications
 import GoogleMobileAds
+import FirebaseAuth
+import FirebaseUI
 
 let BASE_URL =  "https://anidubapp-b270a.firebaseio.com/"
 
@@ -31,6 +33,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        if((UserDefaults.standard.value(forKey: "ADBLOCK") as AnyObject).integerValue == nil ){
+            UserDefaults.standard.setValue(0, forKey: "ADBLOCK")
+            UserDefaults.standard.synchronize()
+        }
+        if((UserDefaults.standard.value(forKey: "SourceUnlock") as AnyObject).integerValue == nil){
+            UserDefaults.standard.setValue(0, forKey: "SourceUnlock")
+            UserDefaults.standard.synchronize()
+        }
+        
+        if((UserDefaults.standard.value(forKey: "FirstLunch") as AnyObject).integerValue == nil){
+         var preview =  UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+         preview.addSubview(UIImageView(image: UIImage(named: "Gestures_Flick")))
+         self.inputView?.addSubview(preview)
+            
+        }
 
         let audioSession = AVAudioSession.sharedInstance()
 
@@ -40,18 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Setting category to AVAudioSessionCategoryPlayback failed.")
         }
 
-        get_title_anilibria(page: 0)
+
 
         let theme = ThemeManager.currentTheme()
-
         ThemeManager.applyTheme(theme: theme)
-
         Fabric.with([Crashlytics.self])
-
         UIApplication.shared.isStatusBarHidden = false
-
         Database.database().isPersistenceEnabled = false
-
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
         // [END set_messaging_delegate]
@@ -97,6 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return UIInterfaceOrientationMask.portrait
     }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -152,7 +165,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Print full message.
         print(userInfo)
 
-        completionHandler(UIBackgroundFetchResult.newData)
+        if Auth.auth().canHandleNotification(userInfo) {
+            completionHandler(.noData)
+            return
+        }
+ 
+        
+      completionHandler(UIBackgroundFetchResult.newData)
     }
     // [END receive_message]
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -167,9 +186,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // With swizzling disabled you must set the APNs token here.
          Messaging.messaging().apnsToken = deviceToken
-
+        Auth.auth().setAPNSToken(deviceToken, type: .unknown)
     }
 }
+
+
 
 // [START ios_10_message_handling]
 @available(iOS 10, *)
@@ -229,6 +250,8 @@ extension AppDelegate: MessagingDelegate {
             add_user(User_id: user.uid)
             add_device(Device_id: fcmToken, User_id: user.uid, Remove: 0)
         }
+        
+        
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }

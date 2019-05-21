@@ -182,6 +182,54 @@ class FifthViewController: UITableViewController, UINavigationControllerDelegate
             self.present(alert, animated: true, completion: nil)
 
         }
+        
+        if(indexPath.row == 3 && indexPath.section == 2) {
+            
+            var alert: UIAlertController=UIAlertController(title: "Предупреждение", message: "Для удачного переноса перелогиньтесь в приложении", preferredStyle: UIAlertControllerStyle.alert)
+            
+                alert.addTextField { (pTextField) in
+                pTextField.placeholder = "Промокод"
+                pTextField.clearButtonMode = .whileEditing
+                pTextField.borderStyle = .none
+                }
+            
+            var success: UIAlertController = UIAlertController(title: "Ура вы активировали код", message: "Для удачного применения кода перезапустите приложение", preferredStyle: UIAlertControllerStyle.alert)
+            success.addAction(UIAlertAction(title: "Закрыть", style: UIAlertActionStyle.default))
+            var error: UIAlertController = UIAlertController(title: "Ошибка", message: "Код не найден", preferredStyle: UIAlertControllerStyle.alert)
+            error.addAction(UIAlertAction(title: "Закрыть", style: UIAlertActionStyle.default))
+            
+            let Action = UIAlertAction(title: "Активировать", style: UIAlertActionStyle.default) {
+                _ in
+                
+                if (alert.textFields?.first?.text == "xxx1488xxx"){
+                    UserDefaults.standard.setValue(1, forKey: "SourceUnlock")
+                    UserDefaults.standard.synchronize()
+                    
+                    self.present(success, animated: true, completion: nil)
+                
+                }
+                
+                if(alert.textFields?.first?.text == "advTEST"){
+                    UserDefaults.standard.setValue(1, forKey: "ADBLOCK")
+                    UserDefaults.standard.synchronize()
+                    
+                    self.present(success, animated: true, completion: nil)
+                }
+    
+                self.present(error, animated: true, completion: nil)
+                
+                
+            }
+            let ActionCancel = UIAlertAction(title: "Отменить", style: UIAlertActionStyle.default) {
+                _ in
+            }
+            
+            alert.addAction(Action)
+            alert.addAction(ActionCancel)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }
     }
 
     func openCamera() {
@@ -247,7 +295,7 @@ class FifthViewController: UITableViewController, UINavigationControllerDelegate
         if(ButtonInCell.titleLabel?.text == "Войти") {
             let auth = FUIAuth.defaultAuthUI()
             auth?.providers = providers
-
+            
             if let bundlePath = Bundle.main.path(forResource: "FirebaseAuthUI", ofType: "strings") {
                 let bundle = Bundle(path: bundlePath)
                 auth?.customStringsBundle = bundle

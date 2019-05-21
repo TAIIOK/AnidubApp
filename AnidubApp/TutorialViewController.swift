@@ -57,7 +57,7 @@ extension TutorialViewController: TutorialPageViewControllerDelegate {
         didUpdatePageIndex index: Int) {
         currentpage = index
         self.title = "Новости"
-        /*
+         if(((UserDefaults.standard.value(forKey: "SourceUnlock") as AnyObject).integerValue) == 1){
         switch index {
         case 0:
             self.title = "Закладки Anidub"
@@ -72,7 +72,7 @@ extension TutorialViewController: TutorialPageViewControllerDelegate {
         default:
             self.title = "News"
         }
-         */
+        }
     }
     
 }

@@ -6,8 +6,10 @@ class TutorialPageViewController: UIPageViewController {
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         // The view controllers will be shown in this order
-      //  return [self.newColoredViewController(index: 2,id: 2),self.newColoredViewController(index: 2,id: 2)]
-       return [self.newColoredViewController(index: 1),self.newColoredViewController(index: 1,id: 1),self.newColoredViewController(index: 2,id: 2),self.newColoredViewController(index: 0),self.newColoredViewController(index: 0,id: 1)]
+        if(((UserDefaults.standard.value(forKey: "SourceUnlock") as AnyObject).integerValue) == 1){
+    return [self.newColoredViewController(index: 1),self.newColoredViewController(index: 1,id: 1),self.newColoredViewController(index: 2,id: 2),self.newColoredViewController(index: 0),self.newColoredViewController(index: 0,id: 1)]
+        }
+        return [self.newColoredViewController(index: 2,id: 2),self.newColoredViewController(index: 2,id: 2)]
     }()
     
     override func viewDidLoad() {

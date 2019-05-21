@@ -17,11 +17,11 @@ let animationDuration: TimeInterval = 0.3
 let listLayoutStaticCellHeight: CGFloat = 200
 let gridLayoutStaticCellHeight: CGFloat = 165
 var currentTitle = [fullTitle]()
-var bookmarks = [fullTitle]()
 var currentNews = [News]()
 
 class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADBannerViewDelegate, GADInterstitialDelegate, UICollectionViewDelegateFlowLayout {
 
+    var bookmarks = [fullTitle]()
      var tap: UITapGestureRecognizer!
      var isTransitionAvailable = true
     
@@ -30,10 +30,12 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
      var gridLayout = DisplaySwitchLayout(staticCellHeight: gridLayoutStaticCellHeight, nextLayoutStaticCellHeight: listLayoutStaticCellHeight, layoutState: .grid)
      var layoutState: LayoutState = .list
 
+    var adsID = ["ca-app-pub-6296201459697561/4167798079", "ca-app-pub-6296201459697561/5984685895" , "ca-app-pub-6296201459697561/4467180976", "ca-app-pub-6296201459697561/4373534400", "ca-app-pub-6296201459697561/3700894215"]
     var id = 0
 
     @IBOutlet var source_segment: UISegmentedControl!
 
+    
     var adsToLoad = [GADBannerView]()
     var loadStateForAds = [GADBannerView: Bool]()
     let adUnitID = "ca-app-pub-6296201459697561/2931065032"
@@ -243,6 +245,9 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         if (id == 2){
             destination.isNews = true
         }
+        
+        destination.bookmarks = bookmarks
+        
         navigationController?.pushViewController(destination, animated: true)
 
         if(searchflag==false) {
@@ -285,6 +290,35 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
             
         }
     }
+    
+
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if (kind == UICollectionElementKindSectionHeader) {
+            let headerView:UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+            
+            return headerView
+        }
+        
+        return UICollectionReusableView()
+        
+    }
+ 
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if(!(searchBar.text?.isEmpty)!){
+            //reload your data source if necessary
+            self.collectionView?.reloadData()
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if(searchText.isEmpty){
+            //reload your data source if necessary
+            self.collectionView?.reloadData()
+        }
+    }
+    
 
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout {
@@ -359,10 +393,35 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
 
     }
 
+    @objc func myFun() {
+        self.view.viewWithTag(1)?.removeFromSuperview()
+        self.view.viewWithTag(2)?.removeFromSuperview()
+        self.navigationController?.isNavigationBarHidden = false
+        UserDefaults.standard.setValue(0, forKey: "FirstLunch")
+        UserDefaults.standard.synchronize()
+    }
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
 
+        if((UserDefaults.standard.value(forKey: "FirstLunch") as AnyObject).integerValue == nil){
+            
+            self.navigationController?.isNavigationBarHidden = true
+            var preview =  UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+            var Imageview = UIImageView(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height/8, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height/1.5))
+            Imageview.image = UIImage(named: "Gestures_Flick")
+            Imageview.alpha = 2
+            Imageview.contentScaleFactor = 0
+            Imageview.layer.cornerRadius = 8.0
+            Imageview.clipsToBounds = true
+            Imageview.tag = 1
+            preview.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+            preview.tag = 2
+            self.view.addSubview(preview)
+            self.view.addSubview(Imageview)
+            Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(myFun), userInfo: nil, repeats: true)
+        }
         self.tabBarController?.tabBar.items![1].image = UIImage(named: "Favotites-50.png")
         self.tabBarController?.tabBar.items![1].selectedImage = UIImage(named: "Favotites-50.png")
         self.tabBarController?.tabBar.items![1].title = "Закладки"
@@ -381,14 +440,21 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
 
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
+        
         let refreshControlView = UIRefreshControl()
         self.collectionView?.alwaysBounceVertical = true
         refreshControlView.tintColor = UIColor.red
         refreshControlView.addTarget(self, action: #selector(myRefreshMethod), for: .valueChanged)
        // refreshControlView.addTarget(self, action: (myRefreshMethod), for: .ValueChanged)
 
+        if #available(iOS 11.0, *) {
+            self.collectionView?.contentInsetAdjustmentBehavior = .never
+        } else {
+            // Fallback on earlier versions
+        }
         source_segment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
 
+        
         // add activity to main view
         self.view.addSubview(activityView)
         activityView.hidesWhenStopped = true
@@ -399,16 +465,23 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         self.collectionView?.register(UINib(nibName: "Empty", bundle: nil), forCellWithReuseIdentifier: "BannerViewCell")
         setupCollectionView()
         
+         if(((UserDefaults.standard.value(forKey: "ADBLOCK") as AnyObject).integerValue) == 0){
         let bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         bannerView.delegate = self
         bannerView.rootViewController = self
-        bannerView.adUnitID = "ca-app-pub-6296201459697561/5984685895"
+        bannerView.adUnitID = adsID[Int.random(in: 0 ... 4)]
         // bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // test
         addBannerViewToView(bannerView)
+        var test = GADRequest()
+        bannerView.load(test)
+        }
         
+    
+ 
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -489,7 +562,7 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         }
 
     }
-
+/*
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchflag = true
         self.collectionView?.reloadData()
@@ -511,7 +584,7 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         hideSearchBar()
     }
-
+*/
     func loadTitles() {
 
         DispatchQueue.global(qos: .background).async {
@@ -585,13 +658,13 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
 
                 DispatchQueue.global(qos: .background).async {
 
-                    bookmarks = get_fav_new(User_id: user.uid)
+                    self.bookmarks = get_fav_new(User_id: user.uid)
                     if(replace && self.selectedTabIndex == 1) {
                         if (self.id == 0) {
-                            self.titleslist = bookmarks as [AnyObject]
+                            self.titleslist = self.bookmarks as [AnyObject]
                         }
                         if (self.id  == 1) {
-                            self.titleslist_anilibria = bookmarks as [AnyObject]
+                            self.titleslist_anilibria = self.bookmarks as [AnyObject]
                         }
                     }
                     /*

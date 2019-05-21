@@ -4,27 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Bolts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>BoringSSL.xcscheme</key>
+		<key>BoringSSL-GRPC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>DisplaySwitcher.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBSDKCoreKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBSDKLoginKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FirebaseInstanceID.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FirebaseMessaging.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -59,17 +49,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FirebaseUI-FirebaseAnonymousAuthUI.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FirebaseUI-FirebaseAuthUI.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FirebaseUI-FirebaseFacebookAuthUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -84,17 +64,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FirebaseUI-FirebaseTwitterAuthUI.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FirebaseUI.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>GTMOAuth2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -134,17 +104,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AnidubApp.xcscheme</key>
+		<key>Pods-DubAnime.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AnidubAppTests.xcscheme</key>
+		<key>Pods-DubAnimeTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AnidubAppUITests.xcscheme</key>
+		<key>Pods-DubAnimeUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -159,32 +129,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>gRPC-C++-gRPCCertificates.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>gRPC-C++.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>gRPC-Core.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>gRPC-ProtoRPC.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>gRPC-RxLibrary.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>gRPC-gRPCCertificates.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>gRPC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

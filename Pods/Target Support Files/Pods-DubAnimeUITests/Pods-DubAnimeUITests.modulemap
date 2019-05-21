@@ -1,0 +1,6 @@
+framework module Pods_DubAnimeUITests {
+  umbrella header "Pods-DubAnimeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

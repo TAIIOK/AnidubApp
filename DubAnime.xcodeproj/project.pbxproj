@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F7790D2B8997BB8AAF7C1BB /* Pods_AnidubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7227FA1636909DE5A028D4F /* Pods_AnidubApp.framework */; };
+		482A955876630EF7EDB11EAE /* Pods_DubAnimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6128219D6BA592265927B5D2 /* Pods_DubAnimeUITests.framework */; };
 		67708B58B13F2C9A78978FBC /* Pods_AnidubAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B02910CC4701FFA0123D0F /* Pods_AnidubAppUITests.framework */; };
+		7682772ECF19D829A8A40677 /* Pods_DubAnimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C240F364C73C4C53F590E00 /* Pods_DubAnimeTests.framework */; };
 		A01118D62271F8F70042FA55 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01118D42271F8F60042FA55 /* TutorialPageViewController.swift */; };
 		A01118D72271F8F70042FA55 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01118D52271F8F60042FA55 /* TutorialViewController.swift */; };
+		A016A962229411A000AF8E84 /* CollectionviewSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A961229411A000AF8E84 /* CollectionviewSearch.swift */; };
 		A02D71132072A81E00A03E67 /* ApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71122072A81E00A03E67 /* ApiRequests.swift */; };
 		A02D71172072A85E00A03E67 /* secondaryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D71162072A85E00A03E67 /* secondaryFunctions.swift */; };
 		A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D712320738AFD00A03E67 /* FifthViewController.swift */; };
@@ -28,8 +30,8 @@
 		A090D94920EB7F5B003EA759 /* FirebaseAuthUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A090D94820EB7F5B003EA759 /* FirebaseAuthUI.strings */; };
 		A0A14B8320728D9B00C3C7F2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A14B8120728D9B00C3C7F2 /* Fabric.framework */; };
 		A0A14B8420728D9B00C3C7F2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A14B8220728D9B00C3C7F2 /* Crashlytics.framework */; };
-		A0A14B8620728F7500C3C7F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0A14B8520728F7400C3C7F2 /* GoogleService-Info.plist */; };
 		A0AEA519218871AA0005CE06 /* newUserCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AEA518218871AA0005CE06 /* newUserCollectionView.swift */; };
+		A0C588DA2288A0AF003C58A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0C588D92288A0AF003C58A2 /* GoogleService-Info.plist */; };
 		A0D3E42B2137898700E2E64F /* BannerAd.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3E42A2137898600E2E64F /* BannerAd.xib */; };
 		A0D3E42F21378D4500E2E64F /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3E42E21378D4500E2E64F /* Empty.xib */; };
 		A0DAD25C20750B3500F00217 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DAD25B20750B3500F00217 /* InfoViewController.swift */; };
@@ -40,6 +42,7 @@
 		A0FBC3852076807400D2B1DF /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FBC3832076807400D2B1DF /* UserCollectionViewCell.xib */; };
 		A0FBC387207680DA00D2B1DF /* CellInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FBC386207680DA00D2B1DF /* CellInterface.swift */; };
 		B711B16527170D7686DC2F08 /* Pods_AnidubAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6D189C3DF3F0C80E5F025D /* Pods_AnidubAppTests.framework */; };
+		C13A7C1096EF8035B6276FCD /* Pods_DubAnime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543F1EC28B871785C34F28BE /* Pods_DubAnime.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,12 +64,19 @@
 
 /* Begin PBXFileReference section */
 		047306AE03EB2E90B6B95B13 /* Pods-AnidubAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubAppUITests/Pods-AnidubAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0A1AF896899E7D15C7ECADAF /* Pods-DubAnimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubAnimeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DubAnimeUITests/Pods-DubAnimeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		33451CBF9BA0E54FE2ECDCAE /* Pods-DubAnime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubAnime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DubAnime/Pods-DubAnime.debug.xcconfig"; sourceTree = "<group>"; };
+		3842D4C95371C743279A1EBD /* Pods-DubAnimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubAnimeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DubAnimeUITests/Pods-DubAnimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		543F1EC28B871785C34F28BE /* Pods_DubAnime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DubAnime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6128219D6BA592265927B5D2 /* Pods_DubAnimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DubAnimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B02910CC4701FFA0123D0F /* Pods_AnidubAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnidubAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C240F364C73C4C53F590E00 /* Pods_DubAnimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DubAnimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D7168DFAB94101A661037A /* Pods-AnidubApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.release.xcconfig"; sourceTree = "<group>"; };
 		8B6D189C3DF3F0C80E5F025D /* Pods_AnidubAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnidubAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE2DAEE432E9254CD5D744A /* Pods-AnidubAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubAppTests/Pods-AnidubAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A01118D42271F8F60042FA55 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		A01118D52271F8F60042FA55 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		A016A961229411A000AF8E84 /* CollectionviewSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionviewSearch.swift; sourceTree = "<group>"; };
 		A02D71122072A81E00A03E67 /* ApiRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequests.swift; sourceTree = "<group>"; };
 		A02D71162072A85E00A03E67 /* secondaryFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondaryFunctions.swift; sourceTree = "<group>"; };
 		A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnidubApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -91,12 +101,12 @@
 		A090D94620EB75BC003EA759 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		A090D94720EB75BE003EA759 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A090D94820EB7F5B003EA759 /* FirebaseAuthUI.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = FirebaseAuthUI.strings; sourceTree = "<group>"; };
-		A09A8068208002DF00E4B4B2 /* AnidubApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnidubApp.entitlements; sourceTree = "<group>"; };
 		A09B66462189248E008B92C4 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		A0A14B8120728D9B00C3C7F2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		A0A14B8220728D9B00C3C7F2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
-		A0A14B8520728F7400C3C7F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0AEA518218871AA0005CE06 /* newUserCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newUserCollectionView.swift; sourceTree = "<group>"; };
+		A0C588D822889917003C58A2 /* DubAnime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DubAnime.entitlements; sourceTree = "<group>"; };
+		A0C588D92288A0AF003C58A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0D3E42A2137898600E2E64F /* BannerAd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerAd.xib; sourceTree = "<group>"; };
 		A0D3E42E21378D4500E2E64F /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		A0DAD2592074FDFB00F00217 /* MRArticleViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MRArticleViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,8 +118,11 @@
 		A0FBC3832076807400D2B1DF /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
 		A0FBC386207680DA00D2B1DF /* CellInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellInterface.swift; sourceTree = "<group>"; };
 		A13A3D4F5CD01917418A468A /* Pods-AnidubAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubAppTests/Pods-AnidubAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A5C97BE356D39A2E6D758E4F /* Pods-DubAnime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubAnime.release.xcconfig"; path = "Pods/Target Support Files/Pods-DubAnime/Pods-DubAnime.release.xcconfig"; sourceTree = "<group>"; };
 		C7227FA1636909DE5A028D4F /* Pods_AnidubApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnidubApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB048D576B9264F8027FEA4C /* Pods-AnidubAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubAppUITests/Pods-AnidubAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D679DD042AFCA97DB71998B3 /* Pods-DubAnimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubAnimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DubAnimeTests/Pods-DubAnimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E1F18C208359E84FE71B021C /* Pods-DubAnimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubAnimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DubAnimeTests/Pods-DubAnimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E893E1528F440FDC64888263 /* Pods-AnidubApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnidubApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,7 +133,7 @@
 			files = (
 				A0A14B8420728D9B00C3C7F2 /* Crashlytics.framework in Frameworks */,
 				A0A14B8320728D9B00C3C7F2 /* Fabric.framework in Frameworks */,
-				0F7790D2B8997BB8AAF7C1BB /* Pods_AnidubApp.framework in Frameworks */,
+				C13A7C1096EF8035B6276FCD /* Pods_DubAnime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B711B16527170D7686DC2F08 /* Pods_AnidubAppTests.framework in Frameworks */,
+				7682772ECF19D829A8A40677 /* Pods_DubAnimeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67708B58B13F2C9A78978FBC /* Pods_AnidubAppUITests.framework in Frameworks */,
+				482A955876630EF7EDB11EAE /* Pods_DubAnimeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +167,12 @@
 				9EE2DAEE432E9254CD5D744A /* Pods-AnidubAppTests.release.xcconfig */,
 				047306AE03EB2E90B6B95B13 /* Pods-AnidubAppUITests.debug.xcconfig */,
 				CB048D576B9264F8027FEA4C /* Pods-AnidubAppUITests.release.xcconfig */,
+				33451CBF9BA0E54FE2ECDCAE /* Pods-DubAnime.debug.xcconfig */,
+				A5C97BE356D39A2E6D758E4F /* Pods-DubAnime.release.xcconfig */,
+				D679DD042AFCA97DB71998B3 /* Pods-DubAnimeTests.debug.xcconfig */,
+				E1F18C208359E84FE71B021C /* Pods-DubAnimeTests.release.xcconfig */,
+				3842D4C95371C743279A1EBD /* Pods-DubAnimeUITests.debug.xcconfig */,
+				0A1AF896899E7D15C7ECADAF /* Pods-DubAnimeUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -163,6 +184,9 @@
 				C7227FA1636909DE5A028D4F /* Pods_AnidubApp.framework */,
 				8B6D189C3DF3F0C80E5F025D /* Pods_AnidubAppTests.framework */,
 				71B02910CC4701FFA0123D0F /* Pods_AnidubAppUITests.framework */,
+				543F1EC28B871785C34F28BE /* Pods_DubAnime.framework */,
+				7C240F364C73C4C53F590E00 /* Pods_DubAnimeTests.framework */,
+				6128219D6BA592265927B5D2 /* Pods_DubAnimeUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,6 +194,7 @@
 		A06B8BE820728AF800E2C030 = {
 			isa = PBXGroup;
 			children = (
+				A0C588D822889917003C58A2 /* DubAnime.entitlements */,
 				A090D94820EB7F5B003EA759 /* FirebaseAuthUI.strings */,
 				A06B8BF320728AF800E2C030 /* AnidubApp */,
 				A06B8C0A20728AFD00E2C030 /* AnidubAppTests */,
@@ -195,11 +220,11 @@
 			children = (
 				A01118D42271F8F60042FA55 /* TutorialPageViewController.swift */,
 				A01118D52271F8F60042FA55 /* TutorialViewController.swift */,
-				A09A8068208002DF00E4B4B2 /* AnidubApp.entitlements */,
 				A0A14B8220728D9B00C3C7F2 /* Crashlytics.framework */,
 				A0A14B8120728D9B00C3C7F2 /* Fabric.framework */,
 				A06B8BF420728AF800E2C030 /* AppDelegate.swift */,
 				A06B8BF620728AF800E2C030 /* FirstViewController.swift */,
+				A0C588D92288A0AF003C58A2 /* GoogleService-Info.plist */,
 				A0DAD25B20750B3500F00217 /* InfoViewController.swift */,
 				A0FBC3822076807300D2B1DF /* UserCollectionViewCell.swift */,
 				A0FBC3832076807400D2B1DF /* UserCollectionViewCell.xib */,
@@ -213,7 +238,6 @@
 				A06B8BFA20728AF800E2C030 /* Main.storyboard */,
 				A06B8BFD20728AFD00E2C030 /* Assets.xcassets */,
 				A06B8BFF20728AFD00E2C030 /* LaunchScreen.storyboard */,
-				A0A14B8520728F7400C3C7F2 /* GoogleService-Info.plist */,
 				A06B8C0220728AFD00E2C030 /* Info.plist */,
 				A02D711B2072B0D600A03E67 /* AnidubApp-Bridging-Header.h */,
 				A08EE84A21320F17007754D5 /* ArticleViewController.swift */,
@@ -224,6 +248,7 @@
 				A0F602292163A7F10074705D /* Theme.swift */,
 				A0AEA518218871AA0005CE06 /* newUserCollectionView.swift */,
 				A09B66462189248E008B92C4 /* SF-Pro-Text-Regular.otf */,
+				A016A961229411A000AF8E84 /* CollectionviewSearch.swift */,
 			);
 			path = AnidubApp;
 			sourceTree = "<group>";
@@ -367,9 +392,9 @@
 			files = (
 				A0D3E42B2137898700E2E64F /* BannerAd.xib in Resources */,
 				A06B8C0120728AFD00E2C030 /* LaunchScreen.storyboard in Resources */,
+				A0C588DA2288A0AF003C58A2 /* GoogleService-Info.plist in Resources */,
 				A0FBC3852076807400D2B1DF /* UserCollectionViewCell.xib in Resources */,
 				A0D3E42F21378D4500E2E64F /* Empty.xib in Resources */,
-				A0A14B8620728F7500C3C7F2 /* GoogleService-Info.plist in Resources */,
 				A090D94920EB7F5B003EA759 /* FirebaseAuthUI.strings in Resources */,
 				A06B8BFE20728AFD00E2C030 /* Assets.xcassets in Resources */,
 				A0DAD25F20752B6D00F00217 /* RequestViewController.xib in Resources */,
@@ -400,30 +425,22 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
+				"${SRCROOT}/Pods/Target Support Files/Pods-DubAnime/Pods-DubAnime-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DubAnime/Pods-DubAnime-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6669F3A97E7225F20D65F2B3 /* [CP] Embed Pods Frameworks */ = {
@@ -432,13 +449,9 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-DubAnime/Pods-DubAnime-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/DisplaySwitcher/DisplaySwitcher.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -446,24 +459,15 @@
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DisplaySwitcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -471,19 +475,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnidubApp/Pods-AnidubApp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DubAnime/Pods-DubAnime-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7C2DBEB7B27C370B24924F54 /* [CP] Check Pods Manifest.lock */ = {
@@ -497,7 +496,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnidubAppUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DubAnimeUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -528,7 +527,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnidubAppTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DubAnimeTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -546,7 +545,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnidubApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DubAnime-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -568,6 +567,7 @@
 				A08EE857213239F0007754D5 /* WebPlayer.swift in Sources */,
 				A02D712420738AFD00A03E67 /* FifthViewController.swift in Sources */,
 				A08EE85421321094007754D5 /* ArticleViewController.swift in Sources */,
+				A016A962229411A000AF8E84 /* CollectionviewSearch.swift in Sources */,
 				A0FBC3842076807400D2B1DF /* UserCollectionViewCell.swift in Sources */,
 				A06B8BF520728AF800E2C030 /* AppDelegate.swift in Sources */,
 				A01118D72271F8F70042FA55 /* TutorialViewController.swift in Sources */,
@@ -751,11 +751,11 @@
 		};
 		A06B8C1C20728AFD00E2C030 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E893E1528F440FDC64888263 /* Pods-AnidubApp.debug.xcconfig */;
+			baseConfigurationReference = 33451CBF9BA0E54FE2ECDCAE /* Pods-DubAnime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AnidubApp/AnidubApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DubAnime.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -783,11 +783,11 @@
 		};
 		A06B8C1D20728AFD00E2C030 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89D7168DFAB94101A661037A /* Pods-AnidubApp.release.xcconfig */;
+			baseConfigurationReference = A5C97BE356D39A2E6D758E4F /* Pods-DubAnime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AnidubApp/AnidubApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DubAnime.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y6XF9JEXKG;
@@ -813,7 +813,7 @@
 		};
 		A06B8C1F20728AFD00E2C030 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A13A3D4F5CD01917418A468A /* Pods-AnidubAppTests.debug.xcconfig */;
+			baseConfigurationReference = D679DD042AFCA97DB71998B3 /* Pods-DubAnimeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -835,7 +835,7 @@
 		};
 		A06B8C2020728AFD00E2C030 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EE2DAEE432E9254CD5D744A /* Pods-AnidubAppTests.release.xcconfig */;
+			baseConfigurationReference = E1F18C208359E84FE71B021C /* Pods-DubAnimeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -857,7 +857,7 @@
 		};
 		A06B8C2220728AFD00E2C030 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 047306AE03EB2E90B6B95B13 /* Pods-AnidubAppUITests.debug.xcconfig */;
+			baseConfigurationReference = 3842D4C95371C743279A1EBD /* Pods-DubAnimeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -878,7 +878,7 @@
 		};
 		A06B8C2320728AFD00E2C030 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB048D576B9264F8027FEA4C /* Pods-AnidubAppUITests.release.xcconfig */;
+			baseConfigurationReference = 0A1AF896899E7D15C7ECADAF /* Pods-DubAnimeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
