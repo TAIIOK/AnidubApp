@@ -295,8 +295,12 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         if (kind == UICollectionElementKindSectionHeader) {
-            let headerView:UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+            let headerView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath) as! CollectionviewSearch
             
+            
+            if(selectedTabIndex != 0){
+                headerView.search(status: false)
+            }
             return headerView
         }
         
@@ -307,24 +311,42 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if(!(searchBar.text?.isEmpty)!){
-            //reload your data source if necessary
+            searchflag = true
             self.collectionView?.reloadData()
+            let title = searchBar.text!
+            DispatchQueue.global(qos: .background).async {
+                if (self.id == 0) {
+                    self.searchtitles = search_string(name: title, page: 0)
+                }
+                if (self.id == 1) {
+                    self.searchtitles = search_anilibria(mytitle: title)
+                }
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                    self.updateViewConstraints()
+                }
+            }
         }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchText.isEmpty){
-            //reload your data source if necessary
-            self.collectionView?.reloadData()
+  //          searchflag = false
+   //         self.collectionView?.reloadData()
         }
     }
     
-
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchflag = false
+        self.collectionView?.reloadData()
+    }
+    
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout {
         let customTransitionLayout = TransitionLayout(currentLayout: fromLayout, nextLayout: toLayout)
         return customTransitionLayout
     }
+
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
@@ -343,9 +365,6 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         isTransitionAvailable = true
     }
 
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        view.endEditing(true)
-    }
 
     @IBOutlet weak var mycollection: UICollectionView! {
     didSet {
@@ -365,10 +384,6 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
     var page_anilibria = 0
     var activityIndicatorView: UIActivityIndicatorView!
     let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-
-    override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
 
     override func viewDidAppear(_ animated: Bool) {
 
@@ -422,19 +437,13 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
             self.view.addSubview(Imageview)
             Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(myFun), userInfo: nil, repeats: true)
         }
-        self.tabBarController?.tabBar.items![1].image = UIImage(named: "Favotites-50.png")
-        self.tabBarController?.tabBar.items![1].selectedImage = UIImage(named: "Favotites-50.png")
-        self.tabBarController?.tabBar.items![1].title = "Закладки"
 
-        self.tabBarController?.tabBar.items![2].image = UIImage(named: "Recent -50.png")
-        self.tabBarController?.tabBar.items![2].selectedImage = UIImage(named: "Recent -50.png")
-        self.tabBarController?.tabBar.items![2].title = "Недавние"
 
         navigationController?.navigationBar.isTranslucent = true
-
+/*
         var rightSearchBarButtonItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(FirstViewController.searchTapped))
         navigationItem.setRightBarButtonItems([rightSearchBarButtonItem], animated: true)
-
+*/
        // mycollection.delegate = self
        // mycollection.dataSource = self
 
@@ -452,15 +461,16 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         } else {
             // Fallback on earlier versions
         }
-        source_segment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+      //  source_segment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
 
-        
+        /*
         // add activity to main view
         self.view.addSubview(activityView)
         activityView.hidesWhenStopped = true
         activityView.center = self.view.center
         // start animating activity view
         activityView.startAnimating()
+ */
         self.collectionView?.refreshControl = refreshControlView
         self.collectionView?.register(UINib(nibName: "Empty", bundle: nil), forCellWithReuseIdentifier: "BannerViewCell")
         setupCollectionView()
@@ -518,7 +528,7 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         self.collectionView?.refreshControl?.endRefreshing()
 
     }
-
+/*
     @objc func hideSearchBar() {
         var rightSearchBarButtonItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(FirstViewController.searchTapped))
 
@@ -562,6 +572,7 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         }
 
     }
+ */
 /*
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchflag = true
@@ -580,9 +591,6 @@ class FirstViewController: UICollectionViewController, UISearchBarDelegate, GADB
         searchBar.resignFirstResponder()
             }
         }
-    }
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        hideSearchBar()
     }
 */
     func loadTitles() {

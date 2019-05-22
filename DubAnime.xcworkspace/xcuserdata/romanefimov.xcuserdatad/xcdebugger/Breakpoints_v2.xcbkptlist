@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.477831"
+            timestampString = "580152616.049141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "762"
-            endingLineNumber = "762"
+            startingLineNumber = "770"
+            endingLineNumber = "770"
             landmarkName = "adViewWillLeaveApplication(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.477914"
+            timestampString = "580152616.049547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "756"
-            endingLineNumber = "756"
+            startingLineNumber = "764"
+            endingLineNumber = "764"
             landmarkName = "adViewDidDismissScreen(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.47796"
+            timestampString = "580152616.0498559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "751"
-            endingLineNumber = "751"
+            startingLineNumber = "759"
+            endingLineNumber = "759"
             landmarkName = "adViewWillDismissScreen(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.478"
+            timestampString = "580152616.050199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "746"
-            endingLineNumber = "746"
+            startingLineNumber = "754"
+            endingLineNumber = "754"
             landmarkName = "adViewWillPresentScreen(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.478037"
+            timestampString = "580152616.0505151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "740"
-            endingLineNumber = "740"
+            startingLineNumber = "748"
+            endingLineNumber = "748"
             landmarkName = "adView(_:didFailToReceiveAdWithError:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.478074"
+            timestampString = "580152616.050813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "734"
-            endingLineNumber = "734"
+            startingLineNumber = "742"
+            endingLineNumber = "742"
             landmarkName = "adViewDidReceiveAd(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.478109"
+            timestampString = "580152616.051115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.478144"
+            timestampString = "580152616.051417"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "468"
-            endingLineNumber = "468"
+            startingLineNumber = "478"
+            endingLineNumber = "478"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,7 +394,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.478333"
+            timestampString = "580152616.051854"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "298"
@@ -410,7 +410,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.478374"
+            timestampString = "580152616.052157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "297"
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.478412"
+            timestampString = "580152616.052454"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,12 +442,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnidubApp/FirstViewController.swift"
-            timestampString = "580133842.4784499"
+            timestampString = "580152616.052722"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
+            landmarkName = "searchBarSearchButtonClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "580152616.052989"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "searchBar(_:textDidChange:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnidubApp/FirstViewController.swift"
+            timestampString = "580152616.053255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "searchBarCancelButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
